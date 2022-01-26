@@ -1,11 +1,11 @@
-import Head from 'next/head'
-import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-
+import Footer from '../components/footer/footer'
+import BottomNav from '../components/BottomNavigation/BottonNavigation';
 export default function Home() {
   return (
     <div className={styles.container}>
-      salam
+      <Footer/>
+      <BottomNav ItemCard={'100'}/>
     </div>
   )
 }
