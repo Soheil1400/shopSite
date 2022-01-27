@@ -1,4 +1,6 @@
-import { Stack } from "@mui/material";
+import { Stack, CardMedia } from "@mui/material";
+import styled from "@emotion/styled";
+
 import Card from "@mui/material/Card";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
@@ -9,31 +11,47 @@ import { NumberButton } from "../CartStyle";
 import styles from "../cart.style.module.css";
 
 const CartSelectedProductCard = ({ image, number, price, name }) => {
+  const ProductCard = styled(Card)({
+    maxWidth: "380",
+    height: "120",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    padding: "16",
+  });
+
   return (
-    <Card className={styles.cart_productCard}>
+    <ProductCard>
       <Stack style={{ alignItems: "center" }}>
         <NumberButton>
           <AddOutlinedIcon fontSize="small" />
         </NumberButton>
-        <p>{number}</p>
+        <Typography>{number}</Typography>
         <NumberButton>
           <RemoveOutlinedIcon fontSize="small" />
         </NumberButton>
       </Stack>
-      <img
-        className={styles.cart_productCard_image}
-        src={image}
-        alt="Porsche2020"
+      <CardMedia
+        component="img"
+        sx={{ width: 76, height: 76 }}
+        image={image}
+        alt={name}
       />
-      <div className={styles.cart_productCard_price}>
-        <h5 style={{color:" rgb(43, 52, 69)}"}}>{name}</h5>
-        <span style={{ font: "10" ,color: "rgb(125, 135, 156)"}}>
+      <Stack style={{ width: "172" }}>
+        <Typography style={{ color: " rgb(43, 52, 69)}" }}>{name}</Typography>
+        <Typography style={{ font: "10", color: "rgb(125, 135, 156)" }}>
           {price} * {number}
-        </span>
-        <h5 style={{color: "rgb(233, 69, 96)"}}> {price}</h5>
-      </div>
-      <ClearOutlinedIcon className={styles.card_productCard_delete} />
-    </Card>
+        </Typography>
+        <Typography style={{ color: "rgb(233, 69, 96)" }}> {price}</Typography>
+      </Stack>
+      <ClearOutlinedIcon
+        style={{
+          color: "rgb(125, 135, 156)",
+          fontSize: "20",
+          cursor: "pointer",
+        }}
+      />
+    </ProductCard>
   );
 };
 export default CartSelectedProductCard;

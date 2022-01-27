@@ -22,18 +22,6 @@
   cursor: pointer;
   transition: all 150ms ease-in-out 0s;
 }
-.cart_productCard{
-    max-width: 380px;
-    height:120px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 16px;
-}
-.cart_productCard_image{
-    width: 76px;
-    height:76px;
-   }
 .cart_productCard_price{
     width: 172px;
 }
