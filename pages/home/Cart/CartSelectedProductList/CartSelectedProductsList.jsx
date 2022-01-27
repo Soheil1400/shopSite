@@ -15,7 +15,7 @@ const products = [
     image:
       "https://bonik-react.vercel.app/assets/images/products/Automotive/28.Porsche2020.png",
     name: "Lord 2019",
-    number: 1,
+    number: 2,
     price: "$250.00",
   },
   {
@@ -23,7 +23,7 @@ const products = [
     image:
       "https://bonik-react.vercel.app/assets/images/products/Automotive/28.Porsche2020.png",
     name: "Lord 2019",
-    number: 1,
+    number: 3,
     price: "$250.00",
   },
 ];

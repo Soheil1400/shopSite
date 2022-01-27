@@ -1,56 +1,109 @@
-import { Stack, CardMedia } from "@mui/material";
 import styled from "@emotion/styled";
 
 import Card from "@mui/material/Card";
-import IconButton from "@mui/material/IconButton";
+import { Stack, CardMedia,IconButton } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import ClearOutlinedIcon from "@mui/icons-material/ClearOutlined";
 import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
 import RemoveOutlinedIcon from "@mui/icons-material/RemoveOutlined";
-import { NumberButton } from "../CartStyle";
-import styles from "../cart.style.module.css";
 
 const CartSelectedProductCard = ({ image, number, price, name }) => {
   const ProductCard = styled(Card)({
-    maxWidth: "380",
-    height: "120",
+    maxWidth: "380px",
+    height: "128px",
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
-    padding: "16",
+    padding: "16px",
   });
 
+  const NumberBox = styled(Stack)({
+    alignItems: "center",
+    padding: "5px",
+    background: "transparent",
+  });
+
+  const NumberButton = styled(IconButton)({
+    padding:"5px",
+    background: "transparent",
+    color: "rgb(233, 69, 96)",
+    border: "1px solid rgb(255, 225, 230)",
+    borderRadius: "100%",
+    "&:hover": {
+      backgroundColor: "rgb(233, 69, 96)",
+      boxShadow: "none",
+      color: "rgb(255, 255, 255)",
+    },
+  });
+  const NumberButtonDisable = styled(IconButton)({
+    padding:"5px",
+    backgroundColor: "rgb(218, 225, 231)",
+    color: "rgb(125, 135, 156)",
+    border: "1px solid rgb(218, 225, 231)",
+    borderRadius: "100%",
+    cursor: "unset",
+    "&:hover": {
+      backgroundColor: "rgb(218, 225, 231)",
+      color: "rgb(125, 135, 156)",
+      boxShadow: "none",
+    },
+  });
+  const InformationBox = styled(Stack)({
+    width: "170px",
+    padding: "5",
+    background: "transparent",
+  });
+
+  const ClearButton = styled(IconButton)({
+    color: "rgb(125, 135, 156)",
+    fontSize: "16",
+    cursor: "pointer",
+    "&:hover": {
+      backgroundColor: "transparent",
+      boxShadow: "none",
+      color: "rgb(125, 135, 156)",
+    },
+  });
   return (
     <ProductCard>
-      <Stack style={{ alignItems: "center" }}>
+      <NumberBox>
         <NumberButton>
-          <AddOutlinedIcon fontSize="small" />
+          <AddOutlinedIcon sx={{ fontSize: 20 }}/>
         </NumberButton>
-        <Typography>{number}</Typography>
-        <NumberButton>
-          <RemoveOutlinedIcon fontSize="small" />
-        </NumberButton>
-      </Stack>
+        <Typography variant="subtitle1">{number}</Typography>
+        {number!==1
+          ?
+          <NumberButton>
+            <RemoveOutlinedIcon sx={{ fontSize: 20 }}/>
+          </NumberButton>
+          :
+          <NumberButtonDisable>
+             <RemoveOutlinedIcon sx={{ fontSize: 20 }}/>
+          </NumberButtonDisable>
+          }
+
+      </NumberBox>
       <CardMedia
         component="img"
-        sx={{ width: 76, height: 76 }}
+        sx={{ width: 76, height: 76}}
         image={image}
         alt={name}
       />
-      <Stack style={{ width: "172" }}>
-        <Typography style={{ color: " rgb(43, 52, 69)}" }}>{name}</Typography>
-        <Typography style={{ font: "10", color: "rgb(125, 135, 156)" }}>
+      <InformationBox>
+        <Typography variant="subtitle1" color={" rgb(43, 52, 69)}"}>
+          {name}
+        </Typography>
+        <Typography variant="overline" color={"rgb(125, 135, 156)"}>
           {price} * {number}
         </Typography>
-        <Typography style={{ color: "rgb(233, 69, 96)" }}> {price}</Typography>
-      </Stack>
-      <ClearOutlinedIcon
-        style={{
-          color: "rgb(125, 135, 156)",
-          fontSize: "20",
-          cursor: "pointer",
-        }}
-      />
+        <Typography variant="subtitle1" color={"rgb(233, 69, 96)"}>
+          {" "}
+          {price}
+        </Typography>
+      </InformationBox>
+      <ClearButton>
+        <ClearOutlinedIcon fontSize="small" />
+      </ClearButton>
     </ProductCard>
   );
 };
