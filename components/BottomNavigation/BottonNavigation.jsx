@@ -15,11 +15,23 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
       backgroundColor:'#E94560'
     },
   }));
-
+const StyledPaper=styled(Paper)(({theme})=>({
+    [theme.breakpoints.down('md')]: {
+        display:'block'
+    },
+    [theme.breakpoints.between('sm', 'md')]: {
+        display:'block'
+    },
+    [theme.breakpoints.up('md')]: {
+        display:'none'
+    },
+    [theme.breakpoints.up('lg')]: {
+        display:'none'
+    },
+}));
 const BottomNav = ({ItemCard}) => {
-  const matches = useMediaQuery('(max-width:600px)');
     return (
-      <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
+      <StyledPaper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
      <BottomNavigation 
      showLabels>
       <BottomNavigationAction sx={{
@@ -50,7 +62,7 @@ const BottomNav = ({ItemCard}) => {
           },
      }}icon={<PersonIcon/>} label={'Account'}/>
      </BottomNavigation>
-     </Paper>
+     </StyledPaper>
      );
 }
  
