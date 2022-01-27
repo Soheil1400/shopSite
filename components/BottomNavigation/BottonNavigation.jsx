@@ -15,12 +15,10 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
       backgroundColor:'#E94560'
     },
   }));
-
 const BottomNav = ({ItemCard}) => {
-  const matches = useMediaQuery('(max-width:600px)');
     return (
-      <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
-     <BottomNavigation 
+         <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0  }} elevation={3} >
+     <BottomNavigation
      showLabels>
       <BottomNavigationAction sx={{
          '&:hover': {
@@ -49,7 +47,7 @@ const BottomNav = ({ItemCard}) => {
             opacity: [0.9, 0.8, 0.7],
           },
      }}icon={<PersonIcon/>} label={'Account'}/>
-     </BottomNavigation>
+     </BottomNavigation >
      </Paper>
      );
 }
