@@ -1,6 +1,6 @@
 import { Stack } from "@mui/material";
 import CartSelectedProductCard from "../CartSelectedProductCard/CartSelectedProductCard";
-import styles from "../cart.style.module.css";
+
 const products = [
   {
     id: 1,
@@ -30,7 +30,7 @@ const products = [
 
 const CartSelectedProductsList = () => {
   return (
-    <Stack calssName={styles.cart_productCard} >
+    <Stack>
       {products.map((product) => (
         <CartSelectedProductCard
           image={product.image}

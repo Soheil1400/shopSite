@@ -1,11 +1,13 @@
 import React, { useState } from "react";
-import { Stack } from "@mui/material";
+import styled from "@emotion/styled";
+
+import { Stack, Typography } from "@mui/material";
 import Drawer from "@mui/material/Drawer";
 import Button from "@mui/material/Button";
 import CartButton from "./CartButton/CartButton";
 import CartSelectedProductsList from "./CartSelectedProductList/CartSelectedProductsList";
 import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
-import styles from "./cart.style.module.css";
+
 const Cart = () => {
   const [state, setState] = useState({
     right: false,
@@ -21,33 +23,49 @@ const Cart = () => {
     setState({ ...state, [anchor]: open });
   };
 
+  const DrowerContainer = styled(Stack)({
+    height:"100%",
+    display: " flex",
+    justifyContent: "space-between",
+  });
+  const Header = styled(Stack)({
+    width:"74",
+    display: "flex",
+    flexDirection: "row",
+    color: "rgb(43, 52, 69)",
+    padding: "20px",
+  });
+
   return (
-    <div>
-      <Button onClick={toggleDrawer("right", true)}>{"right"}</Button>
+    <Stack sx={380}>
+      <Button onClick={toggleDrawer("right", true)}>
+        <ShoppingBagOutlinedIcon
+          style={{ fontSize: "28", color: "rgb(43, 52, 69)" }}
+        />
+      </Button>
       <Drawer
         anchor={"right"}
         open={state["right"]}
         onClose={toggleDrawer("right", false)}
       >
-        <div className={styles.cart_drawer_container}>
+        <DrowerContainer>
           <Stack
-            className={styles.cart}
             role="presentation"
             onClick={toggleDrawer("right", false)}
             onKeyDown={toggleDrawer("right", false)}
           >
-            <div className={styles.cart_header}>
-              <ShoppingBagOutlinedIcon
-                style={{fontSize: "28", color: "rgb(43, 52, 69)"}}
-              />
-              <p>3 item</p>
-            </div>
-            <CartSelectedProductsList className={styles.cart_productCard} />
+            <Header>
+              <ShoppingBagOutlinedIcon  sx={{ fontSize: 28 }} color={"rgb(43, 52, 69)"} />
+              <Typography variant="subtitle1" color={"rgb(43, 52, 69)"}>
+                3 item
+              </Typography>
+            </Header>
+            <CartSelectedProductsList />
           </Stack>
           <CartButton />
-        </div>
+        </DrowerContainer>
       </Drawer>
-    </div>
+    </Stack>
   );
 };
 export default Cart;
