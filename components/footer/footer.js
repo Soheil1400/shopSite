@@ -41,7 +41,7 @@ const Footer = () => {
     ])
     const CustomBox = styled(Box)({
         backgroundColor: '#0F3460',
-        padding: matchesMenu === true ? '5rem 8rem' :'5rem 2rem',
+        padding: matchesMenu === true ? '6rem 11rem' :'5rem 2rem',
         color: '#fff',
         marginTop:'2rem'
     })
