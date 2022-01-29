@@ -11,6 +11,7 @@ import {
     Legend,
 } from 'chart.js';
 import {useState} from "react";
+import {Box} from "@mui/material";
 ChartJS.register(
     CategoryScale,
     LinearScale,
@@ -54,9 +55,9 @@ const Chart = () => {
         ],
     });
     return(
-        <div>
+        <Box p={1}>
             <Line data={data} options={options}/>
-        </div>
+        </Box>
     )
 }
 
