@@ -58,7 +58,7 @@ const Orders = () => {
     })
     return (
         <BoxCustom>
-            <VendorDrawer menu={menu} setMenu={setMenu}/>
+            <VendorDrawer menu={menu} setMenu={setMenu} router={router}/>
             <Grid container>
                 <VendorMenu matchesMenu={matchesMenu} router={router}/>
                 <Grid item xs={12} md={9}>

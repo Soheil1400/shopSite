@@ -5,11 +5,9 @@ import HeadsetMicOutlinedIcon from "@mui/icons-material/HeadsetMicOutlined";
 import PermIdentityOutlinedIcon from "@mui/icons-material/PermIdentityOutlined";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import PaymentOutlinedIcon from "@mui/icons-material/PaymentOutlined";
-import {useRouter} from "next/router";
 import {styled} from "@mui/material/styles";
 
-const VendorDrawer = ({menu,setMenu}) =>{
-    const router = useRouter()
+const VendorDrawer = ({menu,setMenu,router}) =>{
     const MenuItemCustom = styled(MenuItem)({
         margin:'0.4rem 0',
         color: "#2B3445",

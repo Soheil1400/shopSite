@@ -3,6 +3,7 @@ import {styled} from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Chart from './chart'
 import VendorMenu from "../vendorMenu";
+import VendorDrawer from "../vendorDrawer";
 import CountryPay from "./countryPay";
 import PaperPay from "./paperPay";
 import VendorTitle from "../vendorTitle";
@@ -33,6 +34,7 @@ const Dashboard = () => {
     })
     return (
         <BoxCustom>
+            <VendorDrawer menu={menu} router={router} setMenu={setMenu}/>
             <Grid container>
                 <VendorMenu matchesMenu={matchesMenu} router={router}/>
                 <Grid item xs={12} md={9}>
