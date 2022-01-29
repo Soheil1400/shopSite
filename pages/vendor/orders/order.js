@@ -24,7 +24,7 @@ const Order = ({process ,price ,time ,id ,matches})=> {
         justifyContent: 'center',
         padding: '8px 18px',
         borderRadius: '10px',
-        margin: '0.5rem 0',
+        margin: '0.8rem 0',
         boxShadow:' rgb(3 0 71 / 9%) 0px 1px 3px'
     })
     const ArrowFIcon = styled(ArrowForwardIcon)({

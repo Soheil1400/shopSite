@@ -9,6 +9,7 @@ import VendorDrawer from "../vendorDrawer";
 import PaginationCustom from "../../../components/pagination/pagination";
 import VendorTitle from "../vendorTitle";
 import {useRouter} from "next/router";
+import Footer from "../../../components/footer/footer";
 
 const Orders = () => {
     const matches = useMediaQuery('(min-width:800px)');
@@ -57,19 +58,23 @@ const Orders = () => {
         margin:'auto'
     })
     return (
-        <BoxCustom>
-            <VendorDrawer menu={menu} setMenu={setMenu} router={router}/>
-            <Grid container>
-                <VendorMenu matchesMenu={matchesMenu} router={router}/>
-                <Grid item xs={12} md={9}>
-                    <VendorTitle matchesMenu={matchesMenu} setMenu={setMenu} router={router}/>
-                    <TitleOrders matches={matches}/>
-                    {orders.map(order =>
-                        (<Order key={order.id} process={order.process} price={order.price} time={order.time} id={order.id} matches={matches}/>))}
-                    <PaginationCustom/>
+        <>
+            <BoxCustom>
+                <VendorDrawer menu={menu} setMenu={setMenu} router={router}/>
+                <Grid container>
+                    <VendorMenu matchesMenu={matchesMenu} router={router}/>
+                    <Grid item xs={12} md={9}>
+                        <VendorTitle matchesMenu={matchesMenu} setMenu={setMenu} router={router}/>
+                        <TitleOrders matches={matches}/>
+                        {orders.map(order =>
+                            (<Order key={order.id} process={order.process} price={order.price} time={order.time} id={order.id} matches={matches}/>))}
+                        <PaginationCustom/>
+                    </Grid>
                 </Grid>
-            </Grid>
-        </BoxCustom>
+            </BoxCustom>
+            <Footer/>
+        </>
+
     )
 }
 

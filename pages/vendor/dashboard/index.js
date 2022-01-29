@@ -9,6 +9,7 @@ import PaperPay from "./paperPay";
 import VendorTitle from "../vendorTitle";
 import {useState} from "react";
 import {useRouter} from "next/router";
+import Footer from "../../../components/footer/footer";
 
 const Dashboard = () => {
     const [menu,setMenu] = useState(false)
@@ -33,27 +34,30 @@ const Dashboard = () => {
         boxShadow: ' rgb(3 0 71 / 9%) 0px 1px 3px'
     })
     return (
-        <BoxCustom>
-            <VendorDrawer menu={menu} router={router} setMenu={setMenu}/>
-            <Grid container>
-                <VendorMenu matchesMenu={matchesMenu} router={router}/>
-                <Grid item xs={12} md={9}>
+        <>
+            <BoxCustom>
+                <VendorDrawer menu={menu} router={router} setMenu={setMenu}/>
+                <Grid container>
+                    <VendorMenu matchesMenu={matchesMenu} router={router}/>
+                    <Grid item xs={12} md={9}>
                         <VendorTitle setMenu={setMenu} matchesMenu={matchesMenu} router={router}/>
                         <PaperPay/>
-                    <Grid container item xs={12}>
-                        <Grid item xs={12} lg={8} p={1}>
-                            <PaperCustom>
-                                Sales
-                                <Chart/>
-                            </PaperCustom>
-                        </Grid>
-                        <Grid item xs={12} lg={4} p={1}>
-                            <CountryPay/>
+                        <Grid container item xs={12}>
+                            <Grid item xs={12} lg={8} p={1}>
+                                <PaperCustom>
+                                    Sales
+                                    <Chart/>
+                                </PaperCustom>
+                            </Grid>
+                            <Grid item xs={12} lg={4} p={1}>
+                                <CountryPay/>
+                            </Grid>
                         </Grid>
                     </Grid>
                 </Grid>
-            </Grid>
-        </BoxCustom>
+            </BoxCustom>
+            <Footer/>
+        </>
     )
 }
 
