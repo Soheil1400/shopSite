@@ -62,10 +62,11 @@ const Footer = () => {
         backgroundColor: '#0C2A4D',
         borderRadius: '50%',
         padding: '5px 5px 2px 5px' ,
-        margin: '5px'
+        margin: '5px',
+        cursor:'pointer'
     })
     const CustomBoxApp = styled(Box)({
-        width: matchesAppStore === true ? '40%' : '60%',
+        width: matchesAppStore === true ? '38%' : '60%',
         display:'flex',
         flexDirection:'row',
         alignItems:'center',
@@ -74,11 +75,12 @@ const Footer = () => {
         padding:'8px 8px',
         margin:'0.5rem',
         borderRadius:'5px',
+        cursor:'pointer'
     })
     return (
         <CustomBox>
             <Grid container>
-                <Grid item xs={12} sm={6} lg={3.5} mb={2}>
+                <Grid item xs={12} sm={6} lg={4} mb={2}>
                     <Grid>
                         <Image src={Logo} alt="logo"/>
                     </Grid>
@@ -129,7 +131,7 @@ const Footer = () => {
                 {list.map(t => (
                     <Grid item xs={12} sm={6} lg={2.7} mb={2} key={t.id}>
                         <Grid mb={2}>
-                            <Typography variant={'h5'}>
+                            <Typography fontWeight={'bold'} variant={'h5'}>
                                 {t.title}
                             </Typography>
                         </Grid>
