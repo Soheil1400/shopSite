@@ -1,9 +1,13 @@
-import styles from '../styles/Home.module.css'
+import {Header} from '../components/header'
+import {Appbar} from '../components/header'
+import {Menubar} from '../components/header'
 
 export default function Home() {
   return (
-    <div className={styles.container}>
-      Home
+    <div >
+      <Header/>
+      <Appbar/>
+      <Menubar/>
     </div>
   )
 }
