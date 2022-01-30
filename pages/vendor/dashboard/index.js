@@ -9,7 +9,6 @@ import PaperPay from "./paperPay";
 import VendorTitle from "../vendorTitle";
 import {useState} from "react";
 import {useRouter} from "next/router";
-import Footer from "../../../components/footer/footer";
 
 const Dashboard = () => {
     const [menu,setMenu] = useState(false)
@@ -56,7 +55,6 @@ const Dashboard = () => {
                     </Grid>
                 </Grid>
             </BoxCustom>
-            <Footer/>
         </>
     )
 }

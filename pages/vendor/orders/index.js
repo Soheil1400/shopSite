@@ -9,7 +9,6 @@ import VendorDrawer from "../vendorDrawer";
 import PaginationCustom from "../../../components/pagination/pagination";
 import VendorTitle from "../vendorTitle";
 import {useRouter} from "next/router";
-import Footer from "../../../components/footer/footer";
 
 const Orders = () => {
     const matches = useMediaQuery('(min-width:800px)');
@@ -72,7 +71,6 @@ const Orders = () => {
                     </Grid>
                 </Grid>
             </BoxCustom>
-            <Footer/>
         </>
 
     )
