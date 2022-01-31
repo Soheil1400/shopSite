@@ -1,7 +1,7 @@
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import React, {useState} from "react";
+import React from "react";
 import styled from "@emotion/styled";
 import {Stack} from "@mui/material";
 
@@ -49,7 +49,7 @@ const MenuItems = styled(MenuItem)(
         '&:hover': {color: "#D17285", backgroundColor: "#FCE1E6"},
         width: '200px',
         fontSize: "14px",
-        lineHeight: "1.5"
+        lineHeight:"1.5"
     }
 )
 
@@ -74,10 +74,20 @@ const StackWithMargin = styled(Stack)(
 )
 
 export default function MegaMenu() {
-    const [item, setItem] = useState(false);
-
-    const [menu, setMenu] = useState(false);
+    const [menu, setMenu] = React.useState(false);
     const open = Boolean(menu);
+
+    const [item, setItem] = React.useState(false);
+    const openItem = Boolean(item);
+
+
+    const handleMouseEnter = (event) => {
+        setItem(event.currentTarget);
+    };
+    const handleMouseClose = () => {
+        setItem(false);
+    };
+
 
     const handleClick = (event) => {
         setMenu(event.currentTarget);
@@ -107,86 +117,83 @@ export default function MegaMenu() {
             >
 
                 <MenuItems
-                    onMouseOver={() => setItem(true)}
-                    onMouseLeave={() => setItem(false)}
+                    id="menuItems"
+                    onMouseEnter={handleMouseEnter}
                 >
 
-                    <TwoWheelerIcon sx={{marginRight: "8px"}}/>
+                    <TwoWheelerIcon sx={{marginRight:"8px"}}/>
                     Fashion
                     <ArrowForwardIosIcon fontSize={"small"} style={{marginLeft: "auto"}}/>
-                    {
-                        item ?
+                    <Menus
+                        id="menu"
+                        open={openItem}
+                        onClose={handleMouseClose}
+                    >
 
-                            <Menus>
+                        <Stack direction="row" spacing={4}>
+                            {
+                                data.map(item => (
+                                    <div key={item.id}>
+                                        <StackWithMargin direction="column" spacing={1} >
+                                            <MegaItemsHeader onClick={handleClose}>{item.header}</MegaItemsHeader>
+                                            <MegaItems onClick={handleClose}>{item.text}</MegaItems>
+                                            <MegaItems onClick={handleClose}>{item.text}</MegaItems>
+                                            <MegaItems onClick={handleClose}>{item.text}</MegaItems>
+                                        </StackWithMargin>
 
-                            <Stack direction="row" spacing={4}>
-                                {
-                                    data.map(item => (
-                                        <div key={item.id}>
-                                            <StackWithMargin direction="column" spacing={1}>
-                                                <MegaItemsHeader onClick={handleClose}>{item.header}</MegaItemsHeader>
-                                                <MegaItems onClick={handleClose}>{item.text}</MegaItems>
-                                                <MegaItems onClick={handleClose}>{item.text}</MegaItems>
-                                                <MegaItems onClick={handleClose}>{item.text}</MegaItems>
-                                            </StackWithMargin>
+                                        <StackWithMargin direction="column" spacing={1} key={item.id}>
+                                            <MegaItemsHeader onClick={handleClose}>{item.header}</MegaItemsHeader>
+                                            <MegaItems onClick={handleClose}>{item.text}</MegaItems>
+                                            <MegaItems onClick={handleClose}>{item.text}</MegaItems>
+                                            <MegaItems onClick={handleClose}>{item.text}</MegaItems>
+                                        </StackWithMargin>
 
-                                            <StackWithMargin direction="column" spacing={1} key={item.id}>
-                                                <MegaItemsHeader onClick={handleClose}>{item.header}</MegaItemsHeader>
-                                                <MegaItems onClick={handleClose}>{item.text}</MegaItems>
-                                                <MegaItems onClick={handleClose}>{item.text}</MegaItems>
-                                                <MegaItems onClick={handleClose}>{item.text}</MegaItems>
-                                            </StackWithMargin>
+                                    </div>
+                                ))
+                            }
+                        </Stack>
 
-                                        </div>
-                                    ))
-                                }
-                            </Stack>
-
-                        </Menus>
-                            :
-                            null
-                    }
-
+                    </Menus>
                 </MenuItems>
 
 
                 <MenuItems onClick={handleClose}>
-                    <LaptopChromebookRoundedIcon sx={{marginRight: "8px"}}/>
+                    <LaptopChromebookRoundedIcon sx={{marginRight:"8px"}}/>
                     Electronics
                     <ArrowForwardIosIcon fontSize={"small"} style={{marginLeft: "auto"}}/>
                 </MenuItems>
 
                 <MenuItems onClick={handleClose}>
-                    <TwoWheelerIcon sx={{marginRight: "8px"}}/>
+                    <TwoWheelerIcon sx={{marginRight:"8px"}}/>
                     Bikes
                     <ArrowForwardIosIcon fontSize={"small"} style={{marginLeft: "auto"}}/>
                 </MenuItems>
 
                 <MenuItems onClick={handleClose}>
-                    <LocalFloristOutlinedIcon sx={{marginRight: "8px"}}/>
+                    <LocalFloristOutlinedIcon sx={{marginRight:"8px"}}/>
                     Home & Garden</MenuItems>
                 <MenuItems onClick={handleClose}>
-                    <CardGiftcardOutlinedIcon sx={{marginRight: "8px"}}/>
+                    <CardGiftcardOutlinedIcon sx={{marginRight:"8px"}}/>
                     Gifts</MenuItems>
 
                 <MenuItems onClick={handleClose}>
-                    <HealthAndSafetyOutlinedIcon sx={{marginRight: "8px"}}/>
+                    <HealthAndSafetyOutlinedIcon sx={{marginRight:"8px"}}/>
                     Health & Beauty</MenuItems>
 
                 <MenuItems onClick={handleClose}>
-                    <PetsOutlinedIcon sx={{marginRight: "8px"}}/>
+                    <PetsOutlinedIcon sx={{marginRight:"8px"}}/>
                     Pets</MenuItems>
 
                 <MenuItems onClick={handleClose}>
-                    <ToysOutlinedIcon sx={{marginRight: "8px"}}/>
+                    <ToysOutlinedIcon sx={{marginRight:"8px"}}/>
                     Baby Toys</MenuItems>
 
                 <MenuItems onClick={handleClose}>
-                    <LocalGroceryStoreOutlinedIcon sx={{marginRight: "8px"}}/>
+                    <LocalGroceryStoreOutlinedIcon sx={{marginRight:"8px"}}/>
                     Groceries</MenuItems>
 
                 <MenuItems onClick={handleClose}>
-                    <RvHookupIcon sx={{marginRight: "8px"}}/>
+                    <RvHookupIcon sx={{marginRight:"8px"}}/>
                     Automotive</MenuItems>
 
             </Menu>
@@ -195,4 +202,3 @@ export default function MegaMenu() {
         </div>
     );
 }
-
