@@ -12,6 +12,7 @@ import {
 } from 'chart.js';
 import {useState} from "react";
 import {Box} from "@mui/material";
+import Theme from "../../../theme/theme";
 ChartJS.register(
     CategoryScale,
     LinearScale,
@@ -45,11 +46,11 @@ const Chart = () => {
             {
                 label: 'data',
                 data:[10,7,4,15,12,17,13,25,22,29,40,37,47,43,59,60,55,62,69,43,59,60,75,62,75,80],
-                borderColor: '#E94560',
+                borderColor: Theme.palette.primary.main,
                 backgroundColor: '#FFE1E6',
                 fill: true,
                 tension:0.4,
-                pointBackgroundColor:'#E94560',
+                pointBackgroundColor:Theme.palette.primary.main,
                 borderWidth:1
             },
         ],

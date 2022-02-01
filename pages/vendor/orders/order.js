@@ -2,6 +2,7 @@ import {Grid, Paper, Typography ,Chip} from "@mui/material";
 import {styled} from "@mui/material/styles";
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import {useEffect, useState} from "react";
+import Theme from "../../../theme/theme";
 
 const Order = ({process ,price ,time ,id ,matches})=> {
     const [color , setColor] = useState({BK:'#fff',C:'#fff'})
@@ -24,11 +25,15 @@ const Order = ({process ,price ,time ,id ,matches})=> {
         justifyContent: 'center',
         padding: '8px 18px',
         borderRadius: '10px',
-        margin: '0.8rem 0',
-        boxShadow:' rgb(3 0 71 / 9%) 0px 1px 3px'
+        margin: '1rem 0',
+        boxShadow:' rgb(3 0 71 / 9%) 0px 1px 3px',
+        cursor:'pointer'
     })
     const ArrowFIcon = styled(ArrowForwardIcon)({
-        color:'#7D879C'
+        color:Theme.palette.secondary.light,
+    })
+    const TypographyMain = styled(Typography)({
+        color: Theme.palette.secondary.dark
     })
     useEffect(()=>{
         if (process === 'Pending' || process === 'Processing'){
@@ -43,9 +48,9 @@ const Order = ({process ,price ,time ,id ,matches})=> {
         <PaperCustom>
             <Grid container>
                 <GridCustomItem item xs={6} sm={2.8}>
-                    <Typography fontWeight={'300'}>
+                    <TypographyMain fontSize={'16px'} fontWeight={'400'}>
                         {id}
-                    </Typography>
+                    </TypographyMain>
                 </GridCustomItem>
                 <GridCustomItem item xs={6} sm={2.8}>
                     <ChipCustom label={process}>
@@ -53,12 +58,16 @@ const Order = ({process ,price ,time ,id ,matches})=> {
                     </ChipCustom>
                 </GridCustomItem>
                 <GridCustomItem item xs={6} sm={2.8}>
-                    {time}
+                    <TypographyMain fontWeight={'400'}>
+                        {time}
+                    </TypographyMain>
                 </GridCustomItem>
                 <GridCustomItem item xs={6} sm={2.8}>
-                    ${price}
+                    <TypographyMain fontWeight={'400'}>
+                        ${price}
+                    </TypographyMain>
                 </GridCustomItem>
-                <Grid display={matches === true ? 'flex' : 'none'} item sm={0.8} p={1}>
+                <Grid borderRadius={'50%'} sx={{'&:hover':{backgroundColor: 'rgb(239,239,239)'}}} alignItems={'center'} justifyContent={'center'} display={matches === true ? 'flex' : 'none'} item sm={0.63}>
                     <ArrowFIcon />
                 </Grid>
             </Grid>

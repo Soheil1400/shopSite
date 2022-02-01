@@ -6,6 +6,7 @@ import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import SettingsIcon from "@mui/icons-material/Settings";
 import {styled} from "@mui/material/styles";
 import Link from 'next/link'
+import Theme from "../../theme/theme";
 
 const VendorMenu = ({matchesMenu ,router}) => {
     const PaperCustom = styled(Paper)({
@@ -18,23 +19,22 @@ const VendorMenu = ({matchesMenu ,router}) => {
         boxShadow: ' rgb(3 0 71 / 9%) 0px 1px 3px',
     })
     const MenuItemCustom = styled(MenuItem)({
-        margin:'0.4rem 0',
-        color: "#2B3445",
-        backgroundColor: "#fff",
-        borderLeft:'4px solid #fff',
-        fontSize:'14px',
+        margin:'1.8rem 0',
+        color: Theme.palette.secondary.dark,
+        backgroundColor: Theme.palette.primary.light,
+        borderLeft:`4px solid ${Theme.palette.primary.light}`,
+        height:'20px',
         '&:hover': {
-            color: "#E94560",
-            backgroundColor: "#fff",
-            borderLeft:'4px solid #E94560',
-
+            color: Theme.palette.primary.main,
+            backgroundColor: Theme.palette.primary.light,
+            borderLeft:`4px solid ${Theme.palette.primary.main}`,
         },
     })
     return(
         <Grid item lg={3} p={2} display={matchesMenu === true ? 'inline-block' : 'none'}>
             <PaperCustom>
-                <MenuList dense>
-                    <MenuItemCustom sx={{color: router.asPath === '/vendor/dashboard' ? '#E94560' : '',borderLeft: router.asPath === '/vendor/dashboard' ? '4px solid #E94560' : ''}}>
+                <MenuList>
+                    <MenuItemCustom sx={{color: router.asPath === '/vendor/dashboard' ? Theme.palette.primary.main : '',borderLeft: router.asPath === '/vendor/dashboard' ? `4px solid ${Theme.palette.primary.main}` : ''}}>
                             <Grid mr={1} mt={0.6}>
                                 <TableChartOutlinedIcon fontSize={'small'}/>
                             </Grid>
@@ -59,7 +59,7 @@ const VendorMenu = ({matchesMenu ,router}) => {
                         </Grid>
                         <ListItemText>Add New Product</ListItemText>
                     </MenuItemCustom>
-                    <MenuItemCustom sx={{color: router.asPath === '/vendor/orders' ? '#E94560' : '',borderLeft: router.asPath === '/vendor/orders' ? '4px solid #E94560' : ''}}>
+                    <MenuItemCustom sx={{color: router.asPath === '/vendor/orders' ? Theme.palette.primary.main : '',borderLeft: router.asPath === '/vendor/orders' ? `4px solid ${Theme.palette.primary.main}` : ''}}>
                         <Grid mr={1} mt={0.6}>
                             <ShoppingCartOutlinedIcon fontSize={'small'}/>
                         </Grid>

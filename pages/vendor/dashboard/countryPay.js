@@ -1,6 +1,7 @@
 import {Avatar, Box, Grid, Paper, Typography} from "@mui/material";
 import {styled} from "@mui/material/styles";
 import {useState} from "react";
+import Theme from "../../../theme/theme";
 
 const CountryPay = () => {
     const [country, setCountry] = useState([
@@ -39,7 +40,7 @@ const CountryPay = () => {
         width: '100%',
         alignItems: 'center',
         justifyContent: 'center',
-        padding: '18px 18px',
+        padding: '18px',
         borderRadius: '10px',
         margin: '0.5rem 0',
         boxShadow: ' rgb(3 0 71 / 9%) 0px 1px 3px'
@@ -48,23 +49,21 @@ const CountryPay = () => {
         width: '28px',
         height: '26px',
     })
+    const TypographyMain = styled(Typography)({
+        color: Theme.palette.secondary.dark
+    })
     return(
         <PaperCustom>
             <Typography variant={'h6'} m={1}>
                 Top Countries
             </Typography>
             {country.map(c => (
-                <Box key={c.name} p={1} sx={{
-                    display: 'flex',
-                    flexDirection: 'row',
-                    alignItems: 'center',
-                    justifyContent: 'space-between'
-                }}>
-                    <Grid sx={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
+                <Box key={c.name} p={1} display={'flex'} flexDirection={'row'} alignItems={'center'} justifyContent={'space-between'}>
+                    <Grid display={'flex'} flexDirection={'row'} alignItems={'center'}>
                         <AvatarCustom alt="US" src={c.image}/>
-                        <Typography ml={1}>
+                        <TypographyMain ml={1}>
                             {c.name}
-                        </Typography>
+                        </TypographyMain>
                     </Grid>
                     <Grid>
                         <Typography>

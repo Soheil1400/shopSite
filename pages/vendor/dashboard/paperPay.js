@@ -1,7 +1,7 @@
 import {Grid, Paper, Typography} from "@mui/material";
 import {useState} from "react";
 import {styled} from "@mui/material/styles";
-
+import Theme from "../../../theme/theme";
 
 const PaperPay = () =>{
     const [paper, setPaper] = useState([
@@ -25,21 +25,27 @@ const PaperPay = () =>{
         width: '100%',
         alignItems: 'center',
         justifyContent: 'center',
-        padding: '18px 18px',
+        padding: '18px',
         borderRadius: '10px',
         margin: '0.5rem 0',
         boxShadow: ' rgb(3 0 71 / 9%) 0px 1px 3px'
     })
+    const TypographyMain = styled(Typography)({
+        color: Theme.palette.secondary.dark
+    })
+    const TypographyGray = styled(Typography)({
+        color: Theme.palette.secondary.light
+    })
     return(
-        <Grid container sx={{margin: 'auto'}}>
+        <Grid container margin={'auto'}>
             {paper.map(p => (
                 <Grid container key={p.title} item xs={12} sm={5.6} md={3.8} lg={3.78} m={1}>
                     <PaperCustom>
                         <Grid container textAlign={'center'}>
                             <Grid item xs={12}>
-                                <Typography color={'rgb(125, 135, 156)'} fontWeight={'bold'}>
+                                <TypographyGray fontWeight={'bold'}>
                                     {p.title}
-                                </Typography>
+                                </TypographyGray>
                             </Grid>
                             <Grid item xs={12} mt={1} mb={1}>
                                 <Typography color={'rgb(75, 86, 107)'} variant={'h4'} fontWeight={'bold'}>
@@ -47,9 +53,9 @@ const PaperPay = () =>{
                                 </Typography>
                             </Grid>
                             <Grid item xs={12}>
-                                <Typography color={'rgb(125, 135, 156)'}>
+                                <TypographyGray>
                                     {p.details}
-                                </Typography>
+                                </TypographyGray>
                             </Grid>
                         </Grid>
                     </PaperCustom>
