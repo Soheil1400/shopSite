@@ -7,9 +7,10 @@ import GridViewIcon from '@mui/icons-material/GridView';
 import Image from 'next/image'
 import Image1 from '../assets/CategoryListImage/car.png';
 import { useState } from 'react';
-import Stack from '@mui/material/Stack';
-import Link from 'next/link'
+import Link from 'next/link';
 import { Typography } from '@mui/material';
+import useMediaQuery from '@mui/material/useMediaQuery';
+
 const PaperStyled=styled(Paper)({
     width: '100%',
     alignItems: 'center',
@@ -55,6 +56,10 @@ const CustomGrid=styled(Grid)({
    justifyContent:'space-between'
 })
 const CategoryList = () => {
+    const matchesMobile=useMediaQuery('(min-width:320px) and (max-width:768px)');
+    const CustomBox=styled(Grid)({
+      padding: matchesMobile === true ? '4rem 0.5rem 0rem 0.5rem':'4rem 10rem 0rem 10rem'
+    })
     const [paper,setpaper]=useState([
         {id:'1',title:'Automobile',image:Image1},
         {id:'2',title:'Car',image:Image1},
@@ -70,7 +75,7 @@ const CategoryList = () => {
         {id:'12',title:'Camera',image:Image1},
     ])
     return (
-        <Grid container >
+        <CustomBox container >
             <CustomGrid container >
                 <StyledGrid>
                      <StyledGridIcon/>
@@ -97,7 +102,7 @@ const CategoryList = () => {
                       </PaperStyled>
                </Grid>    
            ))}
-       </Grid>
+       </CustomBox>
     )
 
     ;
