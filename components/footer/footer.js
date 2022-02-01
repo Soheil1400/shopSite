@@ -80,7 +80,7 @@ const Footer = () => {
     return (
         <CustomBox>
             <Grid container>
-                <Grid item xs={12} sm={6} lg={4} mb={2}>
+                <Grid item xs={12} sm={6} lg={4} mb={2} pr={1}>
                     <Grid>
                         <Image src={Logo} alt="logo"/>
                     </Grid>

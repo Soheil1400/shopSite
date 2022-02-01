@@ -27,6 +27,7 @@ const VendorMenu = ({matchesMenu ,router}) => {
             color: "#E94560",
             backgroundColor: "#fff",
             borderLeft:'4px solid #E94560',
+
         },
     })
     return(
