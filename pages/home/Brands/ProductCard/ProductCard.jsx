@@ -20,14 +20,28 @@ import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
 import RemoveOutlinedIcon from "@mui/icons-material/RemoveOutlined";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import PopUpInformation from "../ProductCard/PopUpInformation/PopUpInformation";
 
-const ProductCard = ({ image, number, price, name }) => {
+const ProductCard = ({
+  image,
+  number,
+  price,
+  name,
+  brand,
+  numberOfRater,
+  status,
+  rated,
+  soldBy,
+  off,
+  offPercent,
+}) => {
   const SquareNumberButton = styled(Button)({
-    minWidth:"unset",
-    padding:"3px",
-    border: "1px solid rgb(233, 69, 96)",
+    minWidth: "unset",
+    padding: "3px",
+    border: "1px solid rgb(255, 225, 230)",
     background: "transparent",
     color: " rgb(233, 69, 96)",
+    cursor: "pointer",
     "&:hover": {
       backgroundColor: "rgb(233, 69, 96)",
       boxShadow: "none",
@@ -83,11 +97,6 @@ const ProductCard = ({ image, number, price, name }) => {
     fontSize: "10px",
     fontWeight: "600",
   });
-  const CardIconsBox = styled(Stack)({
-    direction: "column",
-    position: "absolute",
-    right: "20px",
-  });
   const [open, setOpen] = useState(false);
   const [show, setShow] = useState("none");
 
@@ -107,38 +116,33 @@ const ProductCard = ({ image, number, price, name }) => {
       <Stack
         style={{ position: "absolute", right: "20px" }}
         direction="column"
+        display={show}
       >
-        <IconButton onClick={handleClickOpen}>
-          <VisibilityIcon />
-        </IconButton>
-        <Dialog open={open} onClose={handleClose}>
-          <Card>
-            <CardMedia component="img" image={image} alt="car" />
-            <CardContent>
-              <Typography
-                sx={{ fontSize: 14 }}
-                color="text.secondary"
-                gutterBottom
-              >
-                Lord 2019{" "}
-              </Typography>
-              <Typography variant="h5" component="div"></Typography>
-              <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                adjective
-              </Typography>
-              <Typography variant="body2">
-                well meaning and kindly.
-                <br />
-                {'"a benevolent smile"'}
-              </Typography>
-            </CardContent>
-          </Card>
-        </Dialog>
-        <IconButton>
-          <FavoriteBorderIcon />
-        </IconButton>
+        <Stack direction="column">
+          <IconButton onClick={handleClickOpen}>
+            <VisibilityIcon sx={{ color: " rgb(43, 52, 69)" }} />
+          </IconButton>
+          <Dialog open={open} onClose={handleClose}>
+            <PopUpInformation
+              image={image}
+              number={number}
+              price={price}
+              name={name}
+              brand={brand}
+              numberOfRater={numberOfRater}
+              status={status}
+              rated={rated}
+              soldBy={soldBy}
+              off={off}
+              offPercent={offPercent}
+            />
+          </Dialog>
+          <IconButton>
+            <FavoriteBorderIcon sx={{ color: " rgb(43, 52, 69)" }} />
+          </IconButton>
+        </Stack>
       </Stack>
-      <OffLabel label="50% off" />
+      <OffLabel label={offPercent} display={off === true ? "block" : "none"}/>
       <Stack>
         <CardMedia component="img" image={image} alt="car" />
       </Stack>

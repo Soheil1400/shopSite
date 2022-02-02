@@ -4,6 +4,7 @@ import styled from "@emotion/styled";
 const BrandCard = ({id,image,name}) => {
     const BrandCart = styled(Card)({
         display: "flex",
+        width:"240px",
         width:"100%",
         alignItems: "center",
         padding: "0.75rem 1rem",
@@ -20,7 +21,7 @@ const BrandCard = ({id,image,name}) => {
         image={image}
         alt={name}
       />
-      <Typography variant="body2" color="text.secondary" ml={2}>
+      <Typography variant="subtitle2" color="text.secondary" ml={2}>
         {name}
       </Typography>
     </BrandCart>

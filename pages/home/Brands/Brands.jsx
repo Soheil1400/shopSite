@@ -1,31 +1,29 @@
-import { Grid, Card } from "@mui/material";
+import { Grid, Stack, Typography } from "@mui/material";
 import ProductCardList from "./ProductCardList/ProductCardList";
 import BrandsList from "./BrandsList/BrandsList";
-import { useMediaQuery } from "@mui/material";
-const Brands = () => {
-  const brandListMedia = useMediaQuery("(min-width:1024px)");
+import ArrowRightOutlinedIcon from "@mui/icons-material/ArrowRightOutlined";
 
+const Brands = () => {
   return (
-    <Grid
-      container
-      direction="row"
-      wrap="nowrap"
-      justifyContent="space-evenly"
-      alignItems="flex-start"
-      spacing={5}
-    >
-      <Grid item lg={3.4} display={brandListMedia === true ? "block" : "none"}>
-        <BrandsList />
-      </Grid>
-      <Grid
-        item
-        xs={12}
-        sm={12}
-        lg={8.6}
-      >
+    <Stack display="flex" direction="row">
+      <BrandsList />
+      <Grid container>
+        <Stack
+          width="100%"
+          padding="12px"
+          direction="row"
+          justifyContent="space-between"
+          alignItems="center"
+        >
+          <Typography variant="h5" color="rgb(43, 52, 69)">Cars</Typography>
+          <Stack direction="row" alignItems="center">
+            <Typography variant="subtitle1" color="rgb(125, 135, 156)"> view all</Typography>
+            <ArrowRightOutlinedIcon sx={{color:"rgb(125, 135, 156)", width:"16", height:"10"}}/>
+          </Stack>
+        </Stack>
         <ProductCardList />
       </Grid>
-    </Grid>
+    </Stack>
   );
 };
 export default Brands;
