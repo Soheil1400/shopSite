@@ -17,6 +17,7 @@ export default function SimpleMenu({ title, arr }) {
 
   function handleClose() {
     setAnchorEl(null);
+    setOverB(false)
   }
 
   return (
