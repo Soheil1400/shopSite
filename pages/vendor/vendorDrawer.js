@@ -6,32 +6,35 @@ import PermIdentityOutlinedIcon from "@mui/icons-material/PermIdentityOutlined";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import PaymentOutlinedIcon from "@mui/icons-material/PaymentOutlined";
 import {styled} from "@mui/material/styles";
+import Theme from "../../theme/theme";
 
 const VendorDrawer = ({menu,setMenu,router}) =>{
     const MenuItemCustom = styled(MenuItem)({
         margin:'0.4rem 0',
-        color: "#2B3445",
-        backgroundColor: "#fff",
-        borderLeft:'4px solid #fff',
-        fontSize:'14px',
+        color: Theme.palette.secondary.dark,
+        backgroundColor: Theme.palette.primary.light,
+        borderLeft:`4px solid ${Theme.palette.primary.light}`,
         '&:hover': {
-            color: "#E94560",
-            backgroundColor: "#fff",
-            borderLeft:'4px solid #E94560',
+            color: Theme.palette.primary.main,
+            backgroundColor: Theme.palette.primary.light,
+            borderLeft:`4px solid ${Theme.palette.primary.main}`,
         },
+    })
+    const TypographyGray = styled(Typography)({
+        color: Theme.palette.secondary.light
     })
     return(
         <SwipeableDrawer anchor="left" open={menu} onClose={()=>setMenu(false)} onOpen={()=>setMenu(true)}>
-            <Box pr={2} role="presentation" sx={{ width: '280px'}} onClick={()=>setMenu(false)} onKeyDown={()=>setMenu(false)}>
+            <Box pr={2} role="presentation" width={'280px'} onClick={()=>setMenu(false)} onKeyDown={()=>setMenu(false)}>
                 <MenuList dense mb={3}>
                     <MenuItemCustom>
                         <ListItemText>
-                            <Typography sx={{color:'#7D879C',fontSize:'12px'}}>
+                            <TypographyGray fontSize={'12px'}>
                                 DASHBOARD
-                            </Typography>
+                            </TypographyGray>
                         </ListItemText>
                     </MenuItemCustom>
-                    <MenuItemCustom sx={{color: router.asPath === '/vendor/orders' ? '#E94560' : '',borderLeft: router.asPath === '/vendor/orders' ? '4px solid #E94560' : ''}}>
+                    <MenuItemCustom sx={{color: router.asPath === '/vendor/orders' ? Theme.palette.primary.main : '',borderLeft: router.asPath === '/vendor/orders' ? `4px solid ${Theme.palette.primary.main}` : ''}}>
                         <Grid mr={1} mt={0.6}>
                             <ShoppingBagOutlinedIcon fontSize={'small'}/>
                         </Grid>
@@ -61,10 +64,10 @@ const VendorDrawer = ({menu,setMenu,router}) =>{
                 </MenuList>
                 <MenuList dense>
                     <MenuItemCustom>
-                        <ListItemText sx={{color:'#7D879C'}}>
-                            <Typography sx={{color:'#7D879C',fontSize:'12px'}}>
+                        <ListItemText color={Theme.palette.secondary.light}>
+                            <TypographyGray sx={{fontSize:'12px'}}>
                                 ACCOUNT SETTINGS
-                            </Typography>
+                            </TypographyGray>
                         </ListItemText>
                     </MenuItemCustom>
                     <MenuItemCustom>
