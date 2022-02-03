@@ -52,28 +52,31 @@ const CountryPay = () => {
     const TypographyMain = styled(Typography)({
         color: Theme.palette.secondary.dark
     })
-    return(
-        <PaperCustom>
-            <Typography variant={'h6'} m={1}>
-                Top Countries
-            </Typography>
-            {country.map(c => (
-                <Box key={c.name} p={1} display={'flex'} flexDirection={'row'} alignItems={'center'} justifyContent={'space-between'}>
-                    <Grid display={'flex'} flexDirection={'row'} alignItems={'center'}>
-                        <AvatarCustom alt="US" src={c.image}/>
-                        <TypographyMain ml={1}>
-                            {c.name}
-                        </TypographyMain>
-                    </Grid>
-                    <Grid>
-                        <Typography>
-                            ${c.price}
-                        </Typography>
-                    </Grid>
-                </Box>
+    return (
+        <Grid item xs={12} lg={4} p={1}>
+            <PaperCustom>
+                <Typography variant={'h6'} m={1}>
+                    Top Countries
+                </Typography>
+                {country.map(c => (
+                    <Box key={c.name} p={1} display={'flex'} flexDirection={'row'} alignItems={'center'}
+                         justifyContent={'space-between'}>
+                        <Grid display={'flex'} flexDirection={'row'} alignItems={'center'}>
+                            <AvatarCustom alt="US" src={c.image}/>
+                            <TypographyMain ml={1}>
+                                {c.name}
+                            </TypographyMain>
+                        </Grid>
+                        <Grid>
+                            <Typography>
+                                ${c.price}
+                            </Typography>
+                        </Grid>
+                    </Box>
 
-            ))}
-        </PaperCustom>
+                ))}
+            </PaperCustom>
+        </Grid>
     )
 }
 

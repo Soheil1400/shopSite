@@ -11,7 +11,7 @@ import {useState} from "react";
 import {useRouter} from "next/router";
 
 const Dashboard = () => {
-    const [menu,setMenu] = useState(false)
+    const [menu, setMenu] = useState(false)
     const router = useRouter()
     const matchesMenu = useMediaQuery('(min-width:1000px)');
     const BoxCustom = styled(Box)({
@@ -23,15 +23,6 @@ const Dashboard = () => {
         maxWidth: '1200px',
         margin: 'auto'
     })
-    const PaperCustom = styled(Paper)({
-        width: '100%',
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: '18px 18px',
-        borderRadius: '10px',
-        margin: '0.5rem 0',
-        boxShadow: ' rgb(3 0 71 / 9%) 0px 1px 3px'
-    })
     return (
         <>
             <BoxCustom>
@@ -42,15 +33,8 @@ const Dashboard = () => {
                         <VendorTitle setMenu={setMenu} matchesMenu={matchesMenu} router={router}/>
                         <PaperPay/>
                         <Grid container item xs={12}>
-                            <Grid item xs={12} lg={8} p={1}>
-                                <PaperCustom>
-                                    Sales
-                                    <Chart/>
-                                </PaperCustom>
-                            </Grid>
-                            <Grid item xs={12} lg={4} p={1}>
-                                <CountryPay/>
-                            </Grid>
+                            <Chart/>
+                            <CountryPay/>
                         </Grid>
                     </Grid>
                 </Grid>

@@ -45,8 +45,8 @@ const Products = [
     rated:"2.5",
     soldBy:"Mobile Store",
     price: "$250.00",
-    off:false,
-    offPercent:""
+    off:true,
+    offPercent:"50% off"
   },
   {
     id: 4,
@@ -76,8 +76,8 @@ const Products = [
     rated:"2.5",
     soldBy:"Mobile Store",
     price: "$250.00",
-    off:false,
-    offPercent:""
+    off:true,
+    offPercent:"50% off"
   },
   {
     id: 6,
@@ -97,31 +97,33 @@ const Products = [
 ];
 const ProductCardList = () => {
   return (
-    <Grid
-      container
-      direction="row"
-      justifyContent="space-betwen"
-      alignItems="flex-start"
-      spacing={4}
-    >
-      {Products.map((product) => (
-        <Grid item xs={12} sm={6} md={6} lg={4} key={product.id}>
-          <ProductCard
-            image={product.image}
-            number={product.number}
-            price={product.price}
-            name={product.name}
-            brand={product.brand}
-            numberOfRater={product.numberOfRater}
-            status ={product.status}
-            rated={product.rated}
-            soldBy={product.soldBy}
-            off={product.off}
-            offPercent={product.offPercent}
-          />
+      <Grid xs={9}>
+        <Grid
+            container
+            direction="row"
+            justifyContent="space-betwen"
+            alignItems="flex-start"
+            spacing={4}
+        >
+          {Products.map((product) => (
+              <Grid item xs={12} sm={6} md={6} lg={4} key={product.id}>
+                <ProductCard
+                    image={product.image}
+                    number={product.number}
+                    price={product.price}
+                    name={product.name}
+                    brand={product.brand}
+                    numberOfRater={product.numberOfRater}
+                    status ={product.status}
+                    rated={product.rated}
+                    soldBy={product.soldBy}
+                    off={product.off}
+                    offPercent={product.offPercent}
+                />
+              </Grid>
+          ))}
         </Grid>
-      ))}
-    </Grid>
+      </Grid>
   );
 };
 export default ProductCardList;

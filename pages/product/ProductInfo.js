@@ -74,15 +74,19 @@ const ProductInfo = ({product}) =>{
                     Stock Available
                 </TypographyMain>
             </Grid>
-            <Grid mb={4}>
-                <RedButton variant="contained">Add to Cart</RedButton>
+            <Grid>
+                <Grid mb={4}>
+                    <RedButton variant="contained">Add to Cart</RedButton>
+                </Grid>
             </Grid>
-            <Grid display={'flex'} alignItems={'center'} mb={4}>
-                <PMButton variant="contained"><HorizontalRuleIcon/></PMButton>
-                <TypographyMain component={'span'} m={2.5} fontSize={'20px'}>
-                    02
-                </TypographyMain>
-                <PMButton variant="contained"><AddIcon/></PMButton>
+            <Grid display={'none'}>
+                <Grid display={'flex'} alignItems={'center'} mb={4}>
+                    <PMButton variant="contained"><HorizontalRuleIcon/></PMButton>
+                    <TypographyMain component={'span'} m={2.5} fontSize={'20px'}>
+                        02
+                    </TypographyMain>
+                    <PMButton variant="contained"><AddIcon/></PMButton>
+                </Grid>
             </Grid>
             <Grid mb={2}>
                 <TypographyGray component={'span'} variant={'body2'}>

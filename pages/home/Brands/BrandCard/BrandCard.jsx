@@ -5,7 +5,6 @@ const BrandCard = ({id,image,name}) => {
     const BrandCart = styled(Card)({
         display: "flex",
         width:"240px",
-        width:"100%",
         alignItems: "center",
         padding: "0.75rem 1rem",
         cursor: "pointer",
@@ -14,13 +13,7 @@ const BrandCard = ({id,image,name}) => {
       });
   return (
     <BrandCart key={id}>
-      <CardMedia
-        component="img"
-        sx={{width:20, height:20}}
-        height="auto"
-        image={image}
-        alt={name}
-      />
+      <CardMedia component="img" sx={{width:20, height:20}} height="auto" image={image} alt={name}/>
       <Typography variant="subtitle2" color="text.secondary" ml={2}>
         {name}
       </Typography>

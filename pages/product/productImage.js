@@ -3,7 +3,7 @@ import {styled} from "@mui/material/styles";
 import Image from "next/image";
 import HeadPhone from "../../asset/headphone.png";
 
-const ProductImage = ({product}) =>{
+const ProductImage = ({product,p}) =>{
     const PaperCustom = styled(Paper)({
         alignItems: 'center',
         justifyContent: 'center',
@@ -14,12 +14,12 @@ const ProductImage = ({product}) =>{
     })
     return(
         <Grid item xs={12} sm={12} md={6}>
-            <Grid container px={1} py={4}>
+            <Grid container px={1} py={p}>
                 <Box display={'flex'} flexDirection={'column'} margin={'auto'}>
-                    <Grid item xs={12}>
+                    <Grid item xs={12} px={8}>
                         <Image src={HeadPhone} alt={'head phone'}/>
                     </Grid>
-                    <Grid item xs={12} my={2}>
+                    <Grid item xs={12} mt={2}>
                         <Grid container spacing={1} p={3}>
                             {product.images.map(img => (
                                 <Grid item xs={4} key={img.id}>

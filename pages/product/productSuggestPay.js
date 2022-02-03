@@ -7,8 +7,8 @@ const ProductSuggestPay = () =>{
         backgroundColor: Theme.palette.primary.main,
         color: Theme.palette.primary.light,
         fontWeight: 'bold',
-        fontSize: '14px',
         textTransform: 'none',
+        border: `1px solid ${Theme.palette.primary.main}`,
         '&:hover': {
             backgroundColor: Theme.palette.primary.main,
             color: Theme.palette.primary.light
@@ -22,12 +22,11 @@ const ProductSuggestPay = () =>{
         backgroundColor: Theme.palette.primary.light,
         color: Theme.palette.primary.main,
         fontWeight: 'bold',
-        fontSize: '14px',
         textTransform: 'none',
         border: `1px solid ${Theme.palette.primary.main}`,
         '&:hover': {
-            backgroundColor: Theme.palette.primary.light,
-            color: Theme.palette.primary.main
+            backgroundColor: Theme.palette.primary.main,
+            color: Theme.palette.primary.light
         },
         ":disabled": {
             backgroundColor: '#DAE1E7',

@@ -1,12 +1,5 @@
 import styled from "@emotion/styled";
-import {
-  List,
-  ListItem,
-  useMediaQuery,
-  Stack,
-  Card,
-  Typography,
-} from "@mui/material";
+import {List, ListItem, useMediaQuery, Stack, Card, Typography, Grid,} from "@mui/material";
 import BrandCard from "../BrandCard/BrandCard";
 
 const BrandList = [
@@ -50,11 +43,9 @@ const BrandList = [
 
 const BrandsList = () => {
   const brandListMedia = useMediaQuery("(min-width:1024px)");
-
   const BrandsList = styled(List)({
     width: "280px",
-    boxShadow:
-      "rgb(0 0 0 / 6%) 0px 3px 5px -1px, rgb(0 0 0 / 4%) 0px 5px 8px 0px, rgb(0 0 0 / 4%) 0px 1px 14px 0px",
+    boxShadow: "rgb(0 0 0 / 6%) 0px 3px 5px -1px, rgb(0 0 0 / 4%) 0px 5px 8px 0px, rgb(0 0 0 / 4%) 0px 1px 14px 0px",
     cursor: "unset",
     borderRadius: "10px",
     padding: "1.25rem",
@@ -82,26 +73,22 @@ const BrandsList = () => {
     justifyContent:"center"
   });
   return (
-    <Stack display={brandListMedia === true ? "block" : "none"}>
-      <BrandsList>
-        {BrandList.map((brand) => (
-          <BrandsListItem key={brand.id}>
-            <BrandCard image={brand.image} name={brand.name} />
-          </BrandsListItem>
-        ))}
-        <BrandsListItem>
-          <ViewCard>
-            <Typography
-              variant="subtitle2"
-              color="text.secondary"
-              textAlign="center"
-            >
-              view all Brands
-            </Typography>
-          </ViewCard>
-        </BrandsListItem>
-      </BrandsList>
-    </Stack>
+    <Grid item xs={3} display={brandListMedia === true ? "block" : "none"}>
+      {/*<BrandsList>*/}
+      {/*  {BrandList.map((brand) => (*/}
+      {/*    <BrandsListItem key={brand.id}>*/}
+      {/*      <BrandCard image={brand.image} name={brand.name} />*/}
+      {/*    </BrandsListItem>*/}
+      {/*  ))}*/}
+      {/*  <BrandsListItem>*/}
+      {/*    <ViewCard>*/}
+      {/*      <Typography variant="subtitle2" color="text.secondary" textAlign="center">*/}
+      {/*        view all Brands*/}
+      {/*      </Typography>*/}
+      {/*    </ViewCard>*/}
+      {/*  </BrandsListItem>*/}
+      {/*</BrandsList>*/}
+    </Grid>
   );
 };
 export default BrandsList;

@@ -51,12 +51,12 @@ const ProductID = () => {
     return (
         <BoxCustom>
             <Grid container>
-                <ProductImage product={product}/>
+                <ProductImage product={product} p={4}/>
                 <ProductInfo product={product}/>
                 <ProductTabs product={product}/>
                 <ProductSuggest matches={matches}/>
                 <ProductVendor/>
-                <ProductRelatedProduct/>
+                <ProductRelatedProduct product={product}/>
             </Grid>
         </BoxCustom>
     )
