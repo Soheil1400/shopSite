@@ -1,6 +1,7 @@
 import Brands from "./Brands/Brands";
 import {styled} from "@mui/material/styles";
 import {Box} from "@mui/material";
+import CategoryList from "./category list/categoryList";
 
 const HomeComponent = () =>{
     const BoxCustom = styled(Box)({
@@ -14,7 +15,8 @@ const HomeComponent = () =>{
     })
     return(
         <BoxCustom>
-            <Brands/>
+            <CategoryList/>
+            {/*<Brands/>*/}
         </BoxCustom>
     )
 }
