@@ -1,10 +1,7 @@
 import { useState } from "react";
 import styled from "@emotion/styled";
-import Image from "next/image";
 import {
   Card,
-  CardContent,
-  Grid,
   Dialog,
   Typography,
   CardMedia,
@@ -87,7 +84,8 @@ const ProductCard = ({
     backgroundColor: " rgb(255, 255, 255)",
   });
   const OffLabel = styled(Chip)({
-    display: "inline-flex",
+    display:"inline-flex",
+    alignItems:"center",
     borderRadius: "300px",
     padding: " 5px 10px",
     backgroundColor: "rgb(233, 69, 96)",
@@ -142,7 +140,8 @@ const ProductCard = ({
           </IconButton>
         </Stack>
       </Stack>
-      <OffLabel label={offPercent} display={off === true ? "block" : "none"}/>
+
+      <OffLabel label={offPercent}/>
       <Stack>
         <CardMedia component="img" image={image} alt="car" />
       </Stack>
