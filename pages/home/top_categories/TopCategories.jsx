@@ -1,8 +1,8 @@
 import Box from '@mui/material/Box';
 import Image from 'next/image'
-import Category1 from "./Images/category-1.png"
-import Category2 from "./Images/category-2.png"
-import Category3 from "./Images/category-3.png"
+import Category1 from "../../../asset/category-1.png"
+import Category2 from "../../../asset/category-2.png"
+import Category3 from "../../../asset/category-3.png"
 import CategoryIcon from '@mui/icons-material/Category';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 
@@ -11,52 +11,6 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import {Typography} from "@mui/material";
 
-
-function SamplePrevArrow(props) {
-    const {className, onClick} = props;
-    return (
-        <div
-            className={className}
-            style={{
-                fontSize: "40px",
-                width: '40px',
-                left: 0,
-                background: 'blue',
-                position: 'absolute',
-                height: '40px',
-                zIndex: "1",
-                borderRadius: '50%',
-                boxShadow: '0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23)',
-                display: "flex",
-                alignItems: 'center',
-                justifyContent: 'center',
-            }}
-            onClick={onClick}
-        />
-    );
-}
-
-function SampleNextArrow(props) {
-    const {className, onClick} = props;
-    return (
-        <div
-            className={className}
-            style={{
-                width: '40px',
-                height: '40px',
-                position: 'absolute',
-                background: 'blue',
-                zIndex: "1",
-                borderRadius: '50%',
-                boxShadow: '0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23)',
-                display: "flex",
-                alignItems: 'center',
-                justifyContent: 'center'
-            }}
-            onClick={onClick}
-        />
-    );
-}
 
 const data =
     [
@@ -92,8 +46,6 @@ const settings = {
     centerPadding: "60px",
     slidesToShow: 3,
     swipeToSlide: true,
-    nextArrow: <SampleNextArrow/>,
-    prevArrow: <SamplePrevArrow/>,
 }
 
 
@@ -135,8 +87,9 @@ export default function Category() {
                 </Box>
             </Box>
 
+
             <Slider {...settings}>
-                {/*<Box>*/}
+
                 {
                     data.map(item => (
                         <Box key={item.id} component="span" sx={{
@@ -202,7 +155,7 @@ export default function Category() {
                                     bottom: "0",
                                     left: "0",
                                     opacity: "0",
-                                    "&:hover": {opacity: ".6", transition: 'all 250ms ease-in-out 0s'}
+                                    "&:hover": {opacity: ".2", transition: 'all 250ms ease-in-out 0s'}
                                 }}>{}</Box>
 
                             </Box>
