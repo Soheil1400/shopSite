@@ -68,7 +68,7 @@ const ProductInfo = ({product}) =>{
             </Grid>
             <Grid mb={3}>
                 <TypographyPrime mb={0.5} component={'h2'} fontSize={'25px'} fontWeight={'bold'}>
-                    ${product.price}
+                    ${product.sale === true ? (product.price*(100-product.MSale))/100 : product.price}.00
                 </TypographyPrime>
                 <TypographyMain>
                     Stock Available
@@ -93,7 +93,7 @@ const ProductInfo = ({product}) =>{
                     Sold By:
                 </TypographyGray>
                 <TypographyMain ml={1} component={'span'}>
-                    Mobile Store
+                    {product.vendor}
                 </TypographyMain>
             </Grid>
         </Grid>

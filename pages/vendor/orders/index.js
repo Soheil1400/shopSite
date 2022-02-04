@@ -62,7 +62,7 @@ const Orders = () => {
                 <VendorDrawer menu={menu} setMenu={setMenu} router={router}/>
                 <Grid container>
                     <VendorMenu matchesMenu={matchesMenu} router={router}/>
-                    <Grid item xs={12} md={9}>
+                    <Grid item xs={12} lg={9}>
                         <VendorTitle matchesMenu={matchesMenu} setMenu={setMenu} router={router}/>
                         <TitleOrders matches={matches}/>
                         {orders.map(order =>

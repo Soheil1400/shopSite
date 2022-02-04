@@ -28,14 +28,14 @@ const ProductTabs = ({product}) => {
                         <TabList textColor="primary" indicatorColor="primary" onChange={handleChange}
                                  aria-label="lab API tabs example">
                             <CustomTab label="Description" value="1"/>
-                            <CustomTab label="Review (3)" value="2"/>
+                            <CustomTab label={`Review (${product.reviews.length})`} value="2"/>
                         </TabList>
                     </Box>
                     <TabPanel value="1" sx={{padding: '5px 0', margin: '2rem 0'}}>
                         <ProductTabsInfo product={product}/>
                     </TabPanel>
                     <TabPanel value="2" sx={{padding: '0', margin: '2rem 0'}}>
-                        <ProductTabsReviews/>
+                        <ProductTabsReviews product={product}/>
                         <ProductTabsAddReview/>
                     </TabPanel>
                 </TabContext>

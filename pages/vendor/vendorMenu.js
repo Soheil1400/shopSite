@@ -31,22 +31,22 @@ const VendorMenu = ({matchesMenu ,router}) => {
         },
     })
     return(
-        <Grid item lg={3} p={2} display={matchesMenu === true ? 'inline-block' : 'none'}>
+        <Grid item lg={3} pr={2} display={matchesMenu === true ? 'inline-block' : 'none'}>
             <PaperCustom>
                 <MenuList>
+                    <Link href={'/vendor/dashboard'}>
                     <MenuItemCustom sx={{color: router.asPath === '/vendor/dashboard' ? Theme.palette.primary.main : '',borderLeft: router.asPath === '/vendor/dashboard' ? `4px solid ${Theme.palette.primary.main}` : ''}}>
                             <Grid mr={1} mt={0.6}>
                                 <TableChartOutlinedIcon fontSize={'small'}/>
                             </Grid>
                             <ListItemText>
-                                <Link href={'/vendor/dashboard'}>
                                     Dashboard
-                                </Link>
                             </ListItemText>
                     </MenuItemCustom>
+                    </Link>
                     <MenuItemCustom>
                         <Grid mr={1} mt={0.6}>
-                            <Inventory2OutlinedIcon fontSize={'small'}/>
+                            <Inventory2OutlinedIcon  fontSize={'small'}/>
                         </Grid>
                         <ListItemText>Products</ListItemText>
                         <Typography>
@@ -59,19 +59,19 @@ const VendorMenu = ({matchesMenu ,router}) => {
                         </Grid>
                         <ListItemText>Add New Product</ListItemText>
                     </MenuItemCustom>
+                    <Link href={'/vendor/orders'}>
                     <MenuItemCustom sx={{color: router.asPath === '/vendor/orders' ? Theme.palette.primary.main : '',borderLeft: router.asPath === '/vendor/orders' ? `4px solid ${Theme.palette.primary.main}` : ''}}>
-                        <Grid mr={1} mt={0.6}>
-                            <ShoppingCartOutlinedIcon fontSize={'small'}/>
-                        </Grid>
-                        <ListItemText>
-                            <Link href={'/vendor/orders'}>
-                                Orders
-                            </Link>
-                        </ListItemText>
-                        <Typography>
-                            40
-                        </Typography>
+                                <Grid mr={1} mt={0.6}>
+                                    <ShoppingCartOutlinedIcon fontSize={'small'}/>
+                                </Grid>
+                                <ListItemText>
+                                    Orders
+                                </ListItemText>
+                                <Typography>
+                                    40
+                                </Typography>
                     </MenuItemCustom>
+                    </Link>
                     <MenuItemCustom>
                         <Grid mr={1} mt={0.6}>
                             <SettingsIcon fontSize={'small'}/>

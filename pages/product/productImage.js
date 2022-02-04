@@ -1,30 +1,32 @@
 import {Box, Grid, Paper} from "@mui/material";
 import {styled} from "@mui/material/styles";
 import Image from "next/image";
-import HeadPhone from "../../asset/headphone.png";
+import Theme from "../../theme/theme";
 
-const ProductImage = ({product,p}) =>{
+const ProductImage = ({product,px=8 ,md=0} ) =>{
     const PaperCustom = styled(Paper)({
         alignItems: 'center',
         justifyContent: 'center',
-        padding: '18px',
+        padding: '1px',
         borderRadius: '10px',
         margin: 'auto',
         boxShadow: ' rgb(3 0 71 / 9%) 0px 1px 3px',
+        border: `1px solid ${Theme.palette.primary.main}`,
+        cursor:'pointer'
     })
     return(
         <Grid item xs={12} sm={12} md={6}>
-            <Grid container px={1} py={p}>
+            <Grid container px={1}>
                 <Box display={'flex'} flexDirection={'column'} margin={'auto'}>
-                    <Grid item xs={12} px={8}>
-                        <Image src={HeadPhone} alt={'head phone'}/>
+                    <Grid px={0} mb={5}>
+                        <Image src={product.images[0].image} width={'300px'} height={'300px'} alt={'head phone'}/>
                     </Grid>
-                    <Grid item xs={12} mt={2}>
-                        <Grid container spacing={1} p={3}>
+                    <Grid mt={2}>
+                        <Grid display={'flex'} justifyContent={'center'} container spacing={2} mb={2}>
                             {product.images.map(img => (
-                                <Grid item xs={4} key={img.id}>
+                                <Grid item key={img.id}>
                                     <PaperCustom sx={{width: '70px'}}>
-                                        <Image src={HeadPhone} alt={'head phone'}/>
+                                        <Image src={img.image} alt={`${product.name}`}/>
                                     </PaperCustom>
                                 </Grid>
                             ))}

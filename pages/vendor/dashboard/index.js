@@ -13,7 +13,7 @@ import {useRouter} from "next/router";
 const Dashboard = () => {
     const [menu, setMenu] = useState(false)
     const router = useRouter()
-    const matchesMenu = useMediaQuery('(min-width:1000px)');
+    const matchesMenu = useMediaQuery('(min-width:1025px)');
     const BoxCustom = styled(Box)({
         display: 'flex',
         flexDirection: 'column',
@@ -29,7 +29,7 @@ const Dashboard = () => {
                 <VendorDrawer menu={menu} router={router} setMenu={setMenu}/>
                 <Grid container>
                     <VendorMenu matchesMenu={matchesMenu} router={router}/>
-                    <Grid item xs={12} md={9}>
+                    <Grid item xs={12} lg={9}>
                         <VendorTitle setMenu={setMenu} matchesMenu={matchesMenu} router={router}/>
                         <PaperPay/>
                         <Grid container item xs={12}>

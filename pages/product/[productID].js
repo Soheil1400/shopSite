@@ -2,15 +2,19 @@ import {styled} from "@mui/material/styles";
 import {Box, Grid} from "@mui/material";
 import {useEffect, useState} from "react";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import {Data} from "../../data/data";
+import {ProductData} from "../../data/Productdata";
 import ProductImage from "./productImage";
 import ProductInfo from "./ProductInfo";
 import ProductTabs from "./productTabs";
 import ProductSuggest from "./productSuggest";
 import ProductVendor from "./productVendor";
 import ProductRelatedProduct from "./productRalatedProduct";
+import {useRouter} from "next/router";
+import HeadPhone from '../../asset/headphone.png'
 
 const ProductID = () => {
+    const router = useRouter()
+    const productId = Number(router.query.productID)
     const [product, setProduct] = useState({
         id: 1,
         name: '',
@@ -22,7 +26,7 @@ const ProductID = () => {
         images: [
             {
                 id: 1,
-                image: ''
+                image: HeadPhone
             },
         ],
         reviews: [
@@ -46,7 +50,7 @@ const ProductID = () => {
         margin: 'auto'
     })
     useEffect(() => {
-        setProduct(Data[0])
+        setProduct(ProductData[router.query.productID-1] || product)
     })
     return (
         <BoxCustom>
