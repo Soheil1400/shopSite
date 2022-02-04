@@ -44,7 +44,7 @@ const CategoryList = () => {
         {id: '12', title: 'Camera', image: Camera},
     ])
     return (
-        <>
+        <Grid>
             <Title/>
             <Grid container spacing={3}>
                 {paper.map(item => (
@@ -64,7 +64,7 @@ const CategoryList = () => {
                     </Grid>
                 ))}
             </Grid>
-        </>
+        </Grid>
     );
 }
 
