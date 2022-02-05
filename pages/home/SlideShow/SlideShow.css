@@ -2,11 +2,9 @@
     color: rgb(15, 52, 96)!important;
     display: flex;
     justify-content: center;
-    font-size:13px!important;
+    font-size:12px!important;
     align-items: center;
-    justify-items: center;
 }
-
 .slick-dots li button:before{
     width: 14px!important;
     height: 14px!important;
