@@ -6,6 +6,7 @@ import AboutUs from "./aboutUs/aboutUs";
 import Brands from "./brands/brands";
 import Ads from "./ads/ads";
 import Newarrival from './../../components/newArrival/newarrival';
+import RatingAndFeature from "../../components/topRatingAndFeature/RatingAndFeature";
 
 const HomeComponent = () =>{
     const BoxCustom = styled(Box)({
@@ -19,6 +20,7 @@ const HomeComponent = () =>{
     })
     return(
         <BoxCustom>
+            <RatingAndFeature/>
             <Newarrival/>
             <Brands title={'Cars'} category={'car'}/>
             <Ads/>
