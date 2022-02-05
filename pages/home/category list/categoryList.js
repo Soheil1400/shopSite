@@ -15,6 +15,7 @@ import Camera from '../../../asset/topCategories/camera.png'
 import {useState} from 'react'
 import Image from 'next/image'
 import Title from "../title/title";
+import DashboardIcon from '@mui/icons-material/Dashboard';
 
 const CategoryList = () => {
     const PaperCustom = styled(Paper)({
@@ -44,8 +45,8 @@ const CategoryList = () => {
         {id: '12', title: 'Camera', image: Camera},
     ])
     return (
-        <Grid>
-            <Title/>
+        <Grid my={2}>
+            <Title title={'Categories'} icon={<DashboardIcon/>}/>
             <Grid container spacing={3}>
                 {paper.map(item => (
                     <Grid key={item.id} item xs={12} sm={4} md={3} lg={2}>

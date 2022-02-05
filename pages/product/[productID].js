@@ -59,7 +59,7 @@ const ProductID = () => {
                 <ProductTabs product={product}/>
                 <ProductSuggest matches={matches}/>
                 <ProductVendor/>
-                {/*<ProductRelatedProduct />*/}
+                <ProductRelatedProduct category={product.category}/>
             </Grid>
         </BoxCustom>
     )

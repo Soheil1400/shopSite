@@ -1,20 +1,27 @@
-import TarzT3 from '../asset/products/tarz t3.png'
-import XamahaR15Black from '../asset/products/xamaha r15 black.png'
-import XamahaR15Blue from '../asset/products/xamaha r15 blue.png'
-import Xevel2020 from '../asset/products/xevel 2020.png'
-import Jackson from '../asset/products/jackson tb1.png'
-import Siri2020 from '../asset/products/siri.png'
-import Cosor1 from '../asset/products/cosor1.png'
-import RanasonicCharcher from '../asset/products/ranasonic charger.png'
-import LumixDsir from '../asset/products/lumix dsir.png'
-import AtechCam1080 from '../asset/products/atech cam 1080.png'
-import TonyA9 from '../asset/products/tony a9.png'
-import BeatSw3 from '../asset/products/beat sw3.png'
+import TarzT3 from '../asset/products/motor/tarz t3.png'
+import XamahaR15Black from '../asset/products/motor/xamaha r15 black.png'
+import XamahaR15Blue from '../asset/products/motor/xamaha r15 blue.png'
+import Xevel2020 from '../asset/products/motor/xevel 2020.png'
+import Jackson from '../asset/products/motor/jackson tb1.png'
+import Siri2020 from '../asset/products/gadget/siri.png'
+import Cosor1 from '../asset/products/gadget/cosor1.png'
+import RanasonicCharcher from '../asset/products/gadget/ranasonic charger.png'
+import LumixDsir from '../asset/products/gadget/lumix dsir.png'
+import AtechCam1080 from '../asset/products/gadget/atech cam 1080.png'
+import TonyA9 from '../asset/products/gadget/tony a9.png'
+import BeatSw3 from '../asset/products/gadget/beat sw3.png'
+import Budi2017 from '../asset/products/car/budi2017.png'
+import Lord2018 from '../asset/products/car/lord2018.png'
+import Lord2019 from '../asset/products/car/lord2019.png'
+import Lord2020 from '../asset/products/car/lord2020.png'
+import Resla2015 from '../asset/products/car/Resla2015.png'
+import Xorshe2018 from '../asset/products/car/xorshe2018.png'
 
 export const ProductData = [
     {
         id: 1,
         name: 'Tarz T3',
+        category:'motor',
         brand: 'Tarz',
         price: 250,
         rate:4.5,
@@ -49,6 +56,7 @@ export const ProductData = [
     {
         id: 2,
         name: 'Xamaha R15 Black',
+        category:'motor',
         brand: 'Xamaha',
         price: 300,
         rate:2.1,
@@ -83,6 +91,7 @@ export const ProductData = [
     {
         id: 3,
         name: 'Xamaha R15 Blue',
+        category:'motor',
         brand: 'Xamaha',
         price: 350,
         rate:2.8,
@@ -117,6 +126,7 @@ export const ProductData = [
     {
         id: 4,
         name: 'Xevel 2020',
+        category:'motor',
         brand: 'Xevel',
         price: 400,
         rate:3.6,
@@ -151,6 +161,7 @@ export const ProductData = [
     {
         id: 5,
         name: 'Jackson Tb1',
+        category:'motor',
         brand: 'Jackson',
         price: 200,
         rate:3.1,
@@ -185,6 +196,7 @@ export const ProductData = [
     {
         id: 6,
         name: 'Siri 2020',
+        category:'gadget',
         brand: 'Siri',
         price: 200,
         rate:3.6,
@@ -219,6 +231,7 @@ export const ProductData = [
     {
         id: 7,
         name: 'Cosor 1',
+        category:'gadget',
         brand: 'Cosor',
         price: 100,
         rate:3.6,
@@ -253,6 +266,7 @@ export const ProductData = [
     {
         id: 8,
         name: 'Ranasonic Charcher',
+        category:'gadget',
         brand: 'Ranasonic',
         price: 500,
         rate:3.9,
@@ -287,6 +301,7 @@ export const ProductData = [
     {
         id: 9,
         name: 'Lumix Dsir',
+        category:'gadget',
         brand: 'Lumix',
         price: 600,
         rate:1.9,
@@ -321,6 +336,7 @@ export const ProductData = [
     {
         id: 10,
         name: 'Atech Cam 1080',
+        category:'gadget',
         brand: 'Atech',
         price: 700,
         rate:2.1,
@@ -355,6 +371,7 @@ export const ProductData = [
     {
         id: 11,
         name: 'Tony A9',
+        category:'gadget',
         brand: 'Tony',
         price: 700,
         rate:2.9,
@@ -389,6 +406,7 @@ export const ProductData = [
     {
         id: 12,
         name: 'Beat Sw3',
+        category:'gadget',
         brand: 'Beat',
         price: 250,
         rate:4.1,
@@ -416,6 +434,216 @@ export const ProductData = [
                 review: 'very good camera',
                 rate: 5,
                 name: 'soheil Beat',
+                time: '2 years ago'
+            }
+        ]
+    },
+    {
+        id: 13,
+        name: 'Budi 2017',
+        category:'car',
+        brand: 'Budi',
+        price: 1600,
+        rate:3.1,
+        sale:true,
+        MSale:30,
+        vendor: 'Budi',
+        description: '',
+        images: [
+            {
+                id: 1,
+                image: Budi2017
+            },
+            {
+                id: 2,
+                image: Budi2017
+            },
+            {
+                id: 3,
+                image: Budi2017
+            }
+        ],
+        reviews: [
+            {
+                id: 1,
+                review: 'very good car',
+                rate: 5,
+                name: 'soheil Budi',
+                time: '3 years ago'
+            }
+        ]
+    },
+    {
+        id: 14,
+        name: 'Lord 2018',
+        category:'car',
+        brand: 'Lord',
+        price: 2000,
+        rate:3.1,
+        sale:true,
+        MSale:20,
+        vendor: 'Lord',
+        description: '',
+        images: [
+            {
+                id: 1,
+                image: Lord2018
+            },
+            {
+                id: 2,
+                image: Lord2018
+            },
+            {
+                id: 3,
+                image: Lord2018
+            }
+        ],
+        reviews: [
+            {
+                id: 1,
+                review: 'very good car',
+                rate: 1,
+                name: 'soheil Lord',
+                time: '1 years ago'
+            }
+        ]
+    },
+    {
+        id: 15,
+        name: 'Lord 2019',
+        category:'car',
+        brand: 'Lord',
+        price: 3000,
+        rate:4.6,
+        sale:true,
+        MSale:40,
+        vendor: 'Lord',
+        description: '',
+        images: [
+            {
+                id: 1,
+                image: Lord2019
+            },
+            {
+                id: 2,
+                image: Lord2019
+            },
+            {
+                id: 3,
+                image: Lord2019
+            }
+        ],
+        reviews: [
+            {
+                id: 1,
+                review: 'very good car',
+                rate: 3.5,
+                name: 'soheil Lord',
+                time: '1 years ago'
+            }
+        ]
+    },
+    {
+        id: 16,
+        name: 'Lord 2020',
+        category:'car',
+        brand: 'Lord',
+        price: 3500,
+        rate:4.2,
+        sale:true,
+        MSale:50,
+        vendor: 'Lord',
+        description: '',
+        images: [
+            {
+                id: 1,
+                image: Lord2020
+            },
+            {
+                id: 2,
+                image: Lord2020
+            },
+            {
+                id: 3,
+                image: Lord2020
+            }
+        ],
+        reviews: [
+            {
+                id: 1,
+                review: 'very good car',
+                rate: 3.3,
+                name: 'soheil Lord',
+                time: '1 years ago'
+            }
+        ]
+    },
+    {
+        id: 17,
+        name: 'Resla 2015',
+        category:'car',
+        brand: 'Resla',
+        price: 1500,
+        rate:4.7,
+        sale:true,
+        MSale:25,
+        vendor: 'Resla',
+        description: '',
+        images: [
+            {
+                id: 1,
+                image: Resla2015
+            },
+            {
+                id: 2,
+                image: Resla2015
+            },
+            {
+                id: 3,
+                image: Resla2015
+            }
+        ],
+        reviews: [
+            {
+                id: 1,
+                review: 'very good car',
+                rate: 3.3,
+                name: 'soheil Resla',
+                time: '4 years ago'
+            }
+        ]
+    },
+    {
+        id: 18,
+        name: 'Xorshe 2018',
+        category:'car',
+        brand: 'Xorshe',
+        price: 1200,
+        rate:4.2,
+        sale:true,
+        MSale:20,
+        vendor: 'Xorshe',
+        description: '',
+        images: [
+            {
+                id: 1,
+                image: Xorshe2018
+            },
+            {
+                id: 2,
+                image: Xorshe2018
+            },
+            {
+                id: 3,
+                image: Xorshe2018
+            }
+        ],
+        reviews: [
+            {
+                id: 1,
+                review: 'very good car',
+                rate: 3.1,
+                name: 'soheil Xorshe',
                 time: '2 years ago'
             }
         ]

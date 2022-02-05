@@ -13,10 +13,10 @@ import Link from 'next/link'
 const ProductCard = ({product}) => {
     const [open, setOpen] = useState(false);
     const [show, setShow] = useState("none");
-    const selectedProduct = forwardRef(({onClick, href}, ref) => {
+    const SelectedProduct = forwardRef(({onClick, href}, ref) => {
         return (
             <a href={href} onClick={onClick} ref={ref}>
-                Click Me
+                <Image src={product.images[0].image}/>
             </a>
         )
     })
@@ -88,11 +88,10 @@ const ProductCard = ({product}) => {
                     </Dialog>
                     <FavoriteBorderIcon sx={{color: " rgb(43, 52, 69)"}}/>
                 </Grid>
-                <GridSpaceBetween p={4}>
+                <GridSpaceBetween>
                     <Link href={`/product/${encodeURIComponent(product.id)}`}>
-                        <selectedProduct>
-                            <Image src={product.images[0].image}/>
-                        </selectedProduct>
+                        <SelectedProduct>
+                        </SelectedProduct>
                     </Link>
                 </GridSpaceBetween>
                 <GridSpaceBetween>
@@ -106,7 +105,7 @@ const ProductCard = ({product}) => {
                 <GridSpaceBetween my={0.5}>
                     <Rating pl={2} size={'small'} value={product.rate} readOnly/>
                     <TypographyMain pr={1}>
-                        2
+                        1
                     </TypographyMain>
                 </GridSpaceBetween>
                 <GridSpaceBetween>
