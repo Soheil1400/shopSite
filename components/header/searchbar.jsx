@@ -13,21 +13,22 @@ export default function Searchbar() {
       sx={{
         display: "flex",
         alignItems: "center",
-        width: '700px',
+        width: "700px",
         boxShadow: "none",
         border: "0.5px solid lightGray",
         borderRadius: "30px",
-        height: "38px",
+        height: "44px",
+        fontSize: "14px"
       }}
     >
-        <SearchIcon sx={{color:"gray", marginLeft:'24px'}}/>
+      <SearchIcon sx={{ color: "gray", marginLeft: "24px" }} />
       <InputBase
-        sx={{ ml: 1, flex: 1 }}
-        placeholder="Searching For"
-        inputProps={{ "aria-label": "Searching For" }}
+        sx={{ ml: 1, flex: 1 , fontSize: "14px"}}
+        placeholder="Searching and hit enter..."
+        inputProps={{ "aria-label": "Searching and hit enter" }}
       />
-      <Divider sx={{ height: "38px" }} orientation="vertical" />
-        <GroupButton title='All Categories'/>
+      <Divider sx={{ height: "40px" }} orientation="vertical" />
+      <GroupButton title="All Categories" />
     </Paper>
   );
 }

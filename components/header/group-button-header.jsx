@@ -55,11 +55,11 @@ export default function GroupButton({ title }) {
         aria-expanded={open ? "true" : undefined}
         aria-haspopup="true"
         onClick={handleToggle}
-        sx={{ color: "white", fontSize: "14px" }}
+        sx={{ color: "white", fontSize: "12px", fontWeight: "600" }}
       >
           <Box component="img" sx={{ height: '14px', marginRight: '8px', borderRadius: '4px'}} src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAASCAYAAABM8m7ZAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAHASURBVHgB5ZM5SANREIb/NRtjNNHgGVDwAK9GFAsLRSsbS0WwsRJLQRAtrC1SCAo2gmIniIWCvRYKiuKBJIbgEdAiRGOSNZebc31vJClFdwMp/IrlfwOz82bmf0LX6IECRplRRPQzxSVMpSIisW/9E8dbg1CLyD+Wcj3mJluxuv0Iv5TA+HA9LhxB3D2F0NFsxnBfDdZ23LBWl2BmogW2rXuE2cUitg2ohQpLoSQOL3wIfCQpyAvGE2nSoWgSZ/YAae+7jNPbABXlRGybUIuYFVfOIBSFpo5nTwyvgThpz5uMUoMul+B0h5EPqLCR/Xh9sRuzy3ba7fRYE+s6jP0jD0YGrOjttGBpwwWzSY/FqTYsrDgQDCdhlc6hFoGbS6cTUGMxwOuXKcjNVawvYqNPwMx0VE4jk1EoXltpoImk2VmzuXjHPR0VOLlJUcddrRV4eInkLtHeZMKlU6JzQ52R7TqOmJwHc/FiQ73VuHZJpAd6qpipEvAF42hrNKGlvowKZ9IKRvqtzGB+StZiLiH7jukgAIry++TdvXmoReRjVYsmc0mS9Ice84eoxSBaEFxoL0jHRSgQBdtxwTr+f+b6AsZWweAQyAojAAAAAElFTkSuQmCC'/>
         {title}
-        <KeyboardArrowDownIcon sx={{ marginLeft: "8px", fontSize: "14px" }} />
+        <KeyboardArrowDownIcon sx={{ marginLeft: "8px", fontSize: "16px" }} />
       </Button>
       <Popper
         open={open}
@@ -77,7 +77,7 @@ export default function GroupButton({ title }) {
                 placement === "bottom-start" ? "left top" : "left bottom",
             }}
           >
-            <Paper>
+            <Paper sx={{zIndex: "199944"}}>
               <ClickAwayListener onClickAway={handleClose}>
                 <MenuList
                   autoFocusItem={open}

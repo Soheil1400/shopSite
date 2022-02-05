@@ -24,16 +24,20 @@ export default function Appbar() {
           justifyContent: matches ? "space-between" : "center",
         }}
       >
-        {matches ? <>
-          <Box
-            component="img"
-            sx={{ width: "98px", height: "50px", marginRight: "8px" }}
-            src="https://bonik-vuetify.vercel.app/img/logo.6d0b86e2.svg"
-          />
-          
-          <Searchbar />
-          <AccountIcon />
-         </> : <SimpleSearchbar/> }
+        {matches ? (
+          <>
+            <Box
+              component="img"
+              sx={{ width: "98px", height: "50px", marginRight: "8px" }}
+              src="https://bonik-vuetify.vercel.app/img/logo.6d0b86e2.svg"
+            />
+
+            <Searchbar />
+            <AccountIcon />
+          </>
+        ) : (
+          <SimpleSearchbar />
+        )}
       </Toolbar>
     </AppBar>
   );

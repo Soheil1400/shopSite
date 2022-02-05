@@ -4,7 +4,8 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
-import PhoneIcon from "@mui/icons-material/Phone";
+import LocalPhoneOutlinedIcon from '@mui/icons-material/LocalPhoneOutlined';
+import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import useMediaQuery from "@mui/material/useMediaQuery";
 
 import GroupButton from "./group-button-header";
@@ -27,15 +28,15 @@ export default function Header() {
       >
         {matches ? (
           <>
-            <PhoneIcon sx={{ marginRight: "8px", fontSize: "16px" }} />
+            <LocalPhoneOutlinedIcon sx={{ marginRight: "8px", fontSize: "16px" }} />
             <Typography
               variant="p"
               component="div"
               sx={{ marginRight: "20px", fontSize: "12px" }}
             >
-              +9012 3456 789
+              +88012 3456 7894
             </Typography>
-            <PhoneIcon sx={{ marginRight: "8px", fontSize: "16px" }} />
+            <EmailOutlinedIcon sx={{ marginRight: "8px", fontSize: "16px" }} />
             <Typography
               variant="p"
               component="div"

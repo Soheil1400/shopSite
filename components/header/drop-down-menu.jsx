@@ -1,81 +1,77 @@
-import React, { useState } from "react";
-import Button from "@mui/material/Button";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
+import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { Menu, MenuButton, MenuList, MenuItem } from "@reach/menu-button";
 
-const theme = createTheme({});
-const MyMenu = ({ title, arr }) => {
-  const [anchorEl, setAnchorEl] = useState(null);
-  const [open, setOpen] = useState(false);
+export default function CategoryDropdown(props) {
+  let { title } = props;
 
-  const handleOpen = (event) => {
-    setAnchorEl(event.currentTarget);
-    setOpen(true);
-  };
+  let [isOverButton, setIsOverButton] = useState(false);
+  let [isOverList, setIsOverList] = useState(false);
+  let [isOpen, setIsOpen] = useState();
+  let [isTouchInput, setIsTouchInput] = useState();
+  let [hasClicked, setHasClicked] = useState();
+  let button = useRef(null);
 
-  const handleClose = (e) => {
-    if (e.currentTarget.localName !== "ul") {
-      const menu = document.getElementById("simple-menu").children[2];
-      const menuBoundary = {
-        left: menu.offsetLeft,
-        top: e.currentTarget.offsetTop + e.currentTarget.offsetHeight,
-        right: menu.offsetLeft + menu.offsetHeight,
-        bottom: menu.offsetTop + menu.offsetHeight,
-      };
-      if (
-        e.clientX >= menuBoundary.left &&
-        e.clientX <= menuBoundary.right &&
-        e.clientY <= menuBoundary.bottom &&
-        e.clientY >= menuBoundary.top
-      ) {
-        return;
-      }
+  useLayoutEffect(() => {
+    if (isOpen && !isOverButton && !isOverList && !isTouchInput) {
+      button.current.click();
+      setIsOpen(false);
+    } else if (!isOpen && (isOverButton || isOverList) && !isTouchInput) {
+      button.current.click();
+      setIsOpen(true);
     }
+  }, [isOverButton, isOverList]);
 
-    setOpen(false);
-  };
+  useEffect(() => {
+    setIsTouchInput(false);
+    setHasClicked(false);
+  }, [hasClicked]);
 
-  theme.props = {
-    MuiList: {
-      onMouseLeave: (e) => {
-        handleClose(e);
-      },
-    },
-  };
   return (
-    <div>
-      <ThemeProvider theme={theme}>
-        <Button
-          id="menubutton1"
-          aria-owns={open ? "simple-menu" : null}
-          aria-haspopup="true"
-          onMouseOver={handleOpen}
-          onMouseLeave={handleClose}
-          style={{ zIndex: 1301 }}
-        >
-          {title}
-        </Button>
-        <Menu
-          id="simple-menu"
-          anchorEl={anchorEl}
-          open={open}
-          anchorOrigin={{
-            vertical: "bottom",
-            horizontal: "center",
+    <Menu>
+      <MenuButton
+        ref={button}
+        onTouchStart={() => {
+          setIsTouchInput(true);
+        }}
+        onMouseEnter={event => {
+          setIsOverButton(true);
+        }}
+        onMouseLeave={event => {
+          setIsOverButton(false);
+        }}
+        onClick={() => {
+          setHasClicked(true);
+          setIsOpen(!isOpen);
+        }}
+        onKeyDown={() => {
+          setIsOpen(!isOpen);
+        }}
+      >
+        <span>{title}</span> <span aria-hidden>▾</span>
+      </MenuButton>
+      <MenuList
+        onMouseEnter={event => {
+          setIsOverList(true);
+        }}
+        onMouseLeave={event => {
+          setIsOverList(false);
+        }}
+      >
+        <MenuItem
+          onSelect={() => {
+            setIsOpen(false);
           }}
-          transformOrigin={{
-            vertical: "top",
-            horizontal: "center",
+        >
+          Action 1
+        </MenuItem>
+        <MenuItem
+          onSelect={() => {
+            setIsOpen(false);
           }}
         >
-          {arr.map((item) => (
-            <MenuItem onClick={handleClose}>{item}</MenuItem>
-          ))}
-        </Menu>
-      </ThemeProvider>
-    </div>
+          Action 2
+        </MenuItem>
+      </MenuList>
+    </Menu>
   );
-};
-
-export default MyMenu;
+}

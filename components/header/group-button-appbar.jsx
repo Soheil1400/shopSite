@@ -54,7 +54,7 @@ export default function GroupButton({ title }) {
         aria-expanded={open ? "true" : undefined}
         aria-haspopup="true"
         onClick={handleToggle}
-        sx={{ color: "black", fontSize: "14px", borderRadius: "0 30px 30px 0" }}
+        sx={{ color: "gray", fontSize: "14px", borderRadius: "0 30px 30px 0" , textTransform: "none"}}
       >
         {title}
         <KeyboardArrowDownIcon sx={{ marginLeft: "8px", fontSize: "24px" }} />

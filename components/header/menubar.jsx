@@ -11,7 +11,7 @@ export default function Appbar() {
   return (
     <AppBar
       position="static"
-      sx={{ backgroundColor: "#fff", height: "60px", boxShadow: "none" }}
+      sx={{ backgroundColor: "#fff", height: "60px", boxShadow: " rgb(43 52 69 / 10%) 0px 15px 20px -15px" }}
     >
       <Toolbar
         sx={{

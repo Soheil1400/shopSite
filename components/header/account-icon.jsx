@@ -1,8 +1,8 @@
 import * as React from "react";
 import IconButton from "@mui/material/IconButton";
 import Stack from "@mui/material/Stack";
-import PersonIcon from "@mui/icons-material/Person";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
+import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
 import Badge from "@mui/material/Badge";
 import { styled } from "@mui/material/styles";
 
@@ -17,9 +17,9 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 
 export default function AccountIcon() {
   return (
-    <Stack direction="row" spacing={1}>
+    <Stack direction="row" spacing={2.5}>
       <IconButton aria-label="add an alarm" sx={{ backgroundColor: "#e6ecf6" }}>
-        <PersonIcon />
+        <PersonOutlineOutlinedIcon />
       </IconButton>
 
       <StyledBadge badgeContent={0} color="error" overlap="circular" showZero>
@@ -27,7 +27,7 @@ export default function AccountIcon() {
           aria-label="add to shopping cart"
           sx={{ backgroundColor: "#e6ecf6" }}
         >
-          <ShoppingCartIcon />
+          <ShoppingBagOutlinedIcon/>
         </IconButton>
       </StyledBadge>
     </Stack>
