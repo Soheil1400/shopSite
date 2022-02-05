@@ -2,19 +2,17 @@ import {Grid} from "@mui/material";
 import Ads1 from '../../../asset/ads/ads1.png'
 import Ads2 from '../../../asset/ads/ads2.png'
 import Image from 'next/image'
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 const Ads = () => {
-    return(
-        <Grid container my={3} spacing={3} display={'flex'} flexDirection={'row'} alignItems={'center'} justifyContent={'space-between'}>
-            <Grid item xs={12} md={4} p={2.1}>
-                <Grid>
-                    <Image height={'347.91px'} src={Ads1}/>
-                </Grid>
+    const matches = useMediaQuery('(min-width:770px)');
+    return (
+        <Grid container my={3}>
+            <Grid item xs={12} md={4} p={1}>
+                <Image width={matches === true ? '' : 744} src={Ads1}/>
             </Grid>
-            <Grid xs={12} md={8}>
-                <Grid>
-                    <Image height={'325.91px'} src={Ads2}/>
-                </Grid>
+            <Grid item xs={12} md={8} p={1}>
+                <Image src={Ads2}/>
             </Grid>
         </Grid>
     )

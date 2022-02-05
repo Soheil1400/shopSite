@@ -12,11 +12,11 @@ const Brands = ({start , finish}) => {
             <Grid item xs={0} md={3} display={matches === true ? 'block' : 'none'}>
                 <Brand/>
             </Grid>
-            <Grid xs={12} md={9} pl={3}>
+            <Grid item xs={12} md={9} pl={3}>
                 <Title/>
                 <Grid container spacing={3}>
                     {ProductData.slice(start, finish).map(product => (
-                            <Grid item xs={12} sm={6} md={4} lg={4}>
+                            <Grid item xs={12} sm={6} md={4} lg={4} key={product.id}>
                                 <ProductCard product={product} key={product.id}/>
                             </Grid>
                         ))}

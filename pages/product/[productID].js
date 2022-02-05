@@ -14,7 +14,6 @@ import HeadPhone from '../../asset/headphone.png'
 
 const ProductID = () => {
     const router = useRouter()
-    const productId = Number(router.query.productID)
     const [product, setProduct] = useState({
         id: 1,
         name: '',
@@ -60,7 +59,7 @@ const ProductID = () => {
                 <ProductTabs product={product}/>
                 <ProductSuggest matches={matches}/>
                 <ProductVendor/>
-                <ProductRelatedProduct product={product}/>
+                {/*<ProductRelatedProduct />*/}
             </Grid>
         </BoxCustom>
     )

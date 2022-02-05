@@ -19,9 +19,9 @@ const HomeComponent = () =>{
     return(
         <BoxCustom>
             <Brands start={6} finish={12}/>
-            {/*<Ads/>*/}
+            <Ads/>
             <Brands start={0} finish={6}/>
-            <Brands start={6} finish={12}/>
+            <Brands start={3} finish={12}/>
             <CategoryList/>
             <MadeForYou/>
             <AboutUs/>
