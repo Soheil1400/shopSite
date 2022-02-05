@@ -16,3 +16,10 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.css-1d3z3hw-MuiOutlinedInput-notchedOutline {
+  bottom: 5px;
+  right: 0;
+  top: 0;
+  left: 0;
+}
