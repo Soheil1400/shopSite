@@ -1,0 +1,49 @@
+.slick-prev:before, .slick-next:before{
+    font-size: 32px!important;
+    color: rgb(15, 52, 96)!important;
+    opacity: unset!important;
+}
+
+.slick-prev.slick-disabled:before,
+.slick-next.slick-disabled:before
+{
+    opacity: unset!important;
+    color: rgb(125, 135, 156) !important;
+}
+
+
+.slick-prev:hover:before,
+.slick-next:hover:before
+{
+    color: rgb(15, 52, 96)!important;
+}
+
+.slick-prev,
+.slick-next
+{
+    width: 44px!important;
+    height: 44px!important;
+    border: 10px solid rgb(15, 52, 96)!important;
+    border-radius: 50% !important;
+    display: flex!important;
+    align-items: center;
+    justify-content: center;
+    right: 0!important;
+}
+
+.slick-prev{
+    left: 0!important;
+    position: absolute;
+    z-index: 1!important;
+}
+
+.slick-prev.slick-disabled,
+.slick-next.slick-disabled
+{
+    border: 10px solid rgb(125, 135, 156)!important;
+}
+.slick-prev.slick-disabled:hover,
+.slick-next.slick-disabled:hover{
+    border: 10px solid rgb(15, 52, 96)!important;
+}
+
