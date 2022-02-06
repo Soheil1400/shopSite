@@ -1,17 +1,27 @@
 import { styled } from "@mui/material/styles";
-import { Grid, IconButton, Paper, Typography } from "@mui/material";
+import { useState } from "react";
+import {
+  Grid,
+  IconButton,
+  Paper,
+  Typography,
+  Divider,
+  Chip,
+  TextField,
+  Button,
+} from "@mui/material";
 import Theme from "../../../../theme/theme";
-import Image from "next/image";
-import AddIcon from "@mui/icons-material/Add";
-import HorizontalRuleIcon from "@mui/icons-material/HorizontalRule";
-import { forwardRef, useState } from "react";
-import Link from "next/link";
 
 const AddressBox = ({ product }) => {
+  const [age, setAge] = useState("");
+
+  const handleChange = (event) => {
+    setAge(event.target.value);
+  };
   const PaperCustom = styled(Paper)({
     alignItems: "center",
     justifyContent: "center",
-    padding: "18px",
+    padding: "24px 28px",
     borderRadius: "10px",
     margin: "auto",
     boxShadow: " rgb(3 0 71 / 9%) 0px 1px 3px",
@@ -26,46 +36,101 @@ const AddressBox = ({ product }) => {
   const TypographyGray = styled(Typography)({
     color: Theme.palette.secondary.light,
   });
-  const TypographyPrime = styled(Typography)({
-    color: Theme.palette.primary.main,
-  });
-  const PMButton = styled(IconButton)({
-    backgroundColor: Theme.palette.primary.light,
-    color: Theme.palette.primary.main,
-    fontWeight: "bold",
-    padding: "2px",
-    textTransform: "none",
-    border: "1px solid #E94560",
+  const CustomChip = styled(Chip)({
     boxShadow: "none",
-    borderRadius: "5px",
+    cursor: "unset",
+    padding: "3px 10px",
+    backgroundColor: " rgb(255, 225, 230)",
+    borderRadius: "3px",
+    fontSize: "12px",
+    color: "rgb(233, 69, 96)",
+  });
+  const CartButton = styled(Button)({
+    height: "40",
+    lineHeight: "1",
+    borderRadius: "5",
+    padding: " 11px 1.5rem",
+    outline: "none",
+    fontSize: "14",
+    fontWeight: "600",
+    transition: " all 150ms ease-in-out 0s",
+  });
+  const CheckOutButton = styled(CartButton)({
+    border: "none",
+    background: "rgb(233, 69, 96)",
+    color: "rgb(255, 255, 255)",
     "&:hover": {
-      backgroundColor: Theme.palette.primary.main,
-      color: Theme.palette.primary.light,
+      backgroundColor: "rgb(233, 69, 96)",
+      boxShadow: "none",
     },
   });
-  const GridSpaceBetween = styled(Grid)({
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
+  const ViewCardButton = styled(CartButton)({
+    border: "1px solid rgb(233, 69, 96)",
+    background: "transparent",
+    color: " rgb(233, 69, 96)",
+    "&:hover": {
+      backgroundColor: "rgb(233, 69, 96)",
+      boxShadow: "none",
+      color: "rgb(255, 255, 255)",
+    },
   });
 
   return (
     <PaperCustom>
-      <GridSpaceBetween>
-        <TypographyMain>j,bbj,j,bj,</TypographyMain>
-        <PMButton>
-          <HorizontalRuleIcon />
-        </PMButton>
-      </GridSpaceBetween>
-      <GridSpaceBetween my={0.5}>
-        <TypographyMain pr={1}>kigkhkiki</TypographyMain>
-      </GridSpaceBetween>
-      <GridSpaceBetween>
-        <Grid>kikiukih</Grid>
-        <PMButton>
-          <AddIcon />
-        </PMButton>
-      </GridSpaceBetween>
+      <Grid
+        item
+        container
+        direction="row"
+        justifyContent="space-between"
+        alignItems="center"
+      >
+        <TypographyGray fontSize="14px">Total:</TypographyGray>
+        <TypographyMain
+          sx={{ fontSize: "18px", fontWeight: "600", lineHeight: "1" }}
+        >
+          $750.0000
+        </TypographyMain>
+      </Grid>
+      <Divider sx={{ margin: "8px 0" }} />
+      <Grid
+        item
+        container
+        direction="row"
+        justifyContent="space-between"
+        alignItems="flex-start"
+        my="16px"
+      >
+        <TypographyMain fontSize="14px" fontWeight="600">
+          Additional Comments
+        </TypographyMain>
+        <CustomChip label="Note" />
+      </Grid>
+      <TextField
+        id="outlined-multiline-static"
+        multiline
+        rows={4}
+        fullWidth
+        sx={{ margin: "8px 0" }}
+      />
+      <Divider sx={{ margin: "8px 0" }} />
+      <TextField placeholder="Voucher" fullWidth sx={{ margin: "8px 0" }} />
+      <ViewCardButton fullWidth>Apply Voucher</ViewCardButton>
+      <Divider sx={{ margin: "8px 0" }} />
+      <Grid
+        item
+        container
+        direction="row"
+        justifyContent="space-between"
+        alignItems="center"
+      >
+        <TypographyMain fontSize="14px" fontWeight="600">
+          Shipping Estimates
+        </TypographyMain>
+      </Grid>
+      <ViewCardButton sx={{ margin: "8px 0" }} fullWidth>
+        Calculate Shipping
+      </ViewCardButton>
+      <CheckOutButton fullWidth>Checkout Now</CheckOutButton>
     </PaperCustom>
   );
 };

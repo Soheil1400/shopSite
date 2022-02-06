@@ -5,16 +5,9 @@ import CartProduct from "../CartProduct/CartProduct";
 
 const CartProductList = () => {
   return (
-    <Grid
-      container
-      direction="column"
-      justifyContent="center"
-      alignItems="center"
-    >
+    <Grid item >
       {ProductData.map((product) => (
-        <Grid item>
-          <CartProduct product={product} key={product.id} />
-        </Grid>
+        <CartProduct product={product} key={product.id} />
       ))}
     </Grid>
   );

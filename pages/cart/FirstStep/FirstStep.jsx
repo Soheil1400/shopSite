@@ -2,6 +2,7 @@ import { styled } from "@mui/material/styles";
 import { Box, Grid } from "@mui/material";
 import CartProductList from "./CartProductList/CartProductList";
 import AddressBox from "./AddressBox/AddressBox";
+import { ProductData } from "../../../data/Productdata";
 
 const CartComponent = () => {
   const BoxCustom = styled(Box)({
@@ -28,12 +29,31 @@ const CartComponent = () => {
       container
       direction="row"
       justifyContent="flex-start"
+      alignItems="flex-start"
+      wrap="nowrap"
     >
-      <Grid item xs={12} lg={8}>
-        <CartProductList />
+      <Grid
+        item
+        container
+        direction="column"
+        justifyContent="center"
+        alignItems="flex-start"
+        mr="16px"
+        xs={12}
+        lg={7.99}
+      >
+        <CartProductList ProductData={ProductData} />
       </Grid>
-      <Grid item xs={12} lg={4}>
-        <AddressBox />
+      <Grid
+        item
+        container
+        direction="column"
+        justifyContent="center"
+        alignItems="center"
+        xs={12}
+        lg={3.99}
+      >
+        <AddressBox ProductData={ProductData} />
       </Grid>
     </Grid>
   );

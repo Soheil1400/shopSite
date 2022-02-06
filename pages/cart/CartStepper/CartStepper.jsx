@@ -27,7 +27,6 @@ function ColorlibStepIcon(props) {
     margin: "unset",
     height: "21px",
     textAlign: "center",
-    padding: "none",
     "&:hover": {
       color: "inherit",
       backgroundColor: "inherit",
@@ -44,10 +43,7 @@ function ColorlibStepIcon(props) {
     4: <CustomStep>4. Review</CustomStep>,
   };
   return (
-    <ColorlibStepIconRoot
-      ownerState={{ completed, active }}
-      className={className}
-    >
+    <ColorlibStepIconRoot ownerState={{ completed, active }}>
       {icons[String(props.icon)]}
     </ColorlibStepIconRoot>
   );
@@ -159,9 +155,8 @@ const CartStepper = () => {
       direction="column"
       justifyContent="center"
       alignItems="center"
-      my={1.5}
     >
-      <Grid item xs={12}>
+      <Grid item mb="12px">
         <Stepper activeStep={activeStep} connector={<ColorlibConnector />}>
           {steps.map((step) => (
             <Step
@@ -172,14 +167,13 @@ const CartStepper = () => {
               <StepLabel
                 StepIconComponent={ColorlibStepIcon}
                 color="inherit"
-                padding="unset"
                 onClick={handleStep(step.id)}
               ></StepLabel>
             </Step>
           ))}
         </Stepper>
       </Grid>
-      <Grid item xs={12}>
+      <Grid item>
         {steps.map((step) => (step.id === activeStep ? step.element : ""))}
       </Grid>
     </Grid>

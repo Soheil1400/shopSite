@@ -1,7 +1,6 @@
 import { styled } from "@mui/material/styles";
 import { Box, Grid } from "@mui/material";
 import CartStepper from "./CartStepper/CartStepper";
-import FirstStep from "./FirstStep/FirstStep";
 
 const CartComponent = () => {
   const BoxCustom = styled(Box)({

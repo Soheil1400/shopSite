@@ -10,13 +10,9 @@ import {
 } from "@mui/material";
 import Theme from "../../../../theme/theme";
 import Image from "next/image";
-import ClearOutlinedIcon from "@mui/icons-material/ClearOutlined";
-import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
-import RemoveOutlinedIcon from "@mui/icons-material/RemoveOutlined";
 import AddIcon from "@mui/icons-material/Add";
-import HorizontalRuleIcon from "@mui/icons-material/HorizontalRule";
-import VisibilityIcon from "@mui/icons-material/Visibility";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import RemoveIcon from "@mui/icons-material/Remove";
+import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
 import { forwardRef, useState } from "react";
 import Link from "next/link";
 
@@ -45,12 +41,6 @@ const CartProduct = ({ product }) => {
     margin: "0.5rem 0",
     boxShadow: " rgb(3 0 71 / 9%) 0px 1px 3px",
   });
-  const GridCustomHead = styled(Grid)({
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    margin: "1rem 0",
-  });
   const TypographyMain = styled(Typography)({
     color: Theme.palette.secondary.dark,
   });
@@ -74,57 +64,76 @@ const CartProduct = ({ product }) => {
       color: Theme.palette.primary.light,
     },
   });
-  const NumberButton = styled(IconButton)({
-    padding: "5px",
-    background: "transparent",
-    color: "rgb(233, 69, 96)",
-    border: "1px solid rgb(255, 225, 230)",
-    borderRadius: "100%",
-    "&:hover": {
-      backgroundColor: "rgb(233, 69, 96)",
-      boxShadow: "none",
-      color: "rgb(255, 255, 255)",
-    },
-  });
-  const NumberButtonDisable = styled(IconButton)({
-    padding: "5px",
-    backgroundColor: "rgb(218, 225, 231)",
-    color: "rgb(125, 135, 156)",
-    border: "1px solid rgb(218, 225, 231)",
-    borderRadius: "100%",
-    cursor: "unset",
-    "&:hover": {
-      backgroundColor: "rgb(218, 225, 231)",
-      color: "rgb(125, 135, 156)",
-      boxShadow: "none",
-    },
-  });
   return (
-    <Paper sx={{ p: 2, margin: "auto", maxWidth: 500, flexGrow: 1 }}>
-      <Grid container spacing={2} direction="row" flexWrap="nowrap">
-        <Grid item xs={2}>
+    <PaperCustom>
+      <Grid container direction="row" flexWrap="nowrap" alignItems="flex-start">
+        <Grid item xs={3}>
           <Link href={`/product/${encodeURIComponent(product.id)}`}>
             <selectedProduct>
               <Image src={product.images[0].image} />
             </selectedProduct>
           </Link>
         </Grid>
-        <Grid item xs={10} container>
-          <Grid item xs container direction="row" spacing={2}>
-            <Grid item xs={12}>
-              <TypographyMain>{product.name}</TypographyMain>
-              <Typography sx={{ cursor: "pointer" }} variant="body2">
-                Remove
-              </Typography>
-            </Grid>
-            <Grid item xs={12}>
-              <TypographyGray
-                sx={{ textDecoration: "line-through" }}
-                component={"span"}
-                mx={0.5}
-              >
+        <Grid
+          container
+          direction="column"
+          justifyContent="space-between"
+          alignItems="center"
+          xs={9}
+          p="20px"
+        >
+          <Grid
+            item
+            container
+            direction="row"
+            wrap="nowrap"
+            justifyContent="space-between"
+            mb="30px"
+          >
+            <TypographyMain
+              sx={{ fontSize: "18px", fontWeight: "600", lineHeight: "1" }}
+            >
+              {product.name}
+            </TypographyMain>
+            <Typography sx={{ cursor: "pointer" }} variant="body2">
+              <CloseOutlinedIcon />
+            </Typography>
+          </Grid>
+          <Grid
+            item
+            container
+            direction="row"
+            wrap="nowrap"
+            justifyContent="space-between"
+          >
+            <Grid item container direction="row" wrap="nowrap">
+              <TypographyGray component={"span"} mx={0.5}>
                 {product.sale === true ? `${product.price}.00` : ""}
               </TypographyGray>{" "}
+              <TypographyPrime component={"span"} mx={0.5}>
+                {product.sale === true ? `${product.price}.00` : ""}
+              </TypographyPrime>
+            </Grid>
+            <Grid
+              item
+              container
+              direction="row"
+              wrap="nowrap"
+              justifyContent="flex-end"
+              alignItems="center"
+            >
+              <PMButton>
+                <RemoveIcon />
+              </PMButton>
+              <TypographyMain
+                sx={{
+                  fontSize: "14px",
+                  lineHeight: "1",
+                  margin: "0 8px",
+                }}
+              >
+                1
+              </TypographyMain>
               <PMButton>
                 <AddIcon />
               </PMButton>
@@ -132,7 +141,7 @@ const CartProduct = ({ product }) => {
           </Grid>
         </Grid>
       </Grid>
-    </Paper>
+    </PaperCustom>
   );
 };
 
