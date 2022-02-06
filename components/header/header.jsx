@@ -4,7 +4,7 @@ import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
-import Select from "./custom-select";
+import Select from "./components/custom-select";
 
 const lan = [
   {

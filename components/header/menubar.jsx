@@ -4,7 +4,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Button from "@mui/material/Button";
 import GridViewRoundedIcon from '@mui/icons-material/GridViewRounded';
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import Menu from "./menu";
+import Menu from "./components/menu";
 
 export default function Appbar() {
 

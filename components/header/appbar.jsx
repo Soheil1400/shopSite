@@ -4,9 +4,9 @@ import Toolbar from "@mui/material/Toolbar";
 import Box from "@mui/material/Box";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
-import AccountIcon from "./account-icon";
-import Searchbar from "./searchbar";
-import SimpleSearchbar from "./simple-searchbar";
+import AccountIcon from "./components/account-icon";
+import Searchbar from "./components/searchbar";
+import SimpleSearchbar from "./components/simple-searchbar";
 
 export default function Appbar() {
   const matches = useMediaQuery("(min-width:901px)");
