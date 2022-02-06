@@ -1,10 +1,9 @@
 import { styled } from "@mui/material/styles";
 import { Box, Grid } from "@mui/material";
-import CartProductList from "./CartProductList/CartProductList";
-import AddressBox from "./AddressBox/AddressBox";
-import { ProductData } from "../../../data/Productdata";
-
-const FirstStep = () => {
+import ShipingAddress from "./ShipingAddress/ShipingAddress";
+import BillingAdress from "./BillingAdress/BillingAdress";
+import Vocher from "./Vocher/Vocher";
+const SecondStep = () => {
   const BoxCustom = styled(Box)({
     display: "flex",
     flexDirection: "column",
@@ -42,7 +41,8 @@ const FirstStep = () => {
         xs={12}
         lg={7.99}
       >
-        <CartProductList ProductData={ProductData} />
+        <ShipingAddress />
+        <BillingAdress/>
       </Grid>
       <Grid
         item
@@ -53,10 +53,10 @@ const FirstStep = () => {
         xs={12}
         lg={3.99}
       >
-        <AddressBox ProductData={ProductData} />
+        <Vocher/>
       </Grid>
     </Grid>
   );
 };
 
-export default FirstStep;
+export default SecondStep;
