@@ -9,8 +9,10 @@ import PaperPay from "./paperPay";
 import VendorTitle from "../vendorTitle";
 import {useState} from "react";
 import {useRouter} from "next/router";
+import {useSelector} from "react-redux";
 
 const Dashboard = () => {
+    const items = useSelector(state => state.cart.items)
     const [menu, setMenu] = useState(false)
     const router = useRouter()
     const matchesMenu = useMediaQuery('(min-width:1025px)');
