@@ -10,13 +10,18 @@ import {
   TextField,
   Button,
 } from "@mui/material";
+import MenuItem from "@mui/material/MenuItem";
+import FormHelperText from "@mui/material/FormHelperText";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
 import Theme from "../../../../theme/theme";
 
 const AddressBox = ({ product }) => {
   const [age, setAge] = useState("");
-
+  const [state, setState] = useState("");
   const handleChange = (event) => {
     setAge(event.target.value);
+    setState(event.target.value);
   };
   const PaperCustom = styled(Paper)({
     alignItems: "center",
@@ -83,6 +88,8 @@ const AddressBox = ({ product }) => {
         direction="row"
         justifyContent="space-between"
         alignItems="center"
+        xs={12}
+        lg={3.99}
       >
         <TypographyGray fontSize="14px">Total:</TypographyGray>
         <TypographyMain
@@ -123,10 +130,43 @@ const AddressBox = ({ product }) => {
         justifyContent="space-between"
         alignItems="center"
       >
-        <TypographyMain fontSize="14px" fontWeight="600">
+        <TypographyMain
+          fontSize="14px"
+          fontWeight="600"
+          sx={{ margin: "8px 0" }}
+        >
           Shipping Estimates
         </TypographyMain>
       </Grid>
+      <FormControl fullWidth sx={{ margin: "8px 0" }}>
+        <TypographyGray>Country</TypographyGray>
+        <Select
+          defaultValue="Select Country"
+          value={age}
+          onChange={handleChange}
+          displayEmpty
+        >
+          <MenuItem value="">
+            <em>Select Country</em>
+          </MenuItem>
+          <MenuItem value={10}>Ten</MenuItem>
+          <MenuItem value={20}>Twenty</MenuItem>
+          <MenuItem value={30}>Thirty</MenuItem>
+        </Select>
+      </FormControl>
+      <FormControl fullWidth sx={{ margin: "8px 0" }}>
+        <TypographyGray>State</TypographyGray>
+        <Select
+          placeholder="Select State"
+          defaultValue="Select State"
+          value={state}
+          onChange={handleChange}
+        >
+          <MenuItem value={10}>New York</MenuItem>
+          <MenuItem value={20}>Chigaco</MenuItem>
+        </Select>
+      </FormControl>
+      <TextField placeholder="3100" fullWidth sx={{ margin: "8px 0" }} />
       <ViewCardButton sx={{ margin: "8px 0" }} fullWidth>
         Calculate Shipping
       </ViewCardButton>

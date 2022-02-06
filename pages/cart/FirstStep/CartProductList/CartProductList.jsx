@@ -5,7 +5,7 @@ import CartProduct from "../CartProduct/CartProduct";
 
 const CartProductList = () => {
   return (
-    <Grid item >
+    <Grid item mr="8px" xs={12} lg={7.99}>
       {ProductData.map((product) => (
         <CartProduct product={product} key={product.id} />
       ))}

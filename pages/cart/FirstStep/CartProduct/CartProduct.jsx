@@ -1,13 +1,5 @@
 import { styled } from "@mui/material/styles";
-import {
-  Chip,
-  Dialog,
-  Grid,
-  IconButton,
-  Paper,
-  Typography,
-  Rating,
-} from "@mui/material";
+import { Grid, IconButton, Paper, Typography } from "@mui/material";
 import Theme from "../../../../theme/theme";
 import Image from "next/image";
 import AddIcon from "@mui/icons-material/Add";
@@ -19,19 +11,6 @@ import Link from "next/link";
 const CartProduct = ({ product }) => {
   const [open, setOpen] = useState(false);
   const [show, setShow] = useState("none");
-  const selectedProduct = forwardRef(({ onClick, href }, ref) => {
-    return (
-      <a href={href} onClick={onClick} ref={ref}>
-        Click Me
-      </a>
-    );
-  });
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-  const handleClose = () => {
-    setOpen(false);
-  };
   const PaperCustom = styled(Paper)({
     width: "100%",
     alignItems: "center",
@@ -67,19 +46,18 @@ const CartProduct = ({ product }) => {
   return (
     <PaperCustom>
       <Grid container direction="row" flexWrap="nowrap" alignItems="flex-start">
-        <Grid item xs={3}>
+        <Grid item md={3}>
           <Link href={`/product/${encodeURIComponent(product.id)}`}>
-            <selectedProduct>
-              <Image src={product.images[0].image} />
-            </selectedProduct>
+            <Image src={product.images[0].image} />
           </Link>
         </Grid>
         <Grid
           container
+          item
           direction="column"
           justifyContent="space-between"
           alignItems="center"
-          xs={9}
+          md={9}
           p="20px"
         >
           <Grid
@@ -108,10 +86,13 @@ const CartProduct = ({ product }) => {
           >
             <Grid item container direction="row" wrap="nowrap">
               <TypographyGray component={"span"} mx={0.5}>
-                {product.sale === true ? `${product.price}.00` : ""}
+                ${product.sale === true ? `${product.price}.00` : ""}
+              </TypographyGray>{" "}
+              <TypographyGray component={"span"} mx={0.5}>
+                *1
               </TypographyGray>{" "}
               <TypographyPrime component={"span"} mx={0.5}>
-                {product.sale === true ? `${product.price}.00` : ""}
+                ${product.sale === true ? `${product.price}.00` : ""}
               </TypographyPrime>
             </Grid>
             <Grid

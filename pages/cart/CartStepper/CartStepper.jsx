@@ -13,7 +13,7 @@ import StepConnector, {
 } from "@mui/material/StepConnector";
 import FirstStep from "../FirstStep/FirstStep";
 const steps = [
-  { id: 0, title: "1.Cart", element: <FirstStep /> },
+  { id: 0, title: "1.Cart", element: <FirstStep/> },
   { id: 1, title: "2.Details", element: "2" },
   { id: 2, title: "3.Payment", element: "3" },
   { id: 3, title: "4.Review", element: "4" },
@@ -173,8 +173,8 @@ const CartStepper = () => {
           ))}
         </Stepper>
       </Grid>
-      <Grid item>
-        {steps.map((step) => (step.id === activeStep ? step.element : ""))}
+      <Grid container item xs={12}>
+        {steps.map((step) => (step.id === activeStep ? <Grid item key={step.id}>{step.element}</Grid> : ""))}
       </Grid>
     </Grid>
   );
