@@ -9,16 +9,15 @@ import theme from '../../theme/theme';
 import Image1 from '../../asset/featureBrand/london-britches.png';
 import Image2 from '../../asset/featureBrand/jim and jiko.png';
 import CartItem from './CartItem';
-const GridCustom = styled(Paper)({
+const PaperCustom = styled(Paper)({
     display:'flex',
     flexDirection:'row',
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: 'left',
+    justifyContent: 'left',
     padding: '20px',
     backgroundColor:'white',
     borderRadius: '10px',
     margin: 'auto',
-   
 })
 
 const FeatureBrand = () => {
@@ -30,13 +29,13 @@ const FeatureBrand = () => {
     return ( 
         <Grid container >
         <Title title={'Feature Brands'} icon={<StarPurple500Icon/>}/>
-        <GridCustom>
+        <PaperCustom>
            {FeatureBrand.map((item)=>(
                  <Grid key={item.id} item  >
-                     <CartItem image={item.image} title={item.title}  display={'none'}/>
+                     <CartItem image={item.image} title={item.title}  display={'none'} alignItem={'left'}/>
                 </Grid>
            ))}
-          </GridCustom>
+          </PaperCustom>
      </Grid>    
      );
 }
