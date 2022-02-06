@@ -1,14 +1,43 @@
 import * as React from "react";
-import AppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
-import Stack from "@mui/material/Stack";
-import LocalPhoneOutlinedIcon from '@mui/icons-material/LocalPhoneOutlined';
-import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
+import { AppBar, Toolbar, Typography, Box, Stack } from "@mui/material";
+import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
+import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
-import GroupButton from "./group-button-header";
+import Select from "./custom-select";
+
+const lan = [
+  {
+    title: "EN",
+    img: "https://bonik-react.vercel.app/assets/images/flags/usa.png",
+  },
+  {
+    title: "BN",
+    img: "https://bonik-react.vercel.app/assets/images/flags/bd.png",
+  },
+  {
+    title: "HN",
+    img: "	https://bonik-react.vercel.app/assets/images/flags/in.png",
+  },
+];
+const usd = [
+  {
+    title: "USD",
+    img: "https://bonik-react.vercel.app/assets/images/flags/usa.png",
+  },
+  {
+    title: "EUR",
+    img: "https://bonik-react.vercel.app/assets/images/flags/uk.png",
+  },
+  {
+    title: "BDT",
+    img: "https://bonik-react.vercel.app/assets/images/flags/bd.png",
+  },
+  {
+    title: "INR",
+    img: "https://bonik-react.vercel.app/assets/images/flags/in.png",
+  },
+];
 
 export default function Header() {
   const matches = useMediaQuery("(min-width:901px)");
@@ -28,7 +57,9 @@ export default function Header() {
       >
         {matches ? (
           <>
-            <LocalPhoneOutlinedIcon sx={{ marginRight: "8px", fontSize: "16px" }} />
+            <LocalPhoneOutlinedIcon
+              sx={{ marginRight: "8px", fontSize: "16px" }}
+            />
             <Typography
               variant="p"
               component="div"
@@ -49,30 +80,46 @@ export default function Header() {
           <>
             <Box
               component="img"
-              sx={{ width: "98px", height: "50px", borderRadius: '4px' }}
+              sx={{ width: "98px", height: "50px", borderRadius: "4px" }}
               src="https://bonik-vuetify.vercel.app/img/logo.6d0b86e2.svg"
             />
           </>
         )}
         <Stack direction="row" alignItems="center">
-          {matches && <>
-          <Typography
-            variant="p"
-            component="div"
-            sx={{ marginRight: "20px", fontSize: "12px" }}
-          >
-            Theme FAQ's
-          </Typography>
-          <Typography
-            variant="p"
-            component="div"
-            sx={{ marginRight: "20px", fontSize: "12px" }}
-          >
-            Need Help?
-          </Typography>
-          </>}
-          <GroupButton title="EN" />
-          <GroupButton title="USD" />
+          {matches && (
+            <>
+              <Typography
+                variant="p"
+                component="div"
+                sx={{
+                  marginRight: "20px",
+                  fontSize: "12px",
+                  cursor: "pointer",
+                  "&:hover": {
+                    color: "red",
+                  },
+                }}
+              >
+                Theme FAQ's
+              </Typography>
+              <Typography
+                variant="p"
+                component="div"
+                sx={{
+                  marginRight: "20px",
+                  fontSize: "12px",
+                  cursor: "pointer",
+                  "&:hover": {
+                    color: "red",
+                  },
+                }}
+              >
+                Need Help?
+              </Typography>
+            </>
+          )}
+          <Select list={lan} index={2} color="white" top={0} />
+          <Select list={usd} index={0} color="white" top={0} />
         </Stack>
       </Toolbar>
     </AppBar>

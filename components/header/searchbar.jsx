@@ -4,7 +4,17 @@ import InputBase from "@mui/material/InputBase";
 import Divider from "@mui/material/Divider";
 import SearchIcon from "@mui/icons-material/Search";
 
-import GroupButton from "./group-button-appbar";
+import Select from "./custom-select";
+
+const lan = [
+  { title: "All Categories", img: "" },
+  { title: "Car", img: "" },
+  { title: "Clothes", img: "" },
+  { title: "Electronics", img: "" },
+  { title: "Laptop", img: "" },
+  { title: "Desctop", img: "" },
+  { title: "Camera", img: "" },
+];
 
 export default function Searchbar() {
   return (
@@ -28,7 +38,7 @@ export default function Searchbar() {
         inputProps={{ "aria-label": "Searching and hit enter" }}
       />
       <Divider sx={{ height: "40px" }} orientation="vertical" />
-      <GroupButton title="All Categories" />
+      <Select list={lan} index={6} color="gray" top={1}/>
     </Paper>
   );
 }

@@ -1,8 +1,6 @@
 import * as React from "react";
 import { Stack } from "@mui/material";
-import "@reach/menu-button/styles.css";
-import "@reach/combobox/styles.css";
-import DropDownn from "./custom-drop";
+import CustomDrop from "./custom-drop";
 
 const home = [
   { name: "Super Store", sub: [] },
@@ -31,12 +29,12 @@ const vendor = [
 export default function Menu() {
   return (
     <Stack direction="row">
-      <DropDownn title="Home" arr={home} />
-      <DropDownn title="Pages" arr={page} />
-      <DropDownn title="User Account" arr={user} />
-      <DropDownn title="Vendor Account" arr={vendor} />
-      <DropDownn title="Track My Orders" arr={[]} />
-      <DropDownn title="Back to Demos" arr={[]} />
+      <CustomDrop title="Home" arr={home} />
+      <CustomDrop title="Pages" arr={page} />
+      <CustomDrop title="User Account" arr={user} />
+      <CustomDrop title="Vendor Account" arr={vendor} />
+      <CustomDrop title="Track My Orders" arr={[]} />
+      <CustomDrop title="Back to Demos" arr={[]} />
     </Stack>
   );
 }
