@@ -2,11 +2,11 @@ import {Grid} from "@mui/material";
 import {ProductData} from "../../../data/Productdata";
 import ProductCard from "../../../components/productCard/productCard";
 
-const SearchCards = () => {
+const SearchCards = ({category}) => {
     return(
-        <Grid item lg={9}>
+        <Grid item xs={12} lg={9}>
             <Grid container spacing={3}>
-                {ProductData.slice(0, 9).map(product => (
+                {ProductData.filter(p => p.category === category).map(product => (
                     <Grid item xs={12} sm={6} md={4} lg={4} key={product.id}>
                         <ProductCard product={product}/>
                     </Grid>
