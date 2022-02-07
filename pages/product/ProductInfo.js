@@ -1,49 +1,9 @@
-import {Button, Grid, IconButton, Rating, Typography} from "@mui/material";
+import {Grid,Rating} from "@mui/material";
 import HorizontalRuleIcon from "@mui/icons-material/HorizontalRule";
 import AddIcon from "@mui/icons-material/Add";
-import {styled} from "@mui/material/styles";
-import Theme from "../../theme/theme";
+import {TypographyPrime,TypographyMain,TypographyGray,RedButton,PMButton} from "../../style/style";
 
 const ProductInfo = ({product}) =>{
-    const RedButton = styled(Button)({
-        backgroundColor: Theme.palette.primary.main,
-        color: Theme.palette.primary.light,
-        fontWeight: 'bold',
-        fontSize: '14px',
-        textTransform: 'none',
-        '&:hover': {
-            backgroundColor: Theme.palette.primary.main,
-            color: Theme.palette.primary.light
-        },
-        ":disabled": {
-            backgroundColor: '#DAE1E7',
-            color: Theme.palette.secondary.light
-        }
-    })
-    const PMButton = styled(IconButton)({
-        backgroundColor: Theme.palette.primary.light,
-        color: Theme.palette.primary.main,
-        fontWeight: 'bold',
-        fontSize: '14px',
-        padding: '7px',
-        textTransform: 'none',
-        border: '1px solid #E94560',
-        boxShadow: 'none',
-        borderRadius: '5px',
-        '&:hover': {
-            backgroundColor: Theme.palette.primary.main,
-            color: Theme.palette.primary.light,
-        }
-    })
-    const TypographyMain = styled(Typography)({
-        color: Theme.palette.secondary.dark
-    })
-    const TypographyGray = styled(Typography)({
-        color: Theme.palette.secondary.light
-    })
-    const TypographyPrime = styled(Typography)({
-        color: Theme.palette.primary.main
-    })
     return(
         <Grid item xs={12} sm={12} md={6}>
             <TypographyMain mb={2} fontWeight={'bold'} fontSize={'30px'}>

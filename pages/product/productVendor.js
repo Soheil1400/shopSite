@@ -1,7 +1,6 @@
-import {Avatar, Grid, Paper, Typography} from "@mui/material";
+import {Avatar,Grid} from "@mui/material";
 import {useState} from "react";
-import {styled} from "@mui/material/styles";
-import Theme from "../../theme/theme";
+import {TypographyMain,PaperCustom} from "../../style/style";
 
 const ProductVendor = () =>{
     const [vendors, setVendors] = useState([
@@ -21,17 +20,6 @@ const ProductVendor = () =>{
             title: 'Gadget 360'
         }
     ])
-    const PaperCustom = styled(Paper)({
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: '18px',
-        borderRadius: '10px',
-        margin: 'auto',
-        boxShadow: ' rgb(3 0 71 / 9%) 0px 1px 3px',
-    })
-    const TypographyMain = styled(Typography)({
-        color: Theme.palette.secondary.dark
-    })
     return(
         <Grid item xs={12} my={2}>
             <TypographyMain mb={3} fontWeight={'bold'} fontSize={'20px'}>

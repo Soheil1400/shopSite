@@ -1,8 +1,9 @@
-import {Grid, Paper, Typography ,Chip} from "@mui/material";
+import {Grid,Paper,Chip} from "@mui/material";
 import {styled} from "@mui/material/styles";
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import {useEffect, useState} from "react";
 import Theme from "../../../theme/theme";
+import {TypographyMain} from "../../../style/style";
 
 const Order = ({process ,price ,time ,id ,matches})=> {
     const [color , setColor] = useState({BK:'#fff',C:'#fff'})
@@ -31,9 +32,6 @@ const Order = ({process ,price ,time ,id ,matches})=> {
     })
     const ArrowFIcon = styled(ArrowForwardIcon)({
         color:Theme.palette.secondary.light,
-    })
-    const TypographyMain = styled(Typography)({
-        color: Theme.palette.secondary.dark
     })
     useEffect(()=>{
         if (process === 'Pending' || process === 'Processing'){

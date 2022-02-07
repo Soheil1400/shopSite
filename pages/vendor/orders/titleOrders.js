@@ -1,12 +1,8 @@
-import {Grid, Typography} from "@mui/material";
-import {styled} from "@mui/material/styles";
+import {Grid} from "@mui/material";
 import {useState} from "react";
-import Theme from "../../../theme/theme";
+import {TypographyGray} from "../../../style/style";
 
 const TitleOrders = ({matches}) => {
-    const TypographyGray = styled(Typography)({
-        color: Theme.palette.secondary.light
-    })
     const [OTitle , setOTitle] = useState(['Order #','Status','Date purchased','Total'])
     return(
         <Grid container display={matches === true ? 'flex' : 'none'} p={2}>
