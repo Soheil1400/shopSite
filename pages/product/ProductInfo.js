@@ -41,11 +41,11 @@ const ProductInfo = ({product}) =>{
             </Grid>
             <Grid display={'none'}>
                 <Grid display={'flex'} alignItems={'center'} mb={4}>
-                    <PMButton variant="contained"><HorizontalRuleIcon/></PMButton>
+                    <PMButton sx={{padding:'7px'}} variant="contained"><HorizontalRuleIcon/></PMButton>
                     <TypographyMain component={'span'} m={2.5} fontSize={'20px'}>
                         02
                     </TypographyMain>
-                    <PMButton variant="contained"><AddIcon/></PMButton>
+                    <PMButton sx={{padding:'7px'}} variant="contained"><AddIcon/></PMButton>
                 </Grid>
             </Grid>
             <Grid mb={2}>

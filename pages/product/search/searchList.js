@@ -1,23 +1,14 @@
-import {Collapse, Grid, List, ListItemButton, ListItemText, ListSubheader} from "@mui/material";
+import {Collapse,Grid,List,ListItemText} from "@mui/material";
 import {useState} from "react";
-import {styled} from "@mui/material/styles";
-import Theme from "../../../theme/theme";
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import {ListTitle,ListButton} from "../../../style/style";
 
 const SearchList = () => {
     const [open, setOpen] = useState(true);
     const handleClick = () => {
         setOpen(!open);
     };
-    const ListButton = styled(ListItemButton)({
-        padding: '2px 16px',
-        color:Theme.palette.secondary.light
-    })
-    const ListTitle = styled(ListSubheader)({
-        color:Theme.palette.secondary.main,
-        fontSize:'16px'
-    })
     return (
         <Grid>
             <List

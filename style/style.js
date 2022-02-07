@@ -1,5 +1,16 @@
 import {styled} from "@mui/material/styles";
-import {Box, Button, Chip, IconButton, MenuItem, Paper, Tab, TextareaAutosize, Typography} from "@mui/material";
+import {
+    Box,
+    Button,
+    Chip,
+    IconButton,
+    ListItemButton, ListSubheader,
+    MenuItem,
+    Paper,
+    Tab,
+    TextareaAutosize,
+    Typography
+} from "@mui/material";
 import Theme from "../theme/theme";
 
 export const BoxCustom = styled(Box)({
@@ -19,6 +30,19 @@ export const PaperCustom = styled(Paper)({
     borderRadius: '10px',
     margin: 'auto',
     boxShadow: ' rgb(3 0 71 / 9%) 0px 1px 3px',
+})
+
+export const PaperCustomH = styled(Paper)({
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: '18px',
+    borderRadius: '10px',
+    margin: 'auto',
+    boxShadow: ' rgb(3 0 71 / 9%) 0px 1px 3px',
+    cursor: 'pointer',
+    '&:hover': {
+        boxShadow: 'rgb(3 0 71 / 9%) 0px 8px 45px'
+    }
 })
 
 export const RedButton = styled(Button)({
@@ -58,7 +82,6 @@ export const PMButton = styled(IconButton)({
     color: Theme.palette.primary.main,
     fontWeight: 'bold',
     fontSize: '14px',
-    padding: '7px',
     textTransform: 'none',
     border: '1px solid #E94560',
     boxShadow: 'none',
@@ -119,4 +142,13 @@ export const MenuItemCustom = styled(MenuItem)({
         backgroundColor: Theme.palette.primary.light,
         borderLeft:`4px solid ${Theme.palette.primary.main}`,
     },
+})
+
+export const ListButton = styled(ListItemButton)({
+    padding: '2px 16px',
+    color:Theme.palette.secondary.light
+})
+export const ListTitle = styled(ListSubheader)({
+    color:Theme.palette.secondary.main,
+    fontSize:'16px'
 })

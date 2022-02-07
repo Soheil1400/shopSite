@@ -1,28 +1,12 @@
-import {Grid, MenuItem, Paper, TextField, Typography} from "@mui/material";
+import {Grid,MenuItem,TextField} from "@mui/material";
 import Theme from "../../../theme/theme";
 import GridViewIcon from "@mui/icons-material/GridView";
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
-import {styled} from "@mui/material/styles";
-import {ProductData} from "../../../data/Productdata";
+import {PaperCustom,TypographyGray,TypographyMain} from "../../../style/style";
 
-const SearchHead = ({matches,matchesHead,setMenu,category}) => {
+const SearchHead = ({matches,matchesHead,setMenu,categoryData}) => {
     const options = ['Relevance', 'Date', 'Price Low to High', 'Price High to Low'];
-    const TypographyGray = styled(Typography)({
-        color: Theme.palette.secondary.light
-    })
-    const TypographyMain = styled(Typography)({
-        color: Theme.palette.secondary.dark
-    })
-    const PaperCustom = styled(Paper)({
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: '18px',
-        borderRadius: '10px',
-        margin: 'auto',
-        boxShadow: ' rgb(3 0 71 / 9%) 0px 1px 3px',
-        cursor: 'pointer',
-    })
     return(
         <Grid item xs={12}>
             <PaperCustom>
@@ -32,7 +16,7 @@ const SearchHead = ({matches,matchesHead,setMenu,category}) => {
                             Searching for “ mobile phone ”
                         </TypographyMain>
                         <TypographyGray>
-                            {ProductData.filter(p => p.category === category).length} results found
+                            {categoryData.length} results found
                         </TypographyGray>
                     </Grid>
                     <Grid display={'flex'} flexDirection={matchesHead === true ? 'row' : 'column'} alignItems={matches === true ? 'center' : ''}>

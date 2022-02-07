@@ -14,7 +14,7 @@ const ProductImage = ({product,px=8 ,md=0} ) =>{
                         <Grid display={'flex'} justifyContent={'center'} container spacing={2} mb={2}>
                             {product.images.map(img => (
                                 <Grid item key={img.id}>
-                                    <PaperCustom sx={{width: '70px'}}>
+                                    <PaperCustom sx={{width: '70px',padding:'0'}}>
                                         <Image src={img.image} alt={`${product.name}`}/>
                                     </PaperCustom>
                                 </Grid>

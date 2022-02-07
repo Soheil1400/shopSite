@@ -1,23 +1,11 @@
-import {Avatar, Divider, Grid, Paper, TextField, Typography} from "@mui/material";
+import {Avatar, Divider, Grid,TextField} from "@mui/material";
 import SearchList from "./searchList";
 import Theme from "../../../theme/theme";
 import MinimizeIcon from "@mui/icons-material/Minimize";
 import SearchInput from "./searchInput";
-import {styled} from "@mui/material/styles";
+import {PaperCustom,TypographyMain} from "../../../style/style";
 
 const SearchFilter = ({check1, check2, check3, matches}) => {
-    const PaperCustom = styled(Paper)({
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: '18px',
-        borderRadius: '10px',
-        margin: 'auto',
-        boxShadow: ' rgb(3 0 71 / 9%) 0px 1px 3px',
-        cursor: 'pointer',
-    })
-    const TypographyMain = styled(Typography)({
-        color: Theme.palette.secondary.dark
-    })
     return (
         <PaperCustom>
             <SearchList/>

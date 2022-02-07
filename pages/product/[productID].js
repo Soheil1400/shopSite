@@ -1,5 +1,4 @@
 import {Grid} from "@mui/material";
-import {useEffect, useState} from "react";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import {ProductData} from "../../data/Productdata";
 import ProductImage from "./productImage";
@@ -8,40 +7,10 @@ import ProductTabs from "./productTabs";
 import ProductSuggest from "./productSuggest";
 import ProductVendor from "./productVendor";
 import ProductRelatedProduct from "./productRalatedProduct";
-import {useRouter} from "next/router";
-import HeadPhone from '../../asset/headphone.png'
 import {BoxCustom} from "../../style/style";
 
-const ProductID = () => {
-    const router = useRouter()
-    const [product, setProduct] = useState({
-        id: 1,
-        name: '',
-        brand: '',
-        price: 999,
-        vendor: '',
-        rate: 1,
-        description: '',
-        images: [
-            {
-                id: 1,
-                image: HeadPhone
-            },
-        ],
-        reviews: [
-            {
-                id: 1,
-                review: '',
-                rate: 4.7,
-                name: '',
-                time: ''
-            }
-        ]
-    })
+const ProductID = ({product}) => {
     const matches = useMediaQuery('(min-width:400px)');
-    useEffect(() => {
-        setProduct(ProductData[router.query.productID-1] || product)
-    })
     return (
         <BoxCustom>
             <Grid container>
@@ -54,5 +23,23 @@ const ProductID = () => {
             </Grid>
         </BoxCustom>
     )
+}
+export async function getStaticPaths() {
+    return {
+        paths: [
+            { params: {productID: '1'} }
+        ],
+        fallback: 'blocking'
+    };
+}
+export async function getStaticProps({params}) {
+    const id = params.productID
+    const product = ProductData.filter(p => p.id === Number(id))[0]
+    return {
+        props: {
+            product,
+            id
+        },
+    }
 }
 export default ProductID

@@ -1,5 +1,5 @@
 import {styled} from "@mui/material/styles";
-import {Chip, Dialog, Grid, IconButton, Paper, Typography, Rating} from "@mui/material";
+import {Chip,Dialog,Grid,Rating} from "@mui/material";
 import Theme from "../../theme/theme";
 import Image from "next/image";
 import AddIcon from "@mui/icons-material/Add";
@@ -9,6 +9,7 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import {forwardRef, useState} from "react";
 import ProductCardPopUp from "../productCardPopUp/productCardPopUp";
 import Link from 'next/link'
+import {TypographyGray,TypographyPrime,TypographyMain,PaperCustomH,PMButton} from "../../style/style";
 
 const ProductCard = ({product}) => {
     const [open, setOpen] = useState(false);
@@ -26,18 +27,6 @@ const ProductCard = ({product}) => {
     const handleClose = () => {
         setOpen(false);
     };
-    const PaperCustom = styled(Paper)({
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: '18px',
-        borderRadius: '10px',
-        margin: 'auto',
-        boxShadow: ' rgb(3 0 71 / 9%) 0px 1px 3px',
-        cursor: 'pointer',
-        '&:hover': {
-            boxShadow: 'rgb(3 0 71 / 9%) 0px 8px 45px'
-        }
-    })
     const ChipCustom = styled(Chip)({
         backgroundColor: Theme.palette.primary.main,
         color: Theme.palette.primary.light,
@@ -45,36 +34,13 @@ const ProductCard = ({product}) => {
         borderRadius: '300px',
         fontSize: '12px',
     })
-    const TypographyMain = styled(Typography)({
-        color: Theme.palette.secondary.dark
-    })
-    const TypographyGray = styled(Typography)({
-        color: Theme.palette.secondary.light
-    })
-    const TypographyPrime = styled(Typography)({
-        color: Theme.palette.primary.main
-    })
-    const PMButton = styled(IconButton)({
-        backgroundColor: Theme.palette.primary.light,
-        color: Theme.palette.primary.main,
-        fontWeight: 'bold',
-        padding: '2px',
-        textTransform: 'none',
-        border: '1px solid #E94560',
-        boxShadow: 'none',
-        borderRadius: '5px',
-        '&:hover': {
-            backgroundColor: Theme.palette.primary.main,
-            color: Theme.palette.primary.light,
-        }
-    })
     const GridSpaceBetween = styled(Grid)({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between'
     })
     return (
-        <PaperCustom>
+        <PaperCustomH>
             <Grid onMouseEnter={() => setShow('flex')} onMouseLeave={() => setShow('none')} position={'relative'}>
                 <Grid>
                     {product.sale === true ? <ChipCustom label={`${product.MSale}% off`}/> :
@@ -98,7 +64,7 @@ const ProductCard = ({product}) => {
                     <TypographyMain>
                         {product.name}
                     </TypographyMain>
-                    <PMButton>
+                    <PMButton sx={{padding:'2px'}}>
                         <HorizontalRuleIcon/>
                     </PMButton>
                 </GridSpaceBetween>
@@ -117,12 +83,12 @@ const ProductCard = ({product}) => {
                             {product.sale === true ? `${product.price}.00` : ''}
                         </TypographyGray>
                     </Grid>
-                    <PMButton>
+                    <PMButton sx={{padding:'2px'}}>
                         <AddIcon/>
                     </PMButton>
                 </GridSpaceBetween>
             </Grid>
-        </PaperCustom>
+        </PaperCustomH>
     )
 }
 
