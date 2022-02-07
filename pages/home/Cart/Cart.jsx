@@ -8,11 +8,7 @@ import CartButton from "./CartButton/CartButton";
 import CartSelectedProductsList from "./CartSelectedProductList/CartSelectedProductsList";
 import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
 
-const Cart = () => {
-  const [state, setState] = useState({
-    right: false,
-  });
-
+const Cart = ({state ,setState}) => {
   const toggleDrawer = (anchor, open) => (event) => {
     if (
       event.type === "keydown" &&
@@ -37,19 +33,16 @@ const Cart = () => {
   });
 
   return (
-    <Stack sx={380}>
-      <Button onClick={toggleDrawer("right", true)}>
-        <ShoppingBagOutlinedIcon
-          style={{ fontSize: "28", color: "rgb(43, 52, 69)" }}
-        />
-      </Button>
+    <Stack>
       <Drawer
+
         anchor={"right"}
         open={state["right"]}
         onClose={toggleDrawer("right", false)}
       >
         <DrowerContainer>
           <Stack
+              width={380}
             role="presentation"
             onClick={toggleDrawer("right", false)}
             onKeyDown={toggleDrawer("right", false)}

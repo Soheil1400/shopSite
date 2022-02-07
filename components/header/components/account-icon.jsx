@@ -4,32 +4,39 @@ import Stack from "@mui/material/Stack";
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
 import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
 import Badge from "@mui/material/Badge";
-import { styled } from "@mui/material/styles";
+import {styled} from "@mui/material/styles";
+import Cart from '../../../pages/home/Cart/Cart'
+import {useMemo, useState} from "react";
+import {useSelector} from "react-redux";
 
-const StyledBadge = styled(Badge)(({ theme }) => ({
-  "& .MuiBadge-badge": {
-    right: 3,
-    top: 3,
-    border: `2px solid ${theme.palette.background.paper}`,
-    padding: "0 4px",
-  },
+const StyledBadge = styled(Badge)(({theme}) => ({
+    "& .MuiBadge-badge": {
+        right: 3,
+        top: 3,
+        border: `2px solid ${theme.palette.background.paper}`,
+        padding: "0 4px",
+    },
 }));
 
 export default function AccountIcon() {
-  return (
-    <Stack direction="row" spacing={2.5}>
-      <IconButton aria-label="add an alarm" sx={{ backgroundColor: "#e6ecf6" }}>
-        <PersonOutlineOutlinedIcon />
-      </IconButton>
-
-      <StyledBadge badgeContent={0} color="error" overlap="circular" showZero>
-        <IconButton
-          aria-label="add to shopping cart"
-          sx={{ backgroundColor: "#e6ecf6" }}
-        >
-          <ShoppingBagOutlinedIcon/>
-        </IconButton>
-      </StyledBadge>
-    </Stack>
-  );
+    const [state, setState] = useState({right: false,});
+    const total = useSelector(state => state.cart.items)
+    const total1 = useMemo(()=>   total.reduce((price, item) => {price = price + (item.price * item.count); return price},0 ), [total])
+    return (
+        <Stack direction="row" spacing={2.5}>
+            <IconButton aria-label="add an alarm" sx={{backgroundColor: "#e6ecf6"}}>
+                <PersonOutlineOutlinedIcon/>
+            </IconButton>
+            <StyledBadge badgeContent={total1} color="error" overlap="circular" showZero>
+                <IconButton
+                    onClick={() => setState({right: true})}
+                    aria-label="add to shopping cart"
+                    sx={{backgroundColor: "#e6ecf6"}}
+                >
+                    <ShoppingBagOutlinedIcon/>
+                </IconButton>
+            </StyledBadge>
+            <Cart state={state} setState={setState}/>
+        </Stack>
+    );
 }
