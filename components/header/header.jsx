@@ -132,8 +132,12 @@ export default function Header() {
                 </Typography>
               </>
             )}
-            <Select list={lan} index={2} color="white" top={0} />
-            <Select list={usd} index={0} color="white" top={0} />
+            <Box>
+              <Select list={lan} index={2} color="white" top={0} />
+            </Box>
+            <Box>
+              <Select list={usd} index={0} color="white" top={0} />
+            </Box>
           </Stack>
         </Toolbar>
       </AppBar>
