@@ -37,8 +37,7 @@ export async function getStaticProps({params}) {
     const product = ProductData.filter(p => p.id === Number(id))[0]
     return {
         props: {
-            product,
-            id
+            product
         },
     }
 }
