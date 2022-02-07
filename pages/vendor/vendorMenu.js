@@ -1,4 +1,4 @@
-import {Grid, ListItemText, MenuItem, MenuList, Paper, Typography} from "@mui/material";
+import {Grid, ListItemText, MenuList, Paper, Typography} from "@mui/material";
 import TableChartOutlinedIcon from "@mui/icons-material/TableChartOutlined";
 import Inventory2OutlinedIcon from "@mui/icons-material/Inventory2Outlined";
 import FileUploadOutlinedIcon from "@mui/icons-material/FileUploadOutlined";
@@ -7,6 +7,7 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import {styled} from "@mui/material/styles";
 import Link from 'next/link'
 import Theme from "../../theme/theme";
+import {MenuItemCustom} from "../../style/style";
 
 const VendorMenu = ({matchesMenu ,router}) => {
     const PaperCustom = styled(Paper)({
@@ -17,18 +18,6 @@ const VendorMenu = ({matchesMenu ,router}) => {
         borderRadius: '10px',
         margin: '0.5rem 0',
         boxShadow: ' rgb(3 0 71 / 9%) 0px 1px 3px',
-    })
-    const MenuItemCustom = styled(MenuItem)({
-        margin:'1.8rem 0',
-        color: Theme.palette.secondary.dark,
-        backgroundColor: Theme.palette.primary.light,
-        borderLeft:`4px solid ${Theme.palette.primary.light}`,
-        height:'20px',
-        '&:hover': {
-            color: Theme.palette.primary.main,
-            backgroundColor: Theme.palette.primary.light,
-            borderLeft:`4px solid ${Theme.palette.primary.main}`,
-        },
     })
     return(
         <Grid item lg={3} pr={2} display={matchesMenu === true ? 'inline-block' : 'none'}>

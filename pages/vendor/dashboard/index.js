@@ -1,5 +1,4 @@
-import {Box, Grid, Paper, Typography} from "@mui/material";
-import {styled} from "@mui/material/styles";
+import {Grid} from "@mui/material";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Chart from './chart'
 import VendorMenu from "../vendorMenu";
@@ -10,21 +9,13 @@ import VendorTitle from "../vendorTitle";
 import {useState} from "react";
 import {useRouter} from "next/router";
 import {useSelector} from "react-redux";
+import {BoxCustom} from "../../../style/style";
 
 const Dashboard = () => {
     const items = useSelector(state => state.cart.items)
     const [menu, setMenu] = useState(false)
     const router = useRouter()
     const matchesMenu = useMediaQuery('(min-width:1025px)');
-    const BoxCustom = styled(Box)({
-        display: 'flex',
-        flexDirection: 'column',
-        padding: '12px',
-        alignItems: 'center',
-        justifyContent: 'center',
-        maxWidth: '1200px',
-        margin: 'auto'
-    })
     return (
         <>
             <BoxCustom>

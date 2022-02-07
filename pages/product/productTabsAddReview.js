@@ -1,39 +1,7 @@
-import {Button, Grid, Rating, TextareaAutosize, Typography} from "@mui/material";
-import Theme from "../../theme/theme";
-import {styled} from "@mui/material/styles";
+import {Grid,Rating} from "@mui/material";
+import {TypographyMain,TypographyPrime,RedButton,CustomTextAria} from "../../style/style";
 
 const ProductTabsAddReview = () =>{
-    const CustomTextAria = styled(TextareaAutosize)({
-        borderRadius: '5px',
-        width: '100%',
-        minHeight: '160px',
-        border: '1px solid rgb(218, 225, 231)',
-        outline: 'none',
-        overflow: 'auto',
-        padding: '4px 12px',
-        color: Theme.palette.secondary.dark
-    })
-    const RedButton = styled(Button)({
-        backgroundColor: Theme.palette.primary.main,
-        color: Theme.palette.primary.light,
-        fontWeight: 'bold',
-        fontSize: '14px',
-        textTransform: 'none',
-        '&:hover': {
-            backgroundColor: Theme.palette.primary.main,
-            color: Theme.palette.primary.light
-        },
-        ":disabled": {
-            backgroundColor: '#DAE1E7',
-            color: Theme.palette.secondary.light
-        }
-    })
-    const TypographyMain = styled(Typography)({
-        color: Theme.palette.secondary.dark
-    })
-    const TypographyPrime = styled(Typography)({
-        color: Theme.palette.primary.main
-    })
     return(
         <>
             <Grid>

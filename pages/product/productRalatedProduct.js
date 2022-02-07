@@ -1,13 +1,9 @@
-import {Grid, Typography} from "@mui/material";
-import {styled} from "@mui/material/styles";
-import Theme from "../../theme/theme";
+import {Grid} from "@mui/material";
 import ProductCard from "../../components/productCard/productCard";
 import {ProductData} from "../../data/Productdata";
+import {TypographyMain} from "../../style/style";
 
 const ProductRelatedProduct = ({category}) =>{
-    const TypographyMain = styled(Typography)({
-        color: Theme.palette.secondary.dark
-    })
     return(
         <Grid item xs={12} my={2}>
             <TypographyMain mb={3} fontWeight={'bold'} fontSize={'20px'}>

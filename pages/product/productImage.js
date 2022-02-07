@@ -1,19 +1,8 @@
-import {Box, Grid, Paper} from "@mui/material";
-import {styled} from "@mui/material/styles";
+import {Box, Grid} from "@mui/material";
 import Image from "next/image";
-import Theme from "../../theme/theme";
+import {PaperCustom} from "../../style/style";
 
 const ProductImage = ({product,px=8 ,md=0} ) =>{
-    const PaperCustom = styled(Paper)({
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: '1px',
-        borderRadius: '10px',
-        margin: 'auto',
-        boxShadow: ' rgb(3 0 71 / 9%) 0px 1px 3px',
-        border: `1px solid ${Theme.palette.primary.main}`,
-        cursor:'pointer'
-    })
     return(
         <Grid item xs={12} sm={12} md={6}>
             <Grid container px={1}>
@@ -25,7 +14,7 @@ const ProductImage = ({product,px=8 ,md=0} ) =>{
                         <Grid display={'flex'} justifyContent={'center'} container spacing={2} mb={2}>
                             {product.images.map(img => (
                                 <Grid item key={img.id}>
-                                    <PaperCustom sx={{width: '70px'}}>
+                                    <PaperCustom sx={{width: '70px',padding:'0'}}>
                                         <Image src={img.image} alt={`${product.name}`}/>
                                     </PaperCustom>
                                 </Grid>

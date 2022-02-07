@@ -1,17 +1,7 @@
 import {Avatar, Grid, Rating, Typography} from "@mui/material";
-import Theme from "../../theme/theme";
-import {styled} from "@mui/material/styles";
+import {TypographyMain,TypographyGray} from "../../style/style";
 
 const ProductTabsReviews = ({product}) => {
-    const TypographyMain = styled(Typography)({
-        color: Theme.palette.secondary.dark
-    })
-    const TypographyGray = styled(Typography)({
-        color: Theme.palette.secondary.light
-    })
-    const TypographyPrime = styled(Typography)({
-        color: Theme.palette.primary.main
-    })
     return (
         <>
             {product.reviews.map(rev => (

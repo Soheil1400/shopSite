@@ -11,9 +11,9 @@ import {
     Legend,
 } from 'chart.js';
 import {useState} from "react";
-import {Box, Grid, Paper} from "@mui/material";
+import {Box,Grid} from "@mui/material";
 import Theme from "../../../theme/theme";
-import {styled} from "@mui/material/styles";
+import {PaperCustom} from "../../../style/style";
 
 ChartJS.register(
     CategoryScale,
@@ -57,15 +57,6 @@ const Chart = () => {
             },
         ],
     });
-    const PaperCustom = styled(Paper)({
-        width: '100%',
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: '18px 18px',
-        borderRadius: '10px',
-        margin: '0.5rem 0',
-        boxShadow: ' rgb(3 0 71 / 9%) 0px 1px 3px'
-    })
     return (
         <Grid item xs={12} lg={8} p={1}>
             <PaperCustom>

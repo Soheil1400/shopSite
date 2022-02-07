@@ -1,28 +1,14 @@
-import {Box, Grid, ListItemText, MenuItem, MenuList, SwipeableDrawer, Typography} from "@mui/material";
+import {Box,Grid,ListItemText,MenuList,SwipeableDrawer,Typography} from "@mui/material";
 import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import HeadsetMicOutlinedIcon from "@mui/icons-material/HeadsetMicOutlined";
 import PermIdentityOutlinedIcon from "@mui/icons-material/PermIdentityOutlined";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import PaymentOutlinedIcon from "@mui/icons-material/PaymentOutlined";
-import {styled} from "@mui/material/styles";
 import Theme from "../../theme/theme";
+import {TypographyGray,MenuItemCustom} from "../../style/style";
 
 const VendorDrawer = ({menu,setMenu,router}) =>{
-    const MenuItemCustom = styled(MenuItem)({
-        margin:'0.4rem 0',
-        color: Theme.palette.secondary.dark,
-        backgroundColor: Theme.palette.primary.light,
-        borderLeft:`4px solid ${Theme.palette.primary.light}`,
-        '&:hover': {
-            color: Theme.palette.primary.main,
-            backgroundColor: Theme.palette.primary.light,
-            borderLeft:`4px solid ${Theme.palette.primary.main}`,
-        },
-    })
-    const TypographyGray = styled(Typography)({
-        color: Theme.palette.secondary.light
-    })
     return(
         <SwipeableDrawer anchor="left" open={menu} onClose={()=>setMenu(false)} onOpen={()=>setMenu(true)}>
             <Box pr={2} role="presentation" width={'280px'} onClick={()=>setMenu(false)} onKeyDown={()=>setMenu(false)}>
