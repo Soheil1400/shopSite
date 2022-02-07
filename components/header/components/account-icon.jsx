@@ -15,19 +15,19 @@ const StyledBadge = styled(Badge)(({theme}) => ({
         top: 3,
         border: `2px solid ${theme.palette.background.paper}`,
         padding: "0 4px",
-    },
+    }
 }));
 
 export default function AccountIcon() {
     const [state, setState] = useState({right: false,});
     const total = useSelector(state => state.cart.items)
-    const total1 = useMemo(()=>   total.reduce((price, item) => {price = price + (item.price * item.count); return price},0 ), [total])
+    const totalItems = useMemo(()=>   total.reduce((count , item)=>{count = count + item.count ; return count},0), [total])
     return (
         <Stack direction="row" spacing={2.5}>
             <IconButton aria-label="add an alarm" sx={{backgroundColor: "#e6ecf6"}}>
                 <PersonOutlineOutlinedIcon/>
             </IconButton>
-            <StyledBadge badgeContent={total1} color="error" overlap="circular" showZero>
+            <StyledBadge badgeContent={totalItems} color="error" overlap="circular" showZero>
                 <IconButton
                     onClick={() => setState({right: true})}
                     aria-label="add to shopping cart"

@@ -10,8 +10,12 @@ import {forwardRef, useState} from "react";
 import ProductCardPopUp from "../productCardPopUp/productCardPopUp";
 import Link from 'next/link'
 import {TypographyGray,TypographyPrime,TypographyMain,PaperCustomH,PMButton} from "../../style/style";
+import {useDispatch, useSelector} from "react-redux";
+import {addToCart, decreaseItem} from "../../redux/reducer/cart.reducer";
 
 const ProductCard = ({product}) => {
+    const items = useSelector((state) => state.cart.items)
+    const dispatch = useDispatch()
     const [open, setOpen] = useState(false);
     const [show, setShow] = useState("none");
     const SelectedProduct = forwardRef(({onClick, href}, ref) => {
@@ -64,14 +68,14 @@ const ProductCard = ({product}) => {
                     <TypographyMain>
                         {product.name}
                     </TypographyMain>
-                    <PMButton sx={{padding:'2px'}}>
+                    <PMButton sx={{padding:'2px',display:items.filter(i => i.id === product.id).length === 0 ? 'none' : 'flex'}}  onClick={()=>dispatch(decreaseItem(product))}>
                         <HorizontalRuleIcon/>
                     </PMButton>
                 </GridSpaceBetween>
                 <GridSpaceBetween my={0.5}>
                     <Rating pl={2} size={'small'} value={product.rate} readOnly/>
                     <TypographyMain pr={1}>
-                        1
+                        {items.filter(i => i.id === product.id).length === 0 ? '' : items.filter(i => i.id === product.id)[0].count}
                     </TypographyMain>
                 </GridSpaceBetween>
                 <GridSpaceBetween>
@@ -83,7 +87,7 @@ const ProductCard = ({product}) => {
                             {product.sale === true ? `${product.price}.00` : ''}
                         </TypographyGray>
                     </Grid>
-                    <PMButton sx={{padding:'2px'}}>
+                    <PMButton sx={{padding:'2px'}} onClick={()=>dispatch(addToCart(product))}>
                         <AddIcon/>
                     </PMButton>
                 </GridSpaceBetween>

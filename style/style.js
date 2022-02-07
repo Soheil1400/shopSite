@@ -1,16 +1,5 @@
 import {styled} from "@mui/material/styles";
-import {
-    Box,
-    Button,
-    Chip,
-    IconButton,
-    ListItemButton, ListSubheader,
-    MenuItem,
-    Paper,
-    Tab,
-    TextareaAutosize,
-    Typography
-} from "@mui/material";
+import {Box, Button, IconButton, ListItemButton, ListSubheader, MenuItem, Paper, Tab, TextareaAutosize, Typography} from "@mui/material";
 import Theme from "../theme/theme";
 
 export const BoxCustom = styled(Box)({
