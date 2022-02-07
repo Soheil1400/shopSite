@@ -13,11 +13,12 @@ import StepConnector, {
 } from "@mui/material/StepConnector";
 import FirstStep from "../FirstStep/FirstStep";
 import SecondStep from "../SecondStep/SecondStep";
+import Orders from "../../vendor/orders";
 const steps = [
   { id: 0, title: "1.Cart", element: <FirstStep/> },
   { id: 1, title: "2.Details", element: <SecondStep/>},
-  { id: 2, title: "3.Payment", element: "3" },
-  { id: 3, title: "4.Review", element: "4" },
+  { id: 2, title: "3.Payment", element: <SecondStep/> },
+  { id: 3, title: "4.Review", element:<SecondStep/>},
 ];
 function ColorlibStepIcon(props) {
   const { active, completed, className } = props;
