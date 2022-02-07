@@ -2,7 +2,6 @@ import { styled } from "@mui/material/styles";
 import { useState } from "react";
 import {
   Grid,
-  IconButton,
   Paper,
   Typography,
   Divider,
@@ -11,29 +10,25 @@ import {
   Button,
 } from "@mui/material";
 import MenuItem from "@mui/material/MenuItem";
-import FormHelperText from "@mui/material/FormHelperText";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Theme from "../../../../theme/theme";
 
-const AddressBox = ({ product }) => {
-  const [age, setAge] = useState("");
+const AddressBox = () => {
+  const [country, setCountry] = useState("");
   const [state, setState] = useState("");
   const handleChange = (event) => {
-    setAge(event.target.value);
+    setCountry(event.target.value);
     setState(event.target.value);
   };
   const PaperCustom = styled(Paper)({
+    width: "100%",
     alignItems: "center",
     justifyContent: "center",
-    padding: "24px 28px",
+    padding: "1.5rem 1.75rem;",
     borderRadius: "10px",
-    margin: "auto",
+    margin: "0.5rem 0",
     boxShadow: " rgb(3 0 71 / 9%) 0px 1px 3px",
-    cursor: "pointer",
-    "&:hover": {
-      boxShadow: "rgb(3 0 71 / 9%) 0px 8px 45px",
-    },
   });
   const TypographyMain = styled(Typography)({
     color: Theme.palette.secondary.dark,
@@ -79,17 +74,16 @@ const AddressBox = ({ product }) => {
       color: "rgb(255, 255, 255)",
     },
   });
-
+  const CustomGridRow = styled(Grid)({
+    direction:"row",
+    justifyContent:"space-between",
+    alignItems:"center",
+  });
   return (
     <PaperCustom>
-      <Grid
+      <CustomGridRow
         item
         container
-        direction="row"
-        justifyContent="space-between"
-        alignItems="center"
-        xs={12}
-        lg={3.99}
       >
         <TypographyGray fontSize="14px">Total:</TypographyGray>
         <TypographyMain
@@ -97,21 +91,18 @@ const AddressBox = ({ product }) => {
         >
           $750.0000
         </TypographyMain>
-      </Grid>
+      </CustomGridRow>
       <Divider sx={{ margin: "8px 0" }} />
-      <Grid
+      <CustomGridRow
         item
         container
-        direction="row"
-        justifyContent="space-between"
-        alignItems="flex-start"
         my="16px"
       >
         <TypographyMain fontSize="14px" fontWeight="600">
           Additional Comments
         </TypographyMain>
         <CustomChip label="Note" />
-      </Grid>
+      </CustomGridRow>
       <TextField
         id="outlined-multiline-static"
         multiline
@@ -123,12 +114,9 @@ const AddressBox = ({ product }) => {
       <TextField placeholder="Voucher" fullWidth sx={{ margin: "8px 0" }} />
       <ViewCardButton fullWidth>Apply Voucher</ViewCardButton>
       <Divider sx={{ margin: "8px 0" }} />
-      <Grid
+      <CustomGridRow
         item
         container
-        direction="row"
-        justifyContent="space-between"
-        alignItems="center"
       >
         <TypographyMain
           fontSize="14px"
@@ -137,31 +125,33 @@ const AddressBox = ({ product }) => {
         >
           Shipping Estimates
         </TypographyMain>
-      </Grid>
+      </CustomGridRow>
       <FormControl fullWidth sx={{ margin: "8px 0" }}>
         <TypographyGray>Country</TypographyGray>
         <Select
           defaultValue="Select Country"
-          value={age}
+          value={country}
           onChange={handleChange}
           displayEmpty
         >
           <MenuItem value="">
             <em>Select Country</em>
           </MenuItem>
-          <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem>
+          <MenuItem value={10}>New York</MenuItem>
+          <MenuItem value={20}>Chigaco</MenuItem>
         </Select>
       </FormControl>
       <FormControl fullWidth sx={{ margin: "8px 0" }}>
         <TypographyGray>State</TypographyGray>
         <Select
-          placeholder="Select State"
           defaultValue="Select State"
           value={state}
           onChange={handleChange}
+          displayEmpty
         >
+          <MenuItem value="">
+            <em>Select State</em>
+          </MenuItem>
           <MenuItem value={10}>New York</MenuItem>
           <MenuItem value={20}>Chigaco</MenuItem>
         </Select>

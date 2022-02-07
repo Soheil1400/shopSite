@@ -5,14 +5,14 @@ import { Grid, IconButton, Paper, Typography, TextField } from "@mui/material";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Theme from "../../../../theme/theme";
-const shipingForm = [
+const billingForm = [
   { id: 1, title: "Full Name" },
   { id: 2, title: "Email Address" },
   { id: 3, title: "Phone Number" },
   { id: 4, title: "Company" },
   { id: 5, title: "Zip Code" },
 ];
-const ShipingAddress = () => {
+const ShippingAddress = () => {
     const [age, setAge] = useState("");
     const [state, setState] = useState("");
     const handleChange = (event) => {
@@ -34,34 +34,25 @@ const ShipingAddress = () => {
   const TypographyGray = styled(Typography)({
     color: Theme.palette.secondary.light,
   });
-  const TypographyPrime = styled(Typography)({
-    color: Theme.palette.primary.main,
+  const CustomGridRow = styled(Grid)({
+    direction: "row",
+    wrap: "nowrap",
   });
-  const PMButton = styled(IconButton)({
-    backgroundColor: Theme.palette.primary.light,
-    color: Theme.palette.primary.main,
-    fontWeight: "bold",
-    padding: "2px",
-    textTransform: "none",
-    border: "1px solid #E94560",
-    boxShadow: "none",
-    borderRadius: "5px",
-    "&:hover": {
-      backgroundColor: Theme.palette.primary.main,
-      color: Theme.palette.primary.light,
-    },
+  const CustomGridColumn = styled(Grid)({
+    direction: "column",
+    justifyContent: "space-between",
+    alignItems: "center",
+    wrap: "nowrap",
   });
   return (
     <PaperCustom sx={{ padding: "1.5rem 1.75rem" }}>
         <TypographyMain fontWeight="600">Shipping Address</TypographyMain>
-      <Grid
+      <CustomGridRow
         container
-        direction="row"
-        flexWrap="wrap"
         alignItems="flex-start"
         spacing={1}
       >
-        {shipingForm.map((form) => (
+        {billingForm.map((form) => (
           <Grid item xs={6} fullWidth key={form.id}>
             <TypographyMain fontSize="0.875rem">{form.title}</TypographyMain>
             <TextField
@@ -97,9 +88,8 @@ const ShipingAddress = () => {
           <TypographyMain fontSize="0.875rem">Address 2</TypographyMain>
           <TextField placeholder="Voucher" fullWidth sx={{ margin: "8px 0" }} />
         </Grid>
-      </Grid>
+      </CustomGridRow>
     </PaperCustom>
   );
 };
-
-export default ShipingAddress;
+export default ShippingAddress;

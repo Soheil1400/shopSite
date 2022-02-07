@@ -119,7 +119,7 @@ const ColorlibStepIconRoot = styled(Box)(({ ownerState }) => ({
 const CartStepper = () => {
   const [activeStep, setActiveStep] = useState(0);
   const [completed, setCompleted] = useState({});
-  const ML = useMediaQuery("(min-width:600px)");
+  const MLT = useMediaQuery("(min-width:616px)");
 
   const totalSteps = () => {
     return steps.length;
@@ -165,7 +165,7 @@ const CartStepper = () => {
   return (
     <Grid container>
       <Grid item container mb="12px"justifyContent="center">
-        <Stepper activeStep={activeStep} connector={<ColorlibConnector sx={{width:ML===true ?"50px":"5px"}}/>}>
+        <Stepper activeStep={activeStep} connector={<ColorlibConnector sx={{width:MLT ===true  ?"50px":"5px"}}/>}>
           {steps.map((step) => (
             <Step
               key={step.id}
