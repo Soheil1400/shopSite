@@ -1,33 +1,54 @@
 import * as React from "react";
-import AppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
-import Button from "@mui/material/Button";
-import GridViewRoundedIcon from '@mui/icons-material/GridViewRounded';
+import { AppBar, Toolbar, Box, Button } from "@mui/material";
+import GridViewRoundedIcon from "@mui/icons-material/GridViewRounded";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import Menu from "./components/menu";
 
 export default function Appbar() {
-
   return (
-    <AppBar
-      position="static"
-      sx={{ backgroundColor: "#fff", height: "60px", boxShadow: " rgb(43 52 69 / 10%) 0px 15px 20px -15px" }}
+    <Box
+      sx={{
+        display: "flex",
+        justifyContent: "center",
+        backgroundColor: "#fff",
+        boxShadow: " rgb(43 52 69 / 10%) 0px 15px 20px -15px",
+      }}
     >
-      <Toolbar
+      <AppBar
+        position="static"
         sx={{
-          "@media all": {
-            minHeight: "60px",
-          },
-          justifyContent: 'space-between'
+          backgroundColor: "#fff",
+          height: "60px",
+          boxShadow: "none",
+          maxWidth: "1248px"
         }}
       >
-        <Button sx={{ color: "black", backgroundColor: "#e6ecf6", fontSize: '14px' }}>
-          <GridViewRoundedIcon sx={{ fontSize: "18px", marginRight: '8px' }} />
-          Categories
-          <KeyboardArrowDownIcon sx={{ fontSize: "18px", marginLeft: '8px' }} />
-        </Button>
-        <Menu/>
-      </Toolbar>
-    </AppBar>
+        <Toolbar
+          sx={{
+            "@media all": {
+              minHeight: "60px",
+            },
+            justifyContent: "space-between",
+          }}
+        >
+          <Button
+            sx={{
+              color: "black",
+              backgroundColor: "#e6ecf6",
+              fontSize: "14px",
+            }}
+          >
+            <GridViewRoundedIcon
+              sx={{ fontSize: "18px", marginRight: "8px" }}
+            />
+            Categories
+            <KeyboardArrowDownIcon
+              sx={{ fontSize: "18px", marginLeft: "8px" }}
+            />
+          </Button>
+          <Menu />
+        </Toolbar>
+      </AppBar>
+    </Box>
   );
 }

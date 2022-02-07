@@ -43,85 +43,100 @@ export default function Header() {
   const matches = useMediaQuery("(min-width:901px)");
 
   return (
-    <AppBar
-      position="static"
-      sx={{ backgroundColor: "#0f3460", height: "40px" }}
+    <Box
+      sx={{
+        display: "flex",
+        justifyContent: "center",
+        backgroundColor: "#0f3460",
+      }}
     >
-      <Toolbar
+      <AppBar
+        position="static"
         sx={{
-          "@media all": {
-            minHeight: "40px",
-          },
-          justifyContent: "space-between",
+          backgroundColor: "#0f3460",
+          height: "40px",
+          maxWidth: "1248px",
+          boxShadow: "none",
         }}
       >
-        {matches ? (
-          <>
-            <LocalPhoneOutlinedIcon
-              sx={{ marginRight: "8px", fontSize: "16px" }}
-            />
-            <Typography
-              variant="p"
-              component="div"
-              sx={{ marginRight: "20px", fontSize: "12px" }}
-            >
-              +88012 3456 7894
-            </Typography>
-            <EmailOutlinedIcon sx={{ marginRight: "8px", fontSize: "16px" }} />
-            <Typography
-              variant="p"
-              component="div"
-              sx={{ flexGrow: 1, fontSize: "12px" }}
-            >
-              +9012 3456 7
-            </Typography>
-          </>
-        ) : (
-          <>
-            <Box
-              component="img"
-              sx={{ width: "98px", height: "50px", borderRadius: "4px" }}
-              src="https://bonik-vuetify.vercel.app/img/logo.6d0b86e2.svg"
-            />
-          </>
-        )}
-        <Stack direction="row" alignItems="center">
-          {matches && (
+        <Toolbar
+          sx={{
+            "@media all": {
+              minHeight: "40px",
+            },
+            justifyContent: "space-between",
+          }}
+        >
+          {matches ? (
             <>
+              <LocalPhoneOutlinedIcon
+                sx={{ marginRight: "8px", fontSize: "16px" }}
+              />
               <Typography
                 variant="p"
                 component="div"
-                sx={{
-                  marginRight: "20px",
-                  fontSize: "12px",
-                  cursor: "pointer",
-                  "&:hover": {
-                    color: "red",
-                  },
-                }}
+                sx={{ marginRight: "20px", fontSize: "12px" }}
               >
-                Theme FAQ's
+                +88012 3456 7894
               </Typography>
+              <EmailOutlinedIcon
+                sx={{ marginRight: "8px", fontSize: "16px" }}
+              />
               <Typography
                 variant="p"
                 component="div"
-                sx={{
-                  marginRight: "20px",
-                  fontSize: "12px",
-                  cursor: "pointer",
-                  "&:hover": {
-                    color: "red",
-                  },
-                }}
+                sx={{ flexGrow: 1, fontSize: "12px" }}
               >
-                Need Help?
+                +9012 3456 7
               </Typography>
             </>
+          ) : (
+            <>
+              <Box
+                component="img"
+                sx={{ width: "98px", height: "50px", borderRadius: "4px" }}
+                src="https://bonik-vuetify.vercel.app/img/logo.6d0b86e2.svg"
+              />
+            </>
           )}
-          <Select list={lan} index={2} color="white" top={0} />
-          <Select list={usd} index={0} color="white" top={0} />
-        </Stack>
-      </Toolbar>
-    </AppBar>
+          <Stack direction="row" alignItems="center">
+            {matches && (
+              <>
+                <Typography
+                  variant="p"
+                  component="div"
+                  sx={{
+                    marginRight: "20px",
+                    fontSize: "12px",
+                    cursor: "pointer",
+                    "&:hover": {
+                      color: "red",
+                    },
+                  }}
+                >
+                  Theme FAQ's
+                </Typography>
+                <Typography
+                  variant="p"
+                  component="div"
+                  sx={{
+                    marginRight: "20px",
+                    fontSize: "12px",
+                    cursor: "pointer",
+                    "&:hover": {
+                      color: "red",
+                    },
+                  }}
+                >
+                  Need Help?
+                </Typography>
+              </>
+            )}
+            <Select list={lan} index={2} color="white" top={0} />
+            <Select list={usd} index={0} color="white" top={0} />
+          </Stack>
+        </Toolbar>
+      </AppBar>
+    </Box>
   );
 }

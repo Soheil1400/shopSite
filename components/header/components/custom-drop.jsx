@@ -60,7 +60,7 @@ export default function CustomDrop({ title, arr }) {
                       display: "none",
                       position: "absolute",
                       borderRadius: '5px',
-                      top: `calc(37px * ${index})`,
+                      top: `calc(32px * ${index})`,
                       left: "201px",
                       width: "200px",
                     }}
