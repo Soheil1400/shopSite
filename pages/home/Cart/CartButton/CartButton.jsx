@@ -17,7 +17,7 @@ const CartButton = () => {
     fontWeight: "600",
     transition: " all 150ms ease-in-out 0s",
   });
-  const CheckOutButton = styled(CartButton)({
+  const PrimaryBtn = styled(CartButton)({
     border: "none",
     background: "rgb(233, 69, 96)",
     color: "rgb(255, 255, 255)",
@@ -26,7 +26,7 @@ const CartButton = () => {
       boxShadow: "none",
     },
   });
-  const ViewCardButton = styled(CartButton)({
+  const SecondaryBtn = styled(CartButton)({
     border: "1px solid rgb(233, 69, 96)",
     background: "transparent",
     color: " rgb(233, 69, 96)",
@@ -36,22 +36,26 @@ const CartButton = () => {
       color: "rgb(255, 255, 255)",
     },
   });
+  const ButtonBox = styled(Grid)({
+    flexDirection: "column",
+    width: "100%",
+  });
   return (
-    <Grid display={items.length === 0 ? "none" : "flex"} direction="column" >
+    <ButtonBox display={items.length === 0 ? "none" : "flex"}>
       <Link href={`/cart`}>
-        <CheckOutButton>
+        <SecondaryBtn>
           CheckOut Now $(
           {items.reduce((price, item) => {
-            price = price + (item.count * item.price);
+            price = price + item.count * item.price;
             return price;
           }, 0)}
           )
-        </CheckOutButton>
+        </SecondaryBtn>
       </Link>
       <Link href={`/cart`}>
-        <ViewCardButton>View Cart</ViewCardButton>
+        <PrimaryBtn>View Cart</PrimaryBtn>
       </Link>
-    </Grid>
+    </ButtonBox>
   );
 };
 export default CartButton;
