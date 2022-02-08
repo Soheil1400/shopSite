@@ -64,7 +64,7 @@ const ProductCard = ({product}) => {
                         </SelectedProduct>
                     </Link>
                 </GridSpaceBetween>
-                <GridSpaceBetween>
+                <GridSpaceBetween sx={{height:'25px'}}>
                     <TypographyMain>
                         {product.name}
                     </TypographyMain>
@@ -72,7 +72,7 @@ const ProductCard = ({product}) => {
                         <HorizontalRuleIcon/>
                     </PMButton>
                 </GridSpaceBetween>
-                <GridSpaceBetween my={0.5}>
+                <GridSpaceBetween my={0.5} sx={{height:'20px'}}>
                     <Rating pl={2} size={'small'} value={product.rate} readOnly/>
                     <TypographyMain pr={1}>
                         {items.filter(i => i.id === product.id).length === 0 ? '' : items.filter(i => i.id === product.id)[0].count}

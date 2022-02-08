@@ -7,6 +7,20 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 
 const FooterLogoStore = () => {
     const matchesAppStore = useMediaQuery('(min-width:650px)');
+    const store = [
+        {
+            id:1,
+            title1:'Get it on',
+            title2:'Google Play',
+            logo:<Image src={GooglePlay} alt={'play-store'}/>
+        },
+        {
+            id:2,
+            title1:'Download on it',
+            title2:'App Store',
+            logo:<Image src={AppStore} alt={'app-store'}/>
+        },
+    ]
     const CustomBoxApp = styled(Box)({
         width: matchesAppStore === true ? '38%' : '60%',
         display: 'flex',
@@ -21,40 +35,25 @@ const FooterLogoStore = () => {
     })
     return(
         <Box display={'flex'} sx={{flexDirection: matchesAppStore === true ? 'row' : 'column'}}>
-            <CustomBoxApp>
-                <Grid>
-                    <Image src={GooglePlay} alt={'play-store'}/>
-                </Grid>
-                <Grid lineHeight={0}>
+            {store.map(s => (
+                <CustomBoxApp key={s.id}>
                     <Grid>
-                        <Typography fontSize={'8px'}>
-                            Get it on
-                        </Typography>
+                        {s.logo}
                     </Grid>
-                    <Grid>
-                        <Typography fontWeight={'bold'}>
-                            Google Play
-                        </Typography>
+                    <Grid lineHeight={0}>
+                        <Grid>
+                            <Typography fontSize={'8px'}>
+                                {s.title1}
+                            </Typography>
+                        </Grid>
+                        <Grid>
+                            <Typography fontWeight={'bold'}>
+                                {s.title2}
+                            </Typography>
+                        </Grid>
                     </Grid>
-                </Grid>
-            </CustomBoxApp>
-            <CustomBoxApp>
-                <Grid>
-                    <Image src={AppStore} alt={'play-store'}/>
-                </Grid>
-                <Grid lineHeight={0}>
-                    <Grid>
-                        <Typography fontSize={'8px'}>
-                            Download on it
-                        </Typography>
-                    </Grid>
-                    <Grid>
-                        <Typography fontWeight={'bold'}>
-                            App Store
-                        </Typography>
-                    </Grid>
-                </Grid>
-            </CustomBoxApp>
+                </CustomBoxApp>
+            ))}
         </Box>
     )
 }

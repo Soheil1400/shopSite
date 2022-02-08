@@ -1,19 +1,19 @@
 import {Grid, Typography} from "@mui/material";
 import {styled} from "@mui/material/styles";
-import {list} from "../../data/footerList";
+import Theme from "../../theme/theme";
 
-const FooterAboutCustomer = () =>{
+const FooterList = ({list}) => {
     const CustomTypography = styled(Typography)({
         color: '#A4B4BE',
         cursor: 'pointer',
         '&:hover': {
-            color: "#fff",
+            color: Theme.palette.primary.light,
         }
     })
     return(
         <>
             {list.map(t => (
-                <Grid item xs={12} sm={6} lg={2.7} mb={2} key={t.id}>
+                <Grid key={t.id} display={'flex'} flexDirection={'column'}>
                     <Grid mb={2}>
                         <Typography fontWeight={'bold'} variant={'h5'}>
                             {t.title}
@@ -30,4 +30,4 @@ const FooterAboutCustomer = () =>{
     )
 }
 
-export default FooterAboutCustomer
+export default FooterList

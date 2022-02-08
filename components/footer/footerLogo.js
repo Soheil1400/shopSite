@@ -9,7 +9,7 @@ const FooterLogo = () => {
         color: '#A4B4BE'
     })
     return (
-        <Grid item xs={12} sm={6} lg={4} mb={2} pr={1}>
+        <Grid item xs={12} sm={6} lg={4} mb={2} pr={2}>
             <Grid>
                 <Image src={Logo} alt="logo"/>
             </Grid>

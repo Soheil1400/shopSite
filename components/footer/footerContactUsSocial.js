@@ -1,10 +1,6 @@
 import {Box, Grid} from "@mui/material";
-import FacebookOutlinedIcon from "@mui/icons-material/FacebookOutlined";
-import TelegramIcon from "@mui/icons-material/Telegram";
-import YouTubeIcon from "@mui/icons-material/YouTube";
-import GoogleIcon from "@mui/icons-material/Google";
-import InstagramIcon from "@mui/icons-material/Instagram";
 import {styled} from "@mui/material/styles";
+import {footerListContactUsSocial} from "../../data/footerList";
 
 const FooterContactUsSocial = () =>{
     const CustomBoxIcon = styled(Box)({
@@ -16,22 +12,12 @@ const FooterContactUsSocial = () =>{
         cursor:'pointer'
     })
     return(
-        <Grid>
-            <CustomBoxIcon>
-                <FacebookOutlinedIcon fontSize={'small'}/>
-            </CustomBoxIcon>
-            <CustomBoxIcon>
-                <TelegramIcon fontSize={'small'}/>
-            </CustomBoxIcon>
-            <CustomBoxIcon>
-                <YouTubeIcon fontSize={'small'}/>
-            </CustomBoxIcon>
-            <CustomBoxIcon>
-                <GoogleIcon fontSize={'small'}/>
-            </CustomBoxIcon>
-            <CustomBoxIcon>
-                <InstagramIcon fontSize={'small'}/>
-            </CustomBoxIcon>
+        <Grid mt={2}>
+            {footerListContactUsSocial.map(s => (
+                <CustomBoxIcon key={s.id}>
+                    {s.icon}
+                </CustomBoxIcon>
+            ))}
         </Grid>
     )
 }
