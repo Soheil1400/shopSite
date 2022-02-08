@@ -25,9 +25,7 @@ const settings = {
         {
             breakpoint: 600,
             settings: {
-                slidesToShow: 2,
-                slidesToScroll: 2,
-                initialSlide: 2
+                slidesToShow: 1,
             }
         }
     ]
@@ -35,20 +33,18 @@ const settings = {
 
 export const FlashDeal = () => {
     return (
-
             <Box sx={{
                 maxWidth: "1200px",
+                width:"100%"
             }}>
                 <Title title={"Flash Deals"} icon={<BoltIcon/>}/>
                 <Slider {...settings}>
                         {ProductData.map(product => (
-                            <ProductCard product={product} key={product.id}/>
+                            <Grid key={product.id} sx={{padding:"16px"}}>
+                                <ProductCard product={product} />
+                            </Grid>
                         ))}
                 </Slider>
-
            </Box>
-
-
-
     );
 }
