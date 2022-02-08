@@ -2,6 +2,7 @@ import * as React from "react";
 import Paper from "@mui/material/Paper";
 import InputBase from "@mui/material/InputBase";
 import Divider from "@mui/material/Divider";
+import Box from "@mui/material/Box";
 import SearchIcon from "@mui/icons-material/Search";
 
 import Select from "./custom-select";
@@ -38,7 +39,10 @@ export default function Searchbar() {
         inputProps={{ "aria-label": "Searching and hit enter" }}
       />
       <Divider sx={{ height: "40px" }} orientation="vertical" />
-      <Select list={lan} index={6} color="gray" top={1}/>
+      <Box>
+        <Select list={lan} index={6} color="gray" top={1}/>
+      </Box>
+      
     </Paper>
   );
 }

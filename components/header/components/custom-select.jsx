@@ -43,7 +43,7 @@ export default function NativeSelectDemo({ list, index, color, top }) {
         <Paper
           sx={{
             position: "absolute",
-            right: `calc(25px + 50px * ${index})`,
+            // right: `calc(25px + 50px * ${index})`,
             top: `calc(40px + 30px * ${top})`,
             zIndex: "100",
             width: "150px",

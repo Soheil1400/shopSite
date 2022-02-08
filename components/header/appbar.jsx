@@ -1,7 +1,5 @@
 import * as React from "react";
-import AppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
-import Box from "@mui/material/Box";
+import { AppBar, Toolbar, Box } from "@mui/material";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
 import AccountIcon from "./components/account-icon";
@@ -12,9 +10,21 @@ export default function Appbar() {
   const matches = useMediaQuery("(min-width:901px)");
 
   return (
+    <Box
+      sx={{
+        display: "flex",
+        justifyContent: "center",
+        backgroundColor: "#fff",
+      }}
+    >
     <AppBar
       position="static"
-      sx={{ backgroundColor: "#fff", height: "80px", boxShadow: "none" }}
+      sx={{
+        backgroundColor: "#fff",
+        height: "80px",
+        boxShadow: "none",
+        maxWidth: "1248px",
+      }}
     >
       <Toolbar
         sx={{
@@ -40,5 +50,6 @@ export default function Appbar() {
         )}
       </Toolbar>
     </AppBar>
+    </Box>
   );
 }
