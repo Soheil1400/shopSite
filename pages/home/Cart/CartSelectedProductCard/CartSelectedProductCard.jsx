@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   addToCart,
   decreaseItem,
+  removeItem,
 } from "../../../../redux/reducer/cart.reducer";
 
 const CartSelectedProductCard = ({ image, number, price, name, product }) => {
@@ -99,12 +100,11 @@ const CartSelectedProductCard = ({ image, number, price, name, product }) => {
             {price} * {number}
           </Typography>
           <Typography variant="subtitle1" color={"rgb(233, 69, 96)"}>
-            {" "}
-            {price}
+            {price*number}
           </Typography>
         </InformationBox>
         <ClearButton>
-          <ClearOutlinedIcon fontSize="small" />
+          <ClearOutlinedIcon fontSize="small" onClick={() => dispatch(removeItem(product))} />
         </ClearButton>
       </ProductCard>
       <Divider />
