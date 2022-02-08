@@ -14,25 +14,40 @@ const settings = {
     infinite: false,
     slidesToShow: 4,
     swipeToSlide: true,
+    initialSlide: 0,
+    responsive:[
+        {
+            breakpoint: 850,
+            settings: {
+                slidesToShow: 3,
+            }
+        },
+        {
+            breakpoint: 600,
+            settings: {
+                slidesToShow: 2,
+                slidesToScroll: 2,
+                initialSlide: 2
+            }
+        }
+    ]
 }
 
 export const FlashDeal = () => {
     return (
-        <Box sx={{
-            maxWidth: "1200px",
-        }}>
-            <Title title={"Flash Deals"} icon={<BoltIcon/>}/>
-            <Slider {...settings}>
 
-                {ProductData.map(product => (
-                    <Grid item xs={12} sm={12} md={4} lg={11} key={product.id}>
-                        <ProductCard product={product} key={product.id}/>
-                    </Grid>
-                ))}
+            <Box sx={{
+                maxWidth: "1200px",
+            }}>
+                <Title title={"Flash Deals"} icon={<BoltIcon/>}/>
+                <Slider {...settings}>
+                        {ProductData.map(product => (
+                            <ProductCard product={product} key={product.id}/>
+                        ))}
+                </Slider>
 
-            </Slider>
+           </Box>
 
-        </Box>
 
 
     );
