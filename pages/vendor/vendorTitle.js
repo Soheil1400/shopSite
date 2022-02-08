@@ -13,17 +13,19 @@ const VendorTitle = ({matchesMenu , setMenu , router}) =>{
         margin:'1rem 0'
     })
     return(
-        <GridCustomHead container>
-            <Grid display={'flex'} alignItems={'center'} justifyContent={'center'}>
-                <ShoppingBagIcon fontSize={'medium'} sx={{color: Theme.palette.primary.main ,marginRight:'0.5rem'}}/>
-                <TypographyMain fontWeight={'bolder'} variant={"h5"}>
-                    {router.asPath === '/vendor/dashboard' ? <>Dashboard</> : <>Orders</>}
-                </TypographyMain>
-            </Grid>
-            <Grid display={matchesMenu === true ? 'none' : 'flex'}>
-                <MenuIcon onClick={()=>setMenu(true)}/>
-            </Grid>
-        </GridCustomHead>
+        <Grid item xs={12} lg={9}>
+            <GridCustomHead>
+                <Grid display={'flex'} alignItems={'center'} justifyContent={'center'}>
+                    <ShoppingBagIcon sx={{color: Theme.palette.primary.main ,marginRight:'0.7rem',fontSize:'25px'}}/>
+                    <TypographyMain fontWeight={700} fontSize={'24px'}>
+                        {router.asPath === '/vendor/dashboard' ? <>Dashboard</> : <>Orders</>}
+                    </TypographyMain>
+                </Grid>
+                <Grid display={matchesMenu === true ? 'none' : 'flex'}>
+                    <MenuIcon sx={{fontSize:'25px'}} onClick={()=>setMenu(true)}/>
+                </Grid>
+            </GridCustomHead>
+        </Grid>
     )
 }
 

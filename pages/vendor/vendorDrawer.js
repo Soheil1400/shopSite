@@ -1,88 +1,39 @@
 import {Box,Grid,ListItemText,MenuList,SwipeableDrawer,Typography} from "@mui/material";
-import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
-import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
-import HeadsetMicOutlinedIcon from "@mui/icons-material/HeadsetMicOutlined";
-import PermIdentityOutlinedIcon from "@mui/icons-material/PermIdentityOutlined";
-import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
-import PaymentOutlinedIcon from "@mui/icons-material/PaymentOutlined";
 import Theme from "../../theme/theme";
 import {TypographyGray,MenuItemCustom} from "../../style/style";
+import {drawerMenu} from "../../data/drawerMenu";
 
 const VendorDrawer = ({menu,setMenu,router}) =>{
     return(
         <SwipeableDrawer anchor="left" open={menu} onClose={()=>setMenu(false)} onOpen={()=>setMenu(true)}>
-            <Box pr={2} role="presentation" width={'280px'} onClick={()=>setMenu(false)} onKeyDown={()=>setMenu(false)}>
+            <Box pt={2} pr={2} role="presentation" width={'280px'} onClick={()=>setMenu(false)} onKeyDown={()=>setMenu(false)}>
                 <MenuList dense mb={3}>
-                    <MenuItemCustom>
-                        <ListItemText>
-                            <TypographyGray fontSize={'12px'}>
-                                DASHBOARD
-                            </TypographyGray>
-                        </ListItemText>
-                    </MenuItemCustom>
-                    <MenuItemCustom sx={{color: router.asPath === '/vendor/orders' ? Theme.palette.primary.main : '',borderLeft: router.asPath === '/vendor/orders' ? `4px solid ${Theme.palette.primary.main}` : ''}}>
-                        <Grid mr={1} mt={0.6}>
-                            <ShoppingBagOutlinedIcon fontSize={'small'}/>
+                    {drawerMenu.map(d => (
+                        <Grid key={d.id} mb={4}>
+                            <MenuItemCustom>
+                                <ListItemText>
+                                    <TypographyGray pl={1} fontSize={'12px'}>
+                                        {d.title}
+                                    </TypographyGray>
+                                </ListItemText>
+                            </MenuItemCustom>
+                            {d.items.map(i => (
+                                <MenuItemCustom sx={{margin:'5px 0',height:'5px',color: router.asPath === i.link ? Theme.palette.primary.main : '',borderLeft: router.asPath === i.link ? `4px solid ${Theme.palette.primary.main}` : ''}}>
+                                    <Grid pl={1} mr={1} mt={0.6}>
+                                        {i.icon}
+                                    </Grid>
+                                    <ListItemText sx={{fontSize:'30px'}}>
+                                        <Typography>
+                                            {i.title}
+                                        </Typography>
+                                    </ListItemText>
+                                    <Typography>
+                                        {i.number}
+                                    </Typography>
+                                </MenuItemCustom>
+                            ))}
                         </Grid>
-                        <ListItemText>Orders</ListItemText>
-                        <Typography>
-                            5
-                        </Typography>
-                    </MenuItemCustom>
-                    <MenuItemCustom>
-                        <Grid mr={1} mt={0.6}>
-                            <FavoriteBorderOutlinedIcon fontSize={'small'}/>
-                        </Grid>
-                        <ListItemText>Wishlist</ListItemText>
-                        <Typography>
-                            19
-                        </Typography>
-                    </MenuItemCustom>
-                    <MenuItemCustom>
-                        <Grid mr={1} mt={0.6}>
-                            <HeadsetMicOutlinedIcon fontSize={'small'}/>
-                        </Grid>
-                        <ListItemText>Support Tickets</ListItemText>
-                        <Typography>
-                            1
-                        </Typography>
-                    </MenuItemCustom>
-                </MenuList>
-                <MenuList dense>
-                    <MenuItemCustom>
-                        <ListItemText color={Theme.palette.secondary.light}>
-                            <TypographyGray sx={{fontSize:'12px'}}>
-                                ACCOUNT SETTINGS
-                            </TypographyGray>
-                        </ListItemText>
-                    </MenuItemCustom>
-                    <MenuItemCustom>
-                        <Grid mr={1} mt={0.6}>
-                            <PermIdentityOutlinedIcon fontSize={'small'}/>
-                        </Grid>
-                        <ListItemText>Profile Info</ListItemText>
-                        <Typography>
-                            3
-                        </Typography>
-                    </MenuItemCustom>
-                    <MenuItemCustom>
-                        <Grid mr={1} mt={0.6}>
-                            <LocationOnOutlinedIcon fontSize={'small'}/>
-                        </Grid>
-                        <ListItemText>Addresses</ListItemText>
-                        <Typography>
-                            16
-                        </Typography>
-                    </MenuItemCustom>
-                    <MenuItemCustom>
-                        <Grid mr={1} mt={0.6}>
-                            <PaymentOutlinedIcon fontSize={'small'}/>
-                        </Grid>
-                        <ListItemText>Payment Methods</ListItemText>
-                        <Typography>
-                            4
-                        </Typography>
-                    </MenuItemCustom>
+                    ))}
                 </MenuList>
             </Box>
         </SwipeableDrawer>

@@ -13,7 +13,7 @@ import {
 import {useState} from "react";
 import {Box,Grid} from "@mui/material";
 import Theme from "../../../theme/theme";
-import {PaperCustom} from "../../../style/style";
+import {PaperCustom, TypographyMain} from "../../../style/style";
 
 ChartJS.register(
     CategoryScale,
@@ -58,9 +58,11 @@ const Chart = () => {
         ],
     });
     return (
-        <Grid item xs={12} lg={8} p={1}>
+        <Grid item xs={12} lg={8}>
             <PaperCustom>
-                Sales
+                <TypographyMain fontSize={'16px'}>
+                    Sales
+                </TypographyMain>
                 <Box p={1}>
                     <Line data={data} options={options}/>
                 </Box>

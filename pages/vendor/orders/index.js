@@ -17,10 +17,9 @@ const Orders = () => {
     const [menu,setMenu] = useState(false)
     const router = useRouter()
     return (
-        <>
             <BoxCustom>
                 <VendorDrawer menu={menu} setMenu={setMenu} router={router}/>
-                <Grid container>
+                <Grid container spacing={3}>
                     <VendorMenu matchesMenu={matchesMenu} router={router}/>
                     <Grid item xs={12} lg={9}>
                         <VendorTitle matchesMenu={matchesMenu} setMenu={setMenu} router={router}/>
@@ -31,8 +30,6 @@ const Orders = () => {
                     </Grid>
                 </Grid>
             </BoxCustom>
-        </>
-
     )
 }
 

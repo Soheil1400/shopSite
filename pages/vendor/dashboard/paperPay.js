@@ -4,9 +4,9 @@ import {TypographyGray,PaperCustom} from "../../../style/style";
 
 const PaperPay = () =>{
     return(
-        <Grid container margin={'auto'}>
+        <>
             {paperPay.map(p => (
-                <Grid container key={p.title} item xs={12} sm={5.6} md={3.8} lg={3.78} m={1}>
+                <Grid key={p.title} item xs={12} sm={6} md={4} lg={4}>
                     <PaperCustom>
                         <Grid container textAlign={'center'}>
                             <Grid item xs={12}>
@@ -28,7 +28,7 @@ const PaperPay = () =>{
                     </PaperCustom>
                 </Grid>
             ))}
-        </Grid>
+        </>
     )
 }
 

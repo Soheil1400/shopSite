@@ -1,11 +1,10 @@
 import {Grid} from "@mui/material";
-import {useState} from "react";
 import {TypographyGray} from "../../../style/style";
 
 const TitleOrders = ({matches}) => {
-    const [OTitle , setOTitle] = useState(['Order #','Status','Date purchased','Total'])
+    const OTitle = (['Order #','Status','Date purchased','Total'])
     return(
-        <Grid container display={matches === true ? 'flex' : 'none'} p={2}>
+        <Grid container display={matches === true ? 'flex' : 'none'} px={2.2} py={0}>
             {OTitle.map(title => (
                 <Grid key={title} item sm={2.8}>
                     <TypographyGray fontSize={'15px'} fontWeight={'bolder'}>

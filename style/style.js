@@ -121,7 +121,6 @@ export const CustomBox = styled(Box)({
 })
 
 export const MenuItemCustom = styled(MenuItem)({
-    margin:'1.8rem 0',
     color: Theme.palette.secondary.dark,
     backgroundColor: Theme.palette.primary.light,
     borderLeft:`4px solid ${Theme.palette.primary.light}`,

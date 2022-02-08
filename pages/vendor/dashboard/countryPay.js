@@ -9,7 +9,7 @@ const CountryPay = () => {
         height: '26px',
     })
     return (
-        <Grid item xs={12} lg={4} p={1}>
+        <Grid item xs={12} lg={4}>
             <PaperCustom>
                 <Typography variant={'h6'} m={1}>
                     Top Countries
