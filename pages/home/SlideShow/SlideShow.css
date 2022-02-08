@@ -4,6 +4,8 @@
     justify-content: center;
     font-size:12px!important;
     align-items: center;
+    padding-top:1.5px ;
+    padding-left: 1px;
 }
 .slick-dots li button:before{
     width: 14px!important;
