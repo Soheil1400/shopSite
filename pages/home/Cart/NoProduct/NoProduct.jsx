@@ -1,22 +1,32 @@
 import styled from "@emotion/styled";
-import { useSelector } from "react-redux";
-import Link from "next/link";
 import Image from "next/image";
 
 import { Grid, Typography } from "@mui/material";
 
 import Theme from "../../../../theme/theme";
-import shoppingBag from "../../../../asset/general/shoppingBag.svg"
+import shoppingBag from "../../../../asset/general/shoppingBag.svg";
 
 const NoProduct = () => {
   const items = useSelector((state) => state.cart.items);
   const TypographyGray = styled(Typography)({
     color: Theme.palette.secondary.light,
+    textAlign: "center",
+    marginTop: "1rem",
+    maxWidth: "200px",
+  });
+  const CustomGrid = styled(Grid)({
+    flexDirection: "column",
+    justifyContent:"center",
+    alignItems:"center",
+    height:"100%"
   });
   return (
-    <Grid display={items.length === 0 ? "flex" : "none"}>
+    <CustomGrid display={items.length === 0 ? "flex" : "none"}>
       <Image src={shoppingBag} />
-    </Grid>
+      <TypographyGray>
+        Your shopping bag is empty. Start shopping
+      </TypographyGray>
+    </CustomGrid>
   );
 };
 export default NoProduct;

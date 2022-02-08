@@ -73,6 +73,15 @@ const CartSelectedProductCard = ({ image, number, price, name, product }) => {
       color: "rgb(125, 135, 156)",
     },
   });
+  const TypographyMain = styled(Typography)({
+    color: Theme.palette.secondary.dark,
+  });
+  const TypographyGray = styled(Typography)({
+    color: Theme.palette.secondary.light,
+  });
+  const TypographyPrime = styled(Typography)({
+    color: Theme.palette.primary.main,
+  });
   return (
     <>
       <ProductCard>
@@ -100,11 +109,14 @@ const CartSelectedProductCard = ({ image, number, price, name, product }) => {
             {price} * {number}
           </Typography>
           <Typography variant="subtitle1" color={"rgb(233, 69, 96)"}>
-            {price*number}
+            {price * number}
           </Typography>
         </InformationBox>
         <ClearButton>
-          <ClearOutlinedIcon fontSize="small" onClick={() => dispatch(removeItem(product))} />
+          <ClearOutlinedIcon
+            fontSize="small"
+            onClick={() => dispatch(removeItem(product))}
+          />
         </ClearButton>
       </ProductCard>
       <Divider />
