@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Box from '@mui/material/Box';
-import {Chip} from "@mui/material";
+import {Chip, useMediaQuery} from "@mui/material";
 import styled from "@emotion/styled";
 import Category1 from "../../../asset/category-1.png"
 import Category2 from "../../../asset/category-2.png"
@@ -59,9 +59,7 @@ const settings = {
 }
 const CartBox = styled(Box)(
     {
-        minWidth: "384px",
-        minHeight: "152px",
-        p: 2,
+        padding:"10px",
         borderRadius: "8px",
         backgroundColor: 'rgb(255, 255, 255)',
         boxShadow: 'rgb(3 0 71 / 9%) 0px 1px 3px',
@@ -70,6 +68,7 @@ const CartBox = styled(Box)(
         display: "flex!important",
         width: "auto!important",
         justifyContent: 'center',
+        position:"relative"
     }
 )
 const TitlesBox = styled(Box)(
@@ -79,14 +78,15 @@ const TitlesBox = styled(Box)(
         cursor: 'unset',
         padding: '4px 10px',
         position: 'absolute',
-        width: '340px',
+        width:"90%",
         top: '20%',
     }
 )
 export default function Category() {
+    const Query=useMediaQuery("min-width:321")
     return (
         <Box sx={{
-            maxWidth: "1200px",
+            maxWidth: "95%",
         }}>
             <Slider {...settings}>
                 {
@@ -95,7 +95,7 @@ export default function Category() {
                             <TitlesBox>
                                 <Chip
                                     size={"small"}
-                                    sx={{backgroundColor: 'rgb(15, 52, 96)', color: 'white', zIndex: "2"}}
+                                    sx={{backgroundColor:'rgb(15, 52, 96)', color: 'white', zIndex: "2"}}
                                     label={item.title1}/>
                                 <Chip
                                     size={"small"}
