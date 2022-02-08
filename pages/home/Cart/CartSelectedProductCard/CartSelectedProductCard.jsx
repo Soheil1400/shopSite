@@ -1,13 +1,13 @@
 import styled from "@emotion/styled";
+import Image from "next/image";
+import { useDispatch } from "react-redux";
 
-import Card from "@mui/material/Card";
-import { Stack, IconButton, Divider } from "@mui/material";
-import Typography from "@mui/material/Typography";
+import { Stack, IconButton, Divider, Card, Typography } from "@mui/material";
 import ClearOutlinedIcon from "@mui/icons-material/ClearOutlined";
 import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
 import RemoveOutlinedIcon from "@mui/icons-material/RemoveOutlined";
-import Image from "next/image";
-import { useDispatch, useSelector } from "react-redux";
+
+import Theme from "../../../../theme/theme";
 import {
   addToCart,
   decreaseItem,
@@ -35,13 +35,13 @@ const CartSelectedProductCard = ({ image, number, price, name, product }) => {
   const NumberButton = styled(IconButton)({
     padding: "5px",
     background: "transparent",
-    color: "rgb(233, 69, 96)",
+    color: Theme.palette.primary.main,
     border: "1px solid rgb(255, 225, 230)",
     borderRadius: "100%",
     "&:hover": {
-      backgroundColor: "rgb(233, 69, 96)",
+      backgroundColor: Theme.palette.primary.main,
       boxShadow: "none",
-      color: "rgb(255, 255, 255)",
+      color: Theme.palette.primary.light,
     },
   });
   const NumberButtonDisable = styled(IconButton)({
@@ -75,42 +75,52 @@ const CartSelectedProductCard = ({ image, number, price, name, product }) => {
   });
   const TypographyMain = styled(Typography)({
     color: Theme.palette.secondary.dark,
+    fontSize: "14px",
+    fontWeight: 600,
+    lineHeight: "1",
+    margin: "3px 0",
+  });
+  const TypographyCount = styled(Typography)({
+    color: Theme.palette.secondary.dark,
+    fontSize: "15px",
+    fontWeight: 600,
+    margin: "3px 0",
   });
   const TypographyGray = styled(Typography)({
     color: Theme.palette.secondary.light,
+    fontSize: "10px",
   });
   const TypographyPrime = styled(Typography)({
     color: Theme.palette.primary.main,
+    fontWeight: "600",
+    fontSize: "14px",
+    marginTop: "4px",
   });
   return (
     <>
       <ProductCard>
         <NumberBox>
           <NumberButton onClick={() => dispatch(addToCart(product))}>
-            <AddOutlinedIcon sx={{ fontSize: 20 }} />
+            <AddOutlinedIcon />
           </NumberButton>
-          <Typography variant="subtitle1">{number}</Typography>
+          <TypographyCount>{number}</TypographyCount>
           {number !== 1 ? (
             <NumberButton onClick={() => dispatch(decreaseItem(product))}>
-              <RemoveOutlinedIcon sx={{ fontSize: 20 }} />
+              <RemoveOutlinedIcon />
             </NumberButton>
           ) : (
             <NumberButtonDisable>
-              <RemoveOutlinedIcon sx={{ fontSize: 20 }} />
+              <RemoveOutlinedIcon />
             </NumberButtonDisable>
           )}
         </NumberBox>
         <Image src={image} width="100%" height="100%" m="16px 0" alt={name} />
         <InformationBox>
-          <Typography variant="subtitle1" color={" rgb(43, 52, 69)}"}>
-            {name}
-          </Typography>
-          <Typography variant="overline" color={"rgb(125, 135, 156)"}>
-            {price} * {number}
-          </Typography>
-          <Typography variant="subtitle1" color={"rgb(233, 69, 96)"}>
-            {price * number}
-          </Typography>
+          <TypographyMain>{name}</TypographyMain>
+          <TypographyGray>
+            ${price} &times; {number}
+          </TypographyGray>
+          <TypographyPrime>${price * number}</TypographyPrime>
         </InformationBox>
         <ClearButton>
           <ClearOutlinedIcon
