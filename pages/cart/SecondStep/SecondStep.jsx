@@ -12,12 +12,12 @@ const SecondStep = () => {
   });
   return (
     <CustomGridRow container>
-      <Grid item xs={12} lg={3.8}>
-        <Vocher />
-      </Grid>
       <Grid item xs={12} lg={7.8}>
         <ShippingAddress />
         <BillingAdress />
+      </Grid>
+      <Grid item xs={12} lg={3.8}>
+        <Vocher />
       </Grid>
     </CustomGridRow>
   );

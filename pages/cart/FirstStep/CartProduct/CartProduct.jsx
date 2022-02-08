@@ -15,7 +15,6 @@ const CartProduct = ({ product }) => {
     width: "100%",
     alignItems: "center",
     justifyContent: "center",
-    padding: "5px 0",
     borderRadius: "10px",
     margin: "0.5rem 0",
     boxShadow: " rgb(3 0 71 / 9%) 0px 1px 3px",
@@ -59,9 +58,9 @@ const CartProduct = ({ product }) => {
   return (
     <PaperCustom>
       <CustomGridRow container  justifyContent="space-between">
-        <CustomGridColumn item xs={12} sm={3} position="relative">
+        <CustomGridColumn item xs={12} sm={2.3} position="relative">
           <Link href={`/product/${encodeURIComponent(product.id)}`}>
-            <Image src={product.images[0].image} />
+            <Image width="140px" height="140px" src={product.images[0].image} />
           </Link>
           <Box
             display={closeIcon === true ? "none" : "block"}
@@ -70,7 +69,7 @@ const CartProduct = ({ product }) => {
             <CloseOutlinedIcon />
           </Box>
         </CustomGridColumn>
-        <CustomGridColumn item container xs={12} sm={9} p="20px">
+        <CustomGridColumn item container xs={12} sm={9.7} p="20px">
           <CustomGridRow item container justifyContent="space-between" xs={12}>
             <TypographyMain>{product.name}</TypographyMain>
             <Typography sx={{ cursor: "pointer" }} variant="body2">
