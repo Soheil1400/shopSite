@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import Image from "next/image";
+import { useSelector } from "react-redux";
 
 import { Grid, Typography } from "@mui/material";
 

@@ -4,6 +4,8 @@ import Link from "next/link";
 
 import { Grid, Button } from "@mui/material";
 
+import Theme from "../../../../theme/theme";
+
 const CartButton = () => {
   const items = useSelector((state) => state.cart.items);
   const CartButton = styled(Button)({
@@ -19,41 +21,43 @@ const CartButton = () => {
   });
   const PrimaryBtn = styled(CartButton)({
     border: "none",
-    background: "rgb(233, 69, 96)",
-    color: "rgb(255, 255, 255)",
+    background: Theme.palette.primary.main,
+    color: Theme.palette.primary.light,
     "&:hover": {
-      backgroundColor: "rgb(233, 69, 96)",
+      backgroundColor: Theme.palette.primary.main,
       boxShadow: "none",
     },
   });
   const SecondaryBtn = styled(CartButton)({
     border: "1px solid rgb(233, 69, 96)",
-    background: "transparent",
-    color: " rgb(233, 69, 96)",
+    background: "#fff",
+    color: Theme.palette.primary.main,
     "&:hover": {
-      backgroundColor: "rgb(233, 69, 96)",
+      backgroundColor: Theme.palette.primary.main,
       boxShadow: "none",
-      color: "rgb(255, 255, 255)",
+      color: Theme.palette.primary.light,
     },
   });
   const ButtonBox = styled(Grid)({
     flexDirection: "column",
     width: "100%",
+    height: "10%",
+    padding: "10px",
   });
   return (
     <ButtonBox display={items.length === 0 ? "none" : "flex"}>
       <Link href={`/cart`}>
-        <SecondaryBtn>
+        <PrimaryBtn>
           CheckOut Now $(
           {items.reduce((price, item) => {
             price = price + item.count * item.price;
             return price;
           }, 0)}
           )
-        </SecondaryBtn>
+        </PrimaryBtn>
       </Link>
       <Link href={`/cart`}>
-        <PrimaryBtn>View Cart</PrimaryBtn>
+        <SecondaryBtn>View Cart</SecondaryBtn>
       </Link>
     </ButtonBox>
   );

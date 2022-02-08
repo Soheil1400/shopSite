@@ -23,8 +23,9 @@ const Cart = ({ state, setState }) => {
   };
 
   const DrowerContainer = styled(Grid)({
-    height: "100%",
+    height: "85%",
     width: "380px",
+    overflowY:"auto"
   });
   const Header = styled(Grid)({
     width: "74",
@@ -41,9 +42,8 @@ const Cart = ({ state, setState }) => {
   });
   const CustomGrid = styled(Grid)({
     flexDirection: "column",
-    justifyContent:"space-between",
-    height: "88%",
-
+    justifyContent: "space-between",
+ 
   });
   return (
     <Drawer
@@ -52,25 +52,25 @@ const Cart = ({ state, setState }) => {
       onClose={toggleDrawer("right", false)}
     >
       <DrowerContainer role="presentation">
-        <Header>
-          <ShoppingBagOutlinedIcon
-            sx={{ fontSize: 28, color: Theme.palette.secondary.dark }}
-          />
-          <TypographyMain>
-            {items.reduce((count, item) => {
-              count = count + item.count;
-              return count;
-            }, 0)}{" "}
-            items
-          </TypographyMain>
-        </Header>
-        <Divider />
         <CustomGrid container>
-          <NoProduct />
+          <Header>
+            <ShoppingBagOutlinedIcon
+              sx={{ fontSize: 28, color: Theme.palette.secondary.dark }}
+            />
+            <TypographyMain>
+              {items.reduce((count, item) => {
+                count = count + item.count;
+                return count;
+              }, 0)}{" "}
+              items
+            </TypographyMain>
+          </Header>
+          <Divider />
           <CartSelectedProductsList />
-          <CartButton />
         </CustomGrid>
+        <NoProduct />
       </DrowerContainer>
+      <CartButton />
     </Drawer>
   );
 };
