@@ -18,7 +18,7 @@ const VendorDrawer = ({menu,setMenu,router}) =>{
                                 </ListItemText>
                             </MenuItemCustom>
                             {d.items.map(i => (
-                                <MenuItemCustom sx={{margin:'5px 0',height:'5px',color: router.asPath === i.link ? Theme.palette.primary.main : '',borderLeft: router.asPath === i.link ? `4px solid ${Theme.palette.primary.main}` : ''}}>
+                                <MenuItemCustom key={i.id} sx={{margin:'5px 0',height:'5px',color: router.asPath === i.link ? Theme.palette.primary.main : '',borderLeft: router.asPath === i.link ? `4px solid ${Theme.palette.primary.main}` : ''}}>
                                     <Grid pl={1} mr={1} mt={0.6}>
                                         {i.icon}
                                     </Grid>
