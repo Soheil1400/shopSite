@@ -1,5 +1,5 @@
 import React from "react";
-import {Typography, Stack, Paper} from "@mui/material";
+import {Typography, Stack, Paper, Grid} from "@mui/material";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
@@ -16,10 +16,13 @@ export default function CustomDrop({title, arr,icon}) {
                     display: 'flex',
                     alignItems: 'center',
                     position:"relative",
+                    justifyContent: 'space-between',
                 }}
             >
-                {icon}
-                {title}
+                <Grid sx={{display:"flex",alignItems: 'center'}}>
+                    {icon}
+                    {title}
+                </Grid>
                 <ArrowForwardIosIcon fontSize={"small"}/>
                 <Paper
                     className="menu"
@@ -108,6 +111,7 @@ export default function CustomDrop({title, arr,icon}) {
                     </Stack>
                 </Paper>
             </Typography>
+
         </>
     );
 }

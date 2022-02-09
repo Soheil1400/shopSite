@@ -80,19 +80,18 @@ const Data = [
 
 export const MegaMenu = () => {
     return (
-        <Paper sx={{width:"278px"}}>
+        <Paper sx={{width: "278px"}}>
             <CustomDrop title="Fashion" arr={Data} icon={<ShoppingBagOutlinedIcon/>}/>
             <CustomDrop title="Electronics" arr={Data} icon={<LaptopChromebookRoundedIcon/>}/>
             <CustomDrop title="Bikes" arr={Data} icon={<TwoWheelerIcon/>}/>
             <CustomDrop title="Home & Garden" arr={Data} icon={<LocalFloristOutlinedIcon/>}/>
-            {/*<CustomDrop title="Gifts"  icon={<CardGiftcardOutlinedIcon/>}/>*/}
-
-            {/*<CustomDrop title="Music" icon={<ShoppingBagOutlinedIcon/>}/>*/}
-            {/*<CustomDrop title="Health & Beauty" icon={<HealthAndSafetyOutlinedIcon/>}/>*/}
-            {/*<CustomDrop title="Pets" icon={<PetsOutlinedIcon/>}/>*/}
-            {/*<CustomDrop title="Baby Toys" icon={<ToysOutlinedIcon/>}/>*/}
-            {/*<CustomDrop title="Groceries" icon={<LocalGroceryStoreOutlinedIcon/>}/>*/}
-            {/*<CustomDrop title="Automotive" icon={<RvHookupIcon/>}/>*/}
+            <CustomDrop title="Gifts" arr={[]} icon={<CardGiftcardOutlinedIcon/>}/>
+            <CustomDrop title="Music" arr={[]} icon={<ShoppingBagOutlinedIcon/>}/>
+            <CustomDrop title="Health & Beauty" arr={[]} icon={<HealthAndSafetyOutlinedIcon/>}/>
+            <CustomDrop title="Pets" arr={[]} icon={<PetsOutlinedIcon/>}/>
+            <CustomDrop title="Baby Toys" arr={[]} icon={<ToysOutlinedIcon/>}/>
+            <CustomDrop title="Groceries" arr={[]} icon={<LocalGroceryStoreOutlinedIcon/>}/>
+            <CustomDrop title="Automotive" arr={[]} icon={<RvHookupIcon/>}/>
         </Paper>
     )
 }
