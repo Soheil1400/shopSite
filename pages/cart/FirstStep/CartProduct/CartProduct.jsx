@@ -20,7 +20,14 @@ import {
 
 const CartProduct = ({ image, number, price, name, product }) => {
   const dispatch = useDispatch();
-  const closeIcon = useMediaQuery("(min-width:600px)");
+  const Mobile = useMediaQuery("(min-width:750px)");
+  const SelectedProduct = forwardRef(({ onClick, href }, ref) => {
+    return (
+      <a href={href} onClick={onClick} ref={ref}>
+        <Image src={product.images[0].image} />
+      </a>
+    );
+  });
   const PaperCustom = styled(Paper)({
     width: "100%",
     alignItems: "center",
@@ -70,16 +77,6 @@ const CartProduct = ({ image, number, price, name, product }) => {
     wrap: "nowrap",
   });
 
-  const ClearButton = styled(IconButton)({
-    color: "rgb(125, 135, 156)",
-    fontSize: "16",
-    cursor: "pointer",
-    "&:hover": {
-      backgroundColor: "transparent",
-      boxShadow: "none",
-      color: "rgb(125, 135, 156)",
-    },
-  });
   const TypographyMain = styled(Typography)({
     color: Theme.palette.secondary.dark,
     fontSize: "18px",
@@ -91,7 +88,7 @@ const CartProduct = ({ image, number, price, name, product }) => {
     color: Theme.palette.secondary.dark,
     fontSize: "15px",
     fontWeight: "600",
-    margin: "0.5rem 0",
+    margin: "0 8px",
   });
   const TypographyGray = styled(Typography)({
     color: Theme.palette.secondary.light,
@@ -110,12 +107,18 @@ const CartProduct = ({ image, number, price, name, product }) => {
   return (
     <PaperCustom>
       <CustomGridRow container justifyContent="space-between">
-        <CustomGridColumn item width={closeIcon === true ? "140px" : "100%"} position="relative">
+        <CustomGridColumn
+          item
+          width={Mobile === true ? "140px" : "100%"}
+          position="relative"
+        >
           <Link href={`/product/${encodeURIComponent(product.id)}`}>
-            <Image src={image} />
+            <SelectedProduct>
+              <Image src={image} />
+            </SelectedProduct>
           </Link>
           <CustomBox
-            display={closeIcon === true ? "none" : "block"}
+            display={Mobile === true ? "none" : "block"}
             sx={{ position: "absolute", right: "15px", top: "15px" }}
             onClick={() => dispatch(removeItem(product))}
           >
@@ -125,12 +128,12 @@ const CartProduct = ({ image, number, price, name, product }) => {
         <CustomGridColumn item container xs={12} sm={9.7} p="20px">
           <CustomGridRow item container justifyContent="space-between" xs={12}>
             <TypographyMain>{name}</TypographyMain>
-              <CustomBox
-                display={closeIcon === true ? "block" : "none"}
-                onClick={() => dispatch(removeItem(product))}
-              >
-                <CloseOutlinedIcon />
-              </CustomBox>
+            <CustomBox
+              display={Mobile === true ? "block" : "none"}
+              onClick={() => dispatch(removeItem(product))}
+            >
+              <CloseOutlinedIcon />
+            </CustomBox>
           </CustomGridRow>
           <CustomGridRow item container justifyContent="space-between">
             <CustomGridRow
@@ -164,15 +167,7 @@ const CartProduct = ({ image, number, price, name, product }) => {
                   <RemoveIcon />
                 </PMButton>
               )}
-              <TypographyMain
-                sx={{
-                  fontSize: "14px",
-                  lineHeight: "1",
-                  margin: "0 8px",
-                }}
-              >
-                {number}
-              </TypographyMain>
+              <TypographyCount>{number}</TypographyCount>
               <PMButton onClick={() => dispatch(addToCart(product))}>
                 <AddIcon />
               </PMButton>

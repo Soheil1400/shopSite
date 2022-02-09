@@ -15,6 +15,24 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Theme from "../../../../theme/theme";
 
+const adressForm = [
+  {
+    id: 1,
+    title: "Country",
+    placeholder: "Select Country",
+    value: "country",
+    item1: "New York",
+    item2: "Chigaco",
+  },
+  {
+    id: 2,
+    title: "State",
+    placeholder: "Select State",
+    value: "state",
+    item1: "New York",
+    item2: "Chigaco",
+  },
+];
 const AddressBox = () => {
   const items = useSelector((state) => state.cart.items);
   const [country, setCountry] = useState("");
@@ -51,8 +69,8 @@ const AddressBox = () => {
   const TypographyFormTitle = styled(Typography)({
     color: Theme.palette.secondary.dark,
     fontSize: "0.875rem",
+    marginBottom: "-10px",
   });
-
   const CustomChip = styled(Chip)({
     boxShadow: "none",
     cursor: "unset",
@@ -91,8 +109,6 @@ const AddressBox = () => {
       color: Theme.palette.primary.light,
     },
   });
-
-
   const CustomGridRow = styled(Grid)({
     direction: "row",
     justifyContent: "space-between",
@@ -102,75 +118,56 @@ const AddressBox = () => {
     <PaperCustom>
       <CustomGridRow item container>
         <TypographyGray fontSize="14px">Total:</TypographyGray>
-        <TypographyMainTotal
-          sx={{ fontSize: "18px", fontWeight: "600", lineHeight: "1" }}
-        >
-          ${items.reduce((price, item) => {
+        <TypographyMainTotal>
+          $
+          {items.reduce((price, item) => {
             price = price + item.count * item.price;
             return price;
-          }, 0)}.00
+          }, 0)}
+          .00
         </TypographyMainTotal>
       </CustomGridRow>
       <Divider sx={{ margin: "8px 0" }} />
       <CustomGridRow item container my="16px">
-        <TypographyMain>
-          Additional Comments
-        </TypographyMain>
+        <TypographyMain>Additional Comments</TypographyMain>
         <CustomChip label="Note" />
       </CustomGridRow>
       <TextField
-        id="outlined-multiline-static"
         multiline
-        rows={4}
+        rows={6}
         fullWidth
         sx={{ margin: "8px 0" }}
       />
       <Divider sx={{ margin: "8px 0" }} />
       <TextField placeholder="Voucher" fullWidth sx={{ margin: "8px 0" }} />
-      <PrimaryBtn fullWidth>Apply Voucher</PrimaryBtn>
+      <SecondaryBtn fullWidth>Apply Voucher</SecondaryBtn>
       <Divider sx={{ margin: "8px 0" }} />
       <CustomGridRow item container>
-        <TypographyMain
-          fontSize="14px"
-          fontWeight="600"
-          sx={{ margin: "8px 0" }}
-        >
+        <TypographyMain sx={{ margin: "8px 0" }}>
           Shipping Estimates
         </TypographyMain>
       </CustomGridRow>
-      <FormControl fullWidth sx={{ margin: "8px 0" }}>
-        <TypographyFormTitle>Country</TypographyFormTitle>
+      {adressForm.map((form)=>(
+        <FormControl key={form.id} fullWidth sx={{ margin: "8px 0" }}>
+        <TypographyFormTitle>{form.title}</TypographyFormTitle>
         <Select
-          defaultValue="Select Country"
-          value={country}
+          defaultValue={form.placeholder}
+          value={form.value}
           onChange={handleChange}
           displayEmpty
+          sx={{ margin: "8px 0" }}
         >
           <MenuItem value="">
-            <em>Select Country</em>
+            <em>{form.placeholder}</em>
           </MenuItem>
-          <MenuItem value={10}>New York</MenuItem>
-          <MenuItem value={20}>Chigaco</MenuItem>
+          <MenuItem value={10}>{form.item1}</MenuItem>
+          <MenuItem value={20}>{form.item2}</MenuItem>
         </Select>
       </FormControl>
-      <FormControl fullWidth sx={{ margin: "8px 0" }}>
-        <TypographyFormTitle>State</TypographyFormTitle>
-        <Select
-          defaultValue="Select State"
-          value={state}
-          onChange={handleChange}
-          displayEmpty
-        >
-          <MenuItem value="">
-            <em>Select State</em>
-          </MenuItem>
-          <MenuItem value={10}>New York</MenuItem>
-          <MenuItem value={20}>Chigaco</MenuItem>
-        </Select>
-      </FormControl>
+      ))}
       <TypographyFormTitle>Zip Code</TypographyFormTitle>
       <TextField placeholder="3100" fullWidth sx={{ margin: "8px 0" }} />
-      <SecondaryBtn fullWidth sx={{margin:"8px 0"}}>
+      <SecondaryBtn fullWidth sx={{ margin: "8px 0" }}>
         Calculate Shipping
       </SecondaryBtn>
       <PrimaryBtn fullWidth>Checkout Now</PrimaryBtn>
