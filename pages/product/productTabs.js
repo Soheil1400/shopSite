@@ -15,7 +15,6 @@ const ProductTabs = ({product}) => {
     useEffect(()=>{
         setReviews([{...product.reviews[0]}])
     },[product])
-    console.log(reviews)
     return (
         <Grid item xs={12} sm={12} md={12} lg={12} mt={9}>
             <Box width={'100%'}>

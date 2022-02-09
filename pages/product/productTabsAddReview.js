@@ -1,5 +1,5 @@
-import {Grid,Rating} from "@mui/material";
-import {TypographyMain,TypographyPrime,RedButton,CustomTextAria} from "../../style/style";
+import {Grid, Rating, TextField, Typography} from "@mui/material";
+import {TypographyMain,TypographyPrime,RedButton} from "../../style/style";
 import {useState} from "react";
 
 const ProductTabsAddReview = ({setReviews,reviews}) =>{
@@ -21,10 +21,10 @@ const ProductTabsAddReview = ({setReviews,reviews}) =>{
             </Grid>
             <Grid>
                 <form onSubmit={handleSubmit}>
-                    <Grid my={2}>
-                        <TypographyMain component={'span'} fontSize={'16px'}>
+                    <Grid my={1}>
+                        <Typography color={'#4B566B'} component={'span'} fontSize={'16px'}>
                             Your Rating
-                        </TypographyMain>
+                        </Typography>
                         <TypographyPrime ml={1} component={'span'} fontSize={'20px'}>
                             *
                         </TypographyPrime>
@@ -32,16 +32,16 @@ const ProductTabsAddReview = ({setReviews,reviews}) =>{
                     <Grid>
                         <Rating name="rate" defaultValue={0} value={form.rate} onChange={handleChange} precision={1}/>
                     </Grid>
-                    <Grid my={2}>
-                        <TypographyMain component={'span'} fontSize={'16px'}>
+                    <Grid my={1}>
+                        <Typography color={'#4B566B'} component={'span'} fontSize={'16px'}>
                             Your Review
-                        </TypographyMain>
+                        </Typography>
                         <TypographyPrime ml={1} component={'span'} fontSize={'20px'}>
                             *
                         </TypographyPrime>
                     </Grid>
                     <Grid>
-                        <CustomTextAria name={'review'} value={form.review} onChange={handleChange}/>
+                        <TextField rows={7} fullWidth id="outlined-multiline-static" multiline name={'review'} value={form.review} onChange={handleChange}/>
                     </Grid>
                     <Grid my={2}>
                         <RedButton type={'submit'} disabled={form.review === ''} sx={{padding: '8px 24px'}}>Submit</RedButton>
