@@ -13,8 +13,8 @@ const ProductID = ({product}) => {
     const matches = useMediaQuery('(min-width:400px)');
     return (
         <BoxCustom>
-            <Grid container>
-                <ProductImage product={product} p={4}/>
+            <Grid container spacing={2}>
+                <ProductImage product={product} margin={2}/>
                 <ProductInfo product={product}/>
                 <ProductTabs product={product}/>
                 <ProductSuggest matches={matches}/>

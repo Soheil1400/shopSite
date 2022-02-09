@@ -1,10 +1,10 @@
 import {Avatar, Grid, Rating, Typography} from "@mui/material";
 import {TypographyMain,TypographyGray} from "../../style/style";
 
-const ProductTabsReviews = ({product}) => {
+const ProductTabsReviews = ({reviews}) => {
     return (
         <>
-            {product.reviews.map(rev => (
+            {reviews.map(rev => (
                     <Grid container key={rev.id} display={'flex'} alignItems={'center'} my={1}>
                         <Grid item xs={3} sm={1} md={0.8} lg={0.7}>
                             <Avatar sx={{width: 48, height: 48}} alt="Remy Sharp"
@@ -17,7 +17,7 @@ const ProductTabsReviews = ({product}) => {
                                 </TypographyMain>
                             </Grid>
                             <Grid display={'flex'} alignItems={'center'} justifyContent={'space-between'}>
-                                <Rating readOnly defaultValue={4.7} precision={0.1} size={'small'}/>
+                                <Rating readOnly value={rev.rate} precision={0.1} size={'small'}/>
                                 <Typography component={'span'}>
                                     {rev.rate}
                                 </Typography>

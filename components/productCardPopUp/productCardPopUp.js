@@ -15,7 +15,7 @@ const ProductCardPopUp = ({product,setOpen}) => {
             <Grid position={'absolute'} right={'10px'}>
                 <RedCloseIcon onClick={()=>setOpen(false)}/>
             </Grid>
-            <ProductImage product={product} px={0} md={5}/>
+            <ProductImage margin={10} product={product} px={0} md={5}/>
             <ProductInfo product={product}/>
         </Grid>
     )

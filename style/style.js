@@ -40,13 +40,16 @@ export const RedButton = styled(Button)({
     fontWeight: 'bold',
     fontSize: '14px',
     textTransform: 'none',
+    boxShadow:'none',
     '&:hover': {
         backgroundColor: Theme.palette.primary.main,
-        color: Theme.palette.primary.light
+        color: Theme.palette.primary.light,
+        boxShadow:'none',
     },
     ":disabled": {
         backgroundColor: '#DAE1E7',
-        color: Theme.palette.secondary.light
+        color: Theme.palette.secondary.light,
+        boxShadow:'none',
     }
 })
 
@@ -55,6 +58,7 @@ export const WhiteButton = styled(Button)({
     color: Theme.palette.primary.main,
     fontWeight: 'bold',
     textTransform: 'none',
+    boxShadow:'none',
     border: `1px solid ${Theme.palette.primary.main}`,
     '&:hover': {
         backgroundColor: Theme.palette.primary.main,

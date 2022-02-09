@@ -1,13 +1,9 @@
-import {Avatar,Box,Grid,Typography} from "@mui/material";
-import {styled} from "@mui/material/styles";
+import {Box,Grid,Typography} from "@mui/material";
 import {PaperCustom,TypographyMain} from "../../../style/style";
 import {countryPay} from "../../../data/countryPay";
+import CountryPayAvatar from "./countryPayAvatar";
 
 const CountryPay = () => {
-    const AvatarCustom = styled(Avatar)({
-        width: '28px',
-        height: '26px',
-    })
     return (
         <Grid item xs={12} lg={4}>
             <PaperCustom>
@@ -15,10 +11,9 @@ const CountryPay = () => {
                     Top Countries
                 </Typography>
                 {countryPay.map(c => (
-                    <Box key={c.name} p={1} display={'flex'} flexDirection={'row'} alignItems={'center'}
-                         justifyContent={'space-between'}>
+                    <Box key={c.id} p={1} display={'flex'} flexDirection={'row'} alignItems={'center'} justifyContent={'space-between'}>
                         <Grid display={'flex'} flexDirection={'row'} alignItems={'center'}>
-                            <AvatarCustom alt="US" src={c.image}/>
+                            <CountryPayAvatar img={c.image} name={c.name}/>
                             <TypographyMain ml={1}>
                                 {c.name}
                             </TypographyMain>
@@ -29,7 +24,6 @@ const CountryPay = () => {
                             </Typography>
                         </Grid>
                     </Box>
-
                 ))}
             </PaperCustom>
         </Grid>

@@ -1,4 +1,3 @@
-
 export const countryPay = [
     {
         image: 'https://purecatamphetamine.github.io/country-flag-icons/3x2/US.svg',

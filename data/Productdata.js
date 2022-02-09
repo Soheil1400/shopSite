@@ -36,7 +36,7 @@ export const ProductData = [
             },
             {
                 id: 2,
-                image: TarzT3
+                image: XamahaR15Black
             },
             {
                 id: 3,
