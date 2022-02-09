@@ -9,12 +9,11 @@ const StyledImage=styled(Image)({
     position:'absolute',
     opacity:'1',
     '&:hover': {
-       opacity:'0.3'
+       opacity:'0.5'
     }
 })
 const StyledGrid=styled(Box)({
     backgroundColor:'gray',
-    marginBottom:'0.5rem',
     borderRadius: '10px',
     position:'relative',
 })
@@ -22,7 +21,8 @@ const CartItem = ({image,title,rating,price,display,alignItem}) => {
     return (
         <Grid display={'flex'} alignItems={alignItem} flexDirection={'column'} p={1}>
         <Grid>
-            <StyledGrid ><StyledImage src={image} alt={title}  /></StyledGrid>
+            <StyledGrid ></StyledGrid>
+            <StyledImage src={image} alt={title}  />
         </Grid>
         <Grid display={display}>
            <Rating name="read-only" value={rating} readOnly precision={0.5}/>

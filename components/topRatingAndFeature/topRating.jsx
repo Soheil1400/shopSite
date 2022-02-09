@@ -10,8 +10,6 @@ import Image3 from '../../asset/topRating/shoes.png';
 import Image4 from '../../asset/topRating/watch.png';
 import CartItem from './CartItem';
 const PaperCustom = styled(Paper)({
-    display:'flex',
-    flexDirection:'row',
     alignItems: 'center',
     justifyContent: 'center',
     padding: '20px',
@@ -32,13 +30,13 @@ const TopRating = () => {
        <Grid container>
           <Title title={'Top Ratings'} icon={<MilitaryTechIcon/>}/>
            <PaperCustom >
-              {topRating.map((item)=>(
+               <Grid container>
+               {topRating.map((item)=>(
                    <Grid key={item.id} item xs={6} sm={6} md={3} lg={3} pr={1}>
                        <CartItem image={item.image} title={item.title} rating={item.rating} price={item.price} display={'block'} alignItem={'center'}/>
                   </Grid>
-             ))}
-           
-             
+               ))}
+                </Grid>
             </ PaperCustom>
        </Grid>    
      );
