@@ -8,6 +8,7 @@ import Category3 from "../../../asset/category-3.png"
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+
 const data =
     [
         {
@@ -36,54 +37,67 @@ const data =
         },
 
     ]
-const settings = {
-    infinite: false,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    swipeToSlide: true,
-    responsive: [
-        {
-            breakpoint: 1100,
-            settings: {
-                slidesToShow: 2,
-            }
-        },
-        {
-            breakpoint: 730,
-            settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1
-            }
-        }
-    ]
-}
-const CartBox = styled(Box)(
-    {
-        padding:"10px",
-        borderRadius: "8px",
-        backgroundColor: 'rgb(255, 255, 255)',
-        boxShadow: 'rgb(3 0 71 / 9%) 0px 1px 3px',
-        cursor: "pointer",
-        margin: "10px",
-        display: "flex!important",
-        width: "auto!important",
-        justifyContent: 'center',
-        position:"relative"
-    }
-)
-const TitlesBox = styled(Box)(
-    {
-        display: 'flex',
-        justifyContent: "space-between",
-        cursor: 'unset',
-        padding: '4px 10px',
-        position: 'absolute',
-        width:"90%",
-        top: '20%',
-    }
-)
+
 export default function Category() {
-    const Query=useMediaQuery("min-width:321")
+    const Query = useMediaQuery('(min-width:321px)')
+    const settings = {
+        infinite: false,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        swipeToSlide: true,
+        responsive: [
+            {
+                breakpoint: 1100,
+                settings: {
+                    slidesToShow: 2,
+                }
+            },
+            {
+                breakpoint: 730,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ]
+    }
+    const CartBox = styled(Box)(
+        {
+            padding: "15px",
+            borderRadius: "8px",
+            backgroundColor: 'rgb(255, 255, 255)',
+            boxShadow: 'rgb(3 0 71 / 9%) 0px 1px 3px',
+            cursor: "pointer",
+            margin: "10px",
+            display: "flex!important",
+            width: "auto!important",
+            justifyContent: 'center',
+            position: "relative"
+        }
+    )
+    const TitlesBox = styled(Box)(
+        {
+            display: 'flex',
+            justifyContent: "space-between",
+            cursor: 'unset',
+            padding: '4px 10px',
+            position: 'absolute',
+            width: Query === true ? "90%" : "95%",
+            top: '15%',
+        }
+    )
+    const HoverBox = styled(Box)({
+        position: "absolute",
+        backgroundColor: "black",
+        zIndex: "1",
+        top: "0",
+        right: "0",
+        bottom: "0",
+        left: "0",
+        opacity: "0",
+        "&:hover": {opacity: ".3", transition: 'all 250ms ease-in-out 0s'}
+    })
+
     return (
         <Box sx={{
             maxWidth: "95%",
@@ -95,7 +109,7 @@ export default function Category() {
                             <TitlesBox>
                                 <Chip
                                     size={"small"}
-                                    sx={{backgroundColor:'rgb(15, 52, 96)', color: 'white', zIndex: "2"}}
+                                    sx={{backgroundColor: 'rgb(15, 52, 96)', color: 'white', zIndex: "2"}}
                                     label={item.title1}/>
                                 <Chip
                                     size={"small"}
@@ -113,17 +127,7 @@ export default function Category() {
                                     src={item.image}
                                     alt={item.image}
                                 />
-                                <Box sx={{
-                                    position: "absolute",
-                                    backgroundColor: "black",
-                                    zIndex: "1",
-                                    top: "0",
-                                    right: "0",
-                                    bottom: "0",
-                                    left: "0",
-                                    opacity: "0",
-                                    "&:hover": {opacity: ".3", transition: 'all 250ms ease-in-out 0s'}
-                                }}>{}</Box>
+                                <HoverBox>{}</HoverBox>
                             </Box>
                         </CartBox>
                     ))
