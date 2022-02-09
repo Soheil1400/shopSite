@@ -155,7 +155,7 @@ const CartStepper = () => {
   ];
   return (
     <Grid container>
-      <Grid item container mb="12px" mx="30px" justifyContent="flex-start">
+      <Grid item container mb="12px"  justifyContent="flex-start">
         <Stepper activeStep={activeStep} connector={<ColorlibConnector sx={{width:MLT ===true  ?"50px":"5px"}}/>}>
           {steps.map((step) => (
             <Step

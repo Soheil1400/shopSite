@@ -1,15 +1,25 @@
+import { useDispatch } from "react-redux";
+import Image from "next/image";
 import { styled } from "@mui/material/styles";
+import Link from "next/link";
+import { forwardRef, useState } from "react";
+import { useMediaQuery } from "@mui/material";
+
 import { Grid, IconButton, Paper, Typography, Box } from "@mui/material";
 import Theme from "../../../../theme/theme";
-import Image from "next/image";
+
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
-import { forwardRef, useState } from "react";
-import Link from "next/link";
-import { useMediaQuery } from "@mui/material";
 
-const CartProduct = ({ product }) => {
+import {
+  addToCart,
+  decreaseItem,
+  removeItem,
+} from "../../../../redux/reducer/cart.reducer";
+
+const CartProduct = ({ image, number, price, name, product }) => {
+  const dispatch = useDispatch();
   const closeIcon = useMediaQuery("(min-width:600px)");
   const PaperCustom = styled(Paper)({
     width: "100%",
@@ -18,18 +28,6 @@ const CartProduct = ({ product }) => {
     borderRadius: "10px",
     margin: "0.5rem 0",
     boxShadow: " rgb(3 0 71 / 9%) 0px 1px 3px",
-  });
-  const TypographyMain = styled(Typography)({
-    color: Theme.palette.secondary.dark,
-    fontSize: "18px",
-    fontWeight: "600",
-    lineHeight: "1",
-  });
-  const TypographyGray = styled(Typography)({
-    color: Theme.palette.secondary.light,
-  });
-  const TypographyPrime = styled(Typography)({
-    color: Theme.palette.primary.main,
   });
   const PMButton = styled(IconButton)({
     backgroundColor: Theme.palette.primary.light,
@@ -45,6 +43,22 @@ const CartProduct = ({ product }) => {
       color: Theme.palette.primary.light,
     },
   });
+  const PMButtonDisable = styled(IconButton)({
+    fontWeight: "bold",
+    padding: "2px",
+    textTransform: "none",
+    border: "1px solid rgb(218, 225, 231)",
+    boxShadow: "none",
+    borderRadius: "5px",
+    backgroundColor: "rgb(218, 225, 231)",
+    color: "rgb(125, 135, 156)",
+    cursor: "unset",
+    "&:hover": {
+      backgroundColor: "rgb(218, 225, 231)",
+      color: "rgb(125, 135, 156)",
+      boxShadow: "none",
+    },
+  });
   const CustomGridRow = styled(Grid)({
     direction: "row",
     wrap: "nowrap",
@@ -55,28 +69,68 @@ const CartProduct = ({ product }) => {
     alignItems: "center",
     wrap: "nowrap",
   });
+
+  const ClearButton = styled(IconButton)({
+    color: "rgb(125, 135, 156)",
+    fontSize: "16",
+    cursor: "pointer",
+    "&:hover": {
+      backgroundColor: "transparent",
+      boxShadow: "none",
+      color: "rgb(125, 135, 156)",
+    },
+  });
+  const TypographyMain = styled(Typography)({
+    color: Theme.palette.secondary.dark,
+    fontSize: "18px",
+    fontWeight: "600",
+    lineHeight: "1",
+    marginBottom: "0.5rem",
+  });
+  const TypographyCount = styled(Typography)({
+    color: Theme.palette.secondary.dark,
+    fontSize: "15px",
+    fontWeight: "600",
+    margin: "0.5rem 0",
+  });
+  const TypographyGray = styled(Typography)({
+    color: Theme.palette.secondary.light,
+    fontSize: "14px",
+    fontWeight: "600",
+  });
+  const TypographyPrime = styled(Typography)({
+    color: Theme.palette.primary.main,
+    fontSize: "14px",
+    fontWeight: "600",
+  });
+  const CustomBox = styled(Box)({
+    color: Theme.palette.secondary.dark,
+    cursor: "pointer",
+  });
   return (
     <PaperCustom>
-      <CustomGridRow container  justifyContent="space-between">
-        <CustomGridColumn item xs={12} sm={2.3} position="relative">
+      <CustomGridRow container justifyContent="space-between">
+        <CustomGridColumn item width={closeIcon === true ? "140px" : "100%"} position="relative">
           <Link href={`/product/${encodeURIComponent(product.id)}`}>
-            <Image width="140px" height="140px" src={product.images[0].image} />
+            <Image src={image} />
           </Link>
-          <Box
+          <CustomBox
             display={closeIcon === true ? "none" : "block"}
             sx={{ position: "absolute", right: "15px", top: "15px" }}
+            onClick={() => dispatch(removeItem(product))}
           >
             <CloseOutlinedIcon />
-          </Box>
+          </CustomBox>
         </CustomGridColumn>
         <CustomGridColumn item container xs={12} sm={9.7} p="20px">
           <CustomGridRow item container justifyContent="space-between" xs={12}>
-            <TypographyMain>{product.name}</TypographyMain>
-            <Typography sx={{ cursor: "pointer" }} variant="body2">
-              <Box display={closeIcon === true ? "block" : "none"}>
+            <TypographyMain>{name}</TypographyMain>
+              <CustomBox
+                display={closeIcon === true ? "block" : "none"}
+                onClick={() => dispatch(removeItem(product))}
+              >
                 <CloseOutlinedIcon />
-              </Box>
-            </Typography>
+              </CustomBox>
           </CustomGridRow>
           <CustomGridRow item container justifyContent="space-between">
             <CustomGridRow
@@ -87,13 +141,10 @@ const CartProduct = ({ product }) => {
               xs={6}
             >
               <TypographyGray component={"span"} mx={0.5}>
-                ${product.sale === true ? `${product.price}.00` : ""}
-              </TypographyGray>{" "}
-              <TypographyGray component={"span"} mx={0.5}>
-                *1
+                ${price}.00 &times; {number}
               </TypographyGray>{" "}
               <TypographyPrime component={"span"} mx={0.5}>
-                ${product.sale === true ? `${product.price}.00` : ""}
+                ${price * number}.00
               </TypographyPrime>
             </CustomGridRow>
             <CustomGridRow
@@ -103,9 +154,16 @@ const CartProduct = ({ product }) => {
               alignItems="center"
               xs={6}
             >
-              <PMButton>
-                <RemoveIcon />
-              </PMButton>
+              {" "}
+              {number === 1 ? (
+                <PMButtonDisable>
+                  <RemoveIcon />
+                </PMButtonDisable>
+              ) : (
+                <PMButton onClick={() => dispatch(decreaseItem(product))}>
+                  <RemoveIcon />
+                </PMButton>
+              )}
               <TypographyMain
                 sx={{
                   fontSize: "14px",
@@ -113,9 +171,9 @@ const CartProduct = ({ product }) => {
                   margin: "0 8px",
                 }}
               >
-                1
+                {number}
               </TypographyMain>
-              <PMButton>
+              <PMButton onClick={() => dispatch(addToCart(product))}>
                 <AddIcon />
               </PMButton>
             </CustomGridRow>

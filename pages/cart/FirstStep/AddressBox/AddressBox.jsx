@@ -1,4 +1,5 @@
 import { styled } from "@mui/material/styles";
+import { useSelector } from "react-redux";
 import { useState } from "react";
 import {
   Grid,
@@ -15,6 +16,7 @@ import Select from "@mui/material/Select";
 import Theme from "../../../../theme/theme";
 
 const AddressBox = () => {
+  const items = useSelector((state) => state.cart.items);
   const [country, setCountry] = useState("");
   const [state, setState] = useState("");
   const handleChange = (event) => {
@@ -32,10 +34,25 @@ const AddressBox = () => {
   });
   const TypographyMain = styled(Typography)({
     color: Theme.palette.secondary.dark,
+    fontSize: "14px",
+    fontWeight: "600",
+  });
+  const TypographyMainTotal = styled(Typography)({
+    color: Theme.palette.secondary.dark,
+    fontSize: "18px",
+    fontWeight: "600",
+    lineHeight: "1",
+    marginBottom: "0.5rem",
   });
   const TypographyGray = styled(Typography)({
     color: Theme.palette.secondary.light,
+    fontSize: "14px",
   });
+  const TypographyFormTitle = styled(Typography)({
+    color: Theme.palette.secondary.dark,
+    fontSize: "0.875rem",
+  });
+
   const CustomChip = styled(Chip)({
     boxShadow: "none",
     cursor: "unset",
@@ -55,50 +72,48 @@ const AddressBox = () => {
     fontWeight: "600",
     transition: " all 150ms ease-in-out 0s",
   });
-  const CheckOutButton = styled(CartButton)({
+  const PrimaryBtn = styled(CartButton)({
     border: "none",
-    background: "rgb(233, 69, 96)",
-    color: "rgb(255, 255, 255)",
+    background: Theme.palette.primary.main,
+    color: Theme.palette.primary.light,
     "&:hover": {
-      backgroundColor: "rgb(233, 69, 96)",
+      backgroundColor: Theme.palette.primary.main,
       boxShadow: "none",
     },
   });
-  const ViewCardButton = styled(CartButton)({
+  const SecondaryBtn = styled(CartButton)({
     border: "1px solid rgb(233, 69, 96)",
-    background: "transparent",
-    color: " rgb(233, 69, 96)",
+    background: "#fff",
+    color: Theme.palette.primary.main,
     "&:hover": {
-      backgroundColor: "rgb(233, 69, 96)",
+      backgroundColor: Theme.palette.primary.main,
       boxShadow: "none",
-      color: "rgb(255, 255, 255)",
+      color: Theme.palette.primary.light,
     },
   });
+
+
   const CustomGridRow = styled(Grid)({
-    direction:"row",
-    justifyContent:"space-between",
-    alignItems:"center",
+    direction: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
   });
   return (
     <PaperCustom>
-      <CustomGridRow
-        item
-        container
-      >
+      <CustomGridRow item container>
         <TypographyGray fontSize="14px">Total:</TypographyGray>
-        <TypographyMain
+        <TypographyMainTotal
           sx={{ fontSize: "18px", fontWeight: "600", lineHeight: "1" }}
         >
-          $750.0000
-        </TypographyMain>
+          ${items.reduce((price, item) => {
+            price = price + item.count * item.price;
+            return price;
+          }, 0)}.00
+        </TypographyMainTotal>
       </CustomGridRow>
       <Divider sx={{ margin: "8px 0" }} />
-      <CustomGridRow
-        item
-        container
-        my="16px"
-      >
-        <TypographyMain fontSize="14px" fontWeight="600">
+      <CustomGridRow item container my="16px">
+        <TypographyMain>
           Additional Comments
         </TypographyMain>
         <CustomChip label="Note" />
@@ -112,12 +127,9 @@ const AddressBox = () => {
       />
       <Divider sx={{ margin: "8px 0" }} />
       <TextField placeholder="Voucher" fullWidth sx={{ margin: "8px 0" }} />
-      <ViewCardButton fullWidth>Apply Voucher</ViewCardButton>
+      <PrimaryBtn fullWidth>Apply Voucher</PrimaryBtn>
       <Divider sx={{ margin: "8px 0" }} />
-      <CustomGridRow
-        item
-        container
-      >
+      <CustomGridRow item container>
         <TypographyMain
           fontSize="14px"
           fontWeight="600"
@@ -127,7 +139,7 @@ const AddressBox = () => {
         </TypographyMain>
       </CustomGridRow>
       <FormControl fullWidth sx={{ margin: "8px 0" }}>
-        <TypographyGray>Country</TypographyGray>
+        <TypographyFormTitle>Country</TypographyFormTitle>
         <Select
           defaultValue="Select Country"
           value={country}
@@ -142,7 +154,7 @@ const AddressBox = () => {
         </Select>
       </FormControl>
       <FormControl fullWidth sx={{ margin: "8px 0" }}>
-        <TypographyGray>State</TypographyGray>
+        <TypographyFormTitle>State</TypographyFormTitle>
         <Select
           defaultValue="Select State"
           value={state}
@@ -156,11 +168,12 @@ const AddressBox = () => {
           <MenuItem value={20}>Chigaco</MenuItem>
         </Select>
       </FormControl>
+      <TypographyFormTitle>Zip Code</TypographyFormTitle>
       <TextField placeholder="3100" fullWidth sx={{ margin: "8px 0" }} />
-      <ViewCardButton sx={{ margin: "8px 0" }} fullWidth>
+      <SecondaryBtn fullWidth sx={{margin:"8px 0"}}>
         Calculate Shipping
-      </ViewCardButton>
-      <CheckOutButton fullWidth>Checkout Now</CheckOutButton>
+      </SecondaryBtn>
+      <PrimaryBtn fullWidth>Checkout Now</PrimaryBtn>
     </PaperCustom>
   );
 };
