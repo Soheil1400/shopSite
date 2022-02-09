@@ -1,11 +1,15 @@
-import {Avatar, Divider, Grid,TextField} from "@mui/material";
+import {Avatar, Divider, Grid, TextField} from "@mui/material";
 import SearchList from "./searchList";
 import Theme from "../../../theme/theme";
 import MinimizeIcon from "@mui/icons-material/Minimize";
 import SearchInput from "./searchInput";
-import {PaperCustom,TypographyMain} from "../../../style/style";
+import {PaperCustom, TypographyMain} from "../../../style/style";
+import {useState} from "react";
 
-const SearchFilter = ({check1, check2, check3, matches}) => {
+const SearchFilter = ({check1, check2, check3, filter, setFilter}) => {
+    const handleChange = (e) => {
+         setFilter({...filter, [e.target.name]: Number(e.target.value)})
+    }
     return (
         <PaperCustom>
             <SearchList/>
@@ -18,13 +22,14 @@ const SearchFilter = ({check1, check2, check3, matches}) => {
                 </Grid>
                 <Grid px={2} display={'flex'} flexDirection={'row'} alignItems={'center'}>
                     <Grid>
-                        <TextField type={'number'} placeholder={'0'}/>
+                        <TextField name={'min'} value={filter.min} onChange={handleChange} type={'number'}
+                                   placeholder={'0'}/>
                     </Grid>
                     <Grid pb={1} fontSize={'1px'} color={Theme.palette.secondary.light} mx={1}>
                         <MinimizeIcon fontSize={'small'}/>
                     </Grid>
                     <Grid>
-                        <TextField type={'number'} placeholder={'250'}/>
+                        <TextField name={'max'} value={filter.max} onChange={handleChange} type={'number'} placeholder={'250'}/>
                     </Grid>
                 </Grid>
             </Grid>

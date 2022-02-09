@@ -10,6 +10,13 @@ import {check1,check2,check3} from "../../../data/checks";
 
 const Category = ({categoryData}) => {
     const [menu,setMenu] = useState(false)
+    const [filter , setFilter] = useState(
+        {
+            price:'Relevance',
+            min:0,
+            max:99999,
+        }
+    )
     const matches = useMediaQuery('(min-width:1027px)');
     const matchesHead = useMediaQuery('(min-width:750px)');
     return (
@@ -17,14 +24,14 @@ const Category = ({categoryData}) => {
             <Grid container spacing={3}>
                 <SwipeableDrawer  anchor="left" open={menu} onClose={()=>setMenu(false)} onOpen={()=>setMenu(true)}>
                     <Grid width={'280px'}>
-                        <SearchFilter matches={matches} check1={check1} check2={check2} check3={check3}/>
+                        <SearchFilter filter={filter} setFilter={setFilter} matches={matches} check1={check1} check2={check2} check3={check3}/>
                     </Grid>
                 </SwipeableDrawer>
-                <SearchHead categoryData={categoryData} setMenu={setMenu} matches={matches} matchesHead={matchesHead}/>
+                <SearchHead filter={filter} setFilter={setFilter} categoryData={categoryData} setMenu={setMenu} matches={matches} matchesHead={matchesHead}/>
                 <Grid item lg={3} display={matches === true ? 'block' : 'none'}>
-                    <SearchFilter matches={matches} check1={check1} check2={check2} check3={check3}/>
+                    <SearchFilter  filter={filter} setFilter={setFilter} matches={matches} check1={check1} check2={check2} check3={check3}/>
                 </Grid>
-                <SearchCards categoryData={categoryData}/>
+                <SearchCards filter={filter} categoryData={categoryData}/>
             </Grid>
         </BoxCustom>
 )

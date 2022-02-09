@@ -5,8 +5,17 @@ import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
 import {PaperCustom,TypographyGray,TypographyMain} from "../../../style/style";
 
-const SearchHead = ({matches,matchesHead,setMenu,categoryData}) => {
+const SearchHead = ({matches,matchesHead,setMenu,categoryData,setFilter,filter}) => {
     const options = ['Relevance', 'Date', 'Price Low to High', 'Price High to Low'];
+    const handleChange = (e) => {
+        if (e.target.value === 'Price Low to High'){
+            setFilter({...filter, price: 'Price Low to High'})
+        }if (e.target.value === 'Price High to Low'){
+            setFilter({...filter, price: 'Price High to Low'})
+        }if (e.target.value === 'Relevance' || e.target.value === 'Date'){
+            setFilter({...filter, price:e.target.value === 'Relevance' ? 'Relevance' : 'Date'})
+        }
+    }
     return(
         <Grid item xs={12}>
             <PaperCustom>
@@ -27,13 +36,15 @@ const SearchHead = ({matches,matchesHead,setMenu,categoryData}) => {
                                 </TypographyGray>
                             </Grid>
                             <Grid mx={2}>
-                                <TextField id="outlined-select-currency" select value={'Relevance'}>
-                                    {options.map((option) => (
-                                        <MenuItem key={`${option}`} value={option}>
-                                            {option}
-                                        </MenuItem>
-                                    ))}
-                                </TextField>
+                                <form>
+                                    <TextField sx={{width:'160px'}} name={'price'} onChange={handleChange} id="outlined-select-currency" select value={filter.price}>
+                                        {options.map((option) => (
+                                            <MenuItem key={`${option}`} value={option}>
+                                                {option}
+                                            </MenuItem>
+                                        ))}
+                                    </TextField>
+                                </form>
                             </Grid>
                         </Grid>
                         <Grid display={'flex'} flexDirection={'row'} alignItems={'center'}>

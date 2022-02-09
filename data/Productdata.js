@@ -26,7 +26,7 @@ export const ProductData = [
         price: 250,
         rate:4.5,
         sale:true,
-        MSale:25,
+        MSale:60,
         vendor: 'Tarz',
         description: '',
         images: [
@@ -373,10 +373,10 @@ export const ProductData = [
         name: 'Tony A9',
         category:'gadget',
         brand: 'Tony',
-        price: 700,
+        price: 1200,
         rate:2.9,
         sale:true,
-        MSale:50,
+        MSale:10,
         vendor: 'Tony',
         description: '',
         images: [
@@ -411,7 +411,7 @@ export const ProductData = [
         price: 250,
         rate:4.1,
         sale:true,
-        MSale:50,
+        MSale:10,
         vendor: 'Beat',
         description: '',
         images: [
@@ -551,7 +551,7 @@ export const ProductData = [
         price: 3500,
         rate:4.2,
         sale:true,
-        MSale:50,
+        MSale:30,
         vendor: 'Lord',
         description: '',
         images: [
@@ -586,7 +586,7 @@ export const ProductData = [
         price: 1500,
         rate:4.7,
         sale:true,
-        MSale:25,
+        MSale:30,
         vendor: 'Resla',
         description: '',
         images: [
