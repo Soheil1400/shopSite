@@ -1,10 +1,9 @@
 import { styled } from "@mui/material/styles";
 import { Grid } from "@mui/material";
-import CartProductList from "./CartProductList/CartProductList";
-import AddressBox from "./AddressBox/AddressBox";
-import { ProductData } from "../../../data/Productdata";
-import CartProduct from "../FirstStep/CartProduct/CartProduct";
-const FirstStep = () => {
+import ShippingAddress from "./ShippingAddress/ShippingAddress";
+import BillingAdress from "./BillingAdress/BillingAdress";
+import Vocher from "./Vocher/Vocher";
+const SecondStep = () => {
   const CustomGridRow = styled(Grid)({
     direction: "row-reverse",
     justifyContent: "space-between",
@@ -14,13 +13,14 @@ const FirstStep = () => {
   return (
     <CustomGridRow container>
       <Grid item xs={12} lg={7.8}>
-        <CartProductList ProductData={ProductData} />
+        <ShippingAddress />
+        <BillingAdress />
       </Grid>
       <Grid item xs={12} lg={3.8}>
-        <AddressBox />
+        <Vocher />
       </Grid>
     </CustomGridRow>
   );
 };
 
-export default FirstStep;
+export default SecondStep;
