@@ -8,7 +8,7 @@ export default function CustomDrop({ title, arr }) {
       <Typography
         variant="p"
         sx={{
-          padding: "20px 16px",
+          padding: "24px 16px",
           color: "black",
           "&:hover": { color: "red", "& .menu": { display: "flex" } },
           cursor: "pointer",

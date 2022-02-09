@@ -94,7 +94,7 @@ export default function Header() {
             <>
               <Box
                 component="img"
-                sx={{ width: "98px", height: "50px", borderRadius: "4px" }}
+                sx={{ height: "36px", borderRadius: "4px" }}
                 src="https://bonik-vuetify.vercel.app/img/logo.6d0b86e2.svg"
               />
             </>

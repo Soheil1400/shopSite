@@ -29,7 +29,8 @@ export default function Searchbar() {
         border: "0.5px solid lightGray",
         borderRadius: "30px",
         height: "44px",
-        fontSize: "14px"
+        fontSize: "14px", 
+        maxWidth: "70%"
       }}
     >
       <SearchIcon sx={{ color: "gray", marginLeft: "24px" }} />

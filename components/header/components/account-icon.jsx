@@ -11,7 +11,7 @@ import {useSelector} from "react-redux";
 
 const StyledBadge = styled(Badge)(({theme}) => ({
     "& .MuiBadge-badge": {
-        right: 3,
+        right: 15,
         top: 3,
         border: `2px solid ${theme.palette.background.paper}`,
         padding: "0 4px",
@@ -23,7 +23,7 @@ export default function AccountIcon() {
     const total = useSelector(state => state.cart.items)
     const totalItems = useMemo(()=>   total.reduce((count , item)=>{count = count + item.count ; return count},0), [total])
     return (
-        <Stack direction="row" spacing={2.5}>
+        <Stack direction="row" gap={2}>
             <IconButton aria-label="add an alarm" sx={{backgroundColor: "#e6ecf6"}}>
                 <PersonOutlineOutlinedIcon/>
             </IconButton>
@@ -31,7 +31,7 @@ export default function AccountIcon() {
                 <IconButton
                     onClick={() => setState({right: true})}
                     aria-label="add to shopping cart"
-                    sx={{backgroundColor: "#e6ecf6"}}
+                    sx={{backgroundColor: "#e6ecf6", marginRight: "12px"}}
                 >
                     <ShoppingBagOutlinedIcon/>
                 </IconButton>
