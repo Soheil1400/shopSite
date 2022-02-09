@@ -11,6 +11,4 @@ const RatingAndFeature = () => {
         </Grid>
      );
 }
-
- 
 export default RatingAndFeature;

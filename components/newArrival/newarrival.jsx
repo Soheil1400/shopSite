@@ -30,14 +30,17 @@ const Newarrival=()=>{
         {id:'6',image:Image6,title:'Bonsai tree',price:'$535'},
     ])
     return(
-        <Grid container>
+        <Grid >
             <Title title={'New Arrival'} icon={<NewReleasesIcon/>}/>
             <PaperCustom >
-             {arrival.map((item)=>(
-                   <Grid key={item.id} item  xs={6} sm={6} md={3} lg={2}>
-                        <CartItem image={item.image} title={item.title}  price={item.price} display={'none'} alignItem={'left'}/>
-                  </Grid>
-             ))}
+                <Grid container>
+                    {arrival.map((item)=>(
+                        <Grid  item  key={item.id} xs={6} sm={6} md={3} lg={2}>
+                            <CartItem image={item.image} title={item.title}  price={item.price} display={'none'} alignItem={'left'}/>
+                        </Grid>
+                    ))}
+                </Grid>
+
             </PaperCustom>
         </Grid>
       
