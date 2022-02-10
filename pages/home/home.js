@@ -8,6 +8,8 @@ import Ads from "./ads/ads";
 import {FlashDeal} from "./flashDeal/FlashDeal";
 import Category from "./top_categories/TopCategories";
 import SlideShow from "./SlideShow/SlideShow";
+import Newarrival from "../../components/newArrival/newarrival";
+import RatingAndFeature from "../../components/topRatingAndFeature/RatingAndFeature";
 
 const HomeComponent = () => {
     const BoxCustom = styled(Box)({
@@ -25,6 +27,8 @@ const HomeComponent = () => {
             <BoxCustom>
                 <FlashDeal/>
                 <Category/>
+                <RatingAndFeature/>
+                <Newarrival/>
                 <Brands title={'Car'} category={'car'} display={'none'}/>
                 <Ads/>
                 <Brands title={'Motor'} category={'motor'} display={'flex'}/>

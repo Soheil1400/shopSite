@@ -18,7 +18,7 @@ const PaperCustom = styled(Paper)({
 
 })
 const FeatureBrand = () => {
-    const matches = useMediaQuery('(min-width:770)')
+    const matches = useMediaQuery('(min-width:770px)')
         const FeatureBrand = [
             {id:'1',image:Image1,title:'London Britches'},
             {id:'2',image:Image2,title:'Jim & Jago'},
@@ -30,7 +30,7 @@ const FeatureBrand = () => {
             <Grid container spacing={3}>
             {FeatureBrand.map((item)=>(
                  <Grid key={item.id} item  xs={12} sm={6} md={6} lg={6}>
-                     <CartItem image={item.image} title={item.title} w={matches === true ? 250 : 400} h={matches === true ? 165 : 250}  display={'none'} alignItem={'left'}/>
+                     <CartItem image={item.image} title={item.title} w={matches === true ? 250 : 400} h={matches === true ? 175 : 250}  display={'none'} alignItem={'left'}/>
                 </Grid>
            ))}
             </Grid>

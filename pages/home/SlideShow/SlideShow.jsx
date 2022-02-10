@@ -11,16 +11,16 @@ import {RedButton} from "../../../style/style";
 const data = [
     {
         id:1,
-        title: "50% Of For Your First Shopping",
+        title: "50% Off For Your First Shopping",
     }, {
         id:2,
-        title: "50% Of For Your First Shopping",
+        title: "50% Off For Your First Shopping",
     }, {
         id:3,
-        title: "50% Of For Your First Shopping",
+        title: "50% Off For Your First Shopping",
     }, {
         id:4,
-        title: "50% Of For Your First Shopping",
+        title: "50% Off For Your First Shopping",
     },
 ]
 
