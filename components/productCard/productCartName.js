@@ -1,8 +1,8 @@
 import {TypographyMain} from "../../style/style";
 
-const ProductCartName = ({product}) => {
+const ProductCartName = ({product,fontSize='14px'}) => {
     return(
-        <TypographyMain>
+        <TypographyMain fontSize={fontSize}>
             {product.name}
         </TypographyMain>
     )

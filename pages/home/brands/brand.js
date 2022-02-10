@@ -6,7 +6,7 @@ import VBrand from '../../../asset/brands/vBrand.png'
 import UBrand from '../../../asset/brands/uBrand.png'
 import Image from 'next/image'
 
-const Brand = () => {
+const Brand = ({display}) => {
     const [select, setSelect] = useState('brands')
     const [title, setTitle] = useState([
         {
@@ -97,7 +97,7 @@ const Brand = () => {
     })
     return (
         <PaperCustom>
-            <Grid display={'flex'} alignItems={'center'} flexDirection={'row'}>
+            <Grid display={display} alignItems={'center'} flexDirection={'row'}>
                 <BrandTypography onClick={() => setSelect('brands')}
                                  sx={{color: select === 'brands' ? Theme.palette.secondary.main : Theme.palette.secondary.light}}>
                     Brands

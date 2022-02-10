@@ -2,6 +2,7 @@ import {Grid, Typography} from "@mui/material";
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import Theme from "../../../theme/theme";
 import {styled} from "@mui/material/styles";
+import Link from 'next/link'
 
 const Title = ({title,icon}) =>{
     const TypographyMain = styled(Typography)({
@@ -21,9 +22,11 @@ const Title = ({title,icon}) =>{
                         </TypographyMain>
                 </Grid>
                 <Grid display={'flex'} flexDirection={'row'} color={Theme.palette.secondary.light}>
-                    <TypographyGray>
-                        View all
-                    </TypographyGray>
+                    <Link href={`../product/search/${title.toLowerCase()}`}>
+                        <TypographyGray>
+                            View all
+                        </TypographyGray>
+                    </Link>
                     <ArrowRightIcon cursor={'pointer'}/>
                 </Grid>
             </Grid>

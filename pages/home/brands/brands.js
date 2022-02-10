@@ -5,12 +5,12 @@ import {ProductData} from "../../../data/Productdata";
 import ProductCard from "../../../components/productCard/productCard";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
-const Brands = ({category , title}) => {
+const Brands = ({category , title,display}) => {
     const matches = useMediaQuery('(min-width:770px)');
     return (
         <Grid container spacing={3} my={3}>
             <Grid item xs={0} md={3} display={matches === true ? 'block' : 'none'}>
-                <Brand/>
+                <Brand display={display}/>
             </Grid>
             <Grid item xs={12} md={9} pl={3}>
                 <Title title={title} icon={''}/>

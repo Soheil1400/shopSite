@@ -18,10 +18,10 @@ const HomeComponent = () => {
     })
     return (
         <BoxCustom>
-            <Brands title={'Cars'} category={'car'}/>
+            <Brands title={'Car'} category={'car'} display={'none'}/>
             <Ads/>
-            <Brands title={'Mobile Phones'} category={'motor'}/>
-            <Brands title={'Gadget'} category={'gadget'}/>
+            <Brands title={'Motor'} category={'motor'} display={'flex'}/>
+            <Brands title={'Gadget'} category={'gadget'} display={'flex'}/>
             <CategoryList/>
             <MadeForYou/>
             <AboutUs/>
