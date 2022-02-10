@@ -11,10 +11,10 @@ import CartItem from './CartItem';
 
 const TopRating = () => {
     const topRating = [
-        {id:'1',image:Image1,rating:'4',title:'Camera',price:'$3300'},
-        {id:'2',image:Image2,rating:'4.5',title:'Shoe',price:'$400'},
-        {id:'3',image:Image3,rating:'5',title:'Phone',price:'$999'},
-        {id:'4',image:Image4,rating:'5',title:'Watch',price:'$999'},
+        {id:'1',image:Image1,rating:'4',title:'Camera',total:49,price:'$3300'},
+        {id:'2',image:Image2,rating:'4.5',title:'Shoe',total:20,price:'$400'},
+        {id:'3',image:Image3,rating:'5',title:'Phone',total:65,price:'$999'},
+        {id:'4',image:Image4,rating:'5',title:'Watch',total:75,price:'$999'},
     ]
     const PaperCustom = styled(Paper)({
         alignItems: 'center',
@@ -32,7 +32,7 @@ const TopRating = () => {
                <Grid container spacing={3}>
                {topRating.map((item)=>(
                    <Grid key={item.id} item xs={6} sm={6} md={3} lg={3}>
-                       <CartItem image={item.image} title={item.title} rating={item.rating} price={item.price} display={'block'} alignItem={'center'}/>
+                       <CartItem image={item.image} title={item.title} rating={item.rating} price={item.price} total={item.total} display={'block'} alignItem={'center'}/>
                   </Grid>
                ))}
                 </Grid>

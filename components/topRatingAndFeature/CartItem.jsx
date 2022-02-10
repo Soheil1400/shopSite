@@ -16,15 +16,18 @@ const StyledPaper=styled(Paper)({
     borderRadius:'10px',
     "&:hover": {opacity: ".3", transition: 'all 250ms ease-in-out 0s'},
 })
-const CartItem = ({image,title,rating,price,display,alignItem,w=900,h=900}) => {
+const CartItem = ({image,title,rating,price,display,alignItem,total,w=900,h=900}) => {
     return (
         <Grid display={'flex'} alignItems={alignItem} flexDirection={'column'}>
         <Grid position={'relative'}>
             <Image src={image} alt={title} width={w} height={h}/>
             <StyledPaper>{}</StyledPaper>
         </Grid>
-        <Grid display={display}>
-           <Rating name="read-only" value={rating} readOnly precision={0.5}/>
+        <Grid display={display} >
+           <Grid display={'flex'} flexDirection={'row'}>
+               <Rating name="read-only" value={rating} readOnly precision={0.5}/>
+               <Typography >({total})</Typography>
+           </Grid>
         </Grid>
         <Grid>
             <Typography fontWeight={'600'} color={theme.palette.secondary.dark}>
