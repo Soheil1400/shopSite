@@ -3,6 +3,7 @@ import { AppBar, Toolbar, Box, Button } from "@mui/material";
 import GridViewRoundedIcon from "@mui/icons-material/GridViewRounded";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import Menu from "./components/menu";
+import MegaMenuButton from "./components/megaMenu-button";
 
 export default function Appbar() {
   return (
@@ -31,22 +32,7 @@ export default function Appbar() {
             justifyContent: "space-between",
           }}
         >
-          <Button
-            sx={{
-              color: "black",
-              backgroundColor: "#e6ecf6",
-              fontSize: "14px",
-            }}
-          >
-            <GridViewRoundedIcon
-              sx={{ fontSize: "18px", marginRight: "8px" }}
-            />
-            Categories
-            <KeyboardArrowDownIcon
-              sx={{ fontSize: "18px", marginLeft: "8px" }}
-            />
-          </Button>
-          <Menu />
+          <MegaMenuButton title="Categories" backColor="#e6ecf6"/>
         </Toolbar>
       </AppBar>
     </Box>
