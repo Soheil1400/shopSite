@@ -79,12 +79,13 @@ export const PMButton = styled(IconButton)({
     fontWeight: 'bold',
     fontSize: '14px',
     textTransform: 'none',
-    border: '1px solid #E94560',
+    border: '1px solid #FFE2E7',
     boxShadow: 'none',
     borderRadius: '5px',
     '&:hover': {
         backgroundColor: Theme.palette.primary.main,
         color: Theme.palette.primary.light,
+        border: `1px solid ${Theme.palette.primary.main}`,
     }
 })
 export const TypographyMain = styled(Typography)({
