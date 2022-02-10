@@ -23,10 +23,10 @@ const CartItem = ({image,title,rating,price,display,alignItem,total,w=900,h=900}
             <Image src={image} alt={title} width={w} height={h}/>
             <StyledPaper>{}</StyledPaper>
         </Grid>
-        <Grid display={display} >
+        <Grid display={display} mt={1} m={1}>
            <Grid display={'flex'} flexDirection={'row'}>
-               <Rating name="read-only" value={rating} readOnly precision={0.5}/>
-               <Typography >({total})</Typography>
+               <Rating name="read-only" value={rating} readOnly precision={0.5} />
+               <Typography variant={'subtitle2'}>({total})</Typography>
            </Grid>
         </Grid>
         <Grid>
