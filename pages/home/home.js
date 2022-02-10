@@ -6,6 +6,7 @@ import AboutUs from "./aboutUs/aboutUs";
 import Brands from "./brands/brands";
 import Ads from "./ads/ads";
 import {FlashDeal} from "./flashDeal/FlashDeal";
+import Category from "./top_categories/TopCategories";
 
 const HomeComponent = () => {
     const BoxCustom = styled(Box)({
@@ -20,6 +21,7 @@ const HomeComponent = () => {
     return (
         <BoxCustom>
             <FlashDeal/>
+            <Category/>
             <Brands title={'Car'} category={'car'} display={'none'}/>
             <Ads/>
             <Brands title={'Motor'} category={'motor'} display={'flex'}/>

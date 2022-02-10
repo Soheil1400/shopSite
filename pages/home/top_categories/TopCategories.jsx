@@ -8,30 +8,38 @@ import Category3 from "../../../asset/category-3.png"
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Title from "../title/title";
+import DashboardIcon from '@mui/icons-material/Dashboard';
 
 const data =
     [
         {
+            id:1,
             title1: "HeadPhones",
             image: Category1,
         },
         {
+            id:2,
             title1: "watch",
             image: Category2,
         },
         {
+            id:3,
             title1: "SunGlass",
             image: Category3,
         },
         {
+            id:4,
             title1: "HeadPhones",
             image: Category1,
         },
         {
+            id:5,
             title1: "watch",
             image: Category2,
         },
         {
+            id:6,
             title1: "SunGlass",
             image: Category3,
         },
@@ -100,8 +108,10 @@ export default function Category() {
 
     return (
         <Box sx={{
-            maxWidth: "95%",
+            maxWidth: "1200px",
+            width:'98%',
         }}>
+            <Title title={'Top Categories'} icon={<DashboardIcon/>}/>
             <Slider {...settings}>
                 {
                     data.map(item => (
