@@ -45,7 +45,7 @@ export default function Appbar() {
           backgroundColor: "#fff",
           height: "80px",
           boxShadow: "none",
-          maxWidth: "1248px",
+          maxWidth: "1225px",
         }}
       >
         <Toolbar
@@ -58,7 +58,7 @@ export default function Appbar() {
         >
           {matches ? (
             <>
-              <Stack direction="row">
+              <Stack alignItems={'center'} direction="row">
                 <Box
                   component="img"
                   sx={{ width: "98px", height: "50px", marginRight: "8px" }}

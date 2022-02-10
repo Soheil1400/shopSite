@@ -55,7 +55,7 @@ export default function Header() {
         sx={{
           backgroundColor: "#0f3460",
           height: "40px",
-          maxWidth: "1248px",
+          maxWidth: "1225px",
           boxShadow: "none",
         }}
       >

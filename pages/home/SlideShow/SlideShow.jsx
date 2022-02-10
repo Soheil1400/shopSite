@@ -6,7 +6,7 @@ import Image from 'next/image'
 import watch from "../../../asset/applewatch.png";
 import styled from "@emotion/styled";
 import Theme from "../../../theme/theme";
-import AbcIcon from '@mui/icons-material/Abc';
+import {RedButton} from "../../../style/style";
 
 const data = [
     {
@@ -65,10 +65,9 @@ export default function SlideShow() {
         fontSize: "12px"
     })
     return (
-    <Grid container mb={3} mt={Query1 === true ? -2 : -7} bgcolor={Theme.palette.primary.light} pb={8} pr={Query1 === true ? 0 : 4}>
+    <Grid container mb={3} mt={Query1 === true ? 0.4 : -7} bgcolor={Theme.palette.primary.light} pb={8} pr={Query1 === true ? 0 : 4}>
             <Grid container spacing={3} maxWidth={'1200px'} margin={"auto"}>
                 <Grid item xs={0} md={3} display={Query1 === true ? 'flex' : 'none'}>
-
                 </Grid>
                 <Grid item xs={12} md={9}>
                     <Box sx={{width: "100%", maxWidth: "1200px"}}>
@@ -83,9 +82,9 @@ export default function SlideShow() {
                                                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aspernatur
                                                     corporis dicta exercitationem, odit recusandae.
                                                 </Typography>
-                                                <InfoButton variant="contained">
+                                                <RedButton sx={{padding:'5px 20px'}}>
                                                     Visit Collections
-                                                </InfoButton>
+                                                </RedButton>
                                             </InfoBox>
                                         </Grid>
                                         <Grid item xs={3.5} >

@@ -1,11 +1,9 @@
 import * as React from "react";
 import { AppBar, Toolbar, Box, Button } from "@mui/material";
-import GridViewRoundedIcon from "@mui/icons-material/GridViewRounded";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import Menu from "./components/menu";
 import MegaMenuButton from "./components/megaMenu-button";
 
-export default function Appbar() {
+export default function Menubar() {
   return (
     <Box
       sx={{
@@ -21,7 +19,7 @@ export default function Appbar() {
           backgroundColor: "#fff",
           height: "60px",
           boxShadow: "none",
-          maxWidth: "1248px"
+          maxWidth: "1225px"
         }}
       >
         <Toolbar

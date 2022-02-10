@@ -37,7 +37,7 @@ const PaperItems = styled(Paper)({
     display: "none",
     position: "absolute",
     borderRadius: '5px',
-    top: "10px",
+    top: "0",
     left: "278px",
     width: "550px",
     zIndex: 2,
