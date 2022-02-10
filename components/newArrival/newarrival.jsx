@@ -12,11 +12,13 @@ import Image6 from '../../asset/newArrival/tree.png';
 import { useState } from 'react';
 import CartItem from '../topRatingAndFeature/CartItem';
 const PaperCustom = styled(Paper)({
-    alignItems: 'left',
-    justifyContent: 'left',
-    backgroundColor:'white',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: '18px',
     borderRadius: '10px',
     margin: 'auto',
+    boxShadow: ' rgb(3 0 71 / 9%) 0px 1px 3px',
+    cursor: 'pointer',
 })
 const Newarrival=()=>{
     const [arrival,setArrival]=useState([
@@ -30,15 +32,14 @@ const Newarrival=()=>{
     return(
         <Grid>
             <Title title={'New Arrival'} icon={<NewReleasesIcon/>}/>
-            <PaperCustom >
-                <Grid container>
+            <PaperCustom>
+                <Grid container spacing={3}>
                     {arrival.map((item)=>(
-                        <Grid  item  key={item.id} xs={6} sm={4} md={3} lg={2}>
+                        <Grid  item  key={item.id} xs={6} sm={6} md={3} lg={2}>
                             <CartItem image={item.image} title={item.title}  price={item.price} display={'none'} alignItem={'left'}/>
                         </Grid>
                     ))}
                 </Grid>
-
             </PaperCustom>
         </Grid>
       

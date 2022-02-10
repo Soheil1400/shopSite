@@ -9,18 +9,18 @@ const StyledPaper=styled(Paper)({
     zIndex: "1",
     top: "0",
     right: "0",
-    bottom: "0",
+    bottom: "4px",
     left: "0",
     opacity: "0",
     cursor:'pointer',
     borderRadius:'10px',
     "&:hover": {opacity: ".3", transition: 'all 250ms ease-in-out 0s'},
 })
-const CartItem = ({image,title,rating,price,display,alignItem}) => {
+const CartItem = ({image,title,rating,price,display,alignItem,w=900,h=900}) => {
     return (
-        <Grid display={'flex'} alignItems={alignItem} flexDirection={'column'} p={1}>
+        <Grid display={'flex'} alignItems={alignItem} flexDirection={'column'}>
         <Grid position={'relative'}>
-            <Image src={image} alt={title}/>
+            <Image src={image} alt={title} width={w} height={h}/>
             <StyledPaper>{}</StyledPaper>
         </Grid>
         <Grid display={display}>
