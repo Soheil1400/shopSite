@@ -33,6 +33,7 @@ export default function Appbar() {
           }}
         >
           <MegaMenuButton title="Categories" backColor="#e6ecf6"/>
+          <Menu/>
         </Toolbar>
       </AppBar>
     </Box>
