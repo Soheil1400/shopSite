@@ -13,12 +13,10 @@ const billingForm = [
   { id: 5, title: "Zip Code" },
 ];
 const ShippingAddress = () => {
-    const [age, setAge] = useState("");
-    const [state, setState] = useState("");
-    const handleChange = (event) => {
-      setAge(event.target.value);
-      setState(event.target.value);
-    };
+  const [country, setCountry] = useState("");
+  const handleChange = (event) => {
+    setCountry(event.target.value);
+  };
   const PaperCustom = styled(Paper)({
     width: "100%",
     alignItems: "center",
@@ -44,32 +42,30 @@ const ShippingAddress = () => {
     alignItems: "center",
     wrap: "nowrap",
   });
+  const TypographyFormTitle = styled(Typography)({
+    color: Theme.palette.secondary.dark,
+    fontSize: "0.875rem",
+    marginBottom: "-10px",
+  });
   return (
     <PaperCustom sx={{ padding: "1.5rem 1.75rem" }}>
-        <TypographyMain fontWeight="600">Shipping Address</TypographyMain>
-      <CustomGridRow
-        container
-        alignItems="flex-start"
-        spacing={1}
-      >
+      <TypographyMain fontWeight="600" mb="16px">Shipping Address</TypographyMain>
+      <CustomGridRow container alignItems="flex-start" spacing={1}>
         {billingForm.map((form) => (
           <Grid item xs={6} fullWidth key={form.id}>
-            <TypographyMain fontSize="0.875rem">{form.title}</TypographyMain>
-            <TextField
-              placeholder="Voucher"
-              fullWidth
-              sx={{ margin: "8px 0" }}
-            />
+            <TypographyFormTitle>{form.title}</TypographyFormTitle>
+            <TextField fullWidth sx={{ margin: "8px 0" }} />
           </Grid>
         ))}
         <Grid item xs={6} fullWidth>
-          <FormControl fullWidth sx={{ margin: "8px 0" }}>
-            <TypographyGray>Country</TypographyGray>
+          <FormControl fullWidth>
+            <TypographyFormTitle>Country</TypographyFormTitle>
             <Select
               defaultValue="Select Country"
-              value={age}
+              value={country}
               onChange={handleChange}
               displayEmpty
+              sx={{ margin: "8px 0" }}
             >
               <MenuItem value="">
                 <em>Select Country</em>
@@ -81,12 +77,16 @@ const ShippingAddress = () => {
           </FormControl>
         </Grid>
         <Grid item xs={6} fullWidth>
-          <TypographyMain fontSize="0.875rem">Address 1</TypographyMain>
-          <TextField placeholder="Voucher" fullWidth sx={{ margin: "8px 0" }} />
+          <TypographyFormTitle fontSize="0.875rem">
+            Address 1
+          </TypographyFormTitle>
+          <TextField fullWidth sx={{ margin: "8px 0" }} />
         </Grid>
         <Grid item xs={6} fullWidth>
-          <TypographyMain fontSize="0.875rem">Address 2</TypographyMain>
-          <TextField placeholder="Voucher" fullWidth sx={{ margin: "8px 0" }} />
+          <TypographyFormTitle fontSize="0.875rem">
+            Address 2
+          </TypographyFormTitle>
+          <TextField fullWidth sx={{ margin: "8px 0" }} />
         </Grid>
       </CustomGridRow>
     </PaperCustom>

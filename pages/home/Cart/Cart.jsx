@@ -70,7 +70,7 @@ const Cart = ({ state, setState }) => {
         </CustomGrid>
         <NoProduct />
       </DrowerContainer>
-      <CartButton />
+      <CartButton/>
     </Drawer>
   );
 };
