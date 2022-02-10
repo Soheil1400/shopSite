@@ -10,6 +10,8 @@ import PetsOutlinedIcon from '@mui/icons-material/PetsOutlined';
 import ToysOutlinedIcon from '@mui/icons-material/ToysOutlined';
 import LocalGroceryStoreOutlinedIcon from '@mui/icons-material/LocalGroceryStoreOutlined';
 import RvHookupIcon from '@mui/icons-material/RvHookup';
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import React from "react";
 
 const Data = [
     {
@@ -81,10 +83,10 @@ const Data = [
 export const MegaMenu = () => {
     return (
         <Paper sx={{width: "278px"}}>
-            <CustomDrop title="Fashion" arr={Data} icon={<ShoppingBagOutlinedIcon/>}/>
-            <CustomDrop title="Electronics" arr={Data} icon={<LaptopChromebookRoundedIcon/>}/>
-            <CustomDrop title="Bikes" arr={Data} icon={<TwoWheelerIcon/>}/>
-            <CustomDrop title="Home & Garden" arr={Data} icon={<LocalFloristOutlinedIcon/>}/>
+            <CustomDrop title="Fashion" arr={Data} icon={<ShoppingBagOutlinedIcon/>} arrowIcon={<ArrowForwardIosIcon fontSize={"small"}/>}/>
+            <CustomDrop title="Electronics" arr={Data} icon={<LaptopChromebookRoundedIcon/>} arrowIcon={<ArrowForwardIosIcon fontSize={"small"}/>}/>
+            <CustomDrop title="Bikes" arr={Data} icon={<TwoWheelerIcon/>} arrowIcon={<ArrowForwardIosIcon fontSize={"small"}/>}/>
+            <CustomDrop title="Home & Garden" arr={Data} icon={<LocalFloristOutlinedIcon/>} arrowIcon={<ArrowForwardIosIcon fontSize={"small"}/>}/>
             <CustomDrop title="Gifts" arr={[]} icon={<CardGiftcardOutlinedIcon/>}/>
             <CustomDrop title="Music" arr={[]} icon={<ShoppingBagOutlinedIcon/>}/>
             <CustomDrop title="Health & Beauty" arr={[]} icon={<HealthAndSafetyOutlinedIcon/>}/>
