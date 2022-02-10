@@ -45,7 +45,7 @@ export default function NativeSelectDemo({ list, index, color, top }) {
             position: "absolute",
             // right: `calc(25px + 50px * ${index})`,
             top: `calc(40px + 30px * ${top})`,
-            zIndex: "100",
+            zIndex: 150,
             width: "150px",
           }}
         >
