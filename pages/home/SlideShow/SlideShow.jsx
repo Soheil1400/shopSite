@@ -6,20 +6,34 @@ import Image from 'next/image'
 import watch from "../../../asset/applewatch.png";
 import styled from "@emotion/styled";
 import Theme from "../../../theme/theme";
+import AbcIcon from '@mui/icons-material/Abc';
 
 const data = [
     {
+        id:1,
         title: "50% Of For Your First Shopping",
     }, {
+        id:2,
         title: "50% Of For Your First Shopping",
     }, {
+        id:3,
         title: "50% Of For Your First Shopping",
     }, {
+        id:4,
         title: "50% Of For Your First Shopping",
     },
 ]
+
+function SampleNextArrow(props) {
+    const { className, style, onClick } = props;
+    return (
+        <div/>
+    );
+}
+
 export default function SlideShow() {
     const Query = useMediaQuery("(min-width:321px)");
+    const Query1 = useMediaQuery("(min-width:800px)");
     const settings = {
         dots: true,
         infinite: true,
@@ -28,19 +42,19 @@ export default function SlideShow() {
         autoplay: true,
         speed: 400,
         autoplaySpeed: 2500,
+        nextArrow: <SampleNextArrow/>,
+        prevArrow: <SampleNextArrow/>
     }
     const InfoBox = styled(Box)({
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'flex-start',
-        padding: '1rem 0px 1rem 2rem',
-        width: Query === true ? '50%' : '80%',
     })
     const InfoHeader = styled(Typography)({
         fontSize: Query === true ? '4rem' : "1.5rem",
         marginTop: 0,
-        marginBottom: '1.35rem',
+        marginBottom: '1.5rem',
         lineHeight: '1.2',
         color: "rgb(43, 52, 69)",
         fontWeight: "bold"
@@ -51,33 +65,39 @@ export default function SlideShow() {
         fontSize: "12px"
     })
     return (
-        <Box sx={{width: "95%", maxWidth: "1200px"}}>
-            <Slider {...settings}>
-                {
-                    data.map((item, index) => (
-                        <Grid key={index} sx={{display: "flex!important", alignItems: "center"}}>
-                            <InfoBox>
-                                <InfoHeader>{item.title}</InfoHeader>
-                                <Typography sx={{marginBottom: '1.35rem', color: 'rgb(15, 52, 96)',}}>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aspernatur
-                                    corporis dicta exercitationem, odit recusandae.
-                                </Typography>
-                                <InfoButton variant="contained">
-                                    Visit Collections
-                                </InfoButton>
-                            </InfoBox>
-                            <Grid sx={{
-                                width: Query === true ? '256px' : '100px',
-                                height: Query === true ? '391px' : '150px'
-                            }}>
-                                <Image alt="watch logo" src={watch}/>
-                            </Grid>
-                        </Grid>
-                    ))
-                }
-            </Slider>
-        </Box>
+    <Grid container mb={3} mt={Query1 === true ? -2 : -7} bgcolor={Theme.palette.primary.light} pb={8} pr={Query1 === true ? 0 : 4}>
+            <Grid container spacing={3} maxWidth={'1200px'} margin={"auto"}>
+                <Grid item xs={0} md={3} display={Query1 === true ? 'flex' : 'none'}>
 
-
+                </Grid>
+                <Grid item xs={12} md={9}>
+                    <Box sx={{width: "100%", maxWidth: "1200px"}}>
+                        <Slider {...settings}>
+                            {
+                                data.map((item) => (
+                                    <Grid container key={item.id} sx={{display: "flex!important", alignItems: "center"}} mb={4}>
+                                        <Grid item xs={8.5}>
+                                            <InfoBox>
+                                                <InfoHeader>{item.title}</InfoHeader>
+                                                <Typography sx={{marginBottom: '1.35rem', color: 'rgb(15, 52, 96)',}}>
+                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aspernatur
+                                                    corporis dicta exercitationem, odit recusandae.
+                                                </Typography>
+                                                <InfoButton variant="contained">
+                                                    Visit Collections
+                                                </InfoButton>
+                                            </InfoBox>
+                                        </Grid>
+                                        <Grid item xs={3.5} >
+                                            <Image alt="watch logo" src={watch}/>
+                                        </Grid>
+                                    </Grid>
+                                ))
+                            }
+                        </Slider>
+                    </Box>
+                </Grid>
+            </Grid>
+        </Grid>
     );
 }

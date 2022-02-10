@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Box from '@mui/material/Box';
-import {Chip, useMediaQuery} from "@mui/material";
+import {Chip, Grid, useMediaQuery} from "@mui/material";
 import styled from "@emotion/styled";
 import Category1 from "../../../asset/category-1.png"
 import Category2 from "../../../asset/category-2.png"
@@ -14,32 +14,32 @@ import DashboardIcon from '@mui/icons-material/Dashboard';
 const data =
     [
         {
-            id:1,
+            id: 1,
             title1: "HeadPhones",
             image: Category1,
         },
         {
-            id:2,
+            id: 2,
             title1: "watch",
             image: Category2,
         },
         {
-            id:3,
+            id: 3,
             title1: "SunGlass",
             image: Category3,
         },
         {
-            id:4,
+            id: 4,
             title1: "HeadPhones",
             image: Category1,
         },
         {
-            id:5,
+            id: 5,
             title1: "watch",
             image: Category2,
         },
         {
-            id:6,
+            id: 6,
             title1: "SunGlass",
             image: Category3,
         },
@@ -97,6 +97,7 @@ export default function Category() {
     const HoverBox = styled(Box)({
         position: "absolute",
         backgroundColor: "black",
+        borderRadius: '10px',
         zIndex: "1",
         top: "0",
         right: "0",
@@ -109,7 +110,7 @@ export default function Category() {
     return (
         <Box sx={{
             maxWidth: "1200px",
-            width:'98%',
+            width: '98%',
         }}>
             <Title title={'Top Categories'} icon={<DashboardIcon/>}/>
             <Slider {...settings}>
@@ -126,17 +127,13 @@ export default function Category() {
                                     sx={{zIndex: "2", backgroundColor: 'rgb(227, 233, 239)', color: 'rgb(55, 63, 80)'}}
                                     label={"3k orders this week"}/>
                             </TitlesBox>
-                            <Box
-                                sx={{
-                                    display: "flex",
-                                    alignItems: "center",
-                                    position: "relative",
-                                }}
-                            >
-                                <Image
-                                    src={item.image}
-                                    alt={item.image}
-                                />
+                            <Box sx={{
+                                display: "flex",
+                                alignItems: "center",
+                                position: "relative",
+                                borderRadius:'10px'
+                            }}>
+                                <Image src={item.image} alt={item.image}/>
                                 <HoverBox>{}</HoverBox>
                             </Box>
                         </CartBox>

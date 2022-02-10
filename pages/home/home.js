@@ -7,6 +7,7 @@ import Brands from "./brands/brands";
 import Ads from "./ads/ads";
 import {FlashDeal} from "./flashDeal/FlashDeal";
 import Category from "./top_categories/TopCategories";
+import SlideShow from "./SlideShow/SlideShow";
 
 const HomeComponent = () => {
     const BoxCustom = styled(Box)({
@@ -19,17 +20,20 @@ const HomeComponent = () => {
         margin: 'auto'
     })
     return (
-        <BoxCustom>
-            <FlashDeal/>
-            <Category/>
-            <Brands title={'Car'} category={'car'} display={'none'}/>
-            <Ads/>
-            <Brands title={'Motor'} category={'motor'} display={'flex'}/>
-            <Brands title={'Gadget'} category={'gadget'} display={'flex'}/>
-            <CategoryList/>
-            <MadeForYou/>
-            <AboutUs/>
-        </BoxCustom>
+        <>
+            <SlideShow/>
+            <BoxCustom>
+                <FlashDeal/>
+                <Category/>
+                <Brands title={'Car'} category={'car'} display={'none'}/>
+                <Ads/>
+                <Brands title={'Motor'} category={'motor'} display={'flex'}/>
+                <Brands title={'Gadget'} category={'gadget'} display={'flex'}/>
+                <CategoryList/>
+                <MadeForYou/>
+                <AboutUs/>
+            </BoxCustom>
+        </>
     )
 }
 
