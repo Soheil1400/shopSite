@@ -42,44 +42,54 @@ const BillingAdress = () => {
     alignItems: "center",
     wrap: "nowrap",
   });
+  const TypographyFormTitle = styled(Typography)({
+    color: Theme.palette.secondary.dark,
+    fontSize: "0.875rem",
+    marginBottom:"-10px"
+  });
   return (
     <PaperCustom sx={{ padding: "1.5rem 1.75rem" }}>
-      <TypographyMain fontWeight="600">Billing Address</TypographyMain>
-      <CustomGridRow container alignItems="flex-start" spacing={1}>
+      <TypographyMain fontWeight="600" mb="16px">Billing Address</TypographyMain>
+      <CustomGridRow
+        container
+        alignItems="flex-start"
+        spacing={1}
+      >
         {billingForm.map((form) => (
           <Grid item xs={6} fullWidth key={form.id}>
-            <TypographyMain fontSize="0.875rem">{form.title}</TypographyMain>
+            <TypographyFormTitle>{form.title}</TypographyFormTitle>
             <TextField
-              placeholder="Voucher"
               fullWidth
               sx={{ margin: "8px 0" }}
             />
           </Grid>
         ))}
         <Grid item xs={6} fullWidth>
-          <FormControl fullWidth sx={{ margin: "8px 0" }}>
-            <TypographyGray>Country</TypographyGray>
+          <FormControl fullWidth>
+            <TypographyFormTitle>Country</TypographyFormTitle>
             <Select
               defaultValue="Select Country"
               value={country}
               onChange={handleChange}
               displayEmpty
+              sx={{ margin: "8px 0" }}
             >
               <MenuItem value="">
                 <em>Select Country</em>
               </MenuItem>
-              <MenuItem value={10}>New York</MenuItem>
-              <MenuItem value={20}>Chigaco</MenuItem>
+              <MenuItem value={10}>Ten</MenuItem>
+              <MenuItem value={20}>Twenty</MenuItem>
+              <MenuItem value={30}>Thirty</MenuItem>
             </Select>
           </FormControl>
         </Grid>
         <Grid item xs={6} fullWidth>
-          <TypographyMain fontSize="0.875rem">Address 1</TypographyMain>
-          <TextField placeholder="Voucher" fullWidth sx={{ margin: "8px 0" }} />
+          <TypographyFormTitle fontSize="0.875rem">Address 1</TypographyFormTitle>
+          <TextField fullWidth sx={{ margin: "8px 0" }} />
         </Grid>
         <Grid item xs={6} fullWidth>
-          <TypographyMain fontSize="0.875rem">Address 2</TypographyMain>
-          <TextField placeholder="Voucher" fullWidth sx={{ margin: "8px 0" }} />
+          <TypographyFormTitle fontSize="0.875rem">Address 2</TypographyFormTitle>
+          <TextField fullWidth sx={{ margin: "8px 0" }} />
         </Grid>
       </CustomGridRow>
     </PaperCustom>

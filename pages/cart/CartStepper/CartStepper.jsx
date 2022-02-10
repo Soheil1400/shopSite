@@ -148,14 +148,14 @@ const CartStepper = () => {
     setCompleted({});
   };
   const steps = [
-    { id: 0, title: "1.Cart", element: <FirstStep/>},
+    { id: 0, title: "1.Cart", element: <FirstStep />},
     { id: 1, title: "2.Details", element: <SecondStep /> },
     { id: 2, title: "3.Payment", element: <SecondStep  /> },
     { id: 3, title: "4.Review", element: <SecondStep/> },
   ];
   return (
     <Grid container>
-      <Grid item container mb="12px" mx="30px" justifyContent="flex-start">
+      <Grid item container mb="12px"  justifyContent="flex-start">
         <Stepper activeStep={activeStep} connector={<ColorlibConnector sx={{width:MLT ===true  ?"50px":"5px"}}/>}>
           {steps.map((step) => (
             <Step
