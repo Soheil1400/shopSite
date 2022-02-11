@@ -13,73 +13,7 @@ import RvHookupIcon from '@mui/icons-material/RvHookup';
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import React from "react";
 import {styled} from "@mui/material/styles";
-
-const Data = [
-    {
-        category: "Man Clothes", items: [
-            {name: "T-shirt", sub: []},
-            {name: "Shirt", sub: []},
-            {name: "Pant", sub: []},
-            {name: "UnderWear", sub: []},
-        ]
-    },
-    {
-        category: "Accessories", items: [
-            {name: "T-shirt", sub: []},
-            {name: "Shirt", sub: []},
-            {name: "Pant", sub: []},
-            {name: "UnderWear", sub: []},
-        ]
-    },
-    {
-        category: "Shoes", items: [
-            {name: "T-shirt", sub: []},
-            {name: "Shirt", sub: []},
-            {name: "Pant", sub: []},
-            {name: "UnderWear", sub: []},
-        ]
-    },
-    {
-        category: "Shop", items: [
-            {name: "T-shirt", sub: []},
-            {name: "Shirt", sub: []},
-            {name: "Pant", sub: []},
-            {name: "UnderWear", sub: []},
-        ]
-    },
-    {
-        category: "Bags", items: [
-            {name: "T-shirt", sub: []},
-            {name: "Shirt", sub: []},
-            {name: "Pant", sub: []},
-            {name: "UnderWear", sub: []},
-        ]
-    },
-    {
-        category: "Woman Clothes", items: [
-            {name: "T-shirt", sub: []},
-            {name: "Shirt", sub: []},
-            {name: "Pant", sub: []},
-            {name: "UnderWear", sub: []},
-        ]
-    },
-    {
-        category: "Accessories", items: [
-            {name: "T-shirt", sub: []},
-            {name: "Shirt", sub: []},
-            {name: "Pant", sub: []},
-            {name: "UnderWear", sub: []},
-        ]
-    },
-    {
-        category: "Bags", items: [
-            {name: "T-shirt", sub: []},
-            {name: "Shirt", sub: []},
-            {name: "Pant", sub: []},
-            {name: "UnderWear", sub: []},
-        ]
-    },
-]
+import {megaMenu} from "../../data/megaMenu";
 
 export const MegaMenu = () => {
     const BoxCustom = styled(Box)({
@@ -88,14 +22,22 @@ export const MegaMenu = () => {
         maxWidth: '1180px',
         margin:'auto',
     })
+    const PaperCustom = styled(Paper)({
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: '10px',
+        margin: 'auto',
+        boxShadow: ' rgb(3 0 71 / 9%) 0px 1px 3px',
+        width: "278px"
+    })
     return (
         <BoxCustom>
             <Box sx={{position:'absolute',top:'70px',zIndex:999}}>
-                <Paper sx={{width: "278px"}}>
-                    <CustomDrop title="Fashion" arr={Data} icon={<ShoppingBagOutlinedIcon/>} arrowIcon={<ArrowForwardIosIcon fontSize={"small"}/>}/>
-                    <CustomDrop title="Electronics" arr={Data} icon={<LaptopChromebookRoundedIcon/>} arrowIcon={<ArrowForwardIosIcon fontSize={"small"}/>}/>
-                    <CustomDrop title="Bikes" arr={Data} icon={<TwoWheelerIcon/>} arrowIcon={<ArrowForwardIosIcon fontSize={"small"}/>}/>
-                    <CustomDrop title="Home & Garden" arr={Data} icon={<LocalFloristOutlinedIcon/>} arrowIcon={<ArrowForwardIosIcon fontSize={"small"}/>}/>
+                <PaperCustom>
+                    <CustomDrop title="Fashion" arr={megaMenu} icon={<ShoppingBagOutlinedIcon/>} arrowIcon={<ArrowForwardIosIcon fontSize={"small"}/>}/>
+                    <CustomDrop title="Electronics" arr={megaMenu} icon={<LaptopChromebookRoundedIcon/>} arrowIcon={<ArrowForwardIosIcon fontSize={"small"}/>}/>
+                    <CustomDrop title="Bikes" arr={megaMenu} icon={<TwoWheelerIcon/>} arrowIcon={<ArrowForwardIosIcon fontSize={"small"}/>}/>
+                    <CustomDrop title="Home & Garden" arr={megaMenu} icon={<LocalFloristOutlinedIcon/>} arrowIcon={<ArrowForwardIosIcon fontSize={"small"}/>}/>
                     <CustomDrop title="Gifts" arr={[]} icon={<CardGiftcardOutlinedIcon/>}/>
                     <CustomDrop title="Music" arr={[]} icon={<ShoppingBagOutlinedIcon/>}/>
                     <CustomDrop title="Health & Beauty" arr={[]} icon={<HealthAndSafetyOutlinedIcon/>}/>
@@ -103,7 +45,7 @@ export const MegaMenu = () => {
                     <CustomDrop title="Baby Toys" arr={[]} icon={<ToysOutlinedIcon/>}/>
                     <CustomDrop title="Groceries" arr={[]} icon={<LocalGroceryStoreOutlinedIcon/>}/>
                     <CustomDrop title="Automotive" arr={[]} icon={<RvHookupIcon/>}/>
-                </Paper>
+                </PaperCustom>
             </Box>
         </BoxCustom>
     )

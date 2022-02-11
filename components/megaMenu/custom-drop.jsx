@@ -36,11 +36,15 @@ const TypographyNames = styled(Typography)({
 const PaperItems = styled(Paper)({
     display: "none",
     position: "absolute",
-    borderRadius: '5px',
     top: "0",
     left: "278px",
     width: "550px",
     zIndex: 2,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: '10px',
+    margin: 'auto',
+    boxShadow: ' rgb(3 0 71 / 9%) 0px 1px 3px',
 })
 
 export default function CustomDrop({title, arr, icon, arrowIcon}) {

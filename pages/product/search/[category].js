@@ -10,6 +10,7 @@ import {check1,check2,check3} from "../../../data/checks";
 
 const Category = ({categoryData}) => {
     const [menu,setMenu] = useState(false)
+    const [card,setCard] = useState('vertical')
     const [filter , setFilter] = useState(
         {
             price:'Relevance',
@@ -27,11 +28,11 @@ const Category = ({categoryData}) => {
                         <SearchFilter filter={filter} setFilter={setFilter} matches={matches} check1={check1} check2={check2} check3={check3}/>
                     </Grid>
                 </SwipeableDrawer>
-                <SearchHead filter={filter} setFilter={setFilter} categoryData={categoryData} setMenu={setMenu} matches={matches} matchesHead={matchesHead}/>
+                <SearchHead card={card} setCard={setCard} filter={filter} setFilter={setFilter} categoryData={categoryData} setMenu={setMenu} matches={matches} matchesHead={matchesHead}/>
                 <Grid item lg={3} display={matches === true ? 'block' : 'none'}>
                     <SearchFilter  filter={filter} setFilter={setFilter} matches={matches} check1={check1} check2={check2} check3={check3}/>
                 </Grid>
-                <SearchCards filter={filter} categoryData={categoryData}/>
+                <SearchCards card={card} filter={filter} categoryData={categoryData}/>
             </Grid>
         </BoxCustom>
 )

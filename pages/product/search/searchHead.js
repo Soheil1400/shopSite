@@ -5,7 +5,7 @@ import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
 import {PaperCustom,TypographyGray,TypographyMain} from "../../../style/style";
 
-const SearchHead = ({matches,matchesHead,setMenu,categoryData,setFilter,filter}) => {
+const SearchHead = ({matches,matchesHead,setMenu,categoryData,setFilter,filter,card,setCard}) => {
     const options = ['Relevance', 'Date', 'Price Low to High', 'Price High to Low'];
     const handleChange = (e) => {
         if (e.target.value === 'Price Low to High'){
@@ -53,11 +53,11 @@ const SearchHead = ({matches,matchesHead,setMenu,categoryData,setFilter,filter})
                                     View:
                                 </TypographyGray>
                             </Grid>
-                            <Grid ml={2} color={Theme.palette.primary.main}>
-                                <GridViewIcon/>
+                            <Grid ml={2} color={card === 'vertical' ? Theme.palette.primary.main : Theme.palette.secondary.main}>
+                                <GridViewIcon onClick={()=>setCard('vertical')}/>
                             </Grid>
-                            <Grid mx={2}>
-                                <MenuRoundedIcon/>
+                            <Grid mx={2} color={card === 'horizontal' ? Theme.palette.primary.main : Theme.palette.secondary.main}>
+                                <MenuRoundedIcon onClick={()=>setCard('horizontal')}/>
                             </Grid>
                             <Grid display={matches === true ? 'none' : 'flex'}>
                                 <FilterAltIcon onClick={()=>setMenu(true)}/>
