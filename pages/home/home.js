@@ -1,5 +1,3 @@
-import {styled} from "@mui/material/styles";
-import {Box} from "@mui/material";
 import CategoryList from "./category list/categoryList";
 import MadeForYou from "./madeForYou/madeForYou";
 import AboutUs from "./aboutUs/aboutUs";
@@ -8,19 +6,11 @@ import Ads from "./ads/ads";
 import {FlashDeal} from "./flashDeal/FlashDeal";
 import Category from "./top_categories/TopCategories";
 import SlideShow from "./SlideShow/SlideShow";
-import Newarrival from "../../components/newArrival/newarrival";
-import RatingAndFeature from "../../components/topRatingAndFeature/RatingAndFeature";
+import NewArrival from "./newArrival/newarrival";
+import RatingAndFeature from "./topRatingAndFeature/RatingAndFeature";
+import {BoxCustom} from "../../style/style";
 
 const HomeComponent = () => {
-    const BoxCustom = styled(Box)({
-        display: 'flex',
-        flexDirection: 'column',
-        padding: '12px',
-        alignItems: 'center',
-        justifyContent: 'center',
-        maxWidth: '1200px',
-        margin: 'auto'
-    })
     return (
         <>
             <SlideShow/>
@@ -28,7 +18,7 @@ const HomeComponent = () => {
                 <FlashDeal/>
                 <Category/>
                 <RatingAndFeature/>
-                <Newarrival/>
+                <NewArrival/>
                 <Brands title={'Car'} category={'car'} display={'none'}/>
                 <Ads/>
                 <Brands title={'Motor'} category={'motor'} display={'flex'}/>

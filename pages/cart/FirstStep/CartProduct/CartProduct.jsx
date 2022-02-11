@@ -2,7 +2,7 @@ import { useDispatch } from "react-redux";
 import Image from "next/image";
 import { styled } from "@mui/material/styles";
 import Link from "next/link";
-import { forwardRef, useState } from "react";
+import { forwardRef} from "react";
 import { useMediaQuery } from "@mui/material";
 
 import { Grid, IconButton, Paper, Typography, Box } from "@mui/material";

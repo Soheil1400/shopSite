@@ -1,6 +1,7 @@
 import { Grid } from '@mui/material';
 import TopRating from './topRating';
 import FeatureBrand from './featureBrand';
+
 const RatingAndFeature = () => {
     return ( 
         <Grid container spacing={3}>

@@ -1,50 +1,13 @@
 import Image from 'next/image'
 import Box from '@mui/material/Box';
-import {Chip, Grid, useMediaQuery} from "@mui/material";
+import {Chip ,useMediaQuery} from "@mui/material";
 import styled from "@emotion/styled";
-import Category1 from "../../../asset/category-1.png"
-import Category2 from "../../../asset/category-2.png"
-import Category3 from "../../../asset/category-3.png"
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Title from "../title/title";
 import DashboardIcon from '@mui/icons-material/Dashboard';
-
-const data =
-    [
-        {
-            id: 1,
-            title1: "HeadPhones",
-            image: Category1,
-        },
-        {
-            id: 2,
-            title1: "watch",
-            image: Category2,
-        },
-        {
-            id: 3,
-            title1: "SunGlass",
-            image: Category3,
-        },
-        {
-            id: 4,
-            title1: "HeadPhones",
-            image: Category1,
-        },
-        {
-            id: 5,
-            title1: "watch",
-            image: Category2,
-        },
-        {
-            id: 6,
-            title1: "SunGlass",
-            image: Category3,
-        },
-
-    ]
+import {topCategory} from "../../../data/topCategory";
 
 export default function Category() {
     const Query = useMediaQuery('(min-width:321px)')
@@ -106,7 +69,6 @@ export default function Category() {
         opacity: "0",
         "&:hover": {opacity: ".3", transition: 'all 250ms ease-in-out 0s'}
     })
-
     return (
         <Box sx={{
             maxWidth: "1200px",
@@ -114,8 +76,7 @@ export default function Category() {
         }}>
             <Title title={'Top Categories'} icon={<DashboardIcon/>}/>
             <Slider {...settings}>
-                {
-                    data.map(item => (
+                {topCategory.map(item => (
                         <CartBox key={item.id} component="span">
                             <TitlesBox>
                                 <Chip

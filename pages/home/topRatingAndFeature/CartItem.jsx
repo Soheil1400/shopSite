@@ -2,8 +2,8 @@ import Rating from '@mui/material/Rating';
 import {styled} from '@mui/material/styles';
 import { Typography ,Grid ,Paper,Box} from '@mui/material';
 import Image from 'next/image';
-import theme from '../../theme/theme';
-import Theme from "../../theme/theme";
+import theme from '../../../theme/theme';
+import Theme from "../../../theme/theme";
 const StyledPaper=styled(Paper)({
     position: "absolute",
     backgroundColor: "black",

@@ -14,6 +14,7 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Theme from "../../../../theme/theme";
+import {TypographyGray} from "../../../../style/style";
 
 const adressForm = [
   {
@@ -61,10 +62,6 @@ const AddressBox = () => {
     fontWeight: "600",
     lineHeight: "1",
     marginBottom: "0.5rem",
-  });
-  const TypographyGray = styled(Typography)({
-    color: Theme.palette.secondary.light,
-    fontSize: "14px",
   });
   const TypographyFormTitle = styled(Typography)({
     color: Theme.palette.secondary.dark,
