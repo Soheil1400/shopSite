@@ -1,30 +1,20 @@
 import { styled } from "@mui/material/styles";
-import { useState } from "react";
 import {
   Grid,
-  Paper,
   Typography,
   Divider,
   TextField,
   Button,
 } from "@mui/material";
 import Theme from "../../../../theme/theme";
-
+import { PaperCustom,TypographyMain,TypographyGray } from "../../../../style/style";
 const Vocher = () => {
-  const PaperCustom = styled(Paper)({
-    width: "100%",
-    alignItems: "center",
-    justifyContent: "center",
-    padding: "1.5rem 1.75rem;",
-    borderRadius: "10px",
-    margin: "0.5rem 0",
-    boxShadow: " rgb(3 0 71 / 9%) 0px 1px 3px",
+  const TypographyMainVocher = styled(TypographyMain)({
+    fontSize: "18px",
+    lineHeight: "1",
   });
-  const TypographyMain = styled(Typography)({
-    color: Theme.palette.secondary.dark,
-  });
-  const TypographyGray = styled(Typography)({
-    color: Theme.palette.secondary.light,
+  const TypographyGrayVocher = styled(TypographyGray)({
+    fontSize:"14px",
   });
   const CartButton = styled(Button)({
     height: "40",
@@ -50,47 +40,30 @@ const Vocher = () => {
     direction: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    margin:"8px 0",
+    margin: "8px 0",
   });
   return (
     <PaperCustom>
-      <CustomGridRow item container >
-        <TypographyGray fontSize="14px">Subtotal:</TypographyGray>
-        <TypographyMain
-          sx={{ fontSize: "18px", fontWeight: "600", lineHeight: "1" }}
-        >
-          $2610.00
-        </TypographyMain>
+      <CustomGridRow item container>
+        <TypographyGrayVocher >Subtotal:</TypographyGrayVocher>
+        <TypographyMainVocher>$2610.00</TypographyMainVocher>
       </CustomGridRow>
-      <CustomGridRow item container  >
-        <TypographyGray fontSize="14px">Shipping:</TypographyGray>
-        <TypographyMain
-          sx={{ fontSize: "18px", fontWeight: "600", lineHeight: "1" }}
-        >
-          -
-        </TypographyMain>
+      <CustomGridRow item container>
+        <TypographyGrayVocher>Shipping:</TypographyGrayVocher>
+        <TypographyMainVocher>-</TypographyMainVocher>
       </CustomGridRow>
-      <CustomGridRow item container >
-        <TypographyGray fontSize="14px">Tax:</TypographyGray>
-        <TypographyMain
-          sx={{ fontSize: "18px", fontWeight: "600", lineHeight: "1" }}
-        >
-          S40.00
-        </TypographyMain>
+      <CustomGridRow item container>
+        <TypographyGrayVocher>Tax:</TypographyGrayVocher>
+        <TypographyMainVocher>S40.00</TypographyMainVocher>
       </CustomGridRow>
-      <CustomGridRow item container >
-        <TypographyGray fontSize="14px">Discount:</TypographyGray>
-        <TypographyMain
-          sx={{ fontSize: "18px", fontWeight: "600", lineHeight: "1" }}
-        >
-          -
-        </TypographyMain>
+      <CustomGridRow item container>
+        <TypographyGrayVocher>Discount:</TypographyGrayVocher>
+        <TypographyMainVocher>-</TypographyMainVocher>
       </CustomGridRow>
       <Divider />
-      <Grid container direction="row-reverse" >
-        <TypographyMain fontSize="25px">$2610.00</TypographyMain>
+      <Grid container direction="row-reverse">
+        <Typography color={Theme.palette.secondary.dark} fontSize="25px">$2610.00</Typography>
       </Grid>
-
       <TextField placeholder="Voucher" fullWidth sx={{ margin: "8px 0" }} />
       <ViewCardButton fullWidth>Apply Voucher</ViewCardButton>
     </PaperCustom>

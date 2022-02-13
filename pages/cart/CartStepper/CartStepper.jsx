@@ -17,12 +17,6 @@ import {stepConnectorClasses} from "@mui/material/StepConnector";
 import FirstStep from "../FirstStep/FirstStep";
 import SecondStep from "../SecondStep/SecondStep";
 
-const steps = [
-    {id: 0, title: "1.Cart", element: <FirstStep/>},
-    {id: 1, title: "2.Details", element: <SecondStep/>},
-    {id: 2, title: "3.Payment", element: <SecondStep/>},
-    {id: 3, title: "4.Review", element: <SecondStep/>},
-];
 const ColorlibStepIconRootMobile = styled(Box)(({ownerState}) => ({
     display: "inline-flex",
     borderRadius: "300px",
@@ -143,12 +137,10 @@ const CartStepper = () => {
     const [activeStep, setActiveStep] = useState(0);
     const [completed, setCompleted] = useState({});
     const Tablet = useMediaQuery("(min-width:700px)");
-    const Mobile=useMediaQuery("(min-width:500px)")
+    const Mobile=useMediaQuery("(min-width:500px)");
+
     const handleNext = () => {
-        const newActiveStep =
-            isLastStep() && !allStepsCompleted()
-                ? steps.findIndex((step, i) => !(i in completed))
-                : activeStep + 1;
+        const newActiveStep = activeStep + 1;
         setActiveStep(newActiveStep);
     };
     const handleBack = () => {
@@ -157,6 +149,12 @@ const CartStepper = () => {
     const handleStep = (step) => () => {
         setActiveStep(step);
     };
+    const steps = [
+        {id: 0, title: "1.Cart", element: <FirstStep handleNext={handleNext} activeStep={activeStep}/>},
+        {id: 1, title: "2.Details", element: <SecondStep handleNext={handleNext} handleBack={handleBack} activeStep={activeStep}/>},
+        {id: 2, title: "3.Payment", element: <SecondStep handleNext={handleNext} handleBack={handleBack} activeStep={activeStep}/>},
+        {id: 3, title: "4.Review", element: <SecondStep handleBack={handleBack} activeStep={activeStep}/>},
+    ];
     return (
         <Grid container>
             <Grid item container mb="12px" justifyContent="flex-start">
