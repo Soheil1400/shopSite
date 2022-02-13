@@ -53,11 +53,8 @@ const CartSelectedProductCard = ({ image, number, price, name, product }) => {
           </TypographyGray>
           <TypographyPrime>${price * number}</TypographyPrime>
         </InformationBox>
-        <ClearButton>
-          <ClearOutlinedIcon
-            fontSize="small"
-            onClick={() => dispatch(removeItem(product))}
-          />
+        <ClearButton onClick={() => dispatch(removeItem(product))}>
+          <ClearOutlinedIcon fontSize="small" />
         </ClearButton>
       </ProductCard>
       <Divider />
