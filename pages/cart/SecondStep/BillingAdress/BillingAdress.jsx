@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { styled } from "@mui/material/styles";
 
-import { Checkbox, Paper, Typography,FormControlLabel } from "@mui/material";
+import { Checkbox, Paper, Typography, FormControlLabel } from "@mui/material";
 import CropSquareIcon from "@mui/icons-material/CropSquare";
 import SquareIcon from "@mui/icons-material/Square";
 
@@ -12,8 +12,7 @@ const BillingAdress = () => {
   const [show, setShow] = useState("flex");
 
   const handleHideInfo = (e) => {
-    setShow(e.target.checked && show==="flex"?"none":"flex");
-
+    setShow(e.target.checked && show === "flex" ? "none" : "flex");
   };
   const PaperCustom = styled(Paper)({
     width: "100%",
@@ -33,13 +32,23 @@ const BillingAdress = () => {
         Billing Address
       </TypographyMain>
       <FormControlLabel
+        sx={{marginBottom:"16px"}}
         label="Same as shipping address"
         control={
           <Checkbox
-            icon={<CropSquareIcon />}
-            checkedIcon={<SquareIcon sx={{ color: "rgb(15, 52, 96)" }} />}
-            checked={show==="none"}
-            onChange={(e)=>handleHideInfo(e)}
+            icon={<CropSquareIcon sx={{ fontSize: "18px" }} />}
+            checkedIcon={
+              <SquareIcon
+                sx={{
+                  fontSize: "14px",
+                  color: "rgb(15, 52, 96)",
+                  padding: "-2px",
+                  border: "2px solid rgb(125, 135, 156)",
+                }}
+              />
+            }
+            checked={show === "none"}
+            onChange={(e) => handleHideInfo(e)}
           />
         }
       />

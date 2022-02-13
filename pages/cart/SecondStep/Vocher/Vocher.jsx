@@ -13,7 +13,7 @@ import {
 const Vocher = () => {
   const items = useSelector((state) => state.cart.items);
   return (
-    <PaperCustom>
+    <PaperCustom fullWidth>
       <CustomGridRow item container>
         <TypographyGrayVocher>Subtotal:</TypographyGrayVocher>
         <TypographyMainVocher>
