@@ -1,8 +1,7 @@
-import {Grid, ListItemText, MenuList, Paper, Typography} from "@mui/material";
+import {Grid, ListItemText, MenuItem, MenuList, Paper, Typography} from "@mui/material";
 import {styled} from "@mui/material/styles";
 import Link from 'next/link'
 import Theme from "../../theme/theme";
-import {MenuItemCustom} from "../../style/style";
 import {vendorMenu} from "../../data/vendorMenu";
 
 const VendorMenu = ({matchesMenu ,router}) => {
@@ -10,10 +9,21 @@ const VendorMenu = ({matchesMenu ,router}) => {
         width: '100%',
         alignItems: 'center',
         justifyContent: 'center',
-        padding: '4px 0',
+        padding: '8px 0',
         borderRadius: '10px',
         margin: '0.5rem 0',
         boxShadow: ' rgb(3 0 71 / 9%) 0px 1px 3px',
+    })
+    const MenuItemCustom = styled(MenuItem)({
+        color: Theme.palette.secondary.dark,
+        backgroundColor: Theme.palette.primary.light,
+        borderLeft:`4px solid ${Theme.palette.primary.light}`,
+        height:'20px',
+        '&:hover': {
+            color: Theme.palette.primary.main,
+            backgroundColor: Theme.palette.primary.light,
+            borderLeft:`4px solid ${Theme.palette.primary.main}`,
+        },
     })
     return(
         <Grid item lg={3} display={matchesMenu === true ? 'block' : 'none'}>

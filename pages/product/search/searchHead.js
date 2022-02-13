@@ -53,11 +53,11 @@ const SearchHead = ({matches,matchesHead,setMenu,categoryData,setFilter,filter,c
                                     View:
                                 </TypographyGray>
                             </Grid>
-                            <Grid p={1.5} borderRadius={'50%'} sx={{cursor:'pointer','&:hover':{backgroundColor: 'rgb(239,239,239)'}}} ml={2} color={card === 'vertical' ? Theme.palette.primary.main : Theme.palette.secondary.main} display={'flex'} alignItems={'centre'}>
-                                <GridViewIcon onClick={()=>setCard('vertical')}/>
+                            <Grid onClick={()=>setCard('vertical')} p={1.5} borderRadius={'50%'} sx={{cursor:'pointer','&:hover':{backgroundColor: 'rgb(239,239,239)'}}} ml={2} color={card === 'vertical' ? Theme.palette.primary.main : Theme.palette.secondary.main} display={'flex'} alignItems={'centre'}>
+                                <GridViewIcon />
                             </Grid>
-                            <Grid p={1.5} borderRadius={'50%'} sx={{cursor:'pointer','&:hover':{backgroundColor: 'rgb(239,239,239)'}}} mx={2} color={card === 'horizontal' ? Theme.palette.primary.main : Theme.palette.secondary.main} display={'flex'} alignItems={'centre'}>
-                                <MenuRoundedIcon onClick={()=>setCard('horizontal')}/>
+                            <Grid onClick={()=>setCard('horizontal')} p={1.5} borderRadius={'50%'} sx={{cursor:'pointer','&:hover':{backgroundColor: 'rgb(239,239,239)'}}} mx={2} color={card === 'horizontal' ? Theme.palette.primary.main : Theme.palette.secondary.main} display={'flex'} alignItems={'centre'}>
+                                <MenuRoundedIcon />
                             </Grid>
                             <Grid display={matches === true ? 'none' : 'flex'}>
                                 <FilterAltIcon onClick={()=>setMenu(true)}/>

@@ -21,7 +21,7 @@ const VendorTitle = ({matchesMenu , setMenu , router}) =>{
                         {router.asPath === '/vendor/dashboard' ? <>Dashboard</> : <>Orders</>}
                     </TypographyMain>
                 </Grid>
-                <Grid display={matchesMenu === true ? 'none' : 'flex'}>
+                <Grid display={matchesMenu === true ? 'none' : 'flex'} pr={2}>
                     <MenuIcon sx={{fontSize:'25px'}} onClick={()=>setMenu(true)}/>
                 </Grid>
             </GridCustomHead>

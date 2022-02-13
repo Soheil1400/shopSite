@@ -8,7 +8,7 @@ const ProductCartPrice = ({product,fontSize='14px'}) =>{
                 ${product.sale === true ? (product.price * (100 - product.MSale)) / 100 : product.price}
             </TypographyPrime>
             <TypographyGray fontSize={fontSize} sx={{textDecoration: 'line-through'}} component={'span'} mx={0.5}>
-                {product.sale === true ? `${product.price}.00` : ''}
+                ${product.sale === true ? `${product.price}.00` : ''}
             </TypographyGray>
         </Grid>
     )
