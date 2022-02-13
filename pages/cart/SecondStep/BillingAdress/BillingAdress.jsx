@@ -38,6 +38,7 @@ const BillingAdress = () => {
           <Checkbox
             icon={<CropSquareIcon />}
             checkedIcon={<SquareIcon sx={{ color: "rgb(15, 52, 96)" }} />}
+            checked={show==="none"}
             onChange={(e)=>handleHideInfo(e)}
           />
         }
