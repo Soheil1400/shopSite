@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { Typography, Divider, Drawer, Grid } from "@mui/material";
 import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
 
-import CartButton from "./CartButton/CartButton";
+import CartButtonBox from "./CartButtonBox/CartButtonBox";
 import NoProduct from "./NoProduct/NoProduct";
 import CartSelectedProductsList from "./CartSelectedProductList/CartSelectedProductsList";
 import Theme from "../../../theme/theme";
@@ -70,7 +70,7 @@ const Cart = ({ state, setState }) => {
         </CustomGrid>
         <NoProduct />
       </DrowerContainer>
-      <CartButton/>
+      <CartButtonBox/>
     </Drawer>
   );
 };

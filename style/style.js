@@ -148,3 +148,32 @@ export const ListTitle = styled(ListSubheader)({
     color:Theme.palette.secondary.main,
     fontSize:'16px'
 })
+const CartButton = styled(Button)({
+    height: "40",
+    lineHeight: "1",
+    borderRadius: "5",
+    padding: " 11px 1.5rem",
+    outline: "none",
+    fontSize: "14",
+    fontWeight: "600",
+    transition: " all 150ms ease-in-out 0s",
+  });
+  export const PrimaryBtn = styled(CartButton)({
+    border: "none",
+    background: Theme.palette.primary.main,
+    color: Theme.palette.primary.light,
+    "&:hover": {
+      backgroundColor: Theme.palette.primary.main,
+      boxShadow: "none",
+    },
+  });
+  export const SecondaryBtn = styled(CartButton)({
+    border: "1px solid rgb(233, 69, 96)",
+    background: "#fff",
+    color: Theme.palette.primary.main,
+    "&:hover": {
+      backgroundColor: Theme.palette.primary.main,
+      boxShadow: "none",
+      color: Theme.palette.primary.light,
+    },
+  });

@@ -34,7 +34,7 @@ const adressForm = [
     item2: "Chigaco",
   },
 ];
-const AddressBox = () => {
+const AddressBox = ({handleNext,activeStep}) => {
   const items = useSelector((state) => state.cart.items);
   const [country, setCountry] = useState("");
   const [state, setState] = useState("");
@@ -167,7 +167,7 @@ const AddressBox = () => {
       <SecondaryBtn fullWidth sx={{ margin: "8px 0" }}>
         Calculate Shipping
       </SecondaryBtn>
-      <PrimaryBtn fullWidth>Checkout Now</PrimaryBtn>
+      <PrimaryBtn fullWidth onClick={()=>handleNext()}>Checkout Now</PrimaryBtn>
     </PaperCustom>
   );
 };

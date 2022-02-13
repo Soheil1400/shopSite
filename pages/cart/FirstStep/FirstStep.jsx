@@ -4,7 +4,7 @@ import CartProductList from "./CartProductList/CartProductList";
 import AddressBox from "./AddressBox/AddressBox";
 import { ProductData } from "../../../data/Productdata";
 import CartProduct from "../FirstStep/CartProduct/CartProduct";
-const FirstStep = ({handleNext}) => {
+const FirstStep = ({handleNext,activeStep}) => {
   const CustomGridRow = styled(Grid)({
     direction: "row-reverse",
     justifyContent: "space-between",
@@ -17,7 +17,7 @@ const FirstStep = ({handleNext}) => {
         <CartProductList />
       </Grid>
       <Grid item xs={12} lg={3.8}>
-        <AddressBox />
+        <AddressBox handleNext={handleNext} activeStep={activeStep}/>
       </Grid>
     </CustomGridRow>
   );
