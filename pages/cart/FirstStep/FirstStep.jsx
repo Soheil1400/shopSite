@@ -1,9 +1,10 @@
 import { styled } from "@mui/material/styles";
+
 import { Grid } from "@mui/material";
+
 import CartProductList from "./CartProductList/CartProductList";
 import AddressBox from "./AddressBox/AddressBox";
-import { ProductData } from "../../../data/Productdata";
-import CartProduct from "../FirstStep/CartProduct/CartProduct";
+
 const FirstStep = ({handleNext,activeStep}) => {
   const CustomGridRow = styled(Grid)({
     direction: "row-reverse",
