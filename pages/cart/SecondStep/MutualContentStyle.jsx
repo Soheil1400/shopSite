@@ -1,6 +1,6 @@
 import { styled } from "@mui/material/styles";
-import { Grid, Paper, Typography} from "@mui/material";
-import Theme from "../../../../theme/theme";
+import { Grid, Typography} from "@mui/material";
+import Theme from "../../../theme/theme";
 
 export const TypographyMain = styled(Typography)({
   color: Theme.palette.secondary.dark,

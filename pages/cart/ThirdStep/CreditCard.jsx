@@ -5,7 +5,7 @@ import { Grid, TextField } from "@mui/material";
 
 import { creditCard } from "./ThirdStepData";
 import {  SecondaryBtn } from "../../../style/style";
-import { TypographyFormTitle } from "../FirstStep/AddressBox/AdressBoxStyle";
+import { TypographyFormTitle } from "../FirstStep/AdressBoxStyle";
 
 const CreditCard = ({credit}) => {
   const CustomGridRow = styled(Grid)({

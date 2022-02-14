@@ -2,8 +2,8 @@ import { styled } from "@mui/material/styles";
 
 import { Grid } from "@mui/material";
 
-import CartProductList from "./CartProductList/CartProductList";
-import AddressBox from "./AddressBox/AddressBox";
+import CartProductList from "./CartProductList";
+import AddressBox from "./AddressBox";
 
 const FirstStep = ({handleNext,activeStep}) => {
   const CustomGridRow = styled(Grid)({

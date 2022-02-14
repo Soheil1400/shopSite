@@ -1,6 +1,6 @@
 import { styled } from "@mui/material/styles";
 import { Grid } from "@mui/material";
-import {TypographyMain,TypographyGray } from "../../../../style/style";
+import {TypographyMain,TypographyGray } from "../../../style/style";
 
 export const TypographyMainVocher = styled(TypographyMain)({
   fontSize: "18px",

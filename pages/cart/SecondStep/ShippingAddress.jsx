@@ -1,8 +1,8 @@
 import { styled } from "@mui/material/styles";
 import { Paper, Typography } from "@mui/material";
-import Theme from "../../../../theme/theme";
+import Theme from "../../../theme/theme";
 
-import MutualContent from "../MutualContent/MutualContent.";
+import MutualContent from "./MutualContent.";
 
 const ShippingAddress = () => {
   const PaperCustom = styled(Paper)({

@@ -5,7 +5,7 @@ import { forwardRef } from "react";
 import { useMediaQuery } from "@mui/material";
 
 import { CustomGridColumn } from "./CartProductStyle";
-import RemoveButton from "./CardButtons/RemoveButton";
+import RemoveButton from "./RemoveButton";
 
 const CartImage = ({ image, product }) => {
   const Mobile = useMediaQuery("(min-width:750px)");

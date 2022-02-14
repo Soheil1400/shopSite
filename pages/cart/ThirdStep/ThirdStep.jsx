@@ -5,16 +5,13 @@ import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
-import FormLabel from "@mui/material/FormLabel";
 
-import { Grid, Paper, TextField } from "@mui/material";
+import { Grid, Paper } from "@mui/material";
 
-import Payment from "../SecondStep/Vocher/Payment";
+import Payment from "../SecondStep/Payment";
 import Paypal from "./PayPal"
 import CreditCard from "./CreditCard"
-import { creditCard } from "./ThirdStepData";
 import { PrimaryBtn, SecondaryBtn } from "../../../style/style";
-import { TypographyFormTitle } from "../FirstStep/AddressBox/AdressBoxStyle";
 const ThirdStep = ({ handleBack }) => {
   const [value, setValue] = useState("credit");
   const [credit, setCredit] = useState("flex");

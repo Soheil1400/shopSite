@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 
 import { TextField,FormControl } from "@mui/material";
 
-import { PaperCustom, SecondaryBtn } from "../../../../style/style";
+import { PaperCustom, SecondaryBtn } from "../../../style/style";
 import Payment from "./Payment";
 
 const Vocher = () => {

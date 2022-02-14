@@ -6,9 +6,9 @@ import { useMediaQuery } from "@mui/material";
 import { Grid, Stepper, Step, StepLabel } from "@mui/material";
 
 import { ColorlibStepIconMobile, ColorlibStepIcon } from "./CartStepperStyle";
-import FirstStep from "../FirstStep/FirstStep";
-import SecondStep from "../SecondStep/SecondStep";
-import ThirdStep from "../ThirdStep/ThirdStep";
+import FirstStep from "./FirstStep/FirstStep";
+import SecondStep from "./SecondStep/SecondStep";
+import ThirdStep from "./ThirdStep/ThirdStep";
 import StepperConector from "./StepperConector";
 import StepperContent from "./StepperContent";
 

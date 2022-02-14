@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import {MenuItem,FormControl,Select} from "@mui/material";
 
-import { TypographyFormTitle } from "../AdressBoxStyle";
+import { TypographyFormTitle } from "./AdressBoxStyle";
 import { adressForm } from "./AdressBoxData";
 
 const AddressBoxForm = () => {

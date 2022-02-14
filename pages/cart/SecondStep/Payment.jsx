@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 
 import { Grid, Typography, Divider } from "@mui/material";
 
-import Theme from "../../../../theme/theme";
+import Theme from "../../../theme/theme";
 import {
   TypographyMainVocher,
   TypographyGrayVocher,

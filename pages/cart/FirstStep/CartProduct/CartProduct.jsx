@@ -11,12 +11,10 @@ import {
   CustomGridColumn,
   TypographyMain,
   TypographyCount,
-  TypographyGray,
-  TypographyPrime,
   CustomBox,
 } from "./CartProductStyle";
-import AddButton from "./CardButtons/AddButton";
-import MinusButton from "./CardButtons/MinusButton";
+import AddButton from "./AddButton";
+import MinusButton from "./MinusButton";
 import CartImage from "./CartImage";
 import CartInfo from "./CartInfo";
 import { removeItem } from "../../../../redux/reducer/cart.reducer";

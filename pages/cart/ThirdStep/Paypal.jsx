@@ -1,11 +1,9 @@
 import { styled } from "@mui/material/styles";
 
-import FormControl from "@mui/material/FormControl";
-
 import { Grid, TextField } from "@mui/material";
 
 import { SecondaryBtn } from "../../../style/style";
-import { TypographyFormTitle } from "../FirstStep/AddressBox/AdressBoxStyle";
+import { TypographyFormTitle } from "../FirstStep/AdressBoxStyle";
 
 const Paypal = ({ paypal }) => {
   const CustomGridRow = styled(Grid)({
