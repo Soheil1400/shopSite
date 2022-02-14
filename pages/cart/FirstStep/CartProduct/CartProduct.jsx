@@ -11,8 +11,6 @@ import {
   CustomGridColumn,
   TypographyMain,
   TypographyCount,
-  TypographyGray,
-  TypographyPrime,
   CustomBox,
 } from "./CartProductStyle";
 import AddButton from "./CardButtons/AddButton";
@@ -24,6 +22,7 @@ import { removeItem } from "../../../../redux/reducer/cart.reducer";
 const CartProduct = ({ image, number, price, name, product }) => {
   const dispatch = useDispatch();
   const Mobile = useMediaQuery("(min-width:750px)");
+  // eslint-disable-next-line react/display-name
   const SelectedProduct = forwardRef(({ onClick, href }, ref) => {
     return (
       <a href={href} onClick={onClick} ref={ref}>
@@ -46,7 +45,7 @@ const CartProduct = ({ image, number, price, name, product }) => {
             </CustomBox>
           </CustomGridRow>
           <CustomGridRow item container justifyContent="space-between">
-            <CartInfo number={number} price={price} />
+            <CartInfo number={number} price={price} product={product}/>
             <CustomGridRow
               item
               container

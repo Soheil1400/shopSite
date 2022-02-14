@@ -18,7 +18,7 @@ const CartButtonBox = () => {
         <RedButton sx={{ margin: "0px 1rem 0.75rem" }}>
           CheckOut Now $(
           {items.reduce((price, item) => {
-            price = price + item.count * item.price;
+            price = price + (item.count * (item.sale === true ? (item.price * (100 - item.MSale)) / 100 : item.price));
             return price;
           }, 0)}
           )

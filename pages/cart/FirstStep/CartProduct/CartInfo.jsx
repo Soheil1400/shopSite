@@ -4,7 +4,7 @@ import {
   TypographyPrime,
 } from "./CartProductStyle";
 
-const CartInfo = ({ number, price }) => {
+const CartInfo = ({ number, price,product }) => {
   return (
     <CustomGridRow
       item
@@ -14,10 +14,10 @@ const CartInfo = ({ number, price }) => {
       xs={6}
     >
       <TypographyGray component={"span"} mx={0.5}>
-        ${price}.00 &times; {number}
+        ${(product.sale === true ? (product.price * (100 - product.MSale)) / 100 : product.price)} &times; {product.count}
       </TypographyGray>{" "}
       <TypographyPrime component={"span"} mx={0.5}>
-        ${price * number}.00
+        ${(product.sale === true ? (product.price * (100 - product.MSale)) / 100 : product.price) * product.count}
       </TypographyPrime>
     </CustomGridRow>
   );

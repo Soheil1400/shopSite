@@ -21,7 +21,7 @@ const AddressBox = ({ handleNext }) => {
         <TypographyMainTotal>
           $
           {items.reduce((price, item) => {
-            price = price + item.count * item.price;
+            price = price + (item.count * (item.sale === true ? (item.price * (100 - item.MSale)) / 100 : item.price));
             return price;
           }, 0)}
           .00
