@@ -33,7 +33,9 @@ const settings = {
 
 export const FlashDeal = () => {
     return (
-            <Box sx={{
+            <Box
+                my={1}
+                sx={{
                 maxWidth: "1200px",
                 width:"100%"
             }}>

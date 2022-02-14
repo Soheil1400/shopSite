@@ -11,7 +11,7 @@ export default function MegaMenuButton({title, backColor}) {
           <Button
               sx={{
                   color: "black",
-                  backgroundColor: `${backColor}`,
+                  backgroundColor: `#F6F9FC`,
                   fontSize: "14px",
                   "&:hover": { backgroundColor: `${backColor}` },
               }}

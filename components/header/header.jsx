@@ -8,32 +8,39 @@ import Select from "./components/custom-select";
 
 const lan = [
   {
+    id:1,
     title: "EN",
     img: "https://bonik-react.vercel.app/assets/images/flags/usa.png",
   },
   {
+    id:2,
     title: "BN",
     img: "https://bonik-react.vercel.app/assets/images/flags/bd.png",
   },
   {
+    id:3,
     title: "HN",
     img: "	https://bonik-react.vercel.app/assets/images/flags/in.png",
   },
 ];
 const usd = [
   {
+    id:1,
     title: "USD",
     img: "https://bonik-react.vercel.app/assets/images/flags/usa.png",
   },
   {
+    id:2,
     title: "EUR",
     img: "https://bonik-react.vercel.app/assets/images/flags/uk.png",
   },
   {
+    id:3,
     title: "BDT",
     img: "https://bonik-react.vercel.app/assets/images/flags/bd.png",
   },
   {
+    id:4,
     title: "INR",
     img: "https://bonik-react.vercel.app/assets/images/flags/in.png",
   },
@@ -87,7 +94,7 @@ export default function Header() {
                 component="div"
                 sx={{ flexGrow: 1, fontSize: "12px" }}
               >
-                +9012 3456 7
+                support@ui-lib.com
               </Typography>
             </>
           ) : (
@@ -133,10 +140,10 @@ export default function Header() {
               </>
             )}
             <Box>
-              <Select list={lan} index={2} color="white" top={0} />
+              <Select list={lan} index={2} color="white" right={'70px'}/>
             </Box>
             <Box>
-              <Select list={usd} index={0} color="white" top={0} />
+              <Select list={usd} index={0} color="white" right={'10px'} />
             </Box>
           </Stack>
         </Toolbar>

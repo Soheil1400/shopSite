@@ -28,7 +28,7 @@ const ProductInfo = ({product}) =>{
                     <TypographyGray mr={1} component={'span'} variant={'body2'} fontSize={'16px'}>
                         Rated:
                     </TypographyGray>
-                    <Rating size={'small'} readOnly defaultValue={product.rate} precision={1}/>
+                    <Rating size={'small'} readOnly value={product.rate} precision={1}/>
                     <TypographyMain ml={1} component={'span'}>
                         (50)
                     </TypographyMain>

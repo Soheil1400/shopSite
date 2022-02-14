@@ -7,7 +7,7 @@ import {arrival} from "../../../data/arrival";
 
 const NewArrival = () =>{
     return(
-        <Grid>
+        <Grid my={3}>
             <Title title={'New Arrival'} icon={<NewReleasesIcon/>}/>
             <PaperCustom>
                 <Grid container spacing={3}>

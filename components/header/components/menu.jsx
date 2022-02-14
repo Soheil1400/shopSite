@@ -1,6 +1,6 @@
-import * as React from "react";
 import { Stack } from "@mui/material";
 import CustomDrop from "./custom-drop";
+import Link from 'next/link'
 
 const home = [
   { id:1,name: "Super Store", sub: [] },
@@ -21,9 +21,9 @@ const user = [
   { id:5,name: "Wishlist", sub: [] },
 ];
 const vendor = [
-  { id:1,name: "Dashboard", sub: [] },
+  { id:1,name:<Link href={'/vendor/dashboard'}>Dashboard</Link>, sub: [] },
   { id:2,name: "Products", sub: ["All Products", "Add/Edit Product"] },
-  { id:3,name: "Orders", sub: ["All Orders", "Order Details"] },
+  { id:3,name: <Link href={'/vendor/orders'}>Orders</Link>, sub: ['All orders', "Order Details"] },
   { id:4,name: "Profile", sub: [] },
 ];
 export default function Menu() {

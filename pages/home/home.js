@@ -9,6 +9,7 @@ import SlideShow from "./slideShow/SlideShow";
 import NewArrival from "./newArrival/newarrival";
 import RatingAndFeature from "./topRatingAndFeature/RatingAndFeature";
 import {BoxCustom} from "../../style/style";
+import BigDiscount from "./bigDiscount/bigDiscount";
 
 const HomeComponent = () => {
     return (
@@ -19,6 +20,7 @@ const HomeComponent = () => {
                 <Category/>
                 <RatingAndFeature/>
                 <NewArrival/>
+                <BigDiscount/>
                 <Brands title={'Car'} category={'car'} display={'none'}/>
                 <Ads/>
                 <Brands title={'Motor'} category={'motor'} display={'flex'}/>

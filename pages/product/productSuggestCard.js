@@ -3,20 +3,30 @@ import Image from "next/image";
 import {PaperCustom} from "../../style/style";
 import ProductCartPrice from "../../components/productCard/productCartPrice";
 import ProductCartName from "../../components/productCard/productCartName";
+import Link from 'next/link'
+import {forwardRef} from "react";
 
-const ProductSuggestCard = ({matches,product,a}) => {
+const ProductSuggestCard = ({matches = true,product}) => {
+    // eslint-disable-next-line react/display-name
+    const Product = forwardRef(({ onClick, href }, ref) => {
+        return (
+            <a href={href} onClick={onClick} ref={ref}>
+                <Image src={product.images[0].image} alt={'play-store'}/>
+                <Grid position={'absolute'} top={0} right={0} left={0} bottom={0} sx={{'&:hover':{opacity:'0.3',backgroundColor:'#000',borderRadius:'5px'}}}>
+                </Grid>
+            </a>
+        )
+    })
     return (
-        <Grid item xs={12} sm={3} md={2.5} lg={1.75} display={'flex'} alignItems={'center'} justifyContent={'center'}>
             <PaperCustom sx={{width: matches === true ? '100%' : '75%',cursor:'pointer'}}>
                 <Grid position={'relative'} my={1}>
-                    <Image src={product.images[0].image} alt={'play-store'}/>
-                    <Grid position={'absolute'} top={0} right={0} left={0} bottom={0} sx={{'&:hover':{opacity:'0.3',backgroundColor:'#000',borderRadius:'5px'}}}>
-                    </Grid>
+                    <Link href={`/product/${product.id}`}>
+                        <Product/>
+                    </Link>
                 </Grid>
                 <ProductCartName product={product}/>
                 <ProductCartPrice product={product}/>
             </PaperCustom>
-        </Grid>
     )
 }
 

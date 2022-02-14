@@ -70,7 +70,9 @@ export default function Category() {
         "&:hover": {opacity: ".3", transition: 'all 250ms ease-in-out 0s'}
     })
     return (
-        <Box sx={{
+        <Box
+            my={2}
+            sx={{
             maxWidth: "1200px",
             width: '98%',
         }}>
