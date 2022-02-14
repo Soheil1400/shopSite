@@ -1,52 +1,29 @@
-import { styled } from "@mui/material/styles";
-import {
-  Grid,
-  Typography,
-  Divider,
-  TextField,
-  Button,
-} from "@mui/material";
+import { useSelector } from "react-redux";
+
+import { Grid, Typography, Divider, TextField } from "@mui/material";
+
 import Theme from "../../../../theme/theme";
-import { PaperCustom,TypographyMain,TypographyGray } from "../../../../style/style";
+import { PaperCustom, SecondaryBtn } from "../../../../style/style";
+import {
+  TypographyMainVocher,
+  TypographyGrayVocher,
+  CustomGridRow,
+} from "./VocherStyle";
+
 const Vocher = () => {
-  const TypographyMainVocher = styled(TypographyMain)({
-    fontSize: "18px",
-    lineHeight: "1",
-  });
-  const TypographyGrayVocher = styled(TypographyGray)({
-    fontSize:"14px",
-  });
-  const CartButton = styled(Button)({
-    height: "40",
-    lineHeight: "1",
-    borderRadius: "5",
-    padding: " 11px 1.5rem",
-    outline: "none",
-    fontSize: "14",
-    fontWeight: "600",
-    transition: " all 150ms ease-in-out 0s",
-  });
-  const ViewCardButton = styled(CartButton)({
-    border: "1px solid rgb(233, 69, 96)",
-    background: "transparent",
-    color: " rgb(233, 69, 96)",
-    "&:hover": {
-      backgroundColor: "rgb(233, 69, 96)",
-      boxShadow: "none",
-      color: "rgb(255, 255, 255)",
-    },
-  });
-  const CustomGridRow = styled(Grid)({
-    direction: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    margin: "8px 0",
-  });
+  const items = useSelector((state) => state.cart.items);
   return (
-    <PaperCustom>
+    <PaperCustom fullWidth>
       <CustomGridRow item container>
-        <TypographyGrayVocher >Subtotal:</TypographyGrayVocher>
-        <TypographyMainVocher>$2610.00</TypographyMainVocher>
+        <TypographyGrayVocher>Subtotal:</TypographyGrayVocher>
+        <TypographyMainVocher>
+          $
+          {items.reduce((price, item) => {
+            price = price + item.count * item.price;
+            return price;
+          }, 0)}
+          .00
+        </TypographyMainVocher>
       </CustomGridRow>
       <CustomGridRow item container>
         <TypographyGrayVocher>Shipping:</TypographyGrayVocher>
@@ -54,18 +31,44 @@ const Vocher = () => {
       </CustomGridRow>
       <CustomGridRow item container>
         <TypographyGrayVocher>Tax:</TypographyGrayVocher>
-        <TypographyMainVocher>S40.00</TypographyMainVocher>
+        <TypographyMainVocher>
+          $
+          {items.reduce((tax, item) => {
+            tax = tax + item.count * (item.price * (item.MSale / 1000));
+            return tax;
+          }, 0)}
+          .00
+        </TypographyMainVocher>
       </CustomGridRow>
       <CustomGridRow item container>
         <TypographyGrayVocher>Discount:</TypographyGrayVocher>
-        <TypographyMainVocher>-</TypographyMainVocher>
+        <TypographyMainVocher>
+          $
+          {items.reduce((discount, item) => {
+            discount =
+              discount + item.count * (item.price * (item.MSale / 100));
+            return discount;
+          }, 0)}
+          .00
+        </TypographyMainVocher>
       </CustomGridRow>
       <Divider />
       <Grid container direction="row-reverse">
-        <Typography color={Theme.palette.secondary.dark} fontSize="25px">$2610.00</Typography>
+        <Typography color={Theme.palette.secondary.dark} fontSize="25px">
+          $
+          {items.reduce((total, item) => {
+            total =
+            total +
+              item.count * item.price -
+              item.count * (item.price * (item.MSale / 100))+
+              item.count * (item.price * (item.MSale / 1000))
+            return total;
+          }, 0)}
+          .00
+        </Typography>
       </Grid>
       <TextField placeholder="Voucher" fullWidth sx={{ margin: "8px 0" }} />
-      <ViewCardButton fullWidth>Apply Voucher</ViewCardButton>
+      <SecondaryBtn fullWidth>Apply Voucher</SecondaryBtn>
     </PaperCustom>
   );
 };

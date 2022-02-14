@@ -1,21 +1,18 @@
-import { styled } from "@mui/material/styles";
 import { useState } from "react";
-import MenuItem from "@mui/material/MenuItem";
-import { Grid, IconButton, Paper, Typography, TextField } from "@mui/material";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
+import { styled } from "@mui/material/styles";
+
+import { Checkbox, Paper, Typography, FormControlLabel } from "@mui/material";
+import CropSquareIcon from "@mui/icons-material/CropSquare";
+import SquareIcon from "@mui/icons-material/Square";
+
 import Theme from "../../../../theme/theme";
-const billingForm = [
-  { id: 1, title: "Full Name" },
-  { id: 2, title: "Email Address" },
-  { id: 3, title: "Phone Number" },
-  { id: 4, title: "Company" },
-  { id: 5, title: "Zip Code" },
-];
+import MutualContent from "../MutualContent/MutualContent.";
+
 const BillingAdress = () => {
-  const [country, setCountry] = useState("");
-  const handleChange = (event) => {
-    setCountry(event.target.value);
+  const [show, setShow] = useState("flex");
+
+  const handleHideInfo = (e) => {
+    setShow(e.target.checked && show === "flex" ? "none" : "flex");
   };
   const PaperCustom = styled(Paper)({
     width: "100%",
@@ -29,69 +26,33 @@ const BillingAdress = () => {
   const TypographyMain = styled(Typography)({
     color: Theme.palette.secondary.dark,
   });
-  const TypographyGray = styled(Typography)({
-    color: Theme.palette.secondary.light,
-  });
-  const CustomGridRow = styled(Grid)({
-    direction: "row",
-    wrap: "nowrap",
-  });
-  const CustomGridColumn = styled(Grid)({
-    direction: "column",
-    justifyContent: "space-between",
-    alignItems: "center",
-    wrap: "nowrap",
-  });
-  const TypographyFormTitle = styled(Typography)({
-    color: Theme.palette.secondary.dark,
-    fontSize: "0.875rem",
-    marginBottom:"-10px"
-  });
   return (
     <PaperCustom sx={{ padding: "1.5rem 1.75rem" }}>
-      <TypographyMain fontWeight="600" mb="16px">Billing Address</TypographyMain>
-      <CustomGridRow
-        container
-        alignItems="flex-start"
-        spacing={1}
-      >
-        {billingForm.map((form) => (
-          <Grid item xs={6} fullWidth key={form.id}>
-            <TypographyFormTitle>{form.title}</TypographyFormTitle>
-            <TextField
-              fullWidth
-              sx={{ margin: "8px 0" }}
-            />
-          </Grid>
-        ))}
-        <Grid item xs={6} fullWidth>
-          <FormControl fullWidth>
-            <TypographyFormTitle>Country</TypographyFormTitle>
-            <Select
-              defaultValue="Select Country"
-              value={country}
-              onChange={handleChange}
-              displayEmpty
-              sx={{ margin: "8px 0" }}
-            >
-              <MenuItem value="">
-                <em>Select Country</em>
-              </MenuItem>
-              <MenuItem value="10">Ten</MenuItem>
-              <MenuItem value="20">Twenty</MenuItem>
-              <MenuItem value="30">Thirty</MenuItem>
-            </Select>
-          </FormControl>
-        </Grid>
-        <Grid item xs={6} fullWidth>
-          <TypographyFormTitle fontSize="0.875rem">Address 1</TypographyFormTitle>
-          <TextField fullWidth sx={{ margin: "8px 0" }} />
-        </Grid>
-        <Grid item xs={6} fullWidth>
-          <TypographyFormTitle fontSize="0.875rem">Address 2</TypographyFormTitle>
-          <TextField fullWidth sx={{ margin: "8px 0" }} />
-        </Grid>
-      </CustomGridRow>
+      <TypographyMain fontWeight="600" mb="16px">
+        Billing Address
+      </TypographyMain>
+      <FormControlLabel
+        sx={{marginBottom:"16px"}}
+        label="Same as shipping address"
+        control={
+          <Checkbox
+            icon={<CropSquareIcon sx={{ fontSize: "18px" }} />}
+            checkedIcon={
+              <SquareIcon
+                sx={{
+                  fontSize: "14px",
+                  color: "rgb(15, 52, 96)",
+                  padding: "-2px",
+                  border: "2px solid rgb(125, 135, 156)",
+                }}
+              />
+            }
+            checked={show === "none"}
+            onChange={(e) => handleHideInfo(e)}
+          />
+        }
+      />
+      <MutualContent show={show} />
     </PaperCustom>
   );
 };

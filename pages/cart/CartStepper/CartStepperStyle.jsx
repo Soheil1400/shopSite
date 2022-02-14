@@ -7,7 +7,6 @@ import { stepConnectorClasses } from "@mui/material/StepConnector";
 const ColorlibStepIconRootMobile = styled(Box)(({ ownerState }) => ({
   display: "inline-flex",
   borderRadius: "300px",
-  cursor: "not-allowed",
   boxShadow: "unset",
   transition: "all 150ms ease-in-out 0s",
   marginTop: "4px",

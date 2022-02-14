@@ -86,6 +86,11 @@ export const PMButton = styled(IconButton)({
         backgroundColor: Theme.palette.primary.main,
         color: Theme.palette.primary.light,
         border: `1px solid ${Theme.palette.primary.main}`,
+    },
+    ":disabled": {
+        border: "1px solid rgb(218, 225, 231)",
+        backgroundColor: "rgb(218, 225, 231)",
+        color: "rgb(125, 135, 156)",
     }
 })
 export const TypographyMain = styled(Typography)({

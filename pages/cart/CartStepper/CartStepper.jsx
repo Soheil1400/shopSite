@@ -4,13 +4,11 @@ import { useMediaQuery } from "@mui/material";
 
 import { Grid, Stepper, Step, StepLabel } from "@mui/material";
 
-import {
-  ColorlibStepIconMobile,
-  ColorlibStepIcon,
-  ColorlibConnector,
-} from "./CartStepperStyle";
+import { ColorlibStepIconMobile, ColorlibStepIcon } from "./CartStepperStyle";
 import FirstStep from "../FirstStep/FirstStep";
 import SecondStep from "../SecondStep/SecondStep";
+import StepperConector from "./StepperConector";
+import StepperContent from "./StepperContent";
 
 ColorlibStepIcon.propTypes = {
   active: PropTypes.bool,
@@ -22,7 +20,6 @@ ColorlibStepIcon.propTypes = {
 const CartStepper = () => {
   const [activeStep, setActiveStep] = useState(0);
   const [completed, setCompleted] = useState({});
-  const Tablet = useMediaQuery("(min-width:700px)");
   const Mobile = useMediaQuery("(min-width:500px)");
 
   const handleNext = () => {
@@ -60,17 +57,7 @@ const CartStepper = () => {
   return (
     <Grid container>
       <Grid item container mb="12px" justifyContent="flex-start">
-        <Stepper
-          activeStep={activeStep}
-          connector={
-            <ColorlibConnector
-              sx={{
-                width: Tablet === true ? "50px" : "10px",
-                display: Mobile === false ? "none" : "inline-block",
-              }}
-            />
-          }
-        >
+        <Stepper activeStep={activeStep} connector={<StepperConector />}>
           {steps.map((step) => (
             <Step
               key={step.id}
@@ -83,21 +70,13 @@ const CartStepper = () => {
                 }
                 color="inherit"
                 onClick={handleStep(step.id)}
-              ></StepLabel>
+              />
             </Step>
           ))}
         </Stepper>
       </Grid>
       <Grid item xs={12}>
-        {steps.map((step) =>
-          step.id === activeStep ? (
-            <Grid item key={step.id}>
-              {step.element}
-            </Grid>
-          ) : (
-            ""
-          )
-        )}
+        <StepperContent activeStep={activeStep} steps={steps} />
       </Grid>
     </Grid>
   );
