@@ -6,7 +6,7 @@ const ProductTabsAddReview = ({setReviews,reviews}) =>{
     const [form,setForm] = useState({id:Math.random()*1000000,name:'ali',rate:0,review:'',time:'1 years ago'})
     const handleSubmit = e=>{
         e.preventDefault()
-        setReviews([...reviews,form])
+        setReviews([...reviews, {...form,name:form.name,rate:Number(form.rate)}])
         setForm({id:1,name:'ali',rate:0,review:'',time:'1 years ago'})
     }
     const handleChange = e => {
@@ -30,7 +30,7 @@ const ProductTabsAddReview = ({setReviews,reviews}) =>{
                         </TypographyPrime>
                     </Grid>
                     <Grid>
-                        <Rating name="rate" defaultValue={0} value={form.rate} onChange={handleChange} precision={1}/>
+                        <Rating name="rate" defaultValue={0} value={Number(form.rate)} onChange={handleChange} precision={1}/>
                     </Grid>
                     <Grid my={1}>
                         <Typography color={'#4B566B'} component={'span'} fontSize={'16px'}>

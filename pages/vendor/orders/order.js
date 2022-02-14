@@ -13,18 +13,19 @@ const Order = ({process ,price ,time ,id ,matches})=> {
         padding: '6px'
     })
     const ChipCustom = styled(Chip)({
+        height: '25px',
         backgroundColor: color.BK,
         color:color.C,
         textAlign:'center',
         borderRadius: '300px',
-        fontSize:'12px'
+        fontSize:'12px',
     })
     const PaperCustom = styled(Paper)({
         width: '100%',
         display: "flex",
         alignItems: 'center',
         justifyContent: 'center',
-        padding: '8px 18px',
+        padding: '5px 18px',
         borderRadius: '10px',
         margin: '1rem 0',
         boxShadow:' rgb(3 0 71 / 9%) 0px 1px 3px',

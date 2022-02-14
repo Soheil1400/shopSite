@@ -13,7 +13,7 @@ const VendorTitle = ({matchesMenu , setMenu , router}) =>{
         margin:'1rem 0'
     })
     return(
-        <Grid item xs={12} lg={9}>
+        <Grid item xs={12} lg={9} mb={router.asPath === '/vendor/dashboard' ? -3 : 0}>
             <GridCustomHead>
                 <Grid display={'flex'} alignItems={'center'} justifyContent={'center'}>
                     <ShoppingBagIcon sx={{color: Theme.palette.primary.main ,marginRight:'0.7rem',fontSize:'25px'}}/>

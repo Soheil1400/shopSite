@@ -14,7 +14,7 @@ const ProductID = ({product}) => {
     return (
         <BoxCustom>
             <Grid container spacing={2}>
-                <ProductImage product={product} margin={2}/>
+                <ProductImage product={product} margin={0}/>
                 <ProductInfo product={product}/>
                 <ProductTabs product={product}/>
                 <ProductSuggest matches={matches}/>

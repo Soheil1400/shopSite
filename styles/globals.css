@@ -85,3 +85,18 @@ a {
   border-radius: 2px;
   background: #0F3460;
 }
+
+/* Style the pagination */
+
+
+.css-1j3bptt-MuiButtonBase-root-MuiPaginationItem-root {
+  color: #000;
+  border-color: transparent;
+}
+
+.css-1j3bptt-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected {
+  color: #E94560;
+  border: 1px solid #E94560;
+  background-color: transparent;
+}
+

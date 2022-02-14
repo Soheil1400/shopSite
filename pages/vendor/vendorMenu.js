@@ -9,7 +9,7 @@ const VendorMenu = ({matchesMenu ,router}) => {
         width: '100%',
         alignItems: 'center',
         justifyContent: 'center',
-        padding: '8px 0',
+        padding: '6px 0',
         borderRadius: '10px',
         margin: '0.5rem 0',
         boxShadow: ' rgb(3 0 71 / 9%) 0px 1px 3px',

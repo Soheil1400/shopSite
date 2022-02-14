@@ -4,14 +4,14 @@ import {PaperCustom} from "../../style/style";
 import {useState} from "react";
 import Theme from "../../theme/theme";
 
-const ProductImage = ({product,px=8 ,margin=2} ) =>{
+const ProductImage = ({product,px=8 ,margin=4,mt=0} ) =>{
     const [bigImage,setBigImage] = useState(1)
     return(
         <Grid item xs={12} sm={12} md={6}>
             <Grid container px={1}>
                 <Box display={'flex'} flexDirection={'column'} margin={'auto'}>
-                    <Grid px={0}>
-                        <Image src={product.images[bigImage-1].image} width={'300px'} height={'300px'} alt={'head phone'}/>
+                    <Grid px={0} mt={mt}>
+                        <Image src={product.images[bigImage-1].image} width={'350px'} height={'350px'} alt={'head phone'}/>
                     </Grid>
                     <Grid mt={margin}>
                         <Grid display={'flex'} justifyContent={'center'} container spacing={2} mb={2}>

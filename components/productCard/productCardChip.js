@@ -9,6 +9,7 @@ const ProductCardChip = ({product}) =>{
         textAlign: 'center',
         borderRadius: '300px',
         fontSize: '12px',
+        height:'25px',
     })
     return(
         <Grid>

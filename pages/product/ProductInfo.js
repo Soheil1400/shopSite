@@ -56,7 +56,7 @@ const ProductInfo = ({product}) =>{
                     </Grid>
                 </Grid>
                 <Grid mb={2}>
-                    <TypographyGray component={'span'} fontSize={'16px'}>
+                    <TypographyGray component={'span'}>
                         Sold By:
                     </TypographyGray>
                     <TypographyMain ml={1} component={'span'}  fontSize={'16px'}>
