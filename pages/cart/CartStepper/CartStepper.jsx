@@ -21,7 +21,7 @@ const CartStepper = () => {
   const [activeStep, setActiveStep] = useState(0);
   const [completed, setCompleted] = useState({});
   const Mobile = useMediaQuery("(min-width:500px)");
-
+  const Tablet = useMediaQuery('(min-width:800px)')
   const handleNext = () => {
     const newActiveStep = activeStep + 1;
     setActiveStep(newActiveStep);
@@ -56,7 +56,7 @@ const CartStepper = () => {
   ];
   return (
     <Grid container>
-      <Grid item container mb="12px" justifyContent="flex-start">
+      <Grid item container py={2.5} px={Tablet === true ? 11 : 0} mb="12px" display={'flex'} justifyContent={Tablet === true ? "flex-start" : 'center'}>
         <Stepper activeStep={activeStep} connector={<StepperConector />}>
           {steps.map((step) => (
             <Step
@@ -75,7 +75,7 @@ const CartStepper = () => {
           ))}
         </Stepper>
       </Grid>
-      <Grid item xs={12}>
+      <Grid item xs={12} >
         <StepperContent activeStep={activeStep} steps={steps} />
       </Grid>
     </Grid>
