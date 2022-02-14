@@ -15,7 +15,7 @@ const MutualContent = ({show}) => {
         {formList.map((form) => (
           <Grid item xs={6} fullWidth key={form.id}>
             <TypographyFormTitle>{form.title}</TypographyFormTitle>
-            <TextField fullWidth sx={{ margin: "8px 0" }} />
+            <TextField sx={{ margin: "8px 0",width:"fullwidth" }} />
           </Grid>
         ))}
         <Grid item xs={6} fullWidth>
