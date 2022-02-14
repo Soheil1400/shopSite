@@ -1,7 +1,7 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import {Box, Button, Grid, Typography, useMediaQuery} from "@mui/material";
+import {Box, Grid, Typography, useMediaQuery} from "@mui/material";
 import Image from 'next/image'
 import watch from "../../../asset/applewatch.png";
 import styled from "@emotion/styled";
@@ -23,9 +23,7 @@ const data = [
         title: "50% Off For Your First Shopping",
     },
 ]
-
-function SampleNextArrow(props) {
-    const { className, style, onClick } = props;
+function SampleArrow() {
     return (
         <div/>
     );
@@ -42,8 +40,8 @@ export default function SlideShow() {
         autoplay: true,
         speed: 400,
         autoplaySpeed: 2500,
-        nextArrow: <SampleNextArrow/>,
-        prevArrow: <SampleNextArrow/>
+        nextArrow: <SampleArrow/>,
+        prevArrow: <SampleArrow/>
     }
     const InfoBox = styled(Box)({
         display: 'flex',
@@ -58,11 +56,6 @@ export default function SlideShow() {
         lineHeight: '1.2',
         color: "rgb(43, 52, 69)",
         fontWeight: "bold"
-    })
-    const InfoButton = styled(Button)({
-        backgroundColor: Theme.palette.primary.main,
-        fontWeight: '600',
-        fontSize: "12px"
     })
     return (
     <Grid container mb={3} mt={Query1 === true ? 0.4 : -7} bgcolor={Theme.palette.primary.light} pb={8} pr={Query1 === true ? 0 : 4}>

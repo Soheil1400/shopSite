@@ -37,7 +37,7 @@ export const FlashDeal = () => {
                 maxWidth: "1200px",
                 width:"100%"
             }}>
-                <Title title={"Flash Deals"} icon={<BoltIcon/>}/>
+                <Title title={"Flash Deals"} icon={<BoltIcon fontSize={'large'}/>}/>
                 <Slider {...settings}>
                         {ProductData.map(product => (
                             <Grid key={product.id} sx={{padding:"16px"}}>

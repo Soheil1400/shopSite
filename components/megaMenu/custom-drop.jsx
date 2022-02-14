@@ -38,7 +38,7 @@ const PaperItems = styled(Paper)({
     position: "absolute",
     top: "0",
     left: "278px",
-    width: "550px",
+    width: "675px",
     zIndex: 2,
     alignItems: 'center',
     justifyContent: 'center',
@@ -63,7 +63,7 @@ export default function CustomDrop({title, arr, icon, arrowIcon}) {
                 <PaperItems className="menu">
                     <Stack sx={{width: "100%"}} direction="row" flexWrap="wrap">
                         {arr.map((i, index) => (
-                            <Stack sx={{padding: "16px"}} key={index}>
+                            <Stack sx={{padding: "14px 35px"}} key={index}>
                                 <TypographyCategory variant="p">{i.category}</TypographyCategory>
                                 {i.items.map((item, index) => (
                                     <TypographyNames key={index} variant="p">{item.name}</TypographyNames>
