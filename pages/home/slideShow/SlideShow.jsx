@@ -3,7 +3,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import {Box, Button, Grid, Typography, useMediaQuery} from "@mui/material";
 import Image from 'next/image'
-import watch from "../../../asset/applewatch.png";
+import watch from "../../../asset/slideShow/applewatch.png";
 import styled from "@emotion/styled";
 import Theme from "../../../theme/theme";
 import {RedButton} from "../../../style/style";
@@ -59,13 +59,8 @@ export default function SlideShow() {
         color: "rgb(43, 52, 69)",
         fontWeight: "bold"
     })
-    const InfoButton = styled(Button)({
-        backgroundColor: Theme.palette.primary.main,
-        fontWeight: '600',
-        fontSize: "12px"
-    })
     return (
-    <Grid container mb={3} mt={Query1 === true ? 0.4 : -7} bgcolor={Theme.palette.primary.light} pb={8} pr={Query1 === true ? 0 : 4}>
+    <Grid container mb={3} bgcolor={Theme.palette.primary.light} pb={8} pr={Query1 === true ? 0 : 4} zIndex={-1}>
             <Grid container spacing={3} maxWidth={'1200px'} margin={"auto"}>
                 <Grid item xs={0} md={3} display={Query1 === true ? 'flex' : 'none'}>
                 </Grid>

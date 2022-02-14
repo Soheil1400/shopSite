@@ -10,7 +10,7 @@ import {
   addToCart,
   decreaseItem,
   removeItem,
-} from "../../../../redux/reducer/cart.reducer";
+} from "../../../redux/reducer/cart.reducer";
 
 import {
   ProductCard,

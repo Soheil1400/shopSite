@@ -4,9 +4,9 @@ import { useSelector } from "react-redux";
 import { Typography, Divider, Drawer, Grid } from "@mui/material";
 import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
 
-import CartButtonBox from "./CartButtonBox/CartButtonBox";
-import NoProduct from "./NoProduct/NoProduct";
-import CartSelectedProductsList from "./CartSelectedProductList/CartSelectedProductsList";
+import CartButtonBox from "./CartButtonBox";
+import NoProduct from "./NoProduct";
+import CartSelectedProductsList from "./CartSelectedProductsList";
 import Theme from "../../../theme/theme";
 
 const Cart = ({ state, setState }) => {

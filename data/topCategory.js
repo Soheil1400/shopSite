@@ -1,6 +1,6 @@
-import Category1 from "../asset/category-1.png";
-import Category2 from "../asset/category-2.png";
-import Category3 from "../asset/category-3.png";
+import Category1 from "../asset/category/category-1.png";
+import Category2 from "../asset/category/category-2.png";
+import Category3 from "../asset/category/category-3.png";
 
 export const topCategory =
     [

@@ -5,7 +5,7 @@ import Brands from "./brands/brands";
 import Ads from "./ads/ads";
 import {FlashDeal} from "./flashDeal/FlashDeal";
 import Category from "./top_categories/TopCategories";
-import SlideShow from "./SlideShow/SlideShow";
+import SlideShow from "./slideShow/SlideShow";
 import NewArrival from "./newArrival/newarrival";
 import RatingAndFeature from "./topRatingAndFeature/RatingAndFeature";
 import {BoxCustom} from "../../style/style";

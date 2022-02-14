@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { Stack, IconButton, Card, Typography } from "@mui/material";
-import Theme from "../../../../theme/theme";
+import Theme from "../../../theme/theme";
 
 export const ProductCard = styled(Card)({
   maxWidth: "380px",

@@ -1,10 +1,8 @@
 import styled from "@emotion/styled";
 import { useSelector } from "react-redux";
 import Link from "next/link";
-
 import { Grid } from "@mui/material";
-
-import { PrimaryBtn, SecondaryBtn } from "../../../../style/style";
+import { RedButton, WhiteButton } from "../../../style/style";
 
 const CartButtonBox = () => {
   const items = useSelector((state) => state.cart.items);
@@ -17,19 +15,19 @@ const CartButtonBox = () => {
   return (
     <ButtonBox display={items.length === 0 ? "none" : "flex"}>
       <Link href={`/cart`}>
-        <PrimaryBtn sx={{ margin: "0px 1rem 0.75rem" }}>
+        <RedButton sx={{ margin: "0px 1rem 0.75rem" }}>
           CheckOut Now $(
           {items.reduce((price, item) => {
             price = price + item.count * item.price;
             return price;
           }, 0)}
           )
-        </PrimaryBtn>
+        </RedButton>
       </Link>
       <Link href={`/cart`}>
-        <SecondaryBtn sx={{ margin: "0px 1rem 0.75rem" }}>
+        <WhiteButton sx={{ margin: "0px 1rem 0.75rem" }}>
           View Cart
-        </SecondaryBtn>
+        </WhiteButton>
       </Link>
     </ButtonBox>
   );
