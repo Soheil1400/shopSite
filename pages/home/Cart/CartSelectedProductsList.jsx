@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 
 import { Stack} from "@mui/material";
 
-import CartSelectedProductCard from "../CartSelectedProductCard/CartSelectedProductCard";
+import CartSelectedProductCard from "./CartSelectedProductCard";
 
 const CartSelectedProductsList = () => {
   const items = useSelector((state) => state.cart.items);

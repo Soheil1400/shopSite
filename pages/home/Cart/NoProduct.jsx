@@ -4,8 +4,8 @@ import { useSelector } from "react-redux";
 
 import { Grid, Typography } from "@mui/material";
 
-import Theme from "../../../../theme/theme";
-import shoppingBag from "../../../../asset/general/shoppingBag.svg";
+import Theme from "../../../theme/theme";
+import shoppingBag from "../../../asset/general/shoppingBag.svg";
 
 const NoProduct = () => {
   const items = useSelector((state) => state.cart.items);

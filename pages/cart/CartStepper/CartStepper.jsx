@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useState } from "react";
 import PropTypes from "prop-types";
 import { useMediaQuery } from "@mui/material";
@@ -7,6 +8,7 @@ import { Grid, Stepper, Step, StepLabel } from "@mui/material";
 import { ColorlibStepIconMobile, ColorlibStepIcon } from "./CartStepperStyle";
 import FirstStep from "../FirstStep/FirstStep";
 import SecondStep from "../SecondStep/SecondStep";
+import ThirdStep from "../ThirdStep/ThirdStep";
 import StepperConector from "./StepperConector";
 import StepperContent from "./StepperContent";
 
@@ -46,12 +48,12 @@ const CartStepper = () => {
     {
       id: 2,
       title: "3.Payment",
-      element: <SecondStep handleNext={handleNext} handleBack={handleBack} />,
+      element: <ThirdStep handleBack={handleBack} />,
     },
     {
       id: 3,
       title: "4.Review",
-      element: <SecondStep />,
+      element: "",
     },
   ];
   return (
@@ -62,15 +64,33 @@ const CartStepper = () => {
             <Step
               key={step.id}
               completed={completed[step.id]}
-              sx={{ padding: "unset" }}
+              sx={{ padding: "unset",
+              cursor:step.id === 3 ? "not-allowed": "pointer"
+            }}
+             
             >
-              <StepLabel
-                StepIconComponent={
-                  Mobile === false ? ColorlibStepIconMobile : ColorlibStepIcon
-                }
-                color="inherit"
-                onClick={handleStep(step.id)}
-              />
+              {step.id === 3 ? (
+                <Link href="/vendor/orders">
+                  <StepLabel
+                  
+                    StepIconComponent={
+                      Mobile === false
+                        ? ColorlibStepIconMobile
+                        : ColorlibStepIcon
+                    }
+                    color="inherit"
+                    onClick={handleStep(step.id)}
+                  />
+                </Link>
+              ) : (
+                <StepLabel
+                  StepIconComponent={
+                    Mobile === false ? ColorlibStepIconMobile : ColorlibStepIcon
+                  }
+                  color="inherit"
+                  onClick={handleStep(step.id)}
+                />
+              )}
             </Step>
           ))}
         </Stepper>
