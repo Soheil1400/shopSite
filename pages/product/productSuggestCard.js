@@ -4,7 +4,7 @@ import {PaperCustom} from "../../style/style";
 import ProductCartPrice from "../../components/productCard/productCartPrice";
 import ProductCartName from "../../components/productCard/productCartName";
 
-const ProductSuggestCard = ({matches,product}) => {
+const ProductSuggestCard = ({matches,product,a}) => {
     return (
         <Grid item xs={12} sm={3} md={2.5} lg={1.75} display={'flex'} alignItems={'center'} justifyContent={'center'}>
             <PaperCustom sx={{width: matches === true ? '100%' : '75%',cursor:'pointer'}}>

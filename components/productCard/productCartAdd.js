@@ -2,9 +2,9 @@ import {PMButton} from "../../style/style";
 import {addToCart} from "../../redux/reducer/cart.reducer";
 import AddIcon from "@mui/icons-material/Add";
 
-const ProductCartAdd = ({product,dispatch}) => {
+const ProductCartAdd = ({product,dispatch,padding='2px'}) => {
     return(
-        <PMButton sx={{padding:'2px'}} onClick={()=>dispatch(addToCart(product))}>
+        <PMButton sx={{padding:padding}} onClick={()=>dispatch(addToCart(product))}>
             <AddIcon/>
         </PMButton>
     )

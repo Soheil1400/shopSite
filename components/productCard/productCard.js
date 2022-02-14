@@ -1,6 +1,5 @@
 import {styled} from "@mui/material/styles";
-import {Dialog, Grid} from "@mui/material";
-import {PaperCustomH} from "../../style/style";
+import {Dialog, Grid, Paper} from "@mui/material";
 import {useDispatch, useSelector} from "react-redux";
 import ProductCardChip from "./productCardChip";
 import ProductCartImage from "./productCartImage";
@@ -15,7 +14,7 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import ProductCardPopUp from "../productCardPopUp/productCardPopUp";
 
-const ProductCard = ({product}) => {
+const ProductCard = ({product,hover=false}) => {
     const [show, setShow] = useState("none");
     const [open, setOpen] = useState(false);
     const items = useSelector((state) => state.cart.items)
@@ -26,6 +25,21 @@ const ProductCard = ({product}) => {
     const handleClose = () => {
         setOpen(false);
     };
+    const PaperCustomH = styled(Paper)({
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: '18px',
+        borderRadius: '10px',
+        margin: 'auto',
+        boxShadow: ' rgb(3 0 71 / 9%) 0px 1px 3px',
+        cursor: 'pointer',
+        '&:hover': hover === true ? {
+            boxShadow: 'rgb(3 0 71 / 9%) 0px 8px 45px'
+        } :
+            {
+
+            }
+    })
     const GridSpaceBetween = styled(Grid)({
         display: 'flex',
         alignItems: 'center',

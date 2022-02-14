@@ -41,7 +41,7 @@ export const FlashDeal = () => {
                 <Slider {...settings}>
                         {ProductData.map(product => (
                             <Grid key={product.id} sx={{padding:"16px"}}>
-                                <ProductCard product={product} />
+                                <ProductCard product={product} hover={false}/>
                             </Grid>
                         ))}
                 </Slider>
