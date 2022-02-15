@@ -1,4 +1,4 @@
-import CartStepper from "./CartStepper/CartStepper";
+import CartStepper from "./CartStepper";
 import {BoxCustom} from "../../style/style";
 
 const CartComponent = () => {

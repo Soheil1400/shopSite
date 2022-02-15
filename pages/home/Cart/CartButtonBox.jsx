@@ -2,7 +2,12 @@ import styled from "@emotion/styled";
 import { useSelector } from "react-redux";
 import Link from "next/link";
 import { Grid } from "@mui/material";
+<<<<<<< HEAD:pages/home/Cart/CartButtonBox.jsx
 import { RedButton, WhiteButton } from "../../../style/style";
+=======
+
+import { PrimaryBtn, SecondaryBtn } from "../../../style/style";
+>>>>>>> cart-page-4:pages/home/Cart/CartButtonBox/CartButtonBox.jsx
 
 const CartButtonBox = () => {
   const items = useSelector((state) => state.cart.items);

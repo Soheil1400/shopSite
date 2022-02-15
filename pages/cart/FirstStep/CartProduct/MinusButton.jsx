@@ -2,8 +2,8 @@ import { useDispatch } from "react-redux";
 
 import RemoveIcon from "@mui/icons-material/Remove";
 
-import { PMButton } from "../../../../../style/style";
-import { decreaseItem } from "../../../../../redux/reducer/cart.reducer";
+import { PMButton } from "../../../../style/style";
+import { decreaseItem } from "../../../../redux/reducer/cart.reducer";
 
 const MinusButton = ({ number, product }) => {
   const dispatch = useDispatch();

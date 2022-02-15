@@ -2,10 +2,10 @@ import { styled } from "@mui/material/styles";
 
 import { Grid } from "@mui/material";
 
-import ShippingAddress from "./ShippingAddress/ShippingAddress";
-import BillingAdress from "./BillingAdress/BillingAdress";
-import Vocher from "./Vocher/Vocher";
-import { PrimaryBtn, SecondaryBtn } from "../../../style/style";
+import ShippingAddress from "./ShippingAddress";
+import BillingAdress from "./BillingAdress";
+import Vocher from "./Vocher";
+import { PrimaryBtn, SecondaryBtn } from "../../../style/style"
 
 const SecondStep = ({ handleNext, handleBack }) => {
   const CustomGridRow = styled(Grid)({

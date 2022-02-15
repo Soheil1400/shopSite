@@ -5,8 +5,8 @@ import { Checkbox, Paper, Typography, FormControlLabel } from "@mui/material";
 import CropSquareIcon from "@mui/icons-material/CropSquare";
 import SquareIcon from "@mui/icons-material/Square";
 
-import Theme from "../../../../theme/theme";
-import MutualContent from "../MutualContent/MutualContent.";
+import Theme from "../../../theme/theme";
+import MutualContent from "./MutualContent.";
 
 const BillingAdress = () => {
   const [show, setShow] = useState("flex");

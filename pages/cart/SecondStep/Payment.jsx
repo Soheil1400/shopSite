@@ -1,19 +1,18 @@
 import { useSelector } from "react-redux";
 
-import { Grid, Typography, Divider, TextField } from "@mui/material";
+import { Grid, Typography, Divider } from "@mui/material";
 
-import Theme from "../../../../theme/theme";
-import { PaperCustom, SecondaryBtn } from "../../../../style/style";
+import Theme from "../../../theme/theme";
 import {
   TypographyMainVocher,
   TypographyGrayVocher,
   CustomGridRow,
 } from "./VocherStyle";
 
-const Vocher = () => {
+const Payment = () => {
   const items = useSelector((state) => state.cart.items);
   return (
-    <PaperCustom fullWidth>
+      <>
       <CustomGridRow item container>
         <TypographyGrayVocher>Subtotal:</TypographyGrayVocher>
         <TypographyMainVocher>
@@ -67,10 +66,8 @@ const Vocher = () => {
           .00
         </Typography>
       </Grid>
-      <TextField placeholder="Voucher" fullWidth sx={{ margin: "8px 0" }} />
-      <SecondaryBtn fullWidth>Apply Voucher</SecondaryBtn>
-    </PaperCustom>
+      </>
   );
 };
 
-export default Vocher;
+export default Payment;

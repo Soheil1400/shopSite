@@ -18,7 +18,6 @@ import {
   NumberBox,
   NumberButton,
   TypographyCount,
-  NumberButtonDisable,
   InformationBox,
   TypographyMain,
   TypographyGray,
@@ -40,9 +39,9 @@ const CartSelectedProductCard = ({ image, number, price, name, product }) => {
               <RemoveOutlinedIcon />
             </NumberButton>
           ) : (
-            <NumberButtonDisable>
+            <NumberButton disabled>
               <RemoveOutlinedIcon />
-            </NumberButtonDisable>
+            </NumberButton>
           )}
         </NumberBox>
         <Image src={image} width="100%" height="100%" m="16px 0" alt={name} />

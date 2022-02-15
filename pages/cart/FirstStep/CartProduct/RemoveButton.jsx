@@ -3,8 +3,8 @@ import { useDispatch } from "react-redux";
 import { useMediaQuery } from "@mui/material";
 import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
 
-import { CustomBox } from "../CartProductStyle";
-import { removeItem } from "../../../../../redux/reducer/cart.reducer";
+import { CustomBox } from "./CartProductStyle";
+import { removeItem } from "../../../../redux/reducer/cart.reducer";
 
 const RemoveButton = ({product }) => {
   const dispatch = useDispatch();

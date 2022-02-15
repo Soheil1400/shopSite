@@ -29,20 +29,14 @@ export const NumberButton = styled(IconButton)({
     boxShadow: "none",
     color: Theme.palette.primary.light,
   },
-});
-export const NumberButtonDisable = styled(IconButton)({
-  padding: "5px",
-  backgroundColor: "rgb(218, 225, 231)",
-  color: "rgb(125, 135, 156)",
-  border: "1px solid rgb(218, 225, 231)",
-  borderRadius: "100%",
-  cursor: "unset",
-  "&:hover": {
+  ":disabled": {
+    border: "1px solid rgb(218, 225, 231)",
     backgroundColor: "rgb(218, 225, 231)",
     color: "rgb(125, 135, 156)",
-    boxShadow: "none",
-  },
+    cursor: "not-allowed",
+}
 });
+
 export const InformationBox = styled(Stack)({
   width: "170px",
   padding: "5",
