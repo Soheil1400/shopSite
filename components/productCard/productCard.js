@@ -60,7 +60,7 @@ const ProductCard = ({product,hover=false}) => {
                 <ProductCartImage product={product}/>
                 <GridSpaceBetween sx={{height: '25px'}}>
                     <ProductCartName product={product}/>
-                    <ProductCartDec product={product} dispatch={dispatch} items={items}/>
+                    <ProductCartDec product={product} items={items}/>
                 </GridSpaceBetween>
                 <GridSpaceBetween my={0.5} sx={{height: '20px'}}>
                     <ProductCartRating product={product}/>
@@ -68,7 +68,7 @@ const ProductCard = ({product,hover=false}) => {
                 </GridSpaceBetween>
                 <GridSpaceBetween>
                     <ProductCartPrice product={product}/>
-                    <ProductCartAdd product={product} dispatch={dispatch}/>
+                    <ProductCartAdd product={product}/>
                 </GridSpaceBetween>
             </Grid>
         </PaperCustomH>

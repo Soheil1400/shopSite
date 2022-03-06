@@ -2,6 +2,7 @@ import { AppBar, Toolbar, Typography, Box, Stack } from "@mui/material";
 import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import Link from 'next/link'
 
 import Select from "./components/custom-select";
 
@@ -47,7 +48,6 @@ const usd = [
 
 export default function Header() {
   const matches = useMediaQuery("(min-width:901px)");
-
   return (
     <Box
       sx={{
@@ -98,11 +98,15 @@ export default function Header() {
             </>
           ) : (
             <>
-              <Box
-                component="img"
-                sx={{ height: "36px", borderRadius: "4px" }}
-                src="https://bonik-vuetify.vercel.app/img/logo.6d0b86e2.svg"
-              />
+              <Link href={'/'} passHref>
+                <Box
+                    component="img"
+                    sx={{ height: "36px", borderRadius: "4px" }}
+                    src="https://bonik-vuetify.vercel.app/img/logo.6d0b86e2.svg"
+                >
+
+                </Box>
+              </Link>
             </>
           )}
           <Stack direction="row" alignItems="center">

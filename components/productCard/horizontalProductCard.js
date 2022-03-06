@@ -10,14 +10,13 @@ import ProductCartRating from "./productCartRating";
 import ProductCartPrice from "./productCartPrice";
 import ProductCartAdd from "./productCartAdd";
 import ProductCartNumber from "./productCartNumber";
-import {useDispatch, useSelector} from "react-redux";
+import {useSelector} from "react-redux";
 import ProductCartDec from "./productCartDec";
 import {useState} from "react";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import ProductCardPopUp from "../productCardPopUp/productCardPopUp";
 
 const HorizontalProductCard = ({product}) => {
-    const dispatch = useDispatch()
     const items = useSelector((state) => state.cart.items)
     const [show, setShow] = useState(false)
     const [open, setOpen] = useState(false);
@@ -78,13 +77,13 @@ const HorizontalProductCard = ({product}) => {
                     <Grid width={'100%'} display={matchesT === false && matches === true ? 'flex' : 'none'} alignItems={'center'} justifyContent={'space-between'}>
                         <Grid display={'flex'} flexDirection={'row'} alignItems={'center'} justifyContent={'center'}>
                             <Grid>
-                                <ProductCartDec items={items} dispatch={dispatch} product={product} padding={'4px'}/>
+                                <ProductCartDec items={items} product={product} padding={'4px'}/>
                             </Grid>
                             <Grid pl={1} mx={1}>
                                 <ProductCartNumber product={product} items={items}/>
                             </Grid>
                             <Grid pb={0.5}>
-                                <ProductCartAdd product={product} dispatch={dispatch} padding={'4px'}/>
+                                <ProductCartAdd product={product} padding={'4px'}/>
                             </Grid>
                         </Grid>
                         <Grid>
@@ -99,13 +98,13 @@ const HorizontalProductCard = ({product}) => {
                     </Grid>
                     <Grid   display={show === true || matchesT === false ? 'flex' : 'none'} flexDirection={matchesT === true ? 'column' : 'row'} justifyContent={'space-between'}>
                         <Grid>
-                            <ProductCartDec items={items} dispatch={dispatch} product={product} padding={'4px'}/>
+                            <ProductCartDec items={items} product={product} padding={'4px'}/>
                         </Grid>
                         <Grid pl={1.5} my={matchesT === true ? 1 : 0.5}>
                             <ProductCartNumber product={product} items={items}/>
                         </Grid>
                         <Grid>
-                            <ProductCartAdd product={product} dispatch={dispatch} padding={'4px'}/>
+                            <ProductCartAdd product={product} padding={'4px'}/>
                         </Grid>
                     </Grid>
                 </Grid>

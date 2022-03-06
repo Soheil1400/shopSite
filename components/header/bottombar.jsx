@@ -4,7 +4,6 @@ import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import GridViewOutlinedIcon from '@mui/icons-material/GridViewOutlined';
 import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
-import {useMemo} from "react";
 import IconButton from "@mui/material/IconButton";
 import {useSelector} from "react-redux";
 import {styled} from "@mui/material/styles";
@@ -37,7 +36,7 @@ export default function FixedBottomNavigation() {
             id: 2,
             title: 'Category',
             icon: <GridViewOutlinedIcon/>,
-            link: ''
+            link: '/category'
         },
         {
             id: 3,
@@ -54,7 +53,7 @@ export default function FixedBottomNavigation() {
             id: 4,
             title: 'Account',
             icon: <PersonOutlineOutlinedIcon/>,
-            link: ''
+            link: '/vendor/dashboard'
         },
     ]
     return (
@@ -75,7 +74,7 @@ export default function FixedBottomNavigation() {
                 {buttonNav.map(b => (
                     <Grid color={router.asPath === b.link ? Theme.palette.primary.main : '#000'}
                           key={b.id}>
-                        <Link href={b.link}>
+                        <Link href={b.link} passHref>
                             <Grid display={'flex'} flexDirection={'column'} alignItems={'center'} justifyContent={'center'}>
                                 <Grid mb={0.20}>
                                     {b.icon}
