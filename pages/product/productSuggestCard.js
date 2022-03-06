@@ -7,7 +7,6 @@ import Link from 'next/link'
 import {forwardRef} from "react";
 
 const ProductSuggestCard = ({matches = true,product}) => {
-    // eslint-disable-next-line react/display-name
     const Product = forwardRef(({ onClick, href }, ref) => {
         return (
             <a href={href} onClick={onClick} ref={ref}>

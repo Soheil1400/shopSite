@@ -17,11 +17,7 @@ import Link from 'next/link'
 
 export default function FixedBottomNavigation() {
     const router = useRouter()
-    const total = useSelector(state => state.cart.items)
-    const totalItems = useMemo(() => total.reduce((count, item) => {
-        count = count + item.count;
-        return count
-    }, 0), [total])
+    const total = useSelector(state => state.cart.items.length)
     const StyledBadge = styled(Badge)(({theme}) => ({
         "& .MuiBadge-badge": {
             right: 2,
@@ -47,7 +43,7 @@ export default function FixedBottomNavigation() {
             id: 3,
             title: 'Cart',
             icon:
-                <StyledBadge badgeContent={totalItems} color={'error'} overlap="circular" showZero>
+                <StyledBadge badgeContent={total} color={'error'} overlap="circular">
                     <IconButton aria-label="add to shopping cart" sx={{padding: '4px',color:router.asPath === '/cart' ? Theme.palette.primary.main : '#000'}}>
                         <ShoppingBagOutlinedIcon/>
                     </IconButton>

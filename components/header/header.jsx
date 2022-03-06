@@ -1,4 +1,3 @@
-import * as React from "react";
 import { AppBar, Toolbar, Typography, Box, Stack } from "@mui/material";
 import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
@@ -121,7 +120,7 @@ export default function Header() {
                     },
                   }}
                 >
-                  Theme FAQ's
+
                 </Typography>
                 <Typography
                   variant="p"

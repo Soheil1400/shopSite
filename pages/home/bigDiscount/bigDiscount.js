@@ -6,7 +6,6 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import {ProductData} from "../../../data/Productdata";
 import ProductSuggestCard from "../../product/productSuggestCard";
-import Link from 'next/link'
 
 const settings = {
     infinite: false,

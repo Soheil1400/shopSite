@@ -12,7 +12,7 @@ const CartImage = ({ image, product }) => {
   const SelectedProduct = forwardRef(({ onClick, href }, ref) => {
     return (
       <a href={href} onClick={onClick} ref={ref}>
-        <Image src={product.images[0].image} />
+        <Image alt={product.title} src={product.images[0].image} />
       </a>
     );
   });
