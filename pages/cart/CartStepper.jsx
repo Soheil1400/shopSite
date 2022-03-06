@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { useState } from "react";
 import PropTypes from "prop-types";
 import { useMediaQuery } from "@mui/material";
@@ -21,7 +20,7 @@ ColorlibStepIcon.propTypes = {
 
 const CartStepper = () => {
   const [activeStep, setActiveStep] = useState(0);
-  const [completed, setCompleted] = useState({});
+  const [completed] = useState({});
   const Mobile = useMediaQuery("(min-width:500px)");
   const Tablet = useMediaQuery('(min-width:800px)')
   const handleNext = () => {
@@ -69,20 +68,6 @@ const CartStepper = () => {
             }}
              
             >
-              {step.id === 3 ? (
-                <Link href="/vendor/orders">
-                  <StepLabel
-                  
-                    StepIconComponent={
-                      Mobile === false
-                        ? ColorlibStepIconMobile
-                        : ColorlibStepIcon
-                    }
-                    color="inherit"
-                    onClick={handleStep(step.id)}
-                  />
-                </Link>
-              ) : (
                 <StepLabel
                   StepIconComponent={
                     Mobile === false ? ColorlibStepIconMobile : ColorlibStepIcon
@@ -90,7 +75,6 @@ const CartStepper = () => {
                   color="inherit"
                   onClick={handleStep(step.id)}
                 />
-              )}
             </Step>
           ))}
         </Stepper>
