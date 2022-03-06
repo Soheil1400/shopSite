@@ -1,9 +1,9 @@
 import {Grid,MenuItem,TextField} from "@mui/material";
-import Theme from "../../../theme/theme";
+import Theme from "../../theme/theme";
 import GridViewIcon from "@mui/icons-material/GridView";
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
-import {PaperCustom,TypographyGray,TypographyMain} from "../../../style/style";
+import {PaperCustom,TypographyGray,TypographyMain} from "../../style/style";
 
 const SearchHead = ({matches,matchesHead,setMenu,categoryData,setFilter,filter,card,setCard}) => {
     const options = ['Relevance', 'Date', 'Price Low to High', 'Price High to Low'];

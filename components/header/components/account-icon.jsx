@@ -5,7 +5,7 @@ import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined
 import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
 import Badge from "@mui/material/Badge";
 import {styled} from "@mui/material/styles";
-import Cart from '../../../pages/home/Cart/Cart'
+import Cart from '../../../section/home/Cart/Cart'
 import {useMemo, useState} from "react";
 import {useSelector} from "react-redux";
 

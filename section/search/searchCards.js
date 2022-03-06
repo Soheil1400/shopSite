@@ -1,6 +1,6 @@
 import {Grid} from "@mui/material";
-import ProductCard from "../../../components/productCard/productCard";
-import HorizontalProductCard from "../../../components/productCard/horizontalProductCard";
+import ProductCard from "../../components/productCard/productCard";
+import HorizontalProductCard from "../../components/productCard/horizontalProductCard";
 
 const SearchCards = ({categoryData, filter, card}) => {
     return (

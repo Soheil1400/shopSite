@@ -1,9 +1,9 @@
 import {Avatar, Divider, Grid, TextField} from "@mui/material";
 import SearchList from "./searchList";
-import Theme from "../../../theme/theme";
+import Theme from "../../theme/theme";
 import MinimizeIcon from "@mui/icons-material/Minimize";
 import SearchInput from "./searchInput";
-import {PaperCustom, TypographyMain} from "../../../style/style";
+import {PaperCustom, TypographyMain} from "../../style/style";
 import {useState} from "react";
 
 const SearchFilter = ({check1, check2, check3, filter, setFilter}) => {

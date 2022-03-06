@@ -1,12 +1,12 @@
 import {Grid} from "@mui/material";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import {ProductData} from "../../data/Productdata";
-import ProductImage from "./productImage";
-import ProductInfo from "./ProductInfo";
-import ProductTabs from "./productTabs";
-import ProductSuggest from "./productSuggest";
-import ProductVendor from "./productVendor";
-import ProductRelatedProduct from "./productRalatedProduct";
+import ProductImage from "../../section/product/productImage";
+import ProductInfo from "../../section/product/ProductInfo";
+import ProductTabs from "../../section/product/productTabs";
+import ProductSuggest from "../../section/product/productSuggest";
+import ProductVendor from "../../section/product/productVendor";
+import ProductRelatedProduct from "../../section/product/productRalatedProduct";
 import {BoxCustom} from "../../style/style";
 
 const ProductID = ({product}) => {

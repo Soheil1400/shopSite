@@ -2,7 +2,7 @@ import {Collapse,Grid,List,ListItemText} from "@mui/material";
 import {useState} from "react";
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import {ListTitle,ListButton} from "../../../style/style";
+import {ListTitle,ListButton} from "../../style/style";
 
 const SearchList = () => {
     const [open, setOpen] = useState(true);

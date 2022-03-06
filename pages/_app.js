@@ -1,6 +1,6 @@
 import '../styles/globals.css'
-import '../pages/home/flashDeal/FlashDeal.style.css'
-import './home/slideShow/SlideShow.css'
+import '../section/home/flashDeal/FlashDeal.style.css'
+import '../section/home/slideShow/SlideShow.css'
 import Layout from '../components/layout/layout'
 
 export default function MyApp({ Component, pageProps }) {
